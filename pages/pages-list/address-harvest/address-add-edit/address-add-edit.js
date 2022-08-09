@@ -12,7 +12,7 @@ Page({
       { name: '联系人', value: '', placeholder: '请输入联系人', maxlength: 30 },
       { name: '手机号码', value: '', placeholder: '请输入手机号码', maxlength: 11 },
       { name: '选择地区', value: '', placeholder: '省、市、区' },
-      { name: '街道地址', value: '', placeholder: '小区楼栋/乡村名称', maxlength: 15 },
+      { name: '街道地址', value: '', placehinputChangeolder: '小区楼栋/乡村名称', maxlength: 15 },
       { name: '设为默认', value: 0, placeholder: '' },
     ],//地址
     type: '',//编辑类型 1添加 2编辑
@@ -23,7 +23,7 @@ Page({
     this.setData({ ['address[4].value']: this.data.address[4].value === 0 ? 1 : 0 })
   },
   // input输入触发
-  inputChange({ currentTarget: { dataset: { index } }, detail: { value } }) {
+  inputchange({ currentTarget: { dataset: { index } }, detail: { value } }) {
     this.data.address[index].value = value
   },
   // picker点击确认触发

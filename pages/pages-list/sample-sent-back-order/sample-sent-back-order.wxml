@@ -4,17 +4,17 @@
   <view class="list">
     <view class="item flex-ali" wx:for="{{list}}" wx:key="id">
       <view>
-        <view class="bar-code">条形码  564654678</view>
+        <view class="bar-code">条形码  {{item.code}}</view>
         <view class="flex"> 
-          <image class="sample-img" src="{{$state.ASSETSURL}}sample-sent-back/2.png"></image>
+          <image class="sample-img" src="{{item.product_thumb}}"></image>
           <view class="position position{{typeIndex}}">
-            <view class="sample-name">产品名称产品名称</view>
+            <view class="sample-name">{{item.product_name}}</view>
           </view>
         </view>
       </view>
     </view>
   </view>
-  <view class="look-more flex-ali-cen">
+  <view class="look-more flex-ali-cen" wx:if="{{list.length>2}}">
     <image src="{{$state.ASSETSURL}}sample-sent-back-order/0.png"></image>
   </view>
   <!-- 发货信息 -->
@@ -22,15 +22,23 @@
     <!-- 发货地址 -->
     <view class="flex-ali-bet delivery-address">
       <view>发货地址</view>
-      <view class="flex-ali">
+      <view class="flex-ali" bindtap="goAddress">
         <text>选择地址</text>
         <image class="" src="{{$state.ASSETSURL}}sample-sent-back-order/1.png"></image>
       </view>
     </view>
     <!-- 发货人、电话、取件地址 -->
-    <view class="item flex-ali-bet" wx:for="{{form}}" wx:key="index">
-      <text>{{item.name}}</text>
-      <input type="text" placeholder="请输入" placeholder-class="placeholder-class"/>
+    <view class="item flex-ali-bet">
+      <text>发货人</text>
+      <input value="{{$state.addressInfo.real_name}}" type="text" disabled placeholder="请输入" placeholder-class="placeholder-class"/>
+    </view>
+    <view class="item flex-ali-bet">
+      <text>电话</text>
+      <input value="{{$state.addressInfo.phone}}" type="text" disabled placeholder="请输入" placeholder-class="placeholder-class"/>
+    </view>
+    <view class="item flex-ali-bet">
+      <text>取件地址</text>
+      <input value="{{$state.addressInfo.province}}{{$state.addressInfo.city}}{{$state.addressInfo.district}}{{$state.addressInfo.detail}}" type="text" disabled placeholder="请输入" placeholder-class="placeholder-class"/>
     </view>
     <!-- 取件时间 -->
     <view class="take-time flex-ali-bet">
@@ -60,7 +68,7 @@
   <view class="placeholder"></view>
   <!-- 确认寄回 -->
   <view class="confirm-mail">
-    <view class="flex-ali-cen">确认寄回</view>
+    <view class="flex-ali-cen" bindtap="apiMailCode">确认寄回</view>
   </view>
   <!-- 选择上门时间 -->
   <show-pop show="{{show}}" position="bottom">

@@ -2,7 +2,7 @@
 <view class="inspection-booking-order-details">
   <!-- 订单状态 -->
   <view class="status flex-ali-bet">
-    <text>{{statusList[orderDetail._status._type].text}}</text>
+    <text>{{orderDetail._status._msg}}</text>
     <image src="{{$state.ASSETSURL}}inspection-booking-order-details/0.png"></image>
   </view>
   <!-- 检验地址 -->
@@ -116,7 +116,7 @@
         class="flex-ali-cen" 
         hover-class="none"
         bindtap="evaluationOrderClick"
-        wx:if="{{status === 5}}">
+        wx:if="{{status === 5 && orderDetail._status._type===3}}">
         待评价
       </button>
     </view>

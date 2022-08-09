@@ -29,7 +29,13 @@
     </view>
     <!-- 检测，扫码，样本，报告 -->
     <view class="scan-code-sample-report flex-aro">
-      <image wx:for="{{4}}" wx:key="index" src="{{$state.ASSETSURL}}my/{{item+2}}.png"></image>
+      <image 
+        bindtap="jumpNav" 
+        data-path="{{item.path}}"  
+        wx:for="{{associatedList}}" 
+        wx:key="index" 
+        src="{{$state.ASSETSURL}}my/{{index+2}}.png">
+      </image>
     </view>
   </view>
   <!-- 自采订单、竖列 -->

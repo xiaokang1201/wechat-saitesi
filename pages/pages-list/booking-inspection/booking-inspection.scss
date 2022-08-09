@@ -4,6 +4,9 @@
   flex: 1 1 auto;
   overflow-y: auto;
   background: #F2F2F2;
+  .cur {
+    color: #000 !important;
+  }
   .justify-between {
     align-items: center;
   }

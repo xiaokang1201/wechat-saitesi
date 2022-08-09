@@ -1,6 +1,6 @@
 <!--pages/pages-list/sample-sent-back/sample-sent-back.wxml-->
 <view class="sample-sent-back">
-  <search type="3"></search>
+  <search type="3" bindinputConfirm="inputConfirm"></search>
   <type-list 
     typeList="{{typeList}}" 
     typeIndex="{{typeIndex}}"
@@ -9,13 +9,13 @@
   <scroll-view class="scroll-view" scroll-y>
     <view class="list" hidden="{{list.length === 0}}">
       <view class="item flex-ali" wx:for="{{list}}" wx:key="id">
-        <image hidden="{{typeIndex !==  0}}" src="{{$state.ASSETSURL}}sample-sent-back/0.png"></image>
+        <image catchtap="itemCheckClick" data-index="{{index}}" hidden="{{typeIndex !==  0}}" src="{{$state.ASSETSURL}}sample-sent-back/{{item.check ? 1 : 0}}.png"></image>
         <view>
-          <view class="bar-code">条形码  564654678</view>
+          <view class="bar-code">条形码  {{item.code}}</view>
           <view class="flex"> 
-            <image class="sample-img" src="{{$state.ASSETSURL}}sample-sent-back/2.png"></image>
+            <image class="sample-img" src="{{item.product_thumb}}"></image>
             <view class="position position{{typeIndex}}">
-              <view class="sample-name">产品名称产品名称</view>
+              <view class="sample-name">{{item.product_name}}</view>
               <view class="button flex-ali-cen">{{typeIndex ===  0 ? '寄回' : '查看物流'}}</view>
             </view>
           </view>
@@ -25,7 +25,9 @@
     <load-more loadMoreType="{{loadMoreType}}"></load-more>
     <view class="placeholder" hidden="{{typeIndex !== 0}}"></view>
   </scroll-view>
-  <view hidden="{{typeIndex !== 0}}"><select-all-bottom></select-all-bottom></view>
+  <view hidden="{{typeIndex !== 0}}">
+    <select-all-bottom select="{{checkNum}}" bindallClick="allClick" bindsubmit="submit"></select-all-bottom>
+  </view>
 
   <show-pop show="{{show}}" position="bottom">
     <view class="logistics-pop">

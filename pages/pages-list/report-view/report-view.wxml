@@ -15,26 +15,29 @@
   </view>
   <!-- 选择时间 -->
   <view class="time-picker">
-    <picker mode="date">
-      <image src="{{$state.ASSETSURL}}report-view/0.png"></image>
+    <picker mode="date" bindchange="dataChange">
+      <view class="flex-ali">
+        <text>{{date ? date : '选择时间'}}</text>
+        <image src="{{$state.ASSETSURL}}report-view/0.png"></image>
+      </view>
     </picker>
   </view>
   <!-- 列表 -->
   <scroll-view scroll-y class="scroll-view">
     <view class="list">
       <view class="item" wx:for="{{list}}" wx:key="index">
-        <view class="name">离大陆</view>
-        <view class="project-name ell1">项目名称</view>
+        <view class="name">{{item.code_name}}</view>
+        <view class="project-name ell1">{{item.report_name}}</view>
         <view class="line"></view>
         <view class="time">
           <text>出报告日期:</text>
-          <text>2022-02-24  22:46</text>
+          <text>{{item.report_time_u}}</text>
         </view>
         <view class="company-name">
           <text>公司名称:</text>
           <text>湖南省开福区湘雅医院</text>
         </view>
-        <view class="immediately-check flex-ali-cen">立即查看</view>
+        <view bindtap="lookReportClick" data-url="{{item.report_url}}" class="immediately-check flex-ali-cen">立即查看</view>
       </view>
     </view>
     

@@ -32,5 +32,9 @@ Component({
     allClick() {
       this.triggerEvent('allClick')
     },
+    // 提交
+    submit() {
+      this.triggerEvent('submit')
+    },
   }
 })

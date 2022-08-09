@@ -9,7 +9,7 @@ interface data extends List, $State {
   actionBtnList: string[],
   statusList: number[] | string[],
   search: string,
-  list: { check: boolean }[],
+  list: { check: boolean, code: string }[],
   checkNum: number
 }
 Page({
@@ -28,7 +28,30 @@ Page({
     list: [],//列表
     loadMoreType: 1,//列表加载状态
     checkNum: 0,//选中数量
+    // CA22MEJK07012
   } as data,
+
+  // 提交登记预约
+  submit() {
+    if(this.data.checkNum === 0) return getApp().tool.alert('请勾选订单')
+    const code = this.checkOrder().map(item => item.code).join(',')
+    this.goBookingInspection(code)
+  },
+  
+  // 点击扫码绑定
+  scanBindClick() {
+    getApp().tool.jump_nav(`/pages/pages-list/scan-bind/scan-bind`)
+  },
+
+  // 点击登记预约
+  bookingInspectionClick({ currentTarget: { dataset: { code } } }: CurrentTarget<string>) {
+    this.goBookingInspection(code)
+  },
+
+  // 跳转登记预约
+  goBookingInspection(code: string) {
+    getApp().tool.jump_nav(`/pages/pages-list/booking-inspection/booking-inspection?code=${code}`)
+  },
 
   // 点击全选
   allClick() {
@@ -50,8 +73,13 @@ Page({
   // 获取选中数量
   getCheckNum() {
     this.setData({
-      checkNum: this.data.list.filter(item => item.check).length
+      checkNum: this.checkOrder().length
     })
+  },
+
+  // 返回选中订单
+  checkOrder() {
+    return this.data.list.filter(item => item.check)
   },
 
   // 点击取消订单

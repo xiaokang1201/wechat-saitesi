@@ -7,5 +7,5 @@
     </image>
     <text>全选</text>
   </view>
-  <view class="button flex-ali-cen">{{text}}</view>
+  <view bindtap="submit" class="button flex-ali-cen">{{text}}</view>
 </view>

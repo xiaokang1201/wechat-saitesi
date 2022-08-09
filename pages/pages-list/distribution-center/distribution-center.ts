@@ -5,7 +5,7 @@ interface data {
       did: number
     }
   }
-  list: null[]
+  list: {}[]
 }
 Page({
 
@@ -13,7 +13,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: [null, null, null, null, null],
+    list: [{}, {}],
   } as data,
 
   // 获取分销员详情

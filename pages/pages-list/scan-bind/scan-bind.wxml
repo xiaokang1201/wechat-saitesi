@@ -6,30 +6,31 @@
         <view class="justify-between section_3">
           <text class="text_1">商品扫描</text>
           <view class="flex-row">
-            <input class="text_2" type="text" placeholder-class="placeholder-class" placeholder="手动输入"/>
+            <input bindconfirm="inputConfirm" bindinput="inputChange" data-input="codeId" value="{{codeId}}" class="text_2" type="text" placeholder-class="placeholder-class" placeholder="手动输入"/>
             <view class="section_4"><!--*--></view>
             <image
               src="{{$state.ASSETSURL}}scan-bind/2.png"
               class="image_6"
+              bindtap="scanCode"
             />
           </view>
         </view>
-        <view class="flex-col group_7">
+        <view class="flex-col group_7" wx:if="{{orderSn}}">
           <view class="justify-between group_8">
             <text class="text_3">商品编号</text>
-            <text class="text_4">5246 5465 4316 546</text>
+            <text class="text_4">{{orderSn}}</text>
           </view>
           <view class="justify-between group_9">
             <text class="text_5">商品名称</text>
-            <text class="text_6">XFSDF 54-试剂</text>
+            <view class="text_6">{{productName}}</view>
           </view>
         </view>
       </view>
       <view class="justify-between group_10">
           <text class="text_7">受检人信息登记</text>
-          <text class="text_8">选择受检人</text>
+          <text class="text_8" bindtap="goExaminate" wx:if="{{personAddressId}}">选择受检人</text>
         </view>
-      <view class="flex-col items-center section_5" wx:if="{{false}}">
+      <view bindtap="goExaminate" class="flex-col items-center section_5" wx:if="{{!personAddressId}}">
         <view class="flex-row">
           <text class="text_4">选择受检人</text>
           <image
@@ -49,10 +50,10 @@
             <text class="text_11">证件类型</text>
             <view class="flex-row group_14">
               <text class="text_12">中国居民身份证</text>
-              <image
+              <!-- <image
                 src="{{$state.ASSETSURL}}scan-bind/4.png"
                 class="image_7 image_8"
-              />
+              /> -->
             </view>
           </view>
           <view class="justify-between group_15">
@@ -64,42 +65,44 @@
             <text class="text_16">15898959874</text>
           </view>
           <view class="flex-col group_17">
-            <view class="justify-between group_18">
-              <text class="text_17">采样日期</text>
-              <view class="flex-row group_19">
-                <text class="text_18">2022.06.07</text>
-                <image
-                  src="{{$state.ASSETSURL}}scan-bind/4.png"
-                  class="image_7 image_9"
-                />
+            <picker mode="date" bindchange="codeTimeChange">
+              <view class="justify-between group_18">
+                <text class="text_17">采样日期</text>
+                <view class="flex-row group_19">
+                  <text class="text_18">{{codeTime}}</text>
+                  <image
+                    src="{{$state.ASSETSURL}}scan-bind/4.png"
+                    class="image_7 image_9"
+                  />
+                </view>
               </view>
-            </view>
+            </picker>
             <view class="justify-between group_20">
               <text class="text_19">现有疾病</text>
-              <input type="text" placeholder="没有可写无"/>
+              <input bindinput="inputChange" data-input="diseases" value="{{diseases}}" type="text" placeholder="没有可写无"/>
             </view>
             <view class="justify-between group_20">
               <text class="text_19">用药史</text>
-              <input type="text" placeholder="没有可写无"/>
+              <input bindinput="inputChange" data-input="history" value="{{history}}" type="text" placeholder="没有可写无"/>
             </view>
             <view class="justify-between group_21">
               <text class="text_25">家族病史</text>
-              <input type="text" placeholder="没有可写无"/>
+              <input bindinput="inputChange" data-input="familyHistory" value="{{familyHistory}}" type="text" placeholder="没有可写无"/>
             </view>
           </view>
         </view>
       </view>
 
-      <view class="flex-row group_6">
+      <view class="flex-row group_6" catchtap="agreeClick">
         <image
-            src="{{$state.ASSETSURL}}scan-bind/0.png"
+            src="{{$state.ASSETSURL}}scan-bind/{{isAgree ? 1 : 0}}.png"
           class="image_8"
         />
         <text class="text_5">我已同意 用户协议《用户协议内容》、隐私政策《展示公司信息》、基因检测知情同意书</text>
       </view>
     </view>
     <view class="flex-col section_6">
-      <view class="flex-col items-center button_1"><text class="text_6">提交</text></view>
+      <view bindtap="submit" class="flex-col items-center button_1"><text class="text_6">提交</text></view>
     </view>
   </view>
 </view>

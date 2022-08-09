@@ -6,7 +6,7 @@
   <!-- 列表 -->
   <scroll-view scroll-y class="scroll-view">
     <view class="flex-col list"> 
-      <view class="flex-col list-item" wx:key="id"  wx:for="{{list}}">
+      <view bindtap="itemClick" data-item="{{item}}" class="flex-col list-item" wx:key="id"  wx:for="{{list}}">
         <view class="flex-row">
           <text class="text_2">姓名</text>
           <text class="text_4">{{item.name}}</text>
@@ -28,7 +28,7 @@
           <text class="text_20">{{item.mobile}}</text>
         </view>
         <view class="flex-col items-end group_10">
-          <view class="flex-col items-center text-wrapper" bindtap="editClick" data-index="{{index}}"><text class="text_22">编辑</text></view>
+          <view class="flex-col items-center text-wrapper" catchtap="editClick" data-index="{{index}}"><text class="text_22">编辑</text></view>
         </view>
       </view>
     </view>

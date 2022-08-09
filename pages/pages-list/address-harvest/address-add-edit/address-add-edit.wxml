@@ -11,7 +11,7 @@
         type="{{index === 1 ? 'number' : 'text'}}" 
         class="flex-ali value" 
         disabled="{{index === 2 || index === 4}}" 
-        bindinput="inputChange"
+        bindinput="inputchange"
         data-index="{{index}}"
         placeholder="{{item.placeholder}}" 
         placeholder-class="placeholder-class"

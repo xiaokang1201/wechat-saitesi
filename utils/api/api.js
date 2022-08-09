@@ -22,7 +22,8 @@ export default {
   userDetail: (data, url = 'user_detail') => { return myRequest(data, url, 'get') },
   // 我的消息
   myMsg: (data, url = 'my_msg') => { return myRequest(data, url, 'get') },
-
+  // 配置信息
+  getConfig: (data, url = 'get_config') => { return myRequest(data, url, 'get') },
   //#endregion
   
   //#region 轮播图
@@ -44,6 +45,18 @@ export default {
   //#endregion
   
   //#region 订单
+  // 邮寄条码
+  mailCode: (data, url = 'mail_code') => { return myRequest(data, url) },
+  // 我的寄回条码
+  myCodes: (data, url = 'my_codes') => { return myRequest(data, url, 'get') },
+  // 我的报告
+  myReport: (data, url = 'my_report') => { return myRequest(data, url, 'get') },
+  // 获取物流信息
+  getExpressInfo: (data, url = 'get_express_info') => { return myRequest(data, url, 'get') },
+  // 提交条码
+  handleOrderCode: (data, url = 'handle_order_code') => { return myRequest(data, url) },
+  // 提交预约信息
+  handleBooking: (data, url = 'handle_booking') => { return myRequest(data, url) },
   // 再来一单
   moreOrder: (data, url = 'more_order') => { return myRequest(data, url) },
   // 确认订单页面

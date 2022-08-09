@@ -37,7 +37,8 @@ interface List {
 interface $State { 
   $state?: { 
     limit: 10, 
-    userInfo: { did: number }
+    userInfo?: { did: number, default_address_id: number }
+    userConfig?: { custom_mobile: string }
   } 
 }//页码
 // 目标字段类型定义

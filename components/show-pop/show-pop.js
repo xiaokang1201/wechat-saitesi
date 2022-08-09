@@ -68,6 +68,58 @@ Component({
     event2() {
       this.triggerEvent('event2')
     },
+    // 点击下载图片事件
+    downloadImg() {
+      wx.showLoading({ title: '加载中...' });
+      wx.downloadFile({
+        url: this.data.$state.userConfig.custom_qrcode, //图片地址
+        success(res) {
+          wx.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath, //图片文件路径
+            success() {
+              wx.hideLoading(); //隐藏 loading 提示框
+              wx.showModal({
+                  title: '提示',
+                  content: '保存成功',
+                  modalType: false,
+              })
+            },
+            // 接口调用失败的回调函数
+            fail(err) {
+              if (err.errMsg === "saveImageToPhotosAlbum:fail:auth denied" || err.errMsg === "saveImageToPhotosAlbum:fail auth deny" || err.errMsg === "saveImageToPhotosAlbum:fail authorize no response") {
+                wx.showModal({
+                  title: '提示',
+                  content: '需要您授权保存相册',
+                  modalType: false,
+                  success() {
+                    wx.openSetting({
+                      success(settingdata) {
+                        if (settingdata.authSetting['scope.writePhotosAlbum']) {
+                          wx.showModal({
+                            title: '提示',
+                            content: '获取权限成功,再次点击图片即可保存',
+                            modalType: false,
+                          })
+                        } else {
+                          wx.showModal({
+                            title: '提示',
+                            content: '获取权限失败，将无法保存到相册哦~',
+                            modalType: false,
+                          })
+                        }
+                      }
+                    })
+                  }
+                })
+              }
+            },
+            complete() {
+              wx.hideLoading(); //隐藏 loading 提示框
+            }
+          })
+        }
+      })
+    },
     // 点击遮罩层
     clickoverlay() {
       this.triggerEvent('clickoverlay')

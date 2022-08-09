@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    associatedList: [
+      { text: '检测预约', path: '/pages/pages-list/inspection-booking/inspection-booking?index=2' },
+      { text: '扫码绑定', path: '/pages/pages-list/scan-bind/scan-bind' },
+      { text: '样本寄回', path: '/pages/pages-list/sample-sent-back/sample-sent-back' },
+      { text: '报告查看', path: '/pages/pages-list/report-view/report-view' },
+    ],//预约列表
     orderList: [
       { text: '待付款', path: '/pages/pages-list/since-mining-order/since-mining-order?index=1' },
       { text: '待发货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=2' },

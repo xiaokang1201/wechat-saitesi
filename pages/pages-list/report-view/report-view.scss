@@ -44,8 +44,12 @@
   .time-picker {
     padding: 30rpx 0 20rpx 32rpx;
     image {
-      width: 156rpx;
-      height: 42rpx;
+      width: 28rpx;
+      height: 28rpx;
+    }
+    text {
+      margin-right: 20rpx;
+      color: #9D9D9D;
     }
   }
   .scroll-view {

@@ -12,12 +12,12 @@ Page({
     certificate: ['中国居民身份证', '港澳居民来往内地通行证', '台湾居民来往内地通行证', '护照', '港澳居民居住证', '外国人永久居留身份证'],
     isSelf: 0,//0 受检人本人 1 受检人法定监护人
     name: '',//姓名
-    age: '',//年龄
-    gender: 1,//性别 0女 1男	
     cardType: '',//证件类型
-    cardNo: '',//身份证号码  
-    birth: '',// 出生年月  	
+    cardNo: '',//身份证号码
     mobile: '',// 手机  
+    age: '',//年龄
+    gender: 1,//性别 0女 1男	  
+    birth: '',// 出生年月  	
     guardianName: '',//监护人姓名
     guardianCard: '',//监护人身份证 
     show: false,//删除弹框

@@ -20,6 +20,7 @@
           />
           <view 
             class="view1 flex-cen-ali" 
+            bindtap="lookLogistics"
             wx:if="{{orderDetail._status._type === 2 || orderDetail._status._type === 3}}">
             查看物流
           </view>
@@ -214,3 +215,42 @@
     </view>
   </view>
 </view>
+
+
+<show-pop show="{{show}}" position="bottom">
+  <view class="logistics-pop">
+    <image bindtap="shutDownPop" class="shut-down-img" src="{{$state.ASSETSURL}}sample-sent-back/4.png"></image>
+    <view class="title">详情信息</view>
+    <view class="content">
+      <view class="flex-bet-ali courier">
+        <view class="courier-company">顺丰快递 {{orderDetail.delivery_id}}</view>
+        <view class="flex copy-call">
+          <view>复制</view>
+          <view class="line"></view>
+          <view bindtap="makePhoneCall">打电话</view>
+        </view>
+      </view>
+      <scroll-view class="scroll-view" scroll-y>
+        <view class="list">
+          <view class="item flex" wx:for="{{logisticsInfo}}" wx:key="id">
+            <view class="progress-line" wx:if="{{index !== logisticsInfo.length-1}}"></view>
+            <view class="circle flex-cen">
+              <view class="circle{{index !== logisticsInfo.length-1 ? 1 : 0}}"></view>
+            </view>
+            <view>
+              <view>
+                <!-- <text class="status">已收货</text> -->
+                <text class="time">{{item.ftime}}</text>
+              </view>
+              <view class="describe">{{item.context}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="leave-info flex-ali">
+        <image src="{{$state.ASSETSURL}}sample-sent-back/3.png"></image>
+        <view>{{orderDetail.real_name}}，{{orderDetail.user_phone}}，{{orderDetail.user_address}}</view>
+      </view>
+    </view>
+  </view>
+</show-pop>

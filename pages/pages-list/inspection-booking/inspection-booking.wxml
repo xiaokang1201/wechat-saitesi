@@ -10,13 +10,13 @@
   </view>
   <scroll-view scroll-y class="scroll-view">
     <view class="list">
-      <view class="item item{{typeIndex}} flex-bet" wx:for="{{list}}" wx:key="code_id">
-        <view bindtap="checkClick" data-index="{{index}}" class="check-box flex-cen" hidden="{{typeIndex !== 2}}">
+      <view catchtap="goDetails" data-order_sn="{{item.order_sn}}" data-code="{{item.code}}" class="item item{{typeIndex}} flex-bet" wx:for="{{list}}" wx:key="code_id">
+        <view catchtap="checkClick" data-index="{{index}}" class="check-box flex-cen" hidden="{{typeIndex !== 2}}">
           <image src="{{$state.ASSETSURL}}inspection-booking/{{item.check ? 1 : 0}}.png"></image>
         </view>
         <!-- <view class="goods-info" style="width: calc(100% - {{(typeIndex === 2 || typeIndex === 5) ? '100' : '0'}}rpx);"> -->
         <view class="goods-info" style="width: calc(100% - {{typeIndex === 2 ? '100' : '0'}}rpx);">
-          <view bindtap="goDetails" data-order_sn="{{item.order_sn}}" data-code="{{item.code}}">
+          <view>
             <view class="bar-code-status flex-ali-bet">
               <text>条形码  {{item.code}}</text>
               <text>{{item.booking_text}}</text>
@@ -35,20 +35,32 @@
               class="flex-ali-cen" 
               wx:if="{{item.booking_status===-1}}"
               catchtap="payOrderClick"
-              data-order_sn="{{item.order_id}}">
+              data-order_sn="{{item.order_sn}}">
               去支付
             </view>
             <view 
               class="flex-ali-cen" 
               wx:if="{{item.booking_status===-1}}"                 
-              bindtap="cancelOrderClick"
-              data-order_sn="{{item.order_id}}">
+              catchtap="cancelOrderClick"
+              data-order_sn="{{item.order_sn}}">
               取消订单
             </view>
-            <view class="flex-ali-cen" wx:if="{{item.booking_status===1}}">扫码绑定</view>
+            <view class="flex-ali-cen" catchtap="scanBindClick" wx:if="{{item.booking_status===1}}">扫码绑定</view>
             <view class="flex-ali-cen" wx:if="{{item.booking_status===4}}">查看报告</view>
-            <view class="flex-ali-cen" wx:if="{{item.booking_status===0}}">登记预约</view>
-            <view class="flex-ali-cen" wx:if="{{item.booking_status===3}}">重新预约</view>
+            <view 
+              class="flex-ali-cen" 
+              catchtap="bookingInspectionClick" 
+              data-code="{{item.code}}" 
+              wx:if="{{item.booking_status===0}}">
+              登记预约
+            </view>
+            <view 
+              class="flex-ali-cen" 
+              wx:if="{{item.booking_status===3}}" 
+              catchtap="bookingInspectionClick" 
+              data-code="{{item.code}}" >
+              重新预约
+            </view>
             <view class="flex-ali-cen" wx:if="{{item.booking_status===5}}">{{item.refund_status ? '处理中' : '已完成'}}</view>
             <view class="flex-ali-cen" wx:if="{{item.booking_status===0 || item.booking_status===1 || item.booking_status===4}}">更多操作</view>
           </view>
@@ -62,6 +74,7 @@
     select="{{checkNum === list.length}}" 
     text="登记预约" 
     bindallClick="allClick"
+    bindsubmit="submit"
     wx:if="{{typeIndex === 2}}">
   </select-all-bottom>
 </view>

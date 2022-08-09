@@ -79,7 +79,7 @@
           "scene": null
         },
         {
-          "name": "样品寄回",
+          "name": "样本寄回",
           "pathName": "pages/pages-list/sample-sent-back/sample-sent-back",
           "query": "",
           "launchMode": "default",
@@ -271,6 +271,20 @@
           "name": "",
           "pathName": "pages/pages-list/since-mining-order-details/since-mining-order-details",
           "query": "order_sn=STS165959592225614023",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/booking-inspection/booking-inspection",
+          "query": "code=CA22MEJK07012",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/since-mining-order-details/since-mining-order-details",
+          "query": "order_sn=STS165959548818947488",
           "launchMode": "default",
           "scene": null
         }

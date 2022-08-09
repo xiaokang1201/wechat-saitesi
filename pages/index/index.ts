@@ -1,5 +1,6 @@
 import useLoadMore from "../../hook/use-load-more"
 import apiUserDetail from "../../private/api-user-detail"
+import apiGetConfig from "../../private/api-get-config"
 
 // pages/index/index.ts"
 interface data extends List {
@@ -107,6 +108,7 @@ Page({
     // 获取用户详情
     getApp().tool.loading()
     await apiUserDetail()
+    apiGetConfig()
     // 获取首页数据
     this.apiGetBanner()
     this.apiHotGoods()

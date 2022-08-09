@@ -18,10 +18,10 @@
   <!-- 2 添加专属客服 -->
   <view class="pop service flex-col-ali" wx:if="{{type===2}}">
     <view class="text1">添加专属客服</view>
-    <image class="code" src="{{$state.ASSETSURL}}component/show-pop/2.png"></image>
-    <view class="btn1 flex-ali-cen" catchtap="event1">填写预约信息</view>
+    <image class="code" src="{{$state.userConfig.custom_qrcode}}"></image>
+    <view class="btn1 flex-ali-cen" catchtap="downloadImg">保存二维码</view>
     <view class="address flex-ali">
-      <text>湖南省长沙市开福区香椿路56号</text>
+      <view>海南省海口市龙华区港湾路复兴城e区e座1楼</view>
       <image src="{{$state.ASSETSURL}}component/show-pop/1.png"></image>
     </view>
     <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>

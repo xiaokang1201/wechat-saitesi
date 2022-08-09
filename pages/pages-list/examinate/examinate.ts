@@ -1,4 +1,13 @@
 // pages/pages-list/examinate/examinate.ts
+type Examinate = { currentTarget: { dataset: { 
+  item: {
+    id: number,
+    name: string
+    card_type: string,
+    card_no: string,
+    mobile: string
+  }
+} } }
 Page({
 
   /**
@@ -9,6 +18,20 @@ Page({
     list: [],//列表
     index: 0,//编辑索引
     noExaminate: false,//暂无数据
+  },
+
+  // 点击受检人项
+  itemClick({ currentTarget: { dataset: { item: { id, name, card_type, card_no, mobile } } } }: Examinate) {
+    const pages = getCurrentPages()
+    const prevpage = pages[pages.length - 2]; //上一个页面对象
+    prevpage.setData({
+      personAddressId: id,
+      name, 
+      cardType: card_type, 
+      cardNo: card_no, 
+      mobile
+    })
+    getApp().tool.jump_back()
   },
 
   // 搜索

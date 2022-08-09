@@ -1,14 +1,21 @@
-import useThrottle from "../../../hook/use-throttle"
-
 // pages/pages-list/since-mining-order-details/since-mining-order-details.ts
+import useThrottle from "../../../hook/use-throttle"
 interface data {
   orderSn: string,
   status: number,
   statusList: { text: string }[],
-  orderDetail: OrderDetail
+  orderDetail: OrderDetail,
+  logisticsInfo: [] | {}[],
+  show: boolean,
+  $state: {
+    userConfig: {
+      custom_mobile: ''
+    }
+  }
 }
 
 interface OrderDetail { 
+  delivery_id: string
   cartInfo: { suk: string, sukList: string[] }[] 
 }
 
@@ -28,9 +35,33 @@ Page({
       { text: '待商家备货' },
     ],
     status: 0,
-    orderDetail: {}
+    orderDetail: {},
+    logisticsInfo: [],
+    show: false
   } as data,
 
+  // 查看物流
+  lookLogistics: useThrottle(function (this: any) {
+    this.getExpressInfo()
+  }),
+
+  // 获取物流信息
+  getExpressInfo() {
+    getApp().api.getExpressInfo({
+      kuaidinum: this.data.orderDetail.delivery_id
+    }).then(({ data }: Body<{}[]>) => {
+      this.setData({ 
+        logisticsInfo: data,
+        show: true 
+      })
+    })
+  },
+
+  // 关闭弹框
+  shutDownPop() {
+    this.setData({ show: false })
+  },
+  
   // 订单支付
   apiOrderPay: useThrottle(function (this: any) {
     type orderPay = { data: { js_config: JsConfig } }
@@ -73,7 +104,7 @@ Page({
   // 拨打电话
   makePhoneCall() {
     wx.makePhoneCall({
-      phoneNumber: ''
+      phoneNumber: this.data.$state.userConfig.custom_mobile
     })
   },
 
