@@ -1,0 +1,30 @@
+<!--pages/pages-list/address-harvest/address-list/list-address/list-address.wxml-->
+<view class="list-address" wx:if="{{!!list[0].id}}">
+  <view 
+    class="item-address" 
+    catchtap="itemClick" 
+    data-item="{{item}}"
+    wx:for="{{list}}" 
+    wx:key="id">
+    <view class="address-info flex-ali-bet">
+      <view>
+        <view class="real_name-phone flex-ali">
+          <!-- 收货人 -->
+          <text class="real_name">{{item.real_name}}</text>
+          <!-- 手机号码 -->
+          <text class="phone">{{item.phone}}</text>
+        </view>
+        <view class="address ell2">{{item.province}}{{item.city}}{{item.district}}{{item.detail}}</view>
+      </view>
+      <image catchtap="itemEditClick" data-item="{{item}}" class="edit-img" src="../../images/2.png"></image>
+    </view>
+
+    <view class="flex-ali-bet">
+      <view class="flex-ali" catchtap="itemDefaultClick" data-item="{{item}}">
+        <image class="default-tag-img" src="../../images/{{item.is_default === 1 ? 1 : 0}}.png"></image>
+        <view class="default flex-ali-cen">默认地址</view>
+      </view>
+      <view class="delete" catchtap="itemDeleteClick" data-id="{{item.id}}">删除</view>
+    </view>
+  </view>
+</view>

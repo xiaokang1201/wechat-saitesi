@@ -1,0 +1,8 @@
+/* pages/pages-list/coupons/coupons.wxss */
+.coupons {
+  background: #F8F8F8;
+  min-height: 100vh;
+  .scroll-view1 {
+    height: calc(100vh - 80rpx);
+  }
+}

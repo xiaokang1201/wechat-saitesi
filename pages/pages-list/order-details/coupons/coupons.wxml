@@ -1,0 +1,69 @@
+<!--pages/pages-list/order-details/coupons/coupons.wxml-->
+<!-- <view class="coupons flex-ali-bet" bindtap="showPop">
+  <view>优惠券</view>
+  <view class="flex-ali">
+    <view class="couponPrice" wx:if="{{!!couponPrice}}">
+      <text>￥</text>
+      <text>{{couponPrice}}</text>
+    </view>
+    <image class="img-right" src="/assets/images/right-block.png"></image>
+  </view>
+</view> -->
+
+
+<view class="justify-between group_12" bindtap="showPop">
+  <text class="text_14">优惠券</text>
+  <view class="flex-row group_13">
+    <text class="text_15">{{beUseCoupon.coupon_title}}</text>
+    <image
+      src="{{$state.ASSETSURL}}order-details/2.png"
+      class="image_9 image_10"
+    />
+  </view>
+</view>
+
+<show-pop show="{{show}}" position="bottom" bindclickoverlay="hiddenPop">
+  <view class="pop-coupons" catchtap="empty">
+    <view class="pop-coupons-title">优惠券</view>
+    <!-- 可用/不可用优惠券 -->
+    <view class="flex-eve coupons-type-tab">
+      <view 
+        wx:for="{{couponsTypeList}}"
+        wx:key="index"
+        class="{{couponsType === index ? 'cur' : ''}}" 
+        data-index="{{index}}"
+        bindtap="switchCouponsType">
+        {{item}}
+      </view>
+    </view>
+    <!-- 优惠券列表 -->
+    <scroll-view class="list-coupons" scroll-y>
+      <view 
+        wx:for="{{couponsType === 0 ? usableCoupon : unUsableCoupon}}"
+        wx:key="id"
+        class="item-coupons coupons{{couponsType}} flex-ali-bet"
+        bindtap="{{couponsType === 0 ? 'itemCouponsClick' : ''}}"
+        data-index="{{index}}">
+        <view class="flex-col-ali coupons-price-min-price">
+          <view class="coupons-price"><text>￥</text><text>{{item.coupon_price}}</text></view>
+          <view class="coupons-use-min-price" wx:if="{{item.use_min_price>0}}">满{{item.use_min_price}}可用</view>
+        </view>
+        <view class="coupon-title-time">
+          <view class="coupon-title ell1">{{item.coupon_title}}</view>
+          <view class="coupon-valid-time">{{tool.replaceTime(item.add_time)}}至{{tool.replaceTime(item.end_time)}}</view>
+        </view>
+        <image hidden="{{couponsType === 1}}" src="./images/{{usableCouponIndex === index ? '' : 'un'}}check.png"></image>
+        <image hidden="{{couponsType === 0}}" src="./images/bancheck.png"></image>
+      </view>
+    </scroll-view>
+    <!-- 底部金额 确认优惠券按钮 -->
+    <view class="flex btm-price-btn">
+      <view class="flex-ali-bet">
+        <view class="discount-price"><text>优惠￥</text><text>{{usableCoupon[usableCouponIndex].coupon_price || 0}}</text></view>
+        <view catchtap="confirmCouponClick" class="confirm flex-ali-cen">确认</view>
+      </view>
+    </view>
+  </view>
+</show-pop>
+ 
+<wxs src="/assets/wxs/my-wxs.wxs" module="tool"></wxs>

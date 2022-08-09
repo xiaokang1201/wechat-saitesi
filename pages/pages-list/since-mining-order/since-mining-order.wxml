@@ -1,0 +1,68 @@
+<!--pages/pages-list/since-mining-order/since-mining-order.wxml-->
+<view class="since-mining-order">
+  <view class="search-type">
+    <search type="3" bindinputConfirm="inputConfirm" ></search>
+    <type-list 
+      typeList="{{typeList}}" 
+      typeIndex="{{typeIndex}}" 
+      bindtypeItemClick="typeItemClick">
+    </type-list>
+  </view>
+  <scroll-view class="scroll-view" scroll-y>
+    <view class="list">
+      <block wx:for="{{list}}" wx:key="id">
+        <view 
+          class="item"
+          catchtap="itemClick"
+          data-order_sn="{{item.order_id}}"
+          wx:if="{{item._status._type === 0 ? (item.remain_time-time>0) : true}}">
+          <view class="number-status flex-ali-bet">
+            <view class="number">订单编号  564654678</view>
+            <view class="status">{{item._status._type === 0 ? 
+            ('待支付'+tool.minutes(item.remain_time-time)+'分'+tool.seconds(item.remain_time-time)+'秒')  
+            : item._status._msg}}</view>
+          </view>
+          <orders-goods 
+            type="2" 
+            wx:for="{{item.cartInfo}}"
+            wx:for-item="cartInfo"
+            wx:key="id"
+            object="{{cartInfo}}">
+          </orders-goods>
+          <view class="pay-info flex-ali-bet">
+            <view class="time">{{item.add_time}}</view>
+            <view class="goods-info">共{{item.total_num}}件商品,需支付￥{{item.pay_price}}</view>
+          </view>
+          <view class="flex-row action-buttons">
+            <view class="flex">
+              <view 
+                class="flex-ali-cen" 
+                wx:if="{{item._status._type === 1 || item._status._type === 2 || item._status._type === 3 || item._status._type === 5}}">
+                更多操作
+              </view>
+              <view 
+                class="flex-ali-cen" 
+                bindtap="cancelOrderClick"
+                data-order_sn="{{item.order_id}}" 
+                wx:if="{{item._status._type === 0}}">
+                取消订单
+              </view>
+              <view 
+                class="flex-ali-cen" 
+                catchtap="payOrderClick"
+                data-order_sn="{{item.order_id}}" 
+                wx:if="{{item._status._type === 0}}">
+                去支付
+              </view>
+              <view class="flex-ali-cen" wx:if="{{item._status._type === 4}}">{{item._status._title}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+    <load-more loadMoreType="{{loadMoreType}}"></load-more>
+  </scroll-view>
+</view>
+
+
+<wxs src="/assets/wxs/my-wxs.wxs" module="tool"></wxs>

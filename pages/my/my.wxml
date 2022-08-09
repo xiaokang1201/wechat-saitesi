@@ -1,0 +1,92 @@
+<!--pages/my/my.wxml-->
+<view class="my">
+  <view class="user-info">
+    <custom-nav-bar placeholder="{{false}}" customStyle="position: relative;" background="rgba(0,0,0,0);"></custom-nav-bar>
+    <view class="flex-ali-bet">
+      <image class="user-head-img" src="{{$state.userInfo.avatar}}"></image>
+      <view class="user-name-message">
+        <view class="flex-ali-bet">
+          <text class="user-name">{{$state.userInfo.nickname}}</text>
+          <image bindtap="editDataClick" class="edit-data" src="{{$state.ASSETSURL}}my/1.png"></image>
+        </view>
+        <view class="message flex">
+          <view 
+            class="flex-col-ali" 
+            bindtap="jumpNav" 
+            data-path="/pages/pages-list/collection/collection">
+            <text>{{$state.userInfo.collections}}</text>
+            <text>收藏</text>
+          </view>
+          <view 
+            class="flex-col-ali"
+            bindtap="jumpNav" 
+            data-path="/pages/pages-list/coupons/coupons">
+            <text>{{$state.userInfo.coupons}}</text>
+            <text>优惠券</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 检测，扫码，样本，报告 -->
+    <view class="scan-code-sample-report flex-aro">
+      <image wx:for="{{4}}" wx:key="index" src="{{$state.ASSETSURL}}my/{{item+2}}.png"></image>
+    </view>
+  </view>
+  <!-- 自采订单、竖列 -->
+  <view class="order-column">
+    <view class="since-mining-order">
+      <view class="title flex-ali-bet">
+        <text>预约订单</text>
+        <image 
+          src="{{$state.ASSETSURL}}my/6.png"
+          bindtap="jumpNav" 
+          data-path="/pages/pages-list/inspection-booking/inspection-booking?index=0">
+        </image>
+      </view>
+      <view class="list flex-wra">
+        <view 
+          class="item flex-col-ali" 
+          bindtap="jumpNav" 
+          data-path="{{item.path}}" 
+          wx:for="{{makeList}}" 
+          wx:key="index">
+          <image src="{{$state.ASSETSURL}}my/{{index+18}}.png"></image>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="since-mining-order">
+      <view class="title flex-ali-bet">
+        <text>自采订单</text>
+        <image 
+          bindtap="jumpNav" 
+          data-path="/pages/pages-list/since-mining-order/since-mining-order?index=0" 
+          src="{{$state.ASSETSURL}}my/6.png">
+        </image>
+      </view>
+      <view class="list flex-wra">
+        <view 
+          class="item flex-col-ali"
+          bindtap="jumpNav" 
+          data-path="{{item.path}}" 
+          wx:for="{{orderList}}" 
+          wx:key="index">
+          <image src="{{$state.ASSETSURL}}my/{{index+7}}.png"></image>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="column-list">
+      <view class="item flex-ali-bet" bindtap="jumpNav" data-path="{{item.path}}" wx:for="{{columnList}}" wx:key="index">
+        <view class="flex-ali">
+          <image src="{{$state.ASSETSURL}}my/{{index+13}}.png"></image>
+          <text>{{item.text}}</text>
+        </view>
+        <image src="{{$state.ASSETSURL}}my/0.png"></image>
+      </view>
+      <button open-type="contact" class="contact"></button>
+    </view>
+  </view>
+</view>
+
+<custom-tab-bar pagePath="pages/my/my"></custom-tab-bar>

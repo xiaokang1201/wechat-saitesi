@@ -1,0 +1,10 @@
+<!--pages/pages-list/after-sales/after-sales.wxml-->
+<view class="after-sales">
+  <orders-goods type="1" object="{{cartInfo}}"></orders-goods>
+  <!-- 选择服务类型 -->
+  <view class="select-service-class">
+    <view>选择服务类型</view>
+    <image bindtap="afterSalesClick" data-index="{{1}}" src="/assets/images/component/orders-goods/1.png"></image>
+    <image bindtap="afterSalesClick" data-index="{{2}}" src="/assets/images/component/orders-goods/2.png"></image>
+  </view>
+</view>

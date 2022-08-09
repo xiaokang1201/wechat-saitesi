@@ -1,0 +1,5 @@
+<!--pages/pages-list/address-harvest/components/address-empty/address-empty.wxml-->
+<view class="address-empty flex-cen-col-ali">
+  <image src="./images/address_empty.png"></image>
+  <view>亲，您还没有收货地址~</view>
+</view>

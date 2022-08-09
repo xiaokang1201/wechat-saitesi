@@ -1,0 +1,32 @@
+/* components/select-all-bottom/select-all-bottom.wxss */
+.select-all-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 30rpx 30rpx 54rpx 30rpx;
+  background-color: #ffffff;
+  width: 100vw;
+  .select-img {
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 20rpx;
+  }
+  text {
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28rpx;
+    color: #585B61;
+  }
+  .button {
+    width: 240rpx;
+    height: 86rpx;
+    background: #0B357A;
+    border-radius: 4rpx;
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32rpx;
+    color: #FFFFFF;
+  }
+}

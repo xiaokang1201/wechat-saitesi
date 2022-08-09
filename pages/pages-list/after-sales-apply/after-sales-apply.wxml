@@ -1,0 +1,49 @@
+<!--pages/pages-list/after-sales-apply/after-sales-apply.wxml-->
+<view class="after-sales-apply">
+  <orders-goods type="1" object="{{cartInfo}}"></orders-goods>
+  <!-- 退款信息 -->
+  <view class="refund-info" wx:if="{{type === 2}}">
+    <view class="title">退款信息</view>
+    <view 
+      bindtap="chooseClick" 
+      data-index="{{index}}" 
+      class="choose choose{{index}} flex-ali-bet" 
+      wx:for="{{form}}"
+      wx:key="id">
+      <view>{{item.name}}</view>
+      <view class="flex-ali {{item.index !== -1 ? 'cur' : ''}}">
+        <text>{{ item.index === -1 ? '请选择' : item.list[item.index].name}}</text>
+        <image src="{{$state.ASSETSURL}}after-sales-apply/0.png"></image>
+      </view>
+    </view>
+    <view class="refund-amount flex-ali-bet">
+      <text>退款金额</text>
+      <text>￥{{freightPrice}}</text>
+    </view>
+  </view>
+  <describe-credentials bindtextareaChange="textareaChange" binduploadImg="uploadImg" type="{{type}}"></describe-credentials>
+  <!-- 提交按钮 -->
+  <view class="submit">
+    <view class="flex-ali-cen" bindtap="afterSalesClick">提交申请</view>
+  </view>
+  <!-- 弹框 -->
+  <show-pop show="{{chooseIndex > 0}}" position="bottom">
+    <view class="refund-pop">
+      <view class="title">{{form[chooseIndex-1].name}}</view>
+      <image class="shut-down" bindtap="hiddenPop" src="{{$state.ASSETSURL}}after-sales-apply/1.png"></image>
+      <view class="list">
+        <view 
+          class="item flex-ali-bet" 
+          wx:for="{{form[chooseIndex-1].list}}" 
+          wx:key="index"
+          bindtap="popItemClick"
+          data-index="{{index}}">
+          <text>{{item.name}}</text>
+          <image 
+            src="{{$state.ASSETSURL}}after-sales-apply/{{form[chooseIndex-1].index === index ? '3' : '2'}}.png">
+          </image>
+        </view>
+      </view>
+    </view>
+  </show-pop>
+</view>

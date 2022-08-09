@@ -1,0 +1,47 @@
+//取整
+var parseInts = function (x) {
+  return parseInt(x)
+}
+//取小数点后两位
+var toFixed = function (number, count) {
+  return Number(number).toFixed(count)
+}
+// replace时间转换
+var replaceTime = function (str) {
+  return str.replace(getRegExp('/','g'), '-')
+}
+// 时
+var hour = function (time) {
+  return lessThanZero(Math.floor(time/3600) )
+}
+// 分
+var minutes = function (time) {
+  return lessThanZero(Math.floor(Math.floor(time%3600)/60))
+}
+// 秒
+var seconds = function (time) {
+  return lessThanZero(time%60)
+}
+// 小于10补0
+var lessThanZero = function (number) {
+  return number >= 10 ? number : (number > 0 ? '0'+number : '00') 
+}
+// 判断传入时间是否是今天
+var today = function (time) {
+  var date = getDate()
+  var y = lessThanZero(date.getFullYear())
+  var m = lessThanZero(date.getMonth() + 1) 
+  var d = lessThanZero(date.getDate())
+  var currentTime = y + '-' + m + '-' + d
+ return currentTime === time ? '今天' : time
+}
+
+module.exports = {
+  parseInts: parseInts,
+  replaceTime: replaceTime,
+  hour: hour,
+  minutes: minutes,
+  seconds: seconds,
+  today: today,
+  toFixed: toFixed
+} 

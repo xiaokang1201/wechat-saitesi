@@ -1,0 +1,18 @@
+<!--components/custom-tab-bar/custom-tab-bar.wxml-->
+<view class="tab-bar">
+  <view class="tab-bar-bd">
+    <view 
+      class="item" 
+      wx:for="{{list}}" 
+      wx:key="index"
+      bindtap="switchTab" 
+      data-path="/{{item.pagePath}}"
+      >
+      <image src="/{{pagePath === item.pagePath ? item.selectedIconPath : item.iconPath}}"></image>
+      <view style="color:{{pagePath === item.pagePath ? selectedColor : color }}">{{item.text}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 默认占位 -->
+<view class="placeholder"></view>

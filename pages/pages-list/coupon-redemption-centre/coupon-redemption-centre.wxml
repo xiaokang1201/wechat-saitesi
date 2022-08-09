@@ -1,0 +1,11 @@
+<!--pages/pages-list/coupon-redemption-centre/coupon-redemption-centre.wxml-->
+<view class="coupon-redemption-centre">
+  <coupon-list list="{{list}}" loadMoreType="{{loadMoreType}}" bindbtnClick="receiveClick"></coupon-list>
+  
+  <view class="placeholder"></view>
+
+  <view class="action-buttons flex-bet">
+    <view class="goback flex-ali-cen" bindtap="goBack">返回</view>
+    <view class="a-key-to-get flex-ali-cen" bindtap="aKeyReceiveClick">一键领取</view>
+  </view>
+</view>

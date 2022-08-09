@@ -1,0 +1,60 @@
+/* pages/pages-list/message-center/message-center.wxss */
+.group_4 {
+  padding-top: 32rpx;
+  min-height: 100vh;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  background: #F2F2F2;
+  .flex-row {
+    flex-direction: row;
+  }
+  .text_3 {
+    margin-left: 31.5rpx;
+    align-self: flex-start;
+    color: #010204;
+    font-size: 32rpx;
+    font-family: Source Han Sans CN;
+    line-height: 30.5rpx;
+  }
+  .list {
+    margin-top: 32rpx;
+    background-color: #ffffff;
+    .group_8 {
+      padding: 41rpx 15.5rpx 32rpx 30rpx;
+      .text_9 {
+        margin-top: 3.5rpx;
+        color: #9d9d9d;
+        font-size: 22rpx;
+        font-family: Source Han Sans CN;
+        line-height: 16.5rpx;
+      }
+      .image_6 {
+        border-radius: 4rpx;
+        width: 72rpx;
+        height: 72rpx;
+      }
+      .view_3 {
+        margin-left: 27rpx;
+        margin-bottom: 2.5rpx;
+        .text_10 {
+          color: #010204;
+          font-size: 28rpx;
+          font-family: Source Han Sans CN;
+          line-height: 25.5rpx;
+        }
+        .text_11 {
+          margin-top: 19.5rpx;
+          color: #9d9d9d;
+          font-size: 24rpx;
+          font-family: Source Han Sans CN;
+          line-height: 23rpx;
+        }
+      }
+    }
+    .list-divider {
+      margin: 0 30rpx;
+      background-color: #d9d9d9;
+      height: 1rpx;
+    }
+  }
+}

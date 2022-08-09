@@ -1,0 +1,25 @@
+/* pages/pages-list/after-sales/after-sales.wxss */
+.after-sales {
+  background: #F2F2F2;
+  min-height: 100vh;
+  padding: 20rpx 20rpx 170rpx 20rpx;
+  .select-service-class {
+    margin-top: 20rpx;
+    padding: 30rpx 20rpx;
+    background-color: #ffffff;
+    view {
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32rpx;
+      color: #010204;
+    }
+    image {
+      width: 669.13rpx;
+      height: 90rpx;
+      &:first-of-type {
+        margin: 40rpx 0 60rpx 0;
+      }
+    }
+  }
+}

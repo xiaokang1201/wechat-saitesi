@@ -1,0 +1,83 @@
+/* components/search/search.wxss */
+.search {
+  width: calc(100vw - 60rpx);
+  margin: 0 30rpx;
+  height: 85rpx;
+  margin-bottom: 20rpx;
+  border-bottom: 2rpx solid #2a2a2a;
+}
+.search2 {
+  height: 70rpx;
+}
+.search3 {
+  height: 66rpx;
+  background: #F7F8FA;
+  border-radius: 33rpx;
+  border: none;
+}
+
+.search-img {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 19rpx 0 10rpx;
+}
+
+.search-img2 {
+  width: 21rpx;
+  height: 21rpx;
+  margin-right: 18rpx;
+}
+
+.search-img3 {
+  width: 36rpx;
+  height: 36rpx;
+  margin: 0 20rpx 0 37rpx;
+}
+
+.line {
+  width: 1rpx;
+  height: 36rpx;
+  background-color: #E5E5E5;
+  margin-right: 39rpx;
+}
+
+[class*= 'input'] {
+  width: calc(100% - 69rpx);
+  font-size: 22rpx;
+  color: #1a1a1a;
+  height: 100%;
+  letter-spacing: 0.04rem;
+}
+
+.input2 {
+  width: calc(100% - 142rpx);
+  font-size: 22rpx;
+  color: #1a1a1a;
+}
+
+[class*= 'placeholder-class'] {
+  color: #878787;
+}
+
+.placeholder-class2 {
+  font-size: 22rpx;
+  color: #878787;
+  letter-spacing: 0.09rpx;
+}
+
+.placeholder-class3 {
+  color: #C6C6C6;
+}
+
+.search-button {
+  width: 96rpx;
+  height: 60rpx;
+  background: #0B357A;
+  border-radius: 4rpx;
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22rpx;
+  letter-spacing: 0.04rem;
+  color: #FFFFFF;
+}

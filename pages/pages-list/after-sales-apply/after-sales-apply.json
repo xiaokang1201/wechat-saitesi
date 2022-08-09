@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "退货/售后",
+  "usingComponents": {
+    "orders-goods": "/components/orders-goods/orders-goods",
+    "describe-credentials": "/components/describe-credentials/describe-credentials",
+    "show-pop": "/components/show-pop/show-pop"
+  }
+}

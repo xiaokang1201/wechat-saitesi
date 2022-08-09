@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "样本寄回",
+  "usingComponents": {
+    "show-pop": "/components/show-pop/show-pop"
+  }
+}

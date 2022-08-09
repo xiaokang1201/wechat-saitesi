@@ -1,0 +1,33 @@
+/* pages/pages-list/coupon-redemption-centre/coupon-redemption-centre.wxss */
+.coupon-redemption-centre {
+  min-height: 100vh;
+  background: #F8F8F8;
+  .placeholder {
+    width: 100vw;
+    height: 200rpx;
+  }
+  .action-buttons {
+    z-index: 9;
+    background-color: #ffffff;
+    padding: 20rpx 30rpx 60rpx 30rpx;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    view {
+      width: 332rpx;
+      height: 96rpx;
+      border: 1rpx solid #0B357A;
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 28rpx;
+    }
+    .goback {
+      color: #0B357A;
+    }
+    .a-key-to-get {
+      background-color: #0B357A;
+      color: #ffffff;
+    }
+  }
+}

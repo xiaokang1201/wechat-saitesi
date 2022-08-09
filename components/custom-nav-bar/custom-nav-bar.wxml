@@ -1,0 +1,24 @@
+<!--components/custom-nav-bar/custom-nav-bar.wxml-->
+<!-- 导航栏 -->
+<view class="custom-nav-bar" style="height:{{customBar}}px;background:{{background}};color:{{color}};{{customStyle}}">
+  <!-- 背景图 -->
+  <image wx:if="{{!!bgImage}}" mode="aspectFill" class="img-back" src="{{bgImage}}"></image>
+  <!-- 导航栏信息 -->
+  <view class="nav-bar-bd">
+    <!-- copy胶囊区域 -->
+    <view wx:if="{{capsule}}" bindtap="goBack" class="capsule" style="width:{{custom.width}}px;height:{{custom.height}}px;margin-left:calc(750rpx - {{custom.right}}px);">
+      <!-- 图片 -->
+      <image class="image" wx:if="{{!!backImage}}" src="{{backImage}}"></image>
+      <view class="backText">{{backText}}</view>
+      <slot name="backText"></slot>
+    </view>
+    <!-- 标题内容 -->
+    <view class="nav-bar-content" style="height:{{customBar-statusBar}}px;width: calc(100% - ({{custom.width*2}}px + (750rpx - {{custom.right}}px)*2));">
+      <view class="content">{{content}}</view>
+      <slot name="content"></slot>
+    </view>
+  </view>
+</view>
+<!-- 是否需要占位 -->
+<view wx:if="{{placeholder}}" class="placeholder" style="height:{{customBar}}px;"></view>
+

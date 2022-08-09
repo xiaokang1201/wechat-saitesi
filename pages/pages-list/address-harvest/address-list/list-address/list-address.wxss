@@ -1,0 +1,72 @@
+/* pages/pages-list/address-harvest/address-list/list-address/list-address.wxss */
+.item-address {
+  padding: 20rpx;
+  border-bottom: 2rpx solid #f5f5f5;
+  background-color: #ffffff;
+  margin-bottom: 20rpx;
+}
+
+.address-info {
+  border-bottom: 1rpx solid #ECECEC;
+  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.real_name-phone {
+  margin-bottom: 10rpx;
+}
+
+.real_name {
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32rpx;
+  color: #202B37;
+}
+
+.phone {
+  margin-left: 30rpx;
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26rpx;
+  color: #9C9EA4;
+}
+
+.address {
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28rpx;
+  line-height: 36rpx;
+  color: #4F5459;
+  width: 461rpx;
+}
+
+.edit-img {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.default-tag-img {
+  width: 31rpx;
+  height: 31rpx;
+  margin-right: 10rpx;
+}
+
+.default {
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26rpx;
+  color: #4F5459;
+}
+
+.delete {
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25rpx;
+  color: #9C9EA4;
+}
+

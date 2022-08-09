@@ -1,0 +1,18 @@
+<!--pages/pages-list/search/search-history/search-history.wxml-->
+<view class="search-history">
+  <view class="flex-ali-bet search-history-title">
+    <view>搜索历史</view>
+    <image bindtap="deleteSearchHistoryClick" src="{{$state.ASSETSURL}}component/search-history/0.png"></image>
+  </view>
+  <!-- 搜索记录 -->
+  <view class="list-history flex-wra">
+    <view 
+      class="item-history" 
+      wx:for="{{list}}" 
+      wx:key="index"
+      bindtap="historyItemClick"
+      data-item="{{item}}">
+      {{item}}
+    </view>
+  </view>
+</view>

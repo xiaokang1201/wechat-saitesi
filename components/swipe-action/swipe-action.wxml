@@ -1,0 +1,13 @@
+<!--components/swipe-action/swipe-action.wxml-->
+<view class="swipe-action" bindtouchstart="touchstart" bindtouchmove="touchmove">
+  <view class="swipe-action-bd" style="transform: translateX(-{{isTouchMove ? translateX : 0}});">
+    <!-- 内容区域 -->
+    <view class="swipe-action-content">
+      <slot name="content"></slot>
+    </view>
+    <!-- 操作区域 -->
+    <view class="swipe-action-operation">
+      <slot name="operation"></slot>
+    </view>
+  </view>
+</view>

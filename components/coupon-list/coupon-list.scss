@@ -1,0 +1,86 @@
+/* components/coupon-list/coupon-list.wxss */
+.coupon-list {
+  padding: 30rpx;
+  .item {
+    position: relative;
+    margin-bottom: 30rpx;
+    padding: 57rpx 30rpx 28rpx 30rpx;
+    width: 690rpx;
+    height: 240rpx;
+    background: #FFFFFF;
+    box-shadow: 0px 4rpx 24rpx rgba(0, 0, 0, 0.04);
+    border-radius: 8rpx;
+    overflow: hidden;
+    .type {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+      width: max-content;
+      padding: 10rpx;
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24rpx;
+      color: #FFFFFF;background: #0B357A;
+      border-radius: 8rpx 0rpx;
+    }
+    .coupon-info {
+      padding-bottom: 25rpx;
+      margin-bottom: 20rpx;
+      border-bottom: 1rpx solid #E5E5E5;
+      .money {
+        >text {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 700;
+          color: #FD160B;
+  
+          &:nth-of-type(1) {
+            line-height: 46rpx;
+          } 
+          &:nth-of-type(2) {
+            font-size: 40rpx;
+            color: #FD160B;
+          } 
+        }
+      }
+      .button {
+        padding: 12rpx 24rpx;
+        background: #0B357A;
+        border-radius: 4rpx;
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26rpx;
+        color: #FFFFFF;
+      }
+      .button2, .button3 {
+        background: #9D9D9D;
+      }
+      .title {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 34rpx;
+        color: #0F0F0F;
+        margin-bottom: 10rpx;
+        width: 300rpx;
+      }
+      .instructions {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22rpx;
+        color: #9D9D9D;
+      }
+    }
+    .available {
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22rpx;
+      color: #9D9D9D;
+    }
+  }
+}

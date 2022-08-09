@@ -1,0 +1,43 @@
+/* components/custom-tab-bar/custom-tab-bar.wxss */
+.tab-bar {
+  z-index: 9999;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+  background: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.tab-bar-bd {
+  position: relative;
+  padding: 10rpx 0 20rpx 0;
+  border-top: 1rpx solid #cccccc;
+  display: flex;
+}
+
+.item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item image {
+  width: 56rpx;
+  height: 55rpx;
+  margin-bottom: 10rpx;
+}
+
+.item view {
+  font-size: 22rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #4e4e4e;
+}
+
+/* 适配底部安全距离 + (上下padding 40 + 图片 50 + 字体 20)：全部内容高度 */
+.placeholder {
+  height: calc(env(safe-area-inset-bottom) / 2 + 112rpx);
+  width: 100vw;
+}

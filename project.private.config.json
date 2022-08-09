@@ -1,0 +1,280 @@
+{
+  "projectname": "wechat-saitesi",
+  "setting": {
+    "compileHotReLoad": true,
+    "urlCheck": true
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
+  "condition": {
+    "miniprogram": {
+      "list": [
+        {
+          "name": "搜索列表",
+          "pathName": "pages/pages-list/search-list/search-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "资讯详情",
+          "pathName": "pages/pages-list/info-details/info-details",
+          "query": "id=1",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "地址列表",
+          "pathName": "pages/pages-list/address-harvest/address-list/address-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "我的",
+          "pathName": "pages/my/my",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "个人资料",
+          "pathName": "pages/pages-list/personal-data/personal-data",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "消息中心",
+          "pathName": "pages/pages-list/message-center/message-center",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "设置",
+          "pathName": "pages/pages-list/set-up/set-up",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "优惠券",
+          "pathName": "pages/pages-list/coupons/coupons",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "资讯",
+          "pathName": "pages/pages-list/infos/infos",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "领券中心",
+          "pathName": "pages/pages-list/coupon-redemption-centre/coupon-redemption-centre",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "样品寄回",
+          "pathName": "pages/pages-list/sample-sent-back/sample-sent-back",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "样本寄回订单",
+          "pathName": "pages/pages-list/sample-sent-back-order/sample-sent-back-order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "评价",
+          "pathName": "pages/pages-list/evaluation/evaluation",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "检测预约",
+          "pathName": "pages/pages-list/inspection-booking/inspection-booking",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "检测预约订单详情",
+          "pathName": "pages/pages-list/inspection-booking-order-details/inspection-booking-order-details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "售后",
+          "pathName": "pages/pages-list/after-sales/after-sales",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "申请退货/售后",
+          "pathName": "pages/pages-list/after-sales-apply/after-sales-apply",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "售后列表",
+          "pathName": "pages/pages-list/after-sales-list/after-sales-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "报告查看",
+          "pathName": "pages/pages-list/report-view/report-view",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/pages-list/goods-details/goods-details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "订单详情",
+          "pathName": "pages/pages-list/order-details/order-details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "购物车",
+          "pathName": "pages/cart/cart",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "预约检测",
+          "pathName": "pages/pages-list/booking-inspection/booking-inspection",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "扫码绑定",
+          "pathName": "pages/pages-list/scan-bind/scan-bind",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "受检人",
+          "pathName": "pages/pages-list/examinate/examinate",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "新增编辑受检人",
+          "pathName": "pages/pages-list/examinate-add-edit/examinate-add-edit",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "受检人管理",
+          "pathName": "pages/pages-list/examinate-admin/examinate-admin",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "分销中心",
+          "pathName": "pages/pages-list/distribution-center/distribution-center",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "自采订单",
+          "pathName": "pages/pages-list/since-mining-order/since-mining-order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商城",
+          "pathName": "pages/mall/mall",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "商品详情 11",
+          "pathName": "pages/pages-list/goods-details/goods-details",
+          "query": "goods_id=11",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "创建订单",
+          "pathName": "pages/pages-list/order-details/order-details",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "创建订单 1 23 0",
+          "pathName": "pages/pages-list/order-details/order-details",
+          "query": "type=1&cart_id=24&did=NaN",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "领券中心",
+          "pathName": "pages/pages-list/coupon-redemption-centre/coupon-redemption-centre",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "收藏",
+          "pathName": "pages/pages-list/collection/collection",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "自采订单详情",
+          "pathName": "pages/pages-list/since-mining-order-details/since-mining-order-details",
+          "query": "order_sn=STS165949502848386019",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/since-mining-order-details/since-mining-order-details",
+          "query": "order_sn=STS165959554468149604",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/since-mining-order-details/since-mining-order-details",
+          "query": "order_sn=STS165959592225614023",
+          "launchMode": "default",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

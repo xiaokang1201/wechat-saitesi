@@ -1,0 +1,216 @@
+<!--pages/pages-list/since-mining-order-details/since-mining-order-details.wxml-->
+<view class="flex-col group_4">
+  <view class="flex-col group_5">
+    <view class="flex-col">
+      <view class="justify-between flex-ali section_3">
+        <view class="flex-col items-start">
+          <text class="text_3">{{statusList[orderDetail._status._type].text}}</text>
+          <text class="text_4">{{orderDetail._pay_time}}</text>
+        </view>
+        <view class="flex-row group_8">
+          <image
+            src="{{$state.ASSETSURL}}since-mining-order-details/0.png"
+            class="image_5"
+            wx:if="{{orderDetail._status._type === 0}}"
+          />
+          <image
+            src="{{$state.ASSETSURL}}since-mining-order-details/1.png"
+            class="image_6"
+            wx:if="{{orderDetail._status._type === 5}}"
+          />
+          <view 
+            class="view1 flex-cen-ali" 
+            wx:if="{{orderDetail._status._type === 2 || orderDetail._status._type === 3}}">
+            查看物流
+          </view>
+        </view>
+      </view>
+      <view class="flex-col section_4">
+        <text class="text_6">{{orderDetail._status._type === 5 ? '提货地址' : '收货地址'}}：</text>
+        <view class="flex-col group_9 view_2">
+          <view class="flex-row">
+            <text class="text_7">{{orderDetail._status._type === 5 ? orderDetail.shipping_mobile : orderDetail.user_phone}}</text>
+            <text class="text_8" wx:if="{{orderDetail._status._type !== 5}}">{{orderDetail._status._type === 5 ? orderDetail.shipping_mobile : orderDetail.real_name}}</text>
+          </view>
+          <view class="justify-end" wx:if="{{orderDetail._status._type === 5}}">
+            <image
+              src="{{$state.ASSETSURL}}since-mining-order-details/2.png"
+              class="image_7"
+            /> 
+            <text class="text_9">导航</text>
+          </view>
+        </view>
+        <view class="flex-row">
+          <text class="text_10">{{orderDetail._status._type === 5 ? orderDetail.shipping_address : orderDetail.user_address}}</text>
+        </view>
+        <block wx:if="{{orderDetail._status._type === 5}}">
+          <view class="divider"><!--*--></view>
+          <view class="group_13">
+            <view><text class="text_12">营业时间：</text></view>
+            <view>
+              <text class="text_13">上午 9:00-12:00</text>
+              <text class="text_14">下午 2:30-6:00（周一至周五）</text>
+            </view>
+          </view>
+        </block>
+      </view>
+      <orders-goods wx:for="{{orderDetail.cartInfo}}" wx:key="id" object="{{item}}"></orders-goods>
+      <view class="justify-between section_6" wx:if="{{orderDetail.shipping_type === 2}}">
+        <text class="text_21">预留电话：</text>
+        <text class="text_22">{{orderDetail.shipping_mobile}}</text>
+      </view>
+      <view class="flex-col section_7">
+        <view class="justify-between group_17">
+          <text class="text_23">优惠券</text>
+          <text class="text_25">{{orderDetail.coupon.coupon_title}}</text>
+        </view>
+        <!-- <view class="justify-between group_18">
+          <text class="text_26">活动</text>
+          <text class="text_27">两件95折</text>
+        </view> -->
+      </view>
+      <view class="flex-col section_7">
+        <view class="justify-between group_17">
+          <text class="text_23">交货方式</text>
+          <text class="text_29">{{orderDetail.shipping_type === 1 ? '快递配送' : '自提门店'}}</text>
+        </view>
+        <view class="justify-between group_19">
+          <text class="text_30">买家留言</text>
+          <text class="text_31">{{orderDetail.mark}}</text>
+        </view>
+      </view>
+      <view class="flex-col section_8">
+        <button class="button" open-type="contact"></button>
+        <view class="justify-between group_9">
+          <text class="text_32">商品总价</text>
+          <text class="text_33">￥{{orderDetail.total_price}}</text>
+        </view>
+        <view class="justify-between group_20">
+          <text class="text_34">运费</text>
+          <text class="text_35">￥0.00</text>
+        </view>
+        <view class="flex-col group_21">
+          <!-- <view class="justify-between">
+            <text class="text_36">店铺活动</text>
+            <text class="text_37">-￥5.00</text>
+          </view> -->
+          <view class="flex-col group_23">
+            <view class="justify-between">
+              <text class="text_38">优惠券</text>
+              <text class="text_39">-￥{{orderDetail.coupon.coupon_price || '0.00'}}</text>
+            </view>
+            <view class="justify-between group_25" wx:if="{{orderDetail._status._type !== 0}}">
+              <text class="text_40">实付款</text>
+              <view class="group_26">
+                <text class="text_41">￥</text>
+                <text class="text_42">{{orderDetail.pay_price}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="flex-col group_27" wx:if="{{orderDetail._status._type !== 0}}">
+            <view class="flex-col group_28">
+              <view class="justify-between">
+                <text class="text_43">付款方式</text>
+                <text class="text_44">微信支付</text>
+              </view>
+              <view class="justify-between group_30">
+                <text class="text_45">订单编号</text>
+                <view class="flex-row group_31">
+                  <text class="text_46">{{orderDetail.order_id}}</text>
+                  <text class="text_47" bindtap="copyOrderSn">复制</text>
+                </view>
+              </view>
+              <view class="justify-between group_32">
+                <text class="text_48">创建时间</text>
+                <text class="text_49">{{orderDetail._add_time}}</text>
+              </view>
+              <view class="justify-between group_33">
+                <text class="text_50">付款时间</text>
+                <text class="text_51">{{orderDetail._pay_time}}</text>
+              </view>
+            </view>
+            <view class="justify-between equal-division">
+              <view class="flex-row" bindtap="makePhoneCall">
+                <image
+                  src="{{$state.ASSETSURL}}since-mining-order-details/3.png"
+                  class="image_9"
+                />
+                <text class="text_52">拨打电话</text>
+              </view>
+              <view class="flex-row">
+                <image
+                  src="{{$state.ASSETSURL}}since-mining-order-details/4.png"
+                  class="image_9"
+                />
+                <text class="text_53">联系客服</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="flex-col group_34">
+      <view class="justify-center">
+        <view class="section_9"></view>
+        <text class="text_54">商品推荐</text>
+        <view class="section_9 view_9"></view>
+      </view>
+      <view class="grid">
+        <view class="flex-col items-center grid-item">
+          <image
+            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16595839083840879892.png"
+            class="image_12"
+          />
+          <view class="flex-col items-center text-wrapper_1"><text class="text_55">自采</text></view>
+        </view>
+        <view class="flex-col items-center grid-item">
+          <image
+            src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16595839083865888920.png"
+            class="image_12"
+          />
+          <view class="flex-col items-center text-wrapper_1"><text class="text_55">自采</text></view>
+        </view>
+        <view class="flex-col grid-item_1">
+          <text class="text_58">产品标题标题标题产品标产品标题标题标题产品标</text>
+          <view class="flex-row group_36">
+            <text class="text_60">¥</text>
+            <text class="text_62">800</text>
+            <text class="text_64">月销486件</text>
+          </view>
+        </view>
+        <view class="flex-col grid-item_1">
+          <text class="text_58">产品标题标题标题产品标产品标题标题标题产品标</text>
+          <view class="flex-row group_36">
+            <text class="text_60">¥</text>
+            <text class="text_62">800</text>
+            <text class="text_64">月销486件</text>
+          </view>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <view class="justify-end fixed section_14" wx:if="{{orderDetail._status._type !== 4}}">
+    <view 
+      class="flex-col items-center text-wrapper_2" 
+      bindtap="applyAfterSalesClick"
+      wx:if="{{orderDetail._status._type !== 0 && orderDetail._status._type !== 4}}">
+      <text class="text_70">申请售后</text>
+    </view>
+    <view 
+      class="flex-col items-center text-wrapper_3" 
+      wx:if="{{orderDetail._status._type === 1 || orderDetail._status._type === 2 || orderDetail._status._type === 5}}"
+      bindtap="anotherList">
+      <text class="text_71">再来一单</text>
+    </view>
+    <view class="flex-col items-center text-wrapper_3" wx:if="{{orderDetail._status._type === 3}}">
+      <text class="text_71" bindtap="evaluationOrderClick">待评价</text>
+    </view>
+    <view class="payment" wx:if="{{orderDetail._status._type === 0}}">
+      <view class="flex-ali">
+        <text>总计</text>
+        <text>￥{{orderDetail.pay_price}}</text>
+        <view class="flex-ali-cen" bindtap="apiOrderPay">付款</view>
+      </view>
+    </view>
+  </view>
+</view>

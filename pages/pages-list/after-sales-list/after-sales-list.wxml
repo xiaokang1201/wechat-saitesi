@@ -1,0 +1,24 @@
+<!--pages/pages-list/after-sales-list/after-sales-list.wxml-->
+<view class="after-sales-list">
+  <!-- 导航 -->
+  <view class="nav">
+    <search type="3" placeholder="搜索"></search>
+    <type-list 
+      typeList="{{typeList}}" 
+      typeIndex="{{typeIndex}}" 
+      bindtypeItemClick="typeItemClick">
+    </type-list>
+  </view>
+
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="id">
+      <view class="order-no">订单编号  564654678</view>
+      <view class="bar-code">条形码  564654678</view>
+      <orders-goods></orders-goods>
+      <view class="actions-button flex-row" wx:if="{{typeIndex === 0 || typeIndex === 1}}">
+        <view class="flex-ali-cen">{{typeIndex === 0 ? '申请处理' : '处理中'}}</view>
+      </view>
+    </view>
+  </view>
+  <load-more loadMoreType="{{loadMoreType}}"></load-more>
+</view>

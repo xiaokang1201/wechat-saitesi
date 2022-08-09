@@ -1,0 +1,86 @@
+<!--components/show-pop/show-pop.wxml-->
+<view 
+  hidden="{{show ? !show : !vShow}}" 
+  catchtap="clickoverlay" 
+  catchtouchmove="empty"
+  class="overlay {{position+'-pop'}} {{show ? (position+'-show-pop') : (position+'-hidden-pop')}}"
+  style="z-index:{{zIndex}}; height: calc(100% - {{axisY}}); padding-bottom: {{axisY}}; {{overlayStyle}}"
+  >
+  <!-- slot 自定义 -->
+  <slot wx:if="{{type===0}}"></slot>
+  <!-- 1 付款成功 -->
+  <view class="pop payment-success flex-col-ali" wx:if="{{type===1}}">
+    <view class="text1">提示</view>
+    <view class="text2">支付成功</view>
+    <view class="btn1 flex-ali-cen">填写预约信息</view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+  </view>
+  <!-- 2 添加专属客服 -->
+  <view class="pop service flex-col-ali" wx:if="{{type===2}}">
+    <view class="text1">添加专属客服</view>
+    <image class="code" src="{{$state.ASSETSURL}}component/show-pop/2.png"></image>
+    <view class="btn1 flex-ali-cen" catchtap="event1">填写预约信息</view>
+    <view class="address flex-ali">
+      <text>湖南省长沙市开福区香椿路56号</text>
+      <image src="{{$state.ASSETSURL}}component/show-pop/1.png"></image>
+    </view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+    <image catchtap="event2" class="shut-down" src="{{$state.ASSETSURL}}component/show-pop/3.png"></image>
+  </view>
+  <!-- 3 删除受检人信息 -->
+  <view class="pop people flex-col-ali" wx:if="{{type===3}}">
+    <view class="text1">提示</view>
+    <view class="text2">是否删除该受检人信息？</view>
+    <view class="btn1 flex-ali-cen" bindtap="event1">是</view>
+    <view class="btn2 flex-ali-cen" bindtap="event2">否</view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+  </view>
+  <!-- 4 是否提交当前信息？ -->
+  <view class="pop people flex-col-ali" wx:if="{{type===4}}">
+    <view class="text1">提示</view>
+    <view class="text2">是否提交当前信息？</view>
+    <view class="btn1 flex-ali-cen">确认</view>
+    <view class="btn2 flex-ali-cen">返回</view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+  </view>
+  <!-- 5 填写申请原因 -->
+  <view class="pop fill-apply flex-col-ali" wx:if="{{type===5}}">
+    <view class="text1">填写申请原因</view>
+    <textarea type="text" placeholder="请输入申请原因"/>
+    <view class="btn1 flex-ali-cen">确认</view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+  </view>
+  <!-- 6 分享码 -->
+  <view class="pop share-code flex-col-ali" wx:if="{{type===6}}">
+    <view class="text1">填写申请原因</view>
+    <image class="code" src="{{$state.ASSETSURL}}component/show-pop/2.png"></image>
+    <view class="btn1 flex-ali-cen">保存二维码</view>
+    <view class="share flex-ali">
+      <view class="flex-col-ali">
+        <image src="{{$state.ASSETSURL}}component/show-pop/4.png"></image>
+        <text>复制链接</text>
+      </view>
+      <view class="flex-col-ali">
+        <image src="{{$state.ASSETSURL}}component/show-pop/5.png"></image>
+        <text>分享好友</text>
+      </view>
+    </view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+  </view>
+</view>
+
+<!-- 1 开始结束动画都执行 -->
+<!-- <show-pop show="{{show}}"> </show-pop> -->
+
+<!-- 2 仅执行开始动画 -->
+<!-- <show-pop hidden || wx:if ="{{show}}" ></show-pop> -->
+
+<!-- 3 自定义操作结合使用 适用于多弹窗切换 -->
+<!-- 
+<show-pop 
+  show="{{show}}"
+  hidden="{{show}}"
+  wx:if="{{show}}"
+  > 
+</show-pop> 
+-->

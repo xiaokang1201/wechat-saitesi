@@ -1,0 +1,29 @@
+<!--pages/pages-list/examinate-admin/examinate-admin.wxml-->
+  <!-- 列表 -->
+  <view class="flex-col list">
+    <view class="flex-col list-item" wx:key="id"  wx:for="{{list}}">
+      <view class="flex-row">
+        <text class="text_2">姓名</text>
+        <text class="text_4">王陆</text>
+      </view>
+      <view class="flex-row group_6">
+        <text class="text_6">性别</text>
+        <text class="text_8">男</text>
+      </view>
+      <view class="flex-row group_7">
+        <text class="text_10">年龄</text>
+        <text class="text_12">28</text>
+      </view>
+      <view class="flex-row group_8">
+        <text class="text_14">证件号码</text>
+        <text class="text_16">589884895598</text>
+      </view>
+      <view class="flex-row group_9">
+        <text class="text_18">手机号</text>
+        <text class="text_20">15898959874</text>
+      </view>
+      <view class="flex-col items-end group_10">
+        <view class="flex-col items-center text-wrapper"><text class="text_22">编辑</text></view>
+      </view>
+    </view>
+  </view>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "资讯列表",
+  "usingComponents": {
+    "search": "/components/search/search",
+    "info-list": "/components/info-list/info-list"
+  }
+}

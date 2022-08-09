@@ -1,0 +1,69 @@
+/* components/orders-goods/orders-goods.wxss */
+.orders-goods {
+  position: relative;
+  padding: 20rpx 20rpx 30rpx 20rpx;
+  background-color: #ffffff;
+  .orders-goods-bd {
+    >image {
+      width: 146rpx;
+      height: 146rpx;
+      margin-right: 16rpx;
+    }
+    >view {
+      .name {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28rpx;
+        color: #0F0F0F;
+        width: 500rpx;
+        line-height: normal;
+      }
+      .tag {
+        width: 400rpx;
+        >view {
+          margin: 10rpx 10rpx 10rpx 0rpx;
+          width: max-content;
+          padding: 5rpx 15rpx;
+          background: #F6F6F8;
+          border-radius: 4rpx;
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24rpx;
+          color: #9D9D9D;
+        }
+      }
+      .money {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24rpx;
+        color: #0F0F0F;
+      }
+    }
+  }
+  .refund-goods {
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32rpx;
+    color: #010204;
+    margin: 10rpx 0 30rpx 0;
+  }
+  .number {
+    position: absolute;
+    right: 20rpx;
+    bottom: 30rpx;
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24rpx;
+    color: #9F9F9F;
+  }
+}
+
+.orders-goods2 {
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #E5E5E5;
+}

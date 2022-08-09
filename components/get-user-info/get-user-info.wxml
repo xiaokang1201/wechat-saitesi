@@ -1,0 +1,7 @@
+<!--components/get-user-info/get-user-info.wxml-->
+<view class="get-user-info">
+  <button wx:if="{{canIUseGetUserProfile}}" class="button" bindtap="getUserProfile"></button>
+  <button wx:else class="posa" open-type="getUserInfo" class="button" bindgetuserinfo="bindgetuserinfo"></button>
+</view>
+
+<!-- <button class="posa" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo"></button> -->

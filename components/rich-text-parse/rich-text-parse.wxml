@@ -1,0 +1,6 @@
+<!--components/rich-text-parse/rich-text-parse.wxml-->
+<import src="./wxParse/wxParse.wxml"/>
+<view class="html">
+  <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+</view>
+

@@ -1,0 +1,139 @@
+<!--pages/pages-list/order-details/order-details.wxml-->
+<view class="order-details">
+  <!-- 地址 自采 1 预约 2 -->
+  <view class="address">
+    <view class="since-mining" wx:if="{{type === 1}}">
+      <view class="tab">
+        <image 
+          wx:for="{{2}}" 
+          wx:key="index" 
+          hidden="{{shippingType === index}}" 
+          bindtap="tabClick"
+          data-index="{{index}}"
+          src="{{$state.ASSETSURL}}order-details/{{index}}.png">
+        </image>
+      </view>
+      <view class="address-info">
+        <!-- 暂无地址 -->
+        <view 
+          class="no-address flex-ali" 
+          wx:if="{{!$state.addressInfo.id&&shippingType===0}}"
+          bindtap="getShippingAddressClick">
+          <text>暂无收货地址，去添加</text>
+          <image src="{{$state.ASSETSURL}}order-details/3.png"></image>
+        </view>
+        <!-- 地址 -->
+        <view class="flex-col address-shown" wx:if="{{$state.addressInfo.id || shippingType===1}}">
+          <view class="justify-between group_6">
+            <text class="text_3">{{shippingType === 0 ? '收货地址'  : '自提门店'}}：</text>
+            <view class="flex-row group_7" bindtap="getShippingAddressClick" wx:if="{{shippingType === 0}}">
+              <text class="text_4">更换</text>
+              <image
+                src="{{$state.ASSETSURL}}order-details/4.png"
+                class="image_7"
+              />
+            </view>
+          </view>
+          <view class="text_5">
+            <text>{{shippingType === 0 ? $state.addressInfo.real_name : '湘江中路门店'}}</text>
+            <text>{{shippingType === 0 ? $state.addressInfo.phone : ''}}</text>
+          </view>
+          <view class="flex-row group_8">
+            <text class="text_6">{{shippingType === 0 ? $state.addressInfo.province+$state.addressInfo.city+$state.addressInfo.district : '海南省海口市龙华区港湾路复兴城e区e座1楼'}}</text>
+            <text class="text_7">{{shippingType === 0 ? $state.addressInfo.detail : ''}}</text>
+          </view>
+          <view class="business-hours" wx:if="{{shippingType === 1}}">
+            <view>营业时间</view>
+            <view>上午 9:00-12:00     下午 2:30-6:00（周一至周五）</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="make" wx:if="{{type === 2}}">
+      <view>检验地址：</view>
+      <view>{{$state.addressInfo.province}}{{$state.addressInfo.city}}{{$state.addressInfo.district}}{{$state.addressInfo.detail}}</view>
+    </view>
+  </view>
+  <!-- 商品信息 -->
+  <orders-goods wx:for="{{cartInfo}}" wx:key="id" object="{{item}}"></orders-goods>
+  <!-- 预留电话 -->
+  <view class="flex-col buyer-message" wx:if="{{shippingType === 1}}">
+    <view class="justify-between group_17 flex-ali-bet">
+      <text class="text_20">预留电话</text>
+      <view class="flex-row group_18">
+        <input bindinput="shippingMobileChange" class="text_21" type="number" placeholder="请输入您的电话号码"/>
+      </view>
+    </view>
+  </view>
+  <!-- 优惠券 -->
+  <view class="flex-col coupons">
+    <!-- 优惠券 -->
+    <coupons 
+      couponPrice="{{beUseCoupon.coupon_price}}" 
+      usableCoupon="{{usableCoupon}}" 
+      unUsableCoupon="{{unUsableCoupon}}"
+      couponsType="{{couponsType}}"
+      beUseCoupon="{{beUseCoupon}}"
+      usableCouponIndex="{{usableCouponIndex}}"
+      bindconfirmCouponClick="confirmCouponClick"
+      bindswitchCouponsType="switchCouponsType"
+      bindswitchUsableCouponIndex="switchUsableCouponIndex"
+      bindpopChange="couponsPopChange">
+    </coupons>
+    <!-- 活动后期再说 -->
+    <!-- <view class="justify-between group_14" wx:if="{{false}}">
+      <text class="text_16">活动</text>
+      <view class="flex-row group_15">
+        <text class="text_17">两件95折</text>
+        <image
+          src="{{$state.ASSETSURL}}order-details/2.png"
+          class="image_9 image_11"
+        />
+      </view>
+    </view> -->
+  </view>
+  <!-- 交货方式 买家留言 -->
+  <view class="flex-col buyer-message">
+    <view class="justify-between group_16" wx:if="{{type === 1}}">
+      <text class="text_18">交货方式</text>
+      <text class="text_19">{{shippingType === 0 ? '快递配送' : '门店自提'}}</text>
+    </view>
+    <view class="justify-between group_17 flex-ali-bet">
+      <text class="text_20">买家留言</text>
+      <view class="flex-row group_18">
+        <input bindinput="markChange" class="text_21" type="text" placeholder="（留言建议200字以内）"/>
+      </view>
+    </view>
+  </view>
+  <!-- 价格 -->
+  <view class="flex-col price">
+    <view class="justify-between">
+      <text class="text_22">商品总价</text>
+      <text class="text_23">￥{{totalPrice}}</text>
+    </view>
+    <view class="justify-between group_20" wx:if="{{type === 1}}">
+      <text class="text_24">运费</text>
+      <text class="text_25">￥0.00</text>
+    </view>
+    <view class="justify-between group_21">
+      <text class="text_26">店铺活动</text>
+      <text class="text_27">-￥0.00</text>
+    </view>
+    <view class="justify-between group_22">
+      <text class="text_28">优惠券</text>
+      <text class="text_29">-￥{{coupon_price}}</text>
+    </view>
+  </view>
+  <view class="placeholder"></view>
+  <!-- 提交订单 -->
+  <view class="justify-end submit-orders">
+    <view class="group_23">
+      <text class="text_30">总计：</text>
+      <text class="text_31">￥</text>
+      <text class="text_32">{{payPrice}}</text>
+    </view>
+    <view class="flex-col items-center text-wrapper_1" bindtap="paymentClick"><text class="text_33">提交订单</text></view>
+  </view>
+</view>
+
+<show-pop show="{{show}}" type="1"></show-pop>

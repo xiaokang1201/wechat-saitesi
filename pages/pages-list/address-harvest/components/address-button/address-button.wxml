@@ -1,0 +1,4 @@
+<!--pages/pages-list/address-harvest/address-button/address-button.wxml-->
+<view class="address-button">
+  <view class="flex-cen-ali">{{addressButton}}</view>
+</view>

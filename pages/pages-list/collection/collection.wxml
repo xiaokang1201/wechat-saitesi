@@ -1,0 +1,12 @@
+<!--pages/pages-list/collection/collection.wxml-->
+<view>
+  <search 
+    bindinputConfirm="inputConfirm" 
+    type="3"
+    placeholder="搜索">
+  </search>
+  <goods-list 
+    list="{{list}}" 
+    loadMoreType="{{loadMoreType}}">
+  </goods-list>
+</view>

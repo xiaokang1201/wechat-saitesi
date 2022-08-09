@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "选择受检人",
+  "usingComponents": {
+    "search": "/components/search/search"
+  }
+}

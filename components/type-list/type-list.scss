@@ -1,0 +1,40 @@
+/* components/type-list/type-list.wxss */
+.scroll-view {
+  // display: inline-flex;
+  .type-list {
+    padding: 30rpx 30rpx 0 40rpx;
+    min-width: 100vw;
+    background-color: #ffffff;
+    display: inline-flex;
+    white-space: nowrap;
+    .item {
+      &:not(:last-of-type) {
+        margin-right: 74rpx;
+      }
+      &.cur {
+        text {
+          font-weight: 700;
+          font-size: 32rpx;
+          color: #0B357A;
+        }
+        view {
+         opacity: 1;
+        }
+      }
+      text {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30rpx;
+        color: #585B61;
+        margin-bottom: 14rpx;
+      }
+      view {
+        width: 40rpx;
+        height: 6rpx;
+        background: #0B357A;
+        opacity: 0;
+      }
+    }
+  }
+}

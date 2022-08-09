@@ -1,0 +1,297 @@
+/* pages/pages-list/distribution-center/distribution-center.wxss */
+.page {
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  .flex-row {
+    flex-direction: row;
+  }
+  .section_1 {
+    background-image: linear-gradient(180deg, #e3ecfb 56%, #f3f4f8 100%);
+    .group {
+      margin-left: 30.5rpx;
+      height: 38rpx;
+    }
+    .group_2 {
+      padding: 20rpx 0 220rpx 30.5rpx;
+      .image-wrapper {
+        padding: 32.5rpx 0;
+        background-color: #d8dde7;
+        border-radius: 50%;
+        width: 152rpx;
+        height: 152rpx;
+        .image_4 {
+          overflow: hidden;
+          width: 90rpx;
+          height: 87rpx;
+        }
+      }
+      .group_3 {
+        margin-left: 29.5rpx;
+        margin-top: 17.5rpx;
+        flex: 1 1 auto;
+        .group_5 {
+          margin-top: 25rpx;
+          .section_2 {
+            margin-right: -538rpx;
+            padding: 37rpx 0;
+            background-image: url('https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16584709370086682706.png');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            width: 212rpx;
+            height: 130rpx;
+            .section_3 {
+              padding: 14rpx 15rpx 16rpx;
+              border-radius: 4rpx;
+              border: solid 1rpx #0b357a;
+              .text_2 {
+                color: #0b357a;
+                font-size: 26rpx;
+                font-family: Source Han Sans CN;
+                line-height: 24rpx;
+              }
+              .image_5 {
+                margin: 4rpx 0 2rpx 6rpx;
+                flex-shrink: 0;
+                width: 9rpx;
+                height: 18rpx;
+              }
+            }
+          }
+          .text-wrapper {
+            margin-right: 382rpx;
+            margin-top: 5rpx;
+            padding: 9rpx 0 10rpx;
+            background-color: #0b357a;
+            border-radius: 20.5rpx;
+            width: 156rpx;
+            height: 41rpx;
+            .text_3 {
+              color: #ffffff;
+              font-size: 24rpx;
+              font-family: Source Han Sans CN;
+              line-height: 22rpx;
+            }
+            &.cur {
+              background-color: #F7B35A;
+            }
+          }
+        }
+        .text {
+          color: #010204;
+          font-size: 34rpx;
+          font-family: Source Han Sans CN;
+          line-height: 31.5rpx;
+        }
+        .text_1 {
+          margin: 5.5rpx 74.5rpx 4.5rpx 0;
+          color: #575a60;
+          font-size: 24rpx;
+          font-family: Source Han Sans CN;
+          line-height: 21.5rpx;
+        }
+      }
+    }
+  }
+  .group_6 {
+    margin-top: -227rpx;
+    padding-top: 227rpx;
+    position: relative;
+    .section_4 {
+      padding-top: 136rpx;
+      background-image: linear-gradient(180deg, #f3f4f8 0%, #f3f4f8 62%, #f9f9f9 100%);
+      .section_5 {
+        margin: 0 30rpx;
+        padding-bottom: 227rpx;
+        background-color: #ffffff;
+        border-radius: 8rpx;
+        .list-item {
+          padding: 27rpx 16.5rpx 30rpx 20rpx;
+          .group_10 {
+            margin-top: 2.5rpx;
+            .group_11 {
+              align-self: flex-end;
+              line-height: 26rpx;
+              .text_8 {
+                color: #575a60;
+                font-size: 28rpx;
+                font-family: Source Han Sans CN;
+                line-height: 26rpx;
+              }
+              .text_10 {
+                color: #e43b3b;
+                font-size: 28rpx;
+                font-family: Source Han Sans CN;
+                line-height: 23.5rpx;
+              }
+            }
+            .group_12 {
+              margin-top: 17.5rpx;
+              .text_12 {
+                color: #9d9d9d;
+                font-size: 24rpx;
+                font-family: Source Han Sans CN;
+                line-height: 22rpx;
+              }
+              .text_14 {
+                margin-left: 12.5rpx;
+                color: #9d9d9d;
+                font-size: 24rpx;
+                font-family: Source Han Sans CN;
+                line-height: 22rpx;
+              }
+            }
+          }
+          .image_6 {
+            width: 68rpx;
+            height: 68rpx;
+          }
+          .group_9 {
+            margin-left: 21rpx;
+            .text_4 {
+              color: #575a60;
+              font-size: 28rpx;
+              font-family: Source Han Sans CN;
+              line-height: 25.5rpx;
+            }
+            .text_6 {
+              margin-top: 22rpx;
+              color: #9d9d9d;
+              font-size: 24rpx;
+              font-family: Source Han Sans CN;
+              line-height: 18rpx;
+            }
+          }
+        }
+        .list-divider {
+          margin: 0 20rpx;
+          background-color: #e5e5e5;
+          height: 1rpx;
+        }
+      }
+    }
+    .equal-division {
+      position: absolute;
+      left: 30rpx;
+      right: 30rpx;
+      top: 0;
+      .equal-division-item {
+        padding-top: 53rpx;
+        flex: 1 1 335rpx;
+        background-color: #ffffff;
+        border-radius: 8rpx;
+        height: 340rpx;
+        .group_21 {
+          align-self: center;
+          line-height: 36.5rpx;
+          .text_40 {
+            color: #010204;
+            font-size: 48rpx;
+            font-family: Source Han Sans CN;
+            line-height: 36.5rpx;
+          }
+          .text_41 {
+            color: #010204;
+            font-size: 30rpx;
+            font-family: Source Han Sans CN;
+            line-height: 23rpx;
+          }
+        }
+        .text_42 {
+          margin-top: 33rpx;
+          align-self: center;
+          color: #575a60;
+          font-size: 30rpx;
+          font-family: Source Han Sans CN;
+          line-height: 28rpx;
+        }
+        .text-wrapper_1 {
+          margin-top: 37.5rpx;
+          padding: 17.5rpx 0 18.5rpx;
+          align-self: center;
+          border-radius: 4rpx;
+          width: 150rpx;
+          border: solid 1rpx #0b357a;
+          .text_43 {
+            color: #0b357a;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 26rpx;
+          }
+        }
+        .group_22 {
+          margin-top: 32rpx;
+          align-self: center;
+          line-height: 24rpx;
+          .text_44 {
+            color: #010204;
+            font-size: 26rpx;
+            font-family: Source Han Sans CN;
+            line-height: 24rpx;
+          }
+          .text_45 {
+            color: #e43b3b;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 21.5rpx;
+          }
+        }
+        .view_20 {
+          margin-top: 15rpx;
+        }
+      }
+      .equal-division-item_1 {
+        margin-left: 20rpx;
+        flex: 1 1 335rpx;
+        background-color: #ffffff;
+        border-radius: 8rpx;
+        height: 340rpx;
+        .group_23 {
+          padding: 53rpx 0 71rpx;
+          .group_24 {
+            line-height: 36.5rpx;
+            .text_46 {
+              color: #010204;
+              font-size: 48rpx;
+              font-family: Source Han Sans CN;
+              line-height: 36.5rpx;
+            }
+            .text_47 {
+              color: #010204;
+              font-size: 30rpx;
+              font-family: Source Han Sans CN;
+              line-height: 23rpx;
+            }
+          }
+          .text_48 {
+            margin-top: 33rpx;
+            color: #575a60;
+            font-size: 30rpx;
+            font-family: Source Han Sans CN;
+            line-height: 28rpx;
+          }
+          .text-wrapper_2 {
+            margin-top: 37.5rpx;
+            padding: 17.5rpx 0 19rpx;
+            border-radius: 4rpx;
+            width: 150rpx;
+            border: solid 1rpx #0b357a;
+            .text_49 {
+              color: #0b357a;
+              font-size: 28rpx;
+              font-family: Source Han Sans CN;
+              line-height: 25.5rpx;
+            }
+          }
+        }
+      }
+      .section_6 {
+        background-color: #0b357a80;
+        border-radius: 0px 0px 8rpx 8rpx;
+        height: 16rpx;
+      }
+    }
+  }
+}

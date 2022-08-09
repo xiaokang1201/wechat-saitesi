@@ -1,0 +1,33 @@
+<!--pages/pages-list/address-harvest/address-add-edit/address-add-edit.wxml-->
+<view class="address-add-edit">
+  <view 
+    wx:for="{{address}}" 
+    wx:key="index"
+    class="address-item flex-ali-bet">
+    <view class="name">{{item.name}}</view>
+    <view class="info flex-ali-bet">
+      <!-- 联系人、手机号码、街道地址 -->
+      <input 
+        type="{{index === 1 ? 'number' : 'text'}}" 
+        class="flex-ali value" 
+        disabled="{{index === 2 || index === 4}}" 
+        bindinput="inputChange"
+        data-index="{{index}}"
+        placeholder="{{item.placeholder}}" 
+        placeholder-class="placeholder-class"
+        value="{{index === 4 ? '' : item.value}}"
+        maxlength="{{item.maxlength}}"
+        />
+      <!-- 选择地区 -->
+      <block wx:if="{{index === 2}}" >
+        <picker bindchange="pickerChange" mode="region" class="poa"><view class="poa"></view></picker>
+        <image class="img-right" src="./images/right.png"></image>
+      </block>
+      <!-- 设为默认 -->
+      <image class="default-img" bindtap="defaultClick" wx:if="{{index === 4}}" src="../images/{{item.value === 1 ? 1 : 0}}.png"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 保存按钮 -->
+<address-button bindtap="saveAddressClick" addressButton="保存"></address-button>

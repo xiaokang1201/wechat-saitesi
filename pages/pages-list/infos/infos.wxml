@@ -1,0 +1,13 @@
+<!--pages/pages-list/infos/infos.wxml-->
+<view class="infos">
+  <search 
+    type="2" 
+    placeholder="请输入想要搜索内容"
+    bindsearchClick="searchClick">
+  </search>
+  
+  <info-list 
+    loadMoreType="{{loadMoreType}}" 
+    list="{{list}}">
+  </info-list>
+</view>

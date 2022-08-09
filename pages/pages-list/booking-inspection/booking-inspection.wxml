@@ -1,0 +1,87 @@
+<!--pages/pages-list/booking-inspection/booking-inspection.wxml-->
+<view class="flex-col booking-inspection">
+  <image
+    src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16583722599244562482.png"
+    class="image_6"
+  />
+  <view class="flex-col section_3">
+    <view class="justify-between">
+      <view class="group_6">
+        <text class="text_3">¥</text>
+        <text class="text_4">687</text>
+      </view>
+      <text class="text_5">已有1000+人预约</text>
+    </view>
+    <text class="text_6">商品名称商品名称商品名称商品名称商品名称</text>
+  </view>
+  <view class="flex-col group_7">
+    <view class="flex-col">
+      <view class="flex-col section_4">
+        <text class="text_7">信息登记</text>
+        <view class="flex-col group_9">
+          <view class="justify-between group_10">
+            <text class="text_8">姓名</text>
+            <input class="text_11" placeholder="请输入" type="text"/>
+          </view>
+          <view class="justify-between group_12">
+            <text class="text_10">年龄</text>
+            <input class="text_11" placeholder="请输入" type="text"/>
+          </view>
+          <view class="justify-between group_13">
+            <text class="text_12">性别</text>
+            <view class="flex-row">
+              <view class="flex-row">
+                <image
+                  src="{{$state.ASSETSURL}}booking-inspection/1.png"
+                  class="image_7"
+                />
+                <text class="text_13">男</text>
+              </view>
+              <view class="flex-row group_16">
+                <image
+                  src="{{$state.ASSETSURL}}booking-inspection/0.png"
+                  class="image_7"
+                />
+                <text class="text_14">女</text>
+              </view>
+            </view>
+          </view>
+          <view class="justify-between group_17">
+            <text class="text_15">手机号</text>
+            <input class="text_11" placeholder="请输入" type="text"/>
+          </view>
+        </view>
+      </view>
+      <view class="flex-col section_6">
+        <text class="text_17">预约信息</text>
+        <view class="flex-col group_22">
+          <view class="justify-between group_19">
+            <text class="text_18">选择检测机构</text>
+            <view class="flex-row">
+              <text class="text_19">请选择</text>
+              <image
+                src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16583722599197704513.png"
+                class="image_8"
+              />
+            </view>
+          </view>
+          <picker mode="date">
+            <view class="justify-between group_21">
+              <text class="text_20">选择预约时间</text>
+              <view class="flex-row">
+                <text class="text_21">请选择</text>
+                <image
+                  src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16583722599197704513.png"
+                  class="image_8"
+                />
+              </view>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+    <view class="flex-col items-center button" bindtap="submit"><text class="text_22">提交</text></view>
+  </view>
+</view>
+
+<show-pop show="{{show}}" type="2" bindevent2="shutDown"></show-pop>

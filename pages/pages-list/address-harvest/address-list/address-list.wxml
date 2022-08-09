@@ -1,0 +1,16 @@
+<!--pages/pages-list/harvest-address/address-list/address-list.wxml-->
+<view class="address-list">
+  <!-- 地址列表 -->
+  <list-address 
+    wx:if="{{addressList.length>0}}" 
+    list="{{addressList}}"
+    binditemClick="addressItemClick"
+    binditemEditClick="addressItemEditClick"
+    binditemDeleteClick="addressItemDeleteClick"
+    binditemDefaultClick="itemDefaultClick">
+  </list-address>
+  <!-- 地址列表为空 -->
+  <address-empty wx:else></address-empty>
+  <!-- 新增按钮 -->
+  <address-button bindtap="addAddressClick"></address-button>
+</view>

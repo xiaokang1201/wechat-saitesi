@@ -1,0 +1,139 @@
+<!--pages/pages-list/inspection-booking-order-details/inspection-booking-order-details.wxml-->
+<view class="inspection-booking-order-details">
+  <!-- 订单状态 -->
+  <view class="status flex-ali-bet">
+    <text>{{statusList[orderDetail._status._type].text}}</text>
+    <image src="{{$state.ASSETSURL}}inspection-booking-order-details/0.png"></image>
+  </view>
+  <!-- 检验地址 -->
+  <view class="check-address">
+    <view>检验地址:</view>
+    <view>海南省海口市龙华区港湾路复兴城e区e座1楼</view>
+  </view>
+  <!-- 商品信息 -->
+  <!-- <view class="goods-info flex">
+    <image src="{{$state.ASSETSURL}}inspection-booking-order-details/6.png"></image>
+    <view class="flex-col-bet">
+      <view>白茶净颜细致调理乳</view>
+      <view>小款</view>
+      <view>￥566.00</view>
+      <text>x1</text>
+    </view>
+  </view> -->
+  
+  <orders-goods wx:for="{{orderDetail.cartInfo}}" wx:key="id" object="{{item}}"></orders-goods>
+  <!-- 优惠券/活动 -->
+  <view class="coupon-activity">
+    <view class="flex-ali-bet">
+      <text>优惠券</text>
+      <text>{{orderDetail.coupon.coupon_title}}</text>
+    </view>
+    <!-- <view class="flex-ali-bet">
+      <text>活动</text>
+      <text>两件95折</text>
+    </view> -->
+  </view>
+  <!-- 商品总价、店铺活动、优惠券 -->
+  <view class="price-activity-coupon">
+    <view class="flex-ali-bet">
+      <text>商品总价</text>
+      <text>￥{{orderDetail.total_price}}</text>
+    </view>
+    <!-- <view class="flex-ali-bet">
+      <text>店铺活动</text>
+      <text>-￥5.00</text>
+    </view> -->
+    <view class="flex-ali-bet">
+      <text>优惠券</text>
+      <text>-￥{{orderDetail.coupon.coupon_price || '0.00'}}</text>
+    </view>
+  </view>
+  <view class="flex-col group_27" wx:if="{{orderDetail._status._type !== 0}}">
+    <view class="flex-col group_28">
+      <view class="justify-between">
+        <text class="text_43">付款方式</text>
+        <text class="text_44">微信支付</text>
+      </view>
+      <view class="justify-between group_30">
+        <text class="text_45">订单编号</text>
+        <view class="flex-row group_31">
+          <text class="text_46">{{orderDetail.order_id}}</text>
+          <text class="text_47" bindtap="copyOrderSn">复制</text>
+        </view>
+      </view>
+      <view class="justify-between group_32">
+        <text class="text_48">创建时间</text>
+        <text class="text_49">{{orderDetail._add_time}}</text>
+      </view>
+      <view class="justify-between group_33">
+        <text class="text_50">付款时间</text>
+        <text class="text_51">{{orderDetail._pay_time}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 占位 -->
+  <view class="placeholder"></view>
+  <!-- 底部操作按钮 -->
+  <view class="actions-botton flex-row">
+    <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none"
+        bindtap="apiOrderPay"
+        wx:if="{{status === 0}}">
+        付款
+      </button>
+    </view>
+    <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none"
+        bindtap="evaluationOrderClick"
+        wx:if="{{status === 1 || status === 3}}">
+        {{status === 1 ? '登记预约' : '重新预约'}}
+      </button>
+    </view>
+    <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none"
+        bindtap="applyAfterSalesClick"
+        wx:if="{{status === 2}}">
+        申请售后
+      </button>
+    </view>
+    <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none" 
+        open-type="contact"
+        wx:if="{{status === 3}}">
+        联系客服
+      </button>
+    </view>
+    <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none"
+        bindtap="evaluationOrderClick"
+        wx:if="{{status === 5}}">
+        待评价
+      </button>
+    </view>
+    <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none"
+        wx:if="{{status === 5}}">
+        查看报告
+      </button>
+    </view>
+    <!-- <view>
+      <button 
+        class="flex-ali-cen" 
+        hover-class="none">
+        申请开票
+      </button>
+    </view> -->
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!--pages/pages-list/search-list/search-list.wxml-->
+<view class="search-list">
+  <search 
+    type="2" 
+    focus="{{focus}}" 
+    value="{{keyword}}"
+    bindsearchClick="searchClick" 
+    bindinputChange="inputChange">
+  </search>
+  <!-- 搜索历史 -->
+  <search-history 
+    wx:if="{{showHistory}}" 
+    list="{{searchHistoryList}}"
+    bindhistoryItemClick="historyItemClick" 
+    binddeleteSearchHistoryClick="deleteSearchHistoryClick">
+  </search-history>
+  <goods-list 
+    wx:else
+    list="{{list}}" 
+    loadMoreType="{{loadMoreType}}">
+  </goods-list>
+</view>

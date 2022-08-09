@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "自采订单",
+  "usingComponents": {
+    "search": "/components/search/search",
+    "type-list": "/components/type-list/type-list",
+    "orders-goods": "/components/orders-goods/orders-goods",
+    "load-more": "/components/load-more/load-more"
+  }
+}

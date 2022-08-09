@@ -1,0 +1,11 @@
+<!--components/select-all-bottom/select-all-bottom.wxml-->
+<view class="select-all-bottom flex-ali-bet">
+  <view class="flex-ali" bindtap="allClick">
+    <image 
+      class="select-img" 
+      src="{{$state.ASSETSURL}}component/select-all-bottom/{{select ? 1 : 0}}.png">
+    </image>
+    <text>全选</text>
+  </view>
+  <view class="button flex-ali-cen">{{text}}</view>
+</view>

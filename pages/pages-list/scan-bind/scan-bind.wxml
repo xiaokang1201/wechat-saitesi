@@ -1,0 +1,105 @@
+<!--pages/pages-list/scan-bind/scan-bind.wxml-->
+<view class="scan-bind">
+  <view class="flex-col group_3">
+    <view class="flex-col group_4">
+      <view class="section_666">
+        <view class="justify-between section_3">
+          <text class="text_1">商品扫描</text>
+          <view class="flex-row">
+            <input class="text_2" type="text" placeholder-class="placeholder-class" placeholder="手动输入"/>
+            <view class="section_4"><!--*--></view>
+            <image
+              src="{{$state.ASSETSURL}}scan-bind/2.png"
+              class="image_6"
+            />
+          </view>
+        </view>
+        <view class="flex-col group_7">
+          <view class="justify-between group_8">
+            <text class="text_3">商品编号</text>
+            <text class="text_4">5246 5465 4316 546</text>
+          </view>
+          <view class="justify-between group_9">
+            <text class="text_5">商品名称</text>
+            <text class="text_6">XFSDF 54-试剂</text>
+          </view>
+        </view>
+      </view>
+      <view class="justify-between group_10">
+          <text class="text_7">受检人信息登记</text>
+          <text class="text_8">选择受检人</text>
+        </view>
+      <view class="flex-col items-center section_5" wx:if="{{false}}">
+        <view class="flex-row">
+          <text class="text_4">选择受检人</text>
+          <image
+            src="{{$state.ASSETSURL}}scan-bind/3.png"
+            class="image_7"
+          />
+        </view>
+      </view>
+      <!-- 信息内容 -->
+      <view class="flex-col section_123" wx:else>
+        <view class="flex-col group_11">
+          <view class="justify-between">
+            <text class="text_9">姓名</text>
+            <text class="text_10">离大陆</text>
+          </view>
+          <view class="justify-between group_13">
+            <text class="text_11">证件类型</text>
+            <view class="flex-row group_14">
+              <text class="text_12">中国居民身份证</text>
+              <image
+                src="{{$state.ASSETSURL}}scan-bind/4.png"
+                class="image_7 image_8"
+              />
+            </view>
+          </view>
+          <view class="justify-between group_15">
+            <text class="text_13">证件号码</text>
+            <text class="text_14">589884895598</text>
+          </view>
+          <view class="justify-between group_16">
+            <text class="text_15">手机号</text>
+            <text class="text_16">15898959874</text>
+          </view>
+          <view class="flex-col group_17">
+            <view class="justify-between group_18">
+              <text class="text_17">采样日期</text>
+              <view class="flex-row group_19">
+                <text class="text_18">2022.06.07</text>
+                <image
+                  src="{{$state.ASSETSURL}}scan-bind/4.png"
+                  class="image_7 image_9"
+                />
+              </view>
+            </view>
+            <view class="justify-between group_20">
+              <text class="text_19">现有疾病</text>
+              <input type="text" placeholder="没有可写无"/>
+            </view>
+            <view class="justify-between group_20">
+              <text class="text_19">用药史</text>
+              <input type="text" placeholder="没有可写无"/>
+            </view>
+            <view class="justify-between group_21">
+              <text class="text_25">家族病史</text>
+              <input type="text" placeholder="没有可写无"/>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="flex-row group_6">
+        <image
+            src="{{$state.ASSETSURL}}scan-bind/0.png"
+          class="image_8"
+        />
+        <text class="text_5">我已同意 用户协议《用户协议内容》、隐私政策《展示公司信息》、基因检测知情同意书</text>
+      </view>
+    </view>
+    <view class="flex-col section_6">
+      <view class="flex-col items-center button_1"><text class="text_6">提交</text></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/pages-list/message-center/message-center.wxml-->
+<view class="flex-col group_4">
+  <text class="text_3">消息（{{list.length}}）</text>
+  <view class="flex-col list">
+    <block wx:for-item="item" wx:for-index="i" wx:for="{{list}}">
+      <view class="justify-between group_8" wx:key="id">
+        <view class="flex-row">
+          <image
+            src="{{$state.ASSETSURL}}message-center/0.png"
+            class="image_6"
+          />
+          <view class="flex-col items-start view_3">
+            <text class="text_10">系统通知</text>
+            <text class="text_11">{{item.content}}</text>
+          </view>
+        </view>
+        <text class="text_9">{{item.create_time}}</text>
+      </view>
+      <view class="list-divider" wx:if="{{i !== (list.length-1)}}"></view>
+    </block>
+  </view>
+  <load-more loadMoreType="{{loadMoreType}}"></load-more>
+</view>

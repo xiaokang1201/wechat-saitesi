@@ -1,0 +1,86 @@
+/* pages/pages-list/goods-details/operation-bar-goods/operation-bar-goods.wxss */
+.operation-bar-goods {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  padding-bottom: calc(env(safe-area-inset-bottom) / 2);
+  background-color: #ffffff;
+  z-index: 999;
+  box-shadow: 0 -4rpx 16rpx 0 rgba(0,0,0,0.06); 
+}
+
+.operation-bd {
+  padding: 18rpx 0;
+  font-size: 20rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #4e4e4e;
+}
+
+.operation-bd view {
+  position: relative;
+}
+
+.operation-bd .poa {
+  opacity: 0;
+}
+
+.operation-bd image {
+  width: 52rpx;
+  height: 52rpx;
+}
+
+.addCart, .buyNow {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 500;
+  width: 232rpx;
+  height: 90rpx;
+  border: 2rpx solid #0B357A;
+}
+
+.addCart {
+  background: #ffffff;
+  color: #0B357A;
+}
+
+.buyNow {
+  background: #0B357A;
+  color: #ffffff;
+}
+
+.buyNow.seckill-bargain {
+  width: 558rpx;
+  height: 86rpx;
+  background: #f23d6b;
+  border: none;
+  margin-right: 30rpx;
+}
+.operation-bd {
+  .action {
+    padding-left: 21rpx;
+    button {
+      width: 100%;
+      padding: 0;
+      z-index: 9;
+    }
+    >view {
+      &:not(:first-of-type) {
+        margin-left: 40rpx;
+      }
+      >image {
+        width: 38rpx;
+        height: 38rpx;
+        margin-bottom: 10rpx;
+      }
+      >view {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20rpx;
+        color: #585B61;
+      }
+    }
+  }
+}

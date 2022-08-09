@@ -1,0 +1,128 @@
+<!--pages/pages-list/goods-details/goods-details.wxml-->
+<view class="goods-details">
+  <!-- 轮播图 -->
+  <view class="swiper-box">
+    <swiper class="swiper" circular bindchange="swiperChange">
+      <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
+        <image mode="aspectFill" src="{{$state.ASSETSURL}}goods-details/0.png"></image>
+      </swiper-item>
+    </swiper>
+    <view class="swiper-pagination-page">
+      <view class="page-number">{{swiperIndex+1}}/{{swiperList.length}}</view>
+    </view>
+  </view>
+  <!-- 商品价格、类型、名称 -->
+  <view class="price-type-title">
+    <view class="flex-ali-bet">
+      <view class="price">¥{{goodsInfo.price}}</view>
+      <image src="{{$state.ASSETSURL}}goods-details/1.png"></image>
+    </view>
+    <view class="flex-end">
+      <view class="type type{{goodsInfo.type}}">{{goodsInfo.type === 1 ? '自采' : '预约'}}</view>
+      <view class="title ell2">{{goodsInfo.store_name}}</view>
+    </view>
+  </view>
+  <!-- 规格、优惠券 -->
+  <view class="specifications-coupons">
+    <view class="specifications flex" bindtap="specificationsClick">
+      <view class="choose">选择</view>
+      <view class="current-choose flex-ali-bet">
+        <view>
+          <text 
+            wx:for="{{productAttr}}" 
+            wx:key="index">
+            <block 
+              wx:for="{{item.attr_value}}" 
+              wx:if="{{attrValueItem.check}}" 
+              wx:key="attrValueIndex" 
+              wx:for-index="attrValueIndex"
+              wx:for-item="attrValueItem">{{attrValueItem.attr}}</block>
+            <block wx:if="{{index<productAttr.length-1}}">/</block>
+          </text>
+        </view>
+        <image src="{{$state.ASSETSURL}}goods-details/2.png"></image>
+      </view>
+      <!-- <view class="specification-list flex">
+        <view class="specification-item">规格一</view>
+      </view> -->
+    </view>
+    <view class="coupons flex-ali-bet">
+      <text>优惠券</text>
+      <view>
+        <text>{{coupons}}张可用</text>
+        <!-- <image src="{{$state.ASSETSURL}}goods-details/2.png"></image> -->
+      </view>
+    </view>
+  </view>
+  <!-- 评论 -->
+  <view class="comment">
+    <!-- 精选评论、查看更多 -->
+    <view class="comment-head flex-ali-bet">
+      <view>
+        <text>精选评论</text>
+        <text>({{goodsInfo.all_comments}})</text>
+      </view>
+      <view class="flex-ali" bindtap="viewMoreClick">
+        <text>查看更多</text>
+        <image src="{{$state.ASSETSURL}}goods-details/3.png"></image>
+      </view>
+    </view>
+    <!-- 评论 -->
+    <list-comment list="{{goodsInfo.comments}}"></list-comment>
+  </view>
+  
+  <!-- 详情 -->
+  <rich-text-parse nodes="{{goodsInfo.description}}"></rich-text-parse>
+  <view class="placeholder"></view>
+  <!-- 商品底部操作条 -->
+  <operation-bar-goods
+    bindservice="serviceClick"
+    bindcollection="collectionClick"
+    bindaddCart="addCartClick"
+    bindbuyNow="buyNowClick"
+    goodsInfo="{{goodsInfo}}">
+  </operation-bar-goods>
+</view>
+
+
+<show-pop show="{{show}}" position="bottom" zIndex="1000">
+  <view class="specifications-pop">
+    <image bindtap="hiddenPop" class="shut-down" src="{{$state.ASSETSURL}}goods-details/4.png" ></image>
+    <view class="content">
+      <view class="goods-info flex">
+        <image src="{{productValue[productValueKey].image}}" mode="aspectFill"></image>
+        <view class="goods-price-stock">
+          <view><text>￥</text><text>{{productValue[productValueKey].price}}</text></view>
+          <view>剩余{{productValue[productValueKey].stock || 0}}件</view>
+        </view>
+      </view>
+      <view class="specifications-list">
+        <scroll-view scroll-y class="scroll-view">
+          <block wx:for="{{productAttr}}" wx:key="index">
+           <view class="title">{{item.attr_name}}</view>
+            <view class="flex-wra">
+              <view 
+                class="item {{attrValueItem.check ? 'cur' : ''}}" 
+                wx:for="{{item.attr_value}}" 
+                wx:key="attrValueIndex" 
+                wx:for-index="attrValueIndex"
+                wx:for-item="attrValueItem"
+                data-index="{{index}}"
+                data-attr-value-index="{{attrValueIndex}}"
+                bindtap="attrValueItemClick">
+                {{attrValueItem.attr}}
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <view class="flex-ali-bet">
+        <view class="buy-number">购买数量</view>
+        <number-add-reduce bindnumberChange="numberChange"></number-add-reduce>
+      </view>
+    </view>
+    <view class="button">
+      <view class="flex-ali-cen" bindtap="submit">确认</view>
+    </view>
+  </view>
+</show-pop>

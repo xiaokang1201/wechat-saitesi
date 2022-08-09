@@ -1,0 +1,38 @@
+/* pages/pages-list/set-up/set-up.wxss */
+.group_3 {
+  padding-top: 19.5rpx;
+  min-height: 100vh;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  background: #F8F8F8;
+  .section_3 {
+    padding: 26rpx 32rpx 31rpx;
+    background-color: #ffffff;
+    border-bottom: solid 1rpx #dddddd;
+    .text_1 {
+      margin-bottom: 6rpx;
+      color: #010204;
+      font-size: 28rpx;
+      font-family: Roboto;
+      line-height: 26rpx;
+    }
+    .image_7 {
+      margin-right: 7rpx;
+      margin-top: 7rpx;
+    }
+  }
+  .feedback {
+    opacity: 0;
+    position: absolute;
+    padding: 0;
+    top: 100rpx;
+    height: 90rpx;
+    width: 100%;
+    left: 0;
+    z-index: 2;
+  }
+  .image_6 {
+    width: 16rpx;
+    height: 25rpx;
+  }
+}

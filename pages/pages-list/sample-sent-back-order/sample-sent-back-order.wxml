@@ -1,0 +1,90 @@
+<!--pages/pages-list/sample-sent-back-order/sample-sent-back-order.wxml-->
+<view class="sample-sent-back-order">
+  <!-- 寄回货物 -->
+  <view class="list">
+    <view class="item flex-ali" wx:for="{{list}}" wx:key="id">
+      <view>
+        <view class="bar-code">条形码  564654678</view>
+        <view class="flex"> 
+          <image class="sample-img" src="{{$state.ASSETSURL}}sample-sent-back/2.png"></image>
+          <view class="position position{{typeIndex}}">
+            <view class="sample-name">产品名称产品名称</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="look-more flex-ali-cen">
+    <image src="{{$state.ASSETSURL}}sample-sent-back-order/0.png"></image>
+  </view>
+  <!-- 发货信息 -->
+  <view class="delivery-info">
+    <!-- 发货地址 -->
+    <view class="flex-ali-bet delivery-address">
+      <view>发货地址</view>
+      <view class="flex-ali">
+        <text>选择地址</text>
+        <image class="" src="{{$state.ASSETSURL}}sample-sent-back-order/1.png"></image>
+      </view>
+    </view>
+    <!-- 发货人、电话、取件地址 -->
+    <view class="item flex-ali-bet" wx:for="{{form}}" wx:key="index">
+      <text>{{item.name}}</text>
+      <input type="text" placeholder="请输入" placeholder-class="placeholder-class"/>
+    </view>
+    <!-- 取件时间 -->
+    <view class="take-time flex-ali-bet">
+      <text>取件时间</text>
+      <view class="flex-ali" bindtap="pickTimeClick">
+        <text>{{timeValue1.length === 0 ? '请选择' : dateList[timeValue1[0]] + ' '+ timeList[timeValue1[1]] + ' 一 ' + timeList[timeValue1[1]+1] }}</text>
+        <image src="{{$state.ASSETSURL}}sample-sent-back-order/1.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 收货地址 -->
+  <view class="shipping-address">
+    <view class="title">收货地址</view>
+    <view>
+      <view>
+        <text class="name">张晓伟</text>
+        <text class="mobile">136999999</text>
+      </view>
+      <view class="address">海南省海口市龙华区港湾路复兴城e区e座1楼</view>
+    </view>
+  </view>
+  <!-- 备注 -->
+  <view class="note">
+    <view>备注</view>
+    <input type="text" placeholder="请输入备注"/>
+  </view>
+  <view class="placeholder"></view>
+  <!-- 确认寄回 -->
+  <view class="confirm-mail">
+    <view class="flex-ali-cen">确认寄回</view>
+  </view>
+  <!-- 选择上门时间 -->
+  <show-pop show="{{show}}" position="bottom">
+    <view class="choose-time-pop">
+      <view class="title flex-ali-bet">
+        <text bindtap="cancel">取消</text>
+        <text>选择上门时间</text>
+        <text bindtap="confirm">确定</text>
+      </view>
+      <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="pickerChange">
+        <picker-view-column>
+          <view wx:for="{{dateList}}" wx:key="index" style="line-height: 50px; text-align: center;">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <block wx:for="{{timeList}}" wx:key="index">
+            <view 
+              wx:if="{{timeList[index+1]}}"
+              style="line-height: 50px; text-align: center;">
+              {{item}} 一 {{timeList[index+1]}} 
+            </view>
+          </block>
+          <!-- <view style="line-height: 50px; text-align: center;" wx:if="{{timeList.length===0}}">超过19:00选择明日</view> -->
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </show-pop>
+</view>

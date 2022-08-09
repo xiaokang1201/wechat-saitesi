@@ -1,0 +1,16 @@
+<!--components/orders-goods/orders-goods.wxml-->
+<view class="orders-goods orders-goods{{type}}">
+  <view class="refund-goods" wx:if="{{type === 1}}">退款商品</view>
+  <view class="number">x{{object.cart_num}}</view>
+  <view class="orders-goods-bd flex">
+    <image src="{{object.thumb}}"></image>
+    <view class="flex-col-bet">
+      <view class="name ell1">{{object.goods_name}}</view>
+      <view class="tag flex-wra">
+        <view wx:for="{{object.sukList}}" wx:key="index">{{item}}</view>
+      </view>
+      <view class="money">￥{{object.price}}</view>
+    </view>
+  </view>
+</view>
+

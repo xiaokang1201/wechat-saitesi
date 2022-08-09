@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "address-button": "../components/address-button/address-button"
+  }
+}

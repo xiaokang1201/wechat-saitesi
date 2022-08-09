@@ -1,0 +1,356 @@
+/* pages/pages-list/order-details/order-details.wxss */
+.order-details {
+  padding: 30rpx;
+  background: #F2F2F2;
+  min-height: 100vh;
+  .placeholder {
+    width: 100vw;
+    height: 180rpx;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .business-hours {
+    border-top: 1rpx solid #E5E5E5;
+    margin-top: 20rpx;
+    >view {
+      &:nth-of-type(1) {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26rpx;
+        color: #9D9D9D;
+        margin: 15rpx 0;
+      }
+      &:nth-of-type(2) {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28rpx;
+        color: #000000;
+      }
+    }
+  }
+  .address {
+    background-color: #ffffff;
+    margin-bottom: 10rpx;
+    .make {
+      padding: 20rpx;
+      view {
+        &:nth-of-type(1) {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 26rpx;
+          color: #9D9D9D;
+          margin-bottom: 22rpx;
+        }
+        &:nth-of-type(2) {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 28rpx;
+          color: #4F5459;
+        }
+      }
+    }
+    .since-mining {
+      .tab {
+        image {
+          width: 690rpx;
+          height: 103rpx;
+        }
+      }
+      .address-info {
+        padding: 25rpx 0 30rpx 0;
+        .no-address {
+          margin: 5rpx auto 10rpx;
+          width: max-content;
+          text {
+            font-family: 'Source Han Sans CN';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28rpx;
+            color: #0B357A;
+            margin-right: 14rpx;
+          }
+          image {
+            width: 10rpx;
+            height: 16rpx;
+          }
+        }
+        .address-shown {
+          padding: 0 30rpx 0 20rpx;
+          background-color: #ffffff;
+          border-radius: 8rpx;
+          .group_6 {
+            padding: 0 3.5rpx;
+            .text_3 {
+              color: #9d9d9d;
+              font-size: 26rpx;
+              font-family: Source Han Sans CN;
+              line-height: 24rpx;
+            }
+            .group_7 {
+              margin-right: 5.5rpx;
+              margin-bottom: 2rpx;
+              .text_4 {
+                color: #9d9d9d;
+                font-size: 24rpx;
+                font-family: Source Han Sans CN;
+                line-height: 22rpx;
+              }
+              .image_7 {
+                margin-left: 14rpx;
+                flex-shrink: 0;
+                width: 12rpx;
+                height: 22rpx;
+              }
+            }
+          }
+          .text_5 {
+            margin-top: 39rpx;
+            align-self: flex-start;
+            color: #202b37;
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            line-height: 29.5rpx;
+            >text:last-of-type {
+              font-family: 'Source Han Sans CN';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 26rpx;
+              color: #9C9EA4;
+              margin-left: 30rpx;
+            }
+          }
+          .group_8 {
+            margin-top: 30rpx;
+            .text_6 {
+              color: #4f5459;
+              font-size: 28rpx;
+              font-family: Source Han Sans CN;
+              line-height: 25.5rpx;
+            }
+            .text_7 {
+              margin-left: 6.5rpx;
+              color: #4f5459;
+              font-size: 28rpx;
+              font-family: Source Han Sans CN;
+              line-height: 25.5rpx;
+            }
+          }
+        }
+      }
+    }
+  }
+  .coupons {
+    margin-top: 10rpx;
+    padding: 0 20rpx;
+    background-color: #ffffff;
+    border-radius: 8rpx;
+    .group_12 {
+      padding: 34rpx 0;
+      .text_14 {
+        margin: 2rpx 0;
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 24rpx;
+      }
+      .group_13 {
+        margin-right: 10.5rpx;
+        .text_15 {
+          margin: 3rpx 0;
+          color: #e43b3b;
+          font-size: 24rpx;
+          font-family: Source Han Sans CN;
+          line-height: 22rpx;
+        }
+        .image_10 {
+          margin-left: 17.5rpx;
+        }
+      }
+    }
+    .group_14 {
+      padding: 34rpx 0;
+      border-top: solid 1rpx #e5e5e5;
+      .text_16 {
+        margin: 2rpx 0;
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 23.5rpx;
+      }
+      .group_15 {
+        margin-right: 10.5rpx;
+        .text_17 {
+          margin: 3rpx 0 3.5rpx;
+          color: #e43b3b;
+          font-size: 24rpx;
+          font-family: Source Han Sans CN;
+          line-height: 22rpx;
+        }
+        .image_11 {
+          margin-left: 17rpx;
+        }
+      }
+    }
+    .image_9 {
+      flex-shrink: 0;
+      width: 15rpx;
+      height: 28rpx;
+    }
+  }
+  .buyer-message {
+    margin-top: 10rpx;
+    padding-left: 20rpx;
+    padding-right: 16.5rpx;
+    background-color: #ffffff;
+    border-radius: 8rpx;
+    .group_16 {
+      padding: 39rpx 0 32rpx;
+      border-bottom: solid 1rpx #e5e5e5;
+      .text_18 {
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 24rpx;
+      }
+      .text_19 {
+        color: #010204;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 24rpx;
+      }
+    }
+    .group_17 {
+      padding: 34rpx 0 32rpx;
+      .text_20 {
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+      }
+      .group_18 {
+        input {
+          font-size: 26rpx;
+          font-family: Source Han Sans CN;
+          width: 500rpx;
+          text-align: right;
+        }
+      }
+    }
+  }
+  .price {
+    margin-top: 10rpx;
+    padding: 36rpx 21rpx 38rpx 21rpx;
+    background-color: #ffffff;
+    border-radius: 8rpx;
+    .group_20 {
+      margin-top: 63rpx;
+      .text_24 {
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 24rpx;
+      }
+      .text_25 {
+        margin-top: 2.5rpx;
+        color: #010204;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 20rpx;
+      }
+    }
+    .group_21 {
+      margin-top: 52rpx;
+      .text_26 {
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 23.5rpx;
+      }
+      .text_27 {
+        margin-top: 2.5rpx;
+        color: #e43b3b;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 20rpx;
+      }
+    }
+    .group_22 {
+      margin-top: 52rpx;
+      .text_28 {
+        color: #575a60;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 24rpx;
+      }
+      .text_29 {
+        margin-top: 2.5rpx;
+        color: #e43b3b;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 20rpx;
+      }
+    }
+    .text_22 {
+      color: #575a60;
+      font-size: 26rpx;
+      font-family: Source Han Sans CN;
+      line-height: 24rpx;
+    }
+    .text_23 {
+      margin-top: 2.5rpx;
+      color: #010204;
+      font-size: 26rpx;
+      font-family: Source Han Sans CN;
+      line-height: 20rpx;
+    }
+  }
+  .submit-orders {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    padding: 20rpx 30rpx 54rpx;
+    background-color: #ffffff;
+    .group_23 {
+      margin-right: 26.5rpx;
+      align-self: center;
+      line-height: 27.5rpx;
+      height: 29rpx;
+      .text_30 {
+        color: #000000;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 24rpx;
+      }
+      .text_31 {
+        color: #e43b3b;
+        font-size: 26rpx;
+        font-family: Source Han Sans CN;
+        line-height: 19rpx;
+      }
+      .text_32 {
+        color: #e43b3b;
+        font-size: 36rpx;
+        font-family: Source Han Sans CN;
+        line-height: 27.5rpx;
+      }
+    }
+    .text-wrapper_1 {
+      padding: 34rpx 0 32.5rpx;
+      background-color: #0b357a;
+      border-radius: 4rpx;
+      width: 240rpx;
+      height: 96rpx;
+      .text_33 {
+        color: #ffffff;
+        font-size: 32rpx;
+        font-family: Source Han Sans CN;
+        line-height: 29.5rpx;
+      }
+    }
+  }
+}

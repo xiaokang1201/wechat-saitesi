@@ -1,0 +1,18 @@
+/* pages/pages-list/address-harvest/components/address-empty/address-empty.wxss */
+.address-empty {
+  height: 100vh;
+  transform: translateY(-15%);
+}
+
+.address-empty image {
+  width: 145rpx;
+  height: 145rpx;
+  margin-bottom: 27rpx;
+}
+
+.address-empty view {
+  font-size: 26rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #8c8e8f;
+}

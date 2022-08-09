@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "全部商品",
+  "navigationBarBackgroundColor": "#F3F4F8",
+  "usingComponents": {
+    "custom-tab-bar": "/components/custom-tab-bar/custom-tab-bar",
+    "search": "/components/search/search",
+    "goods-list": "/components/goods-list/goods-list"
+  }
+}

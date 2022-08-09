@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "show-pop": "/components/show-pop/show-pop"
+  }
+}

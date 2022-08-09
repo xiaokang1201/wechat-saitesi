@@ -1,0 +1,16 @@
+<!--components/goods-list/goods-list.wxml-->
+<view class="goods-list goods-list{{type}} flex-wra">
+  <view class="goods-item" bindtap="itemClick" data-goods_id="{{item.goods_id}}" wx:for="{{list}}" wx:key="id">
+    <image class="goods-tag" src="{{$state.ASSETSURL}}component/goods-list/{{item.type}}.png"></image>
+    <image class="goods-img" mode="aspectFill" src="{{item.image}}"></image>
+    <view class="goods-info">
+      <view class="ell2 title">{{item.store_name}}</view>
+      <view class="flex">
+        <view>￥</view>
+        <view>{{item.price}}</view>
+        <view>月销{{item.sales}}件</view>
+      </view>
+    </view>
+  </view>
+</view>
+<load-more loadMoreType="{{loadMoreType}}"></load-more>

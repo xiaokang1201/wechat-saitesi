@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "search": "/components/search/search",
+    "search-history": "/components/search-history/search-history",
+    "goods-list": "/components/goods-list/goods-list"
+  }
+}

@@ -1,0 +1,161 @@
+/* pages/pages-list/order-details/coupons/coupons.wxss */
+.pop-coupons view {
+  box-sizing:content-box;
+}
+.coupons {
+  height: 138rpx;
+  border-bottom: 1rpx solid #ebebeb;
+  font-size: 30rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #0f0f0f;
+}
+
+.img-right {
+  width: 14rpx;
+  height: 26rpx;
+}
+
+.couponPrice {
+  margin-right: 19rpx;
+}
+
+.couponPrice>text:first-of-type {
+  font-size: 20rpx;
+}
+
+.pop-coupons {
+  width: 100vw;
+  background: #ffffff;
+  border-radius: 16rpx 16rpx 0 0;
+}
+
+.pop-coupons-title {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #0f0f0f;
+  padding: 32rpx 0 24rpx 0;
+  text-align: center;
+}
+
+.coupons-status-tab {
+  font-size: 30rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #919191;
+}
+
+.coupons-type-tab>view {
+  padding-bottom: 20rpx;
+  border-bottom: 3rpx solid transparent;
+}
+
+.coupons-type-tab .cur {
+  border-bottom: 3rpx solid #7ccaca;
+}
+
+.list-coupons {
+  height: 607rpx;
+  background: #f5f5f5;
+  padding: 20rpx 30rpx;
+  width: calc(100vw - 60rpx);
+}
+
+.item-coupons {
+  width: 630rpx;
+  height: 84rpx;
+  background: #ffffff;
+  border-radius: 8rpx;
+  padding: 30rpx;
+}
+
+.item-coupons:not(:last-of-type) {
+  margin-bottom: 20rpx;
+}
+
+.item-coupons image {
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.coupons-use-min-price {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  text-align: CENTER;
+  color: #f23d6b;
+  line-height: 38rpx;
+}
+
+.coupons-price {
+  font-size: 28rpx;
+  font-family: Roboto, Roboto-Regular;
+  font-weight: 600;
+  color: #f23d6b;
+}
+
+.coupons-price>text:first-of-type {
+  font-size: 22rpx;
+  font-weight: 400;
+}
+
+.coupons-price-min-price {
+  width: 150rpx;
+}
+
+.coupon-title {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #0f0f0f;
+  line-height: 38rpx;
+}
+
+.coupon-title-time {
+  width: 400rpx;
+}
+
+.coupon-valid-time {
+  font-size: 24rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #a5acb2;
+  line-height: 38rpx;
+}
+
+.btm-price-btn {
+  padding: 20rpx 40rpx 64rpx 30rpx;
+}
+
+.btm-price-btn>view {
+  width: 100%;
+}
+
+.discount-price {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #f23d6b;
+}
+
+.discount-price>text:last-of-type {
+  font-size: 32rpx;
+}
+
+.confirm {
+  width: 200rpx;
+  height: 86rpx;
+  background: #0B357A;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.coupons1>view:first-of-type {
+  color: #A5ACB2;
+}
+/* color: #a5acb2; */

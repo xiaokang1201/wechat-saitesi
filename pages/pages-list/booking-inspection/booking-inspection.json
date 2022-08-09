@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "检测预约",
+  "usingComponents": {
+    "show-pop": "/components/show-pop/show-pop"
+  }
+}

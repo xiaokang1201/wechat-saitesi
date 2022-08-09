@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "优惠券",
+  "usingComponents": {
+    "type-list": "/components/type-list/type-list",
+    "coupon-list": "/components/coupon-list/coupon-list"
+  }
+}

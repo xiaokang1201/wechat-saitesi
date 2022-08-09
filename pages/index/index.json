@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "custom-nav-bar": "/components/custom-nav-bar/custom-nav-bar",
+    "goods-list": "/components/goods-list/goods-list",
+    "info-list": "/components/info-list/info-list",
+    "custom-tab-bar": "/components/custom-tab-bar/custom-tab-bar",
+    "show-pop": "/components/show-pop/show-pop",
+    "get-user-info": "/components/get-user-info/get-user-info"
+  }
+}

@@ -1,0 +1,67 @@
+<!--pages/pages-list/personal-data/personal-data.wxml-->
+<view class="flex-col group_3">
+  <view class="justify-between group_4">
+    <view class="flex-col items-start group_5">
+      <text class="text_1">头像</text>
+      <text class="text_2">首次登录默认拉去微信头像</text>
+    </view>
+    <view class="flex-row group_6" bindtap="chooseImage">
+      <image
+        src="{{userInfo.avatar}}"
+        class="image_6"
+      />
+      <image
+        src="{{$state.ASSETSURL}}personal-data/0.png"
+        class="image_7 image_8"
+      />
+    </view>
+  </view>
+  <view class="justify-between group_2 view_3">
+    <text class="text_3">昵称</text>
+    <view class="flex-ali flex-row group_7">
+      <input bindinput="nicknameChange" class="text" type="text" value="{{userInfo.nickname}}" maxlength="12"/>
+      <!-- <image
+        src="{{$state.ASSETSURL}}personal-data/0.png"
+        class="image_7 image_9"
+      /> -->
+    </view>
+  </view>
+  <picker bindchange="sexChange" range="{{sex}}" value="{{userInfo.sex}}">
+    <view class="justify-between group_8">
+      <text class="text_5">性别</text>
+      <view class="flex-row group_9">
+        <text class="text_6">{{sex[userInfo.sex]}}</text>
+        <image
+          src="{{$state.ASSETSURL}}personal-data/0.png"
+          class="image_7 image_10"
+        />
+      </view>
+    </view>
+  </picker>
+  <picker bindchange="birthChange" mode="date" value="{{userInfo.birth}}">
+    <view class="justify-between group_10">
+      <text class="text_7">出生日期</text>
+      <view class="flex-row group_11">
+        <text class="text_8">{{userInfo.birth || ''}}</text>
+        <image
+          src="{{$state.ASSETSURL}}personal-data/0.png"
+          class="image_7 image_11"
+        />
+      </view>
+    </view>
+  </picker>
+  <!-- region  -->
+  <picker bindchange="regionChange" mode="region">
+    <view class="justify-between group_12">
+      <text class="text_9">地址</text>
+      <view class="flex-row group_13">
+        <text class="text_10">{{userInfo.province || ''}}{{userInfo.city || ''}}{{userInfo.area || ''}}</text>
+        <image
+          src="{{$state.ASSETSURL}}personal-data/0.png"
+          class="image_7 image_12"
+        />
+      </view>
+    </view>
+  </picker>
+  <view class="flex-col items-center button" bindtap="apiUploadUserInfo"><text class="text_11">保存</text></view>
+</view>

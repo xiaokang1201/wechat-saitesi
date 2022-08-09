@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "样品寄回",
+  "usingComponents": {
+    "search": "/components/search/search",
+    "type-list": "/components/type-list/type-list",
+    "select-all-bottom": "/components/select-all-bottom/select-all-bottom",
+    "load-more": "/components/load-more/load-more",
+    "show-pop": "/components/show-pop/show-pop"
+  }
+}

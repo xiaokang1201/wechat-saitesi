@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "地址列表",
+  "usingComponents": {
+    "list-address": "./list-address/list-address",
+    "address-empty": "../components/address-empty/address-empty",
+    "address-button": "../components/address-button/address-button"
+  }
+}

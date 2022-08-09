@@ -1,0 +1,154 @@
+/* pages/mall/mall.wxss */
+.mall {
+  background: #F3F4F8;
+  min-height: 100vh;
+  .search-box {
+    height: 120rpx;
+    .type-img {
+      width: 56rpx;
+      height: 56rpx;
+    }
+    .search {
+      margin-bottom: 0;
+      width: calc(100vw - 150rpx);
+    }
+  }
+  .content {
+    height: calc(100vh - 235rpx - (env(safe-area-inset-bottom) / 2));
+    background-color: #ffffff;
+    border-radius: 16rpx 16rpx 0 0;
+    position: relative;
+    .mask-layer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, .5);
+      z-index: 9;
+    }
+    .sorting-box {
+      background-color: #ffffff;
+      position: relative;
+      z-index: 10;
+      .sorting {
+        padding: 40rpx 30rpx;
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26rpx;
+        color: #585B61;
+        .cur {
+          color: #0B357A;
+        }
+        .apply-people {
+          text {
+            font-family: 'Source Han Sans CN';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 30rpx;
+          }
+          image {
+            height: 8rpx;
+            width: 15rpx;
+            margin-left: 8rpx;
+          }
+        }
+        .arrow {
+          margin-left: 12rpx;
+          image {
+            width: 11.4rpx;
+            height: 7.92rpx;
+            &:first-of-type {
+              margin-bottom: 3rpx;
+            }
+          }
+        }
+      }
+      .drawer {
+        position: absolute;
+        border-top: 1rpx solid #E5E5E5;
+        padding: 24rpx 30rpx 30rpx 30rpx;
+        border-radius: 0 0 16rpx 16rpx;
+        overflow: hidden;
+        z-index: 10;
+        background-color: #ffffff;
+        width: 100vw;
+        .scroll-view {
+          height: 300rpx;
+        }
+        .title {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 28rpx;
+          color: #9D9D9D;
+        }
+        .item {
+          height: 70rpx;
+          text {
+            font-family: 'Source Han Sans CN';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28rpx;
+            color: #3E3E3E;
+          }
+          .cur {
+            color: #0B357A;
+          }
+          image {
+            width: 30rpx;
+            height: 21.6rpx;
+          }
+        }
+      }
+    }      
+    .goods-type {
+      height: 100%;
+      .typeList {
+        width: 188rpx;;
+        background: #F5F5F5;
+        height: 100%;
+        .item {
+          height: 96rpx;
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 26rpx;
+          color: #585B61;
+          position: relative;
+          .line {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4rpx;
+            height: 29rpx;
+            background: #0B357A;
+          }
+        }
+        .cur {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 700;
+          font-size: 26rpx;
+          color: #0B357A;
+          background-color: #ffffff;
+        }
+      }
+      .scroll-view {
+        height: calc(100vh - 235rpx - (env(safe-area-inset-bottom) / 2));
+        
+        .goodsList {
+          width: 100%;
+          padding: 25rpx 30rpx;
+          .item {
+            
+          }
+        }
+        .goodsList1 {
+          width: calc(100% - 188rpx);
+          padding: 25rpx 24rpx;
+        }
+      }
+    }
+  }
+}

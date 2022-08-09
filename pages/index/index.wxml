@@ -1,0 +1,55 @@
+<!--pages/index/index.wxml-->
+<view class="index flex-col-ali">
+  <custom-nav-bar>
+    <image class="logo" slot="backText" src="{{$state.ASSETSURL}}index/0.png"></image>
+  </custom-nav-bar>
+  <!-- 搜索 -->
+  <view class="search flex-cen">
+    <image src="{{$state.ASSETSURL}}index/1.png"></image>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swiper-box">
+    <swiper class="swiper" circular current="{{swiperIndex}}" bindchange="swiperChange">
+      <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
+        <image mode="aspectFill" src="{{item.image}}"></image>
+      </swiper-item>
+    </swiper>
+    <view class="swiper-pagination-point">
+      <view class="{{currentIndex === index ? 'cur' : ''}}" wx:for="{{swiperList}}" wx:key="id"></view>
+    </view>
+    <image bindtap="arrowRightClick" class="arrow-right" src="{{$state.ASSETSURL}}index/3.png"></image>
+  </view>
+  <!-- 预约采样产品，居家自采产品 -->
+  <view class="make-home flex">
+    <image class="poa" src="{{$state.ASSETSURL}}index/4.png"></image>
+    <view bindtap="reservationSamplingProductClick"></view>
+    <view bindtap="homePickProductsClick"></view>
+  </view>
+  <!-- 提醒 -->
+  <view class="remind">
+    <image class="poa" src="{{$state.ASSETSURL}}index/5.png"></image>
+  </view>
+  <!-- 选项卡 -->
+  <view class="tab flex-ali-bet">
+    <view class="tab-item">
+      <text bindtap="tabItemClick" class="{{tabIndex === index ? 'cur' : ''}}" data-index="{{index}}" wx:for="{{tabList}}" wx:key="index">{{item}}</text>
+    </view>
+    <image bindtap="{{tabIndex === 0 ? 'toMall' : 'toInfos'}}" class="look-more" src="{{$state.ASSETSURL}}index/6.png"></image>
+  </view>
+  <!-- 商品列表 -->
+  <view hidden="{{tabIndex !== 0}}">
+    <goods-list 
+      list="{{list}}" 
+      loadMoreType="{{loadMoreType}}">
+    </goods-list>
+  </view>
+  <!-- 资讯列表 -->
+  <view hidden="{{tabIndex !== 1}}">
+    <info-list loadMoreType="{{infoLoadMoreType}}" list="{{infoList}}"></info-list>
+  </view>
+</view>
+
+<custom-tab-bar pagePath="pages/index/index"></custom-tab-bar>  
+
+<!-- 用户信息授权 -->
+<get-user-info wx:if="{{!$state.userInfo.nickname}}"></get-user-info>

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "list-comment": "/components/list-comment/list-comment",
+    "operation-bar-goods": "./operation-bar-goods/operation-bar-goods",
+    "rich-text-parse": "/components/rich-text-parse/rich-text-parse",
+    "show-pop": "/components/show-pop/show-pop",
+    "number-add-reduce": "/components/number-add-reduce/number-add-reduce"
+  }
+}

@@ -1,0 +1,11 @@
+<!--pages/pages-list/set-up/set-up.wxml-->
+<view class="flex-col group_3">
+  <view class="justify-between section_3" bindtap="jumpNav" data-path="{{item.path}}" wx:for="{{list}}" wx:key="index">
+    <text class="text_1">{{item.text}}</text>
+    <image
+      src="{{$state.ASSETSURL}}set-up/0.png"
+      class="image_6 image_7"
+    />
+  </view>
+  <button open-type="feedback" class="feedback"></button>
+</view>

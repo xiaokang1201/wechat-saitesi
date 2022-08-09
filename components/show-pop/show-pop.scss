@@ -1,0 +1,396 @@
+/* components/show-pop/show-pop.wxss */
+.overlay {
+	top: 0;
+	left: 0;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+  
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  touch-action: none;
+}
+
+/* 弹出关闭弹框 */
+[class*='-pop']>view{
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+
+/*  背景消失 */
+[class*='hidden-pop'] {
+	animation: hidden-pop .1s .4s forwards;
+}
+
+/* 中央 */
+.center-pop {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.center-show-pop>view {
+  animation-name: center-show-pop-view;
+}
+
+.center-hidden-pop>view {
+	animation-name: center-hidden-pop-view;
+}
+
+/*弹框呼出--小大小*/
+@keyframes center-show-pop-view {
+	0% {
+		transform: scale(.1);
+		opacity: 0;
+	}
+
+	90% {
+		transform: scale(1.1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/*弹框关闭 大->小 */
+@keyframes center-hidden-pop-view {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: scale(.1);
+		opacity: 0;
+	}
+}
+
+/*弹框阴影关闭*/
+@keyframes hidden-pop {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+/* 底部 */
+.bottom-pop {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+.bottom-show-pop>view {
+	animation-name: bottom-show-pop-view;
+}
+
+.bottom-hidden-pop>view {
+	animation-name: bottom-hidden-pop-view;
+}
+
+@keyframes bottom-show-pop-view {
+	0% {
+		transform: translateY(100%)
+	}
+
+	100% {
+		transform: translateY(0%)
+	}
+}
+
+@keyframes bottom-hidden-pop-view {
+	0% {
+		transform: translateY(0%)
+	}
+
+	100% {
+		transform: translateY(100%)
+	}
+}
+
+.top-pop {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+}
+
+.top-show-pop>view {
+	animation-name: top-show-pop-view;
+}
+
+.top-hidden-pop>view {
+	animation-name: top-hidden-pop-view;
+}
+
+@keyframes top-show-pop-view {
+	0% {
+		transform: translateY(-100%)
+	}
+
+	100% {
+		transform: translateY(0%)
+	}
+}
+
+@keyframes top-hidden-pop-view {
+	0% {
+		transform: translateY(0%)
+	}
+
+	100% {
+		transform: translateY(-100%)
+	}
+}
+
+
+/* 左侧 */
+.left-pop {
+  display: flex;
+  align-items: center;
+	justify-content: end;
+}
+
+.left-show-pop>view {
+	animation-name: left-show-pop-view;
+}
+
+
+.left-hidden-pop>view {
+	animation-name: left-hidden-pop-view;
+}
+
+@keyframes left-show-pop-view {
+	0% {
+		transform: translateX(-100%)
+	}
+
+	100% {
+		transform: translateX(0%)
+	}
+}
+
+@keyframes left-hidden-pop-view {
+	0% {
+		transform: translateX(0%)
+	}
+
+	100% {
+		transform: translateX(-100%)
+	}
+}
+
+/* 右侧 */
+.right-pop {
+  display: flex;
+  align-items: center;
+	justify-content: flex-end;
+}
+
+.right-show-pop>view {
+	animation-name: right-show-pop-view;
+}
+
+.right-hidden-pop>view {
+	animation-name: right-hidden-pop-view;
+}
+
+@keyframes right-show-pop-view {
+	0% {
+		transform: translateX(100%)
+	}
+
+	100% {
+		transform: translateX(0%)
+	}
+}
+
+@keyframes right-hidden-pop-view {
+	0% {
+		transform: translateX(0%)
+	}
+
+	100% {
+		transform: translateX(100%)
+	}
+}
+
+.pop {
+  border: 8rpx solid #0B357A;
+  border-radius: 16rpx;
+}
+
+.payment-success {
+  background-color: #ffffff;
+  padding: 23rpx 81rpx 0 81rpx;
+  >view {
+    &:nth-of-type(1) {
+      margin-bottom: 105rpx;
+    }
+  }
+  .btn1 {
+    margin: 133rpx 0 47rpx 0;
+  }
+}
+
+.service {
+  padding: 24rpx 45rpx 0 45rpx;
+  background-color: #ffffff;
+  position: relative;
+  .shut-down {
+    position: absolute;
+    bottom: -75rpx;
+    width: 52.09rpx;
+    height: 52.09rpx;
+    transform: translateY(100%);
+  }
+  .code {
+    margin: 30rpx 0 40rpx 0;
+  }
+  .address {
+    margin: 60rpx 0 45rpx 0;
+    text {
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 26rpx;
+      letter-spacing: 0.02em;
+      color: #010204;
+      margin-right: 20rpx;
+    }
+    image {
+      width: 32rpx;
+      height: 32rpx;
+    }
+  }
+}
+
+.people {
+  background-color: #ffffff;
+  padding: 20rpx 80rpx 0 80rpx;
+  .text2 {
+    margin: 105rpx 0 72rpx 0;
+  }
+  .btn2 {
+    margin: 12rpx 0 20rpx 0;
+  }
+}
+
+.fill-apply {
+  padding: 24rpx 30rpx 0 30rpx;
+  background: #ECECEC;
+  border: 8rpx solid #0B357A;
+  border-radius: 16rpx;
+  textarea {
+    margin: 20rpx 0 40rpx 0;
+    padding: 20rpx;
+    width: 458rpx;
+    height: 432rpx;
+    background: #FFFFFF;
+    border-radius: 6rpx;
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26rpx;
+    line-height: 39rpx;
+    color: #010204;
+    letter-spacing: 0.2em;
+  }
+  .btn1 {
+    margin-bottom: 45rpx;
+  }
+}
+
+.share-code {
+  padding: 24rpx 80rpx 0 80rpx;
+  background: #FAFCFF;
+  border: 8rpx solid #0B357A;
+  border-radius: 16rpx;
+  .code {
+    margin: 30rpx 0 40rpx 0;
+  }
+  .btn1 {
+    margin-bottom: 33rpx;
+  }
+  .share {
+    >view {
+      margin-bottom: 24rpx;
+      &:first-of-type {
+        margin-right: 70rpx;
+      }
+    }
+    image {
+      width: 36rpx;
+      height: 36rpx;
+      margin-bottom: 10rpx;
+    }
+    text {
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 26rpx;
+      letter-spacing: 0.02em;
+      color: #0B357A;
+    }
+  }
+}
+
+.text2 {
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 32rpx;
+  color: #212121;
+}
+
+.text1 {
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28rpx;
+  letter-spacing: 0.02em;
+  color: #010204;
+}
+
+.code {
+  width: 330rpx;
+  height: 330rpx;
+}
+
+
+.logo {
+  width: 140rpx;
+  height: 30rpx;
+  margin-bottom: 25rpx;
+}
+
+.btn1 {
+  width: 356rpx;
+  height: 76rpx;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26rpx;
+  color: #fff;
+  background: #0B357A;
+  border-radius: 44rpx;
+  border: 1rpx solid #0B357A;
+}
+
+.btn2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26rpx;
+  color: #0B357A;
+  width: 356rpx;
+  height: 76rpx;
+  border: 1rpx solid #0B357A;
+  border-radius: 44rpx;
+}

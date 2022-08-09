@@ -1,0 +1,32 @@
+/* components/number-add-reduce/number-add-reduce.wxss */
+.number-add-reduce {
+  height: 43rpx;
+  border: 1rpx solid #d1d1d1;
+}
+.number-add-reduce input {
+  text-align: center;
+  width: 78rpx;
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24rpx;
+  color: #010204;
+}
+.number-add image{
+  height: 16rpx;
+  width: 16rpx;
+}
+.number-reduce image {
+  height: 2rpx;
+  width: 16rpx;
+}
+.number-reduce, .number-add {
+  width: 50rpx;
+  height: 100%;
+}
+.number-add {
+  border-left: 1rpx solid #d1d1d1;
+}
+.number-reduce {
+  border-right: 1rpx solid #d1d1d1;
+}

@@ -1,0 +1,70 @@
+<!--pages/mall/mall.wxml-->
+<view class="mall">
+  <view class="search-box flex-ali-cen">
+    <image bindtap="typeClick" class="type-img" src="{{$state.ASSETSURL}}mall/0.png"></image>
+    <search bindinputConfirm="inputConfirm" type="3" placeholder="搜索"></search>
+  </view>
+  <view class="content">
+    <view class="mask-layer" bindtap="personDrawerMaskClick" wx:if="{{personDrawer}}"></view>
+    <view class="sorting-box">
+      <view class="sorting flex-ali-bet">
+        <view class="apply-people flex-ali" bindtap="personClick">
+          <text class="{{personIndex >= 0 ? 'cur' : ''}}">适用人群</text>
+          <image src="{{$state.ASSETSURL}}mall/1.png"></image>
+        </view>
+        <view data-index="">综合类</view>
+        <view class="{{sortIndex === 0 ? 'cur' : ''}}" data-index="{{0}}" bindtap="sortClick">最新</view>
+        <view class="flex" data-index="{{1}}" bindtap="sortClick">
+          <text class="{{sortIndex === 1 ? 'cur' : ''}}">价格</text>
+          <view class="arrow flex-col-ali-cen">
+            <image src="{{$state.ASSETSURL}}mall/2.png"></image>
+            <image src="{{$state.ASSETSURL}}mall/3.png"></image>
+          </view>
+        </view>
+        <view class="flex" data-index="{{2}}" bindtap="sortClick">
+          <text class="{{sortIndex === 2 ? 'cur' : ''}}">销量</text>
+          <view class="arrow flex-col-ali-cen">
+            <image src="{{$state.ASSETSURL}}mall/2.png"></image>
+            <image src="{{$state.ASSETSURL}}mall/3.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="drawer" wx:if="{{personDrawer}}">
+        <view class="title">适用人群</view>
+        <scroll-view class="scroll-view">
+          <view 
+            class="item flex-ali-bet" 
+            bindtap="personItemClick"
+            data-index="{{index}}"
+            wx:for="{{personList}}" 
+            wx:key="id">
+            <text class="{{personIndex === index ? 'cur' : ''}}">{{item.title}}</text>
+            <image hidden="{{personIndex !== index}}" src="{{$state.ASSETSURL}}mall/4.png"></image>
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="goods-type flex">
+      <view class="typeList" wx:if="{{typeDrawer}}">
+        <view 
+          class="item {{typeIndex === index ? 'cur' : ''}} flex-ali-cen" 
+          wx:for="{{typeList}}" 
+          wx:key="index"
+          bindtap="typeItemClick"
+          data-index="{{index}}">
+          <view class="line" wx:if="{{typeIndex === index}}"></view>
+          <text>{{item}}</text>
+        </view>
+      </view>
+      <scroll-view class="scroll-view">
+        <goods-list 
+          list="{{list}}" 
+          type="{{typeDrawer ? 1 : ''}}" 
+          loadMoreType="{{loadMoreType}}">
+        </goods-list>
+      </scroll-view>
+    </view>
+  </view>
+
+  <custom-tab-bar pagePath="pages/mall/mall"></custom-tab-bar>
+</view>

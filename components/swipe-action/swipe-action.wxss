@@ -1,0 +1,20 @@
+/* components/swipe-action/swipe-action.wxss */
+.swipe-action {
+  width: 100%;
+  overflow: hidden;
+}
+
+.swipe-action-bd {
+  position: relative;
+  transition: .3s;
+}
+
+.swipe-action-operation {
+  position: absolute;
+  left: 100%;
+  top: 0;
+}
+
+.swipe-action-operation {
+  height: 100%;
+}

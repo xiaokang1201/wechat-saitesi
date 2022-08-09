@@ -1,0 +1,32 @@
+/* pages/pages-list/search/search-history/search-history.wxss */
+.search-history {
+  padding: 0 30rpx;
+  margin-top: 37rpx;
+}
+
+.search-history image {
+  width: 32rpx;
+  height: 30rpx;
+}
+
+.search-history-title {
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #0f0f0f;
+  letter-spacing: 0.11rpx;
+  margin-bottom: 32rpx;
+}
+
+.item-history {
+  padding: 14rpx 18rpx;
+  background: #F8F8F8;
+  border-radius: 2rpx;
+  font-size: 24rpx;
+  margin: 0 20rpx 26rpx 0;
+  font-family: 'Source Han Sans CN';
+  font-style: normal;
+  font-weight: 350;
+  font-size: 23rpx;
+  color: #636363;
+}

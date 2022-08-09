@@ -1,0 +1,67 @@
+<!--pages/pages-list/evaluation/evaluation.wxml-->
+<view class="evaluation">
+  <view class="content">
+    <!-- 商品信息 -->
+    <view class="goods-info flex-bet">
+      <image src="{{cartInfo.productInfo.image}}" mode="aspectFill"></image>
+      <view class="flex-col-bet goods-name-number">
+        <!-- 商品名称 -->
+        <view class="goods-name ell1">{{cartInfo.productInfo.store_name}}</view>
+        <!-- 商品数量 -->
+        <view class="goods-number">×{{cartInfo.cart_num}}</view>
+      </view>
+    </view>
+    <!-- 综合评价 -->
+    <view class="star flex-ali">
+      <view>综合评价</view>
+      <image 
+        wx:for="{{5}}" 
+        wx:key="index" 
+        src="{{$state.ASSETSURL}}evaluation/{{index < star ? '6' : '5'}}.png"
+        data-index="{{index}}"
+        bindtap="starClick">
+      </image>
+    </view>
+    <!-- 评价 -->
+    <view class="evaluation-bd flex-col-bet">
+      <!-- 评论 -->
+      <view class="comments" bindtap="commentsClick">
+        <!-- 提示 -->
+        <view class="prompt flex-ali" hidden="{{inputFocus || comment !== ''}}">
+          <image src="{{$state.ASSETSURL}}evaluation/2.png"></image>
+          <text>从多个角度评价宝贝,可以帮助更多想买的人</text>
+        </view>
+        <!-- 内容 -->
+        <textarea 
+          bindblur="textareaBlur"
+          bindinput="textareaChange" 
+          maxlength="90" 
+          focus="{{inputFocus}}" 
+          class="textarea" 
+          hidden="{{!inputFocus && comment === ''}}">
+        </textarea>
+      </view>
+      <!-- 上传图片 -->
+      <view class="upload-img flex">
+        <view class="show-img" wx:for="{{picList}}" wx:key="index">
+          <image bindtap="previewImageClick" class="poa" src="{{item}}" mode="aspectFill"></image>
+          <view class="shut-down-img-box" bindtap="deletePic" data-index="{{index}}">
+            <image class="shut-down-img" src="{{$state.ASSETSURL}}evaluation/0.png"></image>
+          </view>
+        </view>
+        <!-- 提示上传 -->
+        <view bindtap="uploadImgClick" class="prompt-upload flex-col-ali-eve">
+          <image src="{{$state.ASSETSURL}}evaluation/1.png"></image>
+          <view>为宝贝拍买家秀</view>
+        </view>
+      </view>
+    </view>
+    <!-- 匿名 -->
+    <view bindtap="anonymousClick" class="anonymous flex-ali">
+      <image src="{{$state.ASSETSURL}}evaluation/{{isAnonymous ? '4' : '3'}}.png"></image>
+      <view>是否匿名</view>
+    </view>
+    <!-- 发布按钮 -->
+    <view class="release flex-ali-cen" bindtap="releaseClick">发布</view>
+  </view>
+</view>

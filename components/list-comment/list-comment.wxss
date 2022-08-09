@@ -1,0 +1,42 @@
+/* components/comments/comments.wxss */
+.item-comment {
+  padding: 40rpx 32rpx;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+
+.nickname {
+  font-size: 26rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #292929;
+  letter-spacing: .05rpx;
+}
+
+.comment {
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Regular;
+  font-weight: 400;
+  color: #202832;
+}
+
+.images {
+  margin-top: 24rpx;
+}
+
+.images image {
+  width: 213rpx;
+  height: 212rpx;
+  margin-right: 24rpx;
+}
+
+.images image:nth-of-type(3n) {
+  margin-right: 0;
+}

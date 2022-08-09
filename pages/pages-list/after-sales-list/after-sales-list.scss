@@ -1,0 +1,49 @@
+/* pages/pages-list/after-sales-list/after-sales-list.wxss */
+.after-sales-list {
+  min-height: 100vh;
+  background: #F2F2F2;
+  .nav {
+    background-color: #ffffff;
+    .type-list {
+      .item {
+        &:not(:last-of-type) {
+          margin-right: 32rpx;
+        }
+      }
+    }
+  }
+  .list {
+    .item {
+      margin-top: 20rpx;
+      padding: 30rpx;
+      background-color: #ffffff;
+      .order-no, .bar-code {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24rpx;
+        color: #585B61;
+      }
+      .bar-code {
+        margin-top: 12rpx;
+      }
+      .orders-goods {
+        padding: 30rpx 0 0 0;
+      }
+      .actions-button {
+        margin-top: 40rpx;
+        >view {
+          border: 1rpx solid #585B61;
+          border-radius: 4rpx;
+          width: 150rpx;
+          height: 64rpx;
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 28rpx;
+          color: #010204;
+        }
+      }
+    }
+  }
+}

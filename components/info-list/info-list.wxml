@@ -1,0 +1,8 @@
+<!--components/info-list/info-list.wxml-->
+<view class="info-list">
+  <view class="info-item" bindtap="infoItemClick" data-id="{{item.id}}" wx:for="{{list}}" wx:key="id">
+    <image src="{{item.thumb}}" mode="aspectFill"></image>
+    <view class="ell2">{{item.title}}</view>
+  </view>
+</view>
+<load-more loadMoreType="{{loadMoreType}}"></load-more>

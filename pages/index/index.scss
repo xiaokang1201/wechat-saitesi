@@ -1,0 +1,113 @@
+/* pages/index/index.wxss */
+.index {
+  background: #F3F4F8;
+  min-height: 100vh;
+  .logo {
+    width: 308.68rpx;
+    height: 45.43rpx;
+  }
+  .search {
+    background: #ffffff;
+    width: 100vw;
+    image {
+      width: 690rpx;
+      margin: 10rpx 0 28rpx;
+      height: 75rpx;
+    }
+  }
+  .swiper-box {
+    width: 100%;
+    height: 633.48rpx;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-item {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .swiper-item image {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* region 分页器 / 动态指示点 */
+  .swiper-pagination-point {
+    position: absolute;
+    bottom: 78.6rpx;
+    left: 30rpx;
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-pagination-point>view {
+    width: 46rpx;
+    height: 4rpx;
+    background: rgba(255,255,255,0.70);
+  }
+
+  .swiper-pagination-point>view:not(:last-of-type) {
+    margin-right: 8rpx;
+  }
+
+  .swiper-pagination-point>view.cur {
+    background: #0B357A;
+  }
+  /* endregion 分页器 / 动态指示点 */
+  .arrow-right {
+    position: absolute;
+    right: 30rpx;
+    bottom: 78.6rpx;
+    width: 70rpx;
+    height: 70rpx;
+  }
+  .make-home {
+    position: relative;
+    width: 662rpx;
+    height: 244rpx;
+    z-index: 1;
+    margin-top: 30rpx;
+    >view {
+      width: 50%;
+      height: 100%;
+    }
+  }
+  .remind {
+    position: relative;
+    z-index: 1;
+    width: 690rpx;
+    height: 76rpx;
+    margin: 40rpx 0;
+  }
+  .tab {
+    width: 690rpx;
+    margin-bottom: 33rpx;
+    .tab-item {
+      text {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30rpx;
+        line-height: 51rpx;
+        color: #585B61;
+        margin-right: 33rpx;
+        &.cur {
+          font-weight: 700;
+          font-size: 34rpx;
+          color: #010204;
+        }
+      }
+    }
+    .look-more {
+      width: 149rpx;
+      height: 39rpx;
+    }
+  }
+}

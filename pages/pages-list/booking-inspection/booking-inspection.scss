@@ -1,0 +1,239 @@
+/* pages/pages-list/booking-inspection/booking-inspection.wxss */
+.booking-inspection {
+  padding-bottom: 52rpx;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  background: #F2F2F2;
+  .justify-between {
+    align-items: center;
+  }
+  .flex-row {
+    flex-direction: row;
+  }
+  .image_6 {
+    width: 100vw;
+    height: 68vw;
+  }
+  input {
+    font-size: 32rpx;
+    font-family: Source Han Sans CN;
+    text-align: right;
+    width: 500rpx;
+  }
+  .section_3 {
+    padding: 41rpx 22.5rpx 33.5rpx 31rpx;
+    background-color: #ffffff;
+    .text_6 {
+      margin-top: 39.5rpx;
+      color: #010204;
+      font-size: 32rpx;
+      font-family: Source Han Sans CN;
+      line-height: 29.5rpx;
+    }
+    .group_6 {
+      height: 40rpx;
+      .text_3 {
+        color: #e43b3b;
+        font-size: 36rpx;
+        font-family: Source Han Sans CN;
+        line-height: 26rpx;
+      }
+      .text_4 {
+        color: #e43b3b;
+        font-size: 52rpx;
+        font-family: Source Han Sans CN;
+        font-weight: 700;
+        line-height: 40rpx;
+        letter-spacing: 1.04rpx;
+      }
+    }
+    .text_5 {
+      margin: 8rpx 0 10rpx;
+      color: #9d9d9d;
+      font-size: 24rpx;
+      font-family: Source Han Sans CN;
+      line-height: 22rpx;
+    }
+  }
+  .group_7 {
+    padding: 20rpx 27rpx;
+    .button {
+      margin: 100rpx 3rpx 0;
+      padding: 33rpx 0 39rpx;
+      background-color: #0b357a;
+      border-radius: 4rpx;
+      .text_22 {
+        color: #ffffff;
+        font-size: 28rpx;
+        font-family: Source Han Sans CN;
+        line-height: 26rpx;
+      }
+    }
+    .section_4 {
+      margin-right: 6rpx;
+      padding: 35.5rpx 23.5rpx 43.5rpx 24rpx;
+      background-color: #ffffff;
+      border-radius: 8rpx;
+      .text_7 {
+        margin-left: 12.5rpx;
+        align-self: flex-start;
+        color: #010204;
+        font-size: 30rpx;
+        font-family: Source Han Sans CN;
+        line-height: 28rpx;
+      }
+      .group_9 {
+        margin-top: 62rpx;
+        .group_10 {
+          padding-left: 9rpx;
+          padding-bottom: 33rpx;
+          border-bottom: solid 1rpx #e5e5e566;
+          .text_8 {
+            margin-top: 2.5rpx;
+            color: #575a60;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 25.5rpx;
+          }
+          .text_9 {
+            color: #9d9d9d;
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            line-height: 29rpx;
+          }
+        }
+        .group_12 {
+          padding: 30rpx 0 30rpx 9.5rpx;
+          border-bottom: solid 1rpx #e5e5e566;
+          .text_10 {
+            margin-top: 2.5rpx;
+            color: #575a60;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 25.5rpx;
+          }
+          .text_11 {
+            // color: #9d9d9d;
+            // font-size: 32rpx;
+            // font-family: Source Han Sans CN;
+            // line-height: 29rpx;
+          }
+        }
+        .group_13 {
+          padding: 30.5rpx 8rpx 27rpx 9rpx;
+          border-bottom: solid 1rpx #e5e5e566;
+          .text_12 {
+            margin: 3.5rpx 0 3rpx;
+            color: #575a60;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 25.5rpx;
+          }
+          .group_16 {
+            margin-left: 70rpx;
+            .section_5 {
+              flex-shrink: 0;
+              border-radius: 50%;
+              width: 32rpx;
+              height: 32rpx;
+              border: solid 3rpx #9d9d9d;
+            }
+            .text_14 {
+              margin: 2rpx 0 2.5rpx 23.5rpx;
+              color: #9d9d9d;
+              font-size: 30rpx;
+              font-family: Source Han Sans CN;
+              line-height: 27.5rpx;
+            }
+          }
+          .image_7 {
+            flex-shrink: 0;
+            width: 32rpx;
+            height: 32rpx;
+          }
+          .text_13 {
+            margin: 4rpx 0 2rpx 21.5rpx;
+            color: #0b357a;
+            font-size: 30rpx;
+            font-family: Source Han Sans CN;
+            line-height: 25.5rpx;
+          }
+        }
+        .group_17 {
+          padding-left: 9.5rpx;
+          padding-top: 29.5rpx;
+          .text_15 {
+            margin-top: 2.5rpx;
+            color: #575a60;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 25.5rpx;
+          }
+          .text_16 {
+            color: #9d9d9d;
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            line-height: 29rpx;
+          }
+        }
+      }
+    }
+    .section_6 {
+      margin-right: 6rpx;
+      margin-top: 20rpx;
+      padding: 35.5rpx 24rpx 44.5rpx;
+      background-color: #ffffff;
+      border-radius: 8rpx;
+      .text_17 {
+        margin-left: 12.5rpx;
+        align-self: flex-start;
+        color: #010204;
+        font-size: 30rpx;
+        font-family: Source Han Sans CN;
+        line-height: 28rpx;
+      }
+      .group_22 {
+        padding-top: 28.5rpx;
+        .group_19 {
+          padding: 33rpx 5rpx 33rpx 9.5rpx;
+          border-bottom: solid 1rpx #e5e5e566;
+          .text_18 {
+            margin-top: 2rpx;
+            color: #575a60;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 26rpx;
+          }
+          .text_19 {
+            color: #9d9d9d;
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            line-height: 29rpx;
+          }
+        }
+        .group_21 {
+          padding: 30.5rpx 5rpx 0 9.5rpx;
+          .text_20 {
+            margin-top: 2.5rpx;
+            color: #575a60;
+            font-size: 28rpx;
+            font-family: Source Han Sans CN;
+            line-height: 25.5rpx;
+          }
+          .text_21 {
+            color: #9d9d9d;
+            font-size: 32rpx;
+            font-family: Source Han Sans CN;
+            line-height: 29rpx;
+          }
+        }
+        .image_8 {
+          margin-left: 21.5rpx;
+          flex-shrink: 0;
+          width: 15rpx;
+          height: 28rpx;
+        }
+      }
+    }
+  }
+}

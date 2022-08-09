@@ -1,0 +1,43 @@
+<!--pages/pages-list/report-view/report-view.wxml-->
+<view class="report-view">
+  <view class="describe">为了保护环境，减少资源浪费，赛特斯为客户推出电子版报告。携手客户用实际行动传播环保理念</view>
+  <!-- 类型选择 -->
+  <view class="tab flex-ali-bet">
+    <view 
+      class="item flex-col-ali {{index === typeIndex ? 'cur' : ''}}" 
+      wx:for="{{typeList}}" 
+      wx:key="index"
+      bindtap="typeItemClick"
+      data-index="{{index}}">
+      <text>{{item}}</text>
+      <view></view>
+    </view>
+  </view>
+  <!-- 选择时间 -->
+  <view class="time-picker">
+    <picker mode="date">
+      <image src="{{$state.ASSETSURL}}report-view/0.png"></image>
+    </picker>
+  </view>
+  <!-- 列表 -->
+  <scroll-view scroll-y class="scroll-view">
+    <view class="list">
+      <view class="item" wx:for="{{list}}" wx:key="index">
+        <view class="name">离大陆</view>
+        <view class="project-name ell1">项目名称</view>
+        <view class="line"></view>
+        <view class="time">
+          <text>出报告日期:</text>
+          <text>2022-02-24  22:46</text>
+        </view>
+        <view class="company-name">
+          <text>公司名称:</text>
+          <text>湖南省开福区湘雅医院</text>
+        </view>
+        <view class="immediately-check flex-ali-cen">立即查看</view>
+      </view>
+    </view>
+    
+    <load-more loadMoreType="{{loadMoreType}}"></load-more>
+  </scroll-view>
+</view>

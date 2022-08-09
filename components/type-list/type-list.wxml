@@ -1,0 +1,14 @@
+<!--components/type-list/type-list.wxml-->
+<scroll-view class="scroll-view" scroll-x>
+  <view class="type-list flex">
+    <view 
+      class="{{typeIndex === index ? 'cur' : ''}} item flex-col-ali" 
+      wx:for="{{typeList}}" 
+      wx:key="index"
+      bindtap="typeItemClick"
+      data-index="{{index}}">
+      <text>{{item}}</text>
+      <view></view>
+    </view>
+  </view>
+</scroll-view>

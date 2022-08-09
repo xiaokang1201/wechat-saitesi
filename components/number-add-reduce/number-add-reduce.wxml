@@ -1,0 +1,10 @@
+<!--components/number-add-reduce/number-add-reduce.wxml-->
+<view class="number-add-reduce-class number-add-reduce flex-ali-bet">
+  <view class="number-reduce flex-ali-cen" catchtap="numberReduce">
+    <image class="img-reduce" src="./images/{{value <= minNumber ? 0 : 1 }}.png"></image>
+  </view>
+  <input bindblur="inputBlur" value="{{value}}" maxlength="{{maxlength}}" type="number"/>
+  <view class="number-add flex-ali-cen" catchtap="numberAdd">
+    <image class="img-add" src="./images/{{value >= maxNumber ? 2 : 3 }}.png"></image>
+  </view>
+</view>

@@ -1,0 +1,25 @@
+<!--components/list-comment/list-comment.wxml-->
+<view class="list-comment">
+  <view class="item-comment" wx:for="{{list}}" wx:key="comment_id">
+    <!-- 头像、昵称 -->
+    <view class="flex-ali">
+      <image mode="aspectFill" class="avatar" src="{{item.avatar}}"></image>
+      <view class="nickname">{{item.nickname}}</view>
+    </view>
+    <!-- 评论 -->
+    <view class="comment">{{item.comments}}</view>
+    <!-- 晒图 -->
+    <view class="images flex-wra" wx:if="{{item.images.length>0}}">
+      <image
+        bindtap="imageClick" 
+        wx:for="{{item.images}}" 
+        wx:key="index" 
+        wx:for-item="itemImages" 
+        data-list_url="{{item.images}}" 
+        data-url="{{itemImages}}" 
+        mode="aspectFill" 
+        src="{{itemImages}}">
+      </image>
+    </view>
+  </view>
+</view>

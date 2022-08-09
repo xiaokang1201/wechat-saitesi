@@ -1,0 +1,20 @@
+<!--components/coupon-list/coupon-list.wxml-->
+<view class="coupon-list">
+  <view class="item item{{item.type}}" wx:for="{{list}}" wx:key="id">
+    <view class="type">{{categoryList[item.applicable_type]}}</view>
+    <view class="flex-ali-bet coupon-info">
+      <view class="money flex">
+        <text>￥</text>
+        <text>{{item.coupon_price}}</text>
+      </view>
+      <view>
+        <view class="title ell1">{{item.title}}</view>
+        <view class="instructions">满{{item.use_min_price}}元可用</view>
+      </view>
+      <view class="button button{{item.type}}" bindtap="btnClick" data-item="{{item}}">
+      {{type === 0 ? (item.is_use ? '去使用' : '领取') : typeList[item.status]}}</view>
+    </view>
+    <view class="available">活动类商品不可用</view>
+  </view>
+  <load-more loadMoreType="{{loadMoreType}}"></load-more>
+</view>

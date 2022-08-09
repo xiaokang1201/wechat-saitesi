@@ -1,0 +1,149 @@
+<!--pages/pages-list/examinate-add-edit/examinate-add-edit.wxml-->
+<view class="flex-col examinate-add-edit">
+  <view class="flex-col">
+    <view class="flex-col section_3">
+      <text class="text_1">信息填写人</text>
+      <view class="justify-between equal-division">
+        <view class="flex-row" bindtap="switchTypeClick" data-index="{{0}}">
+          <image
+            src="{{$state.ASSETSURL}}common/{{isSelf === 0 ? 1 : 0}}.png"
+            class="image_6"
+          />
+          <text class="text_2">受检人本人</text>
+        </view>
+        <view class="flex-row" bindtap="switchTypeClick" data-index="{{1}}">
+          <image
+            src="{{$state.ASSETSURL}}common/{{isSelf === 1 ? 1 : 0}}.png"
+            class="image_6"
+          />
+          <text class="text_3">受检人法定监护人</text>
+        </view>
+      </view>
+    </view>
+    <view class="flex-col section_5">
+      <text class="text_4">受检者信息</text>
+      <view class="justify-between group_5">
+        <text class="text_5">姓名</text>
+        <input  
+          bindinput="inputChange" 
+          value="{{name}}"
+          data-input="name" 
+          class="text_6 input" 
+          type="text" 
+          placeholder="请输入"
+        />
+      </view>
+      <view class="justify-between group_6">
+        <text class="text_7">性别</text>
+        <view class="flex-row group_7">
+          <view class="flex-row" bindtap="setGender" data-gender="{{1}}">
+            <image
+              src="{{$state.ASSETSURL}}common/{{gender === 1 ? 1 : 0}}.png"
+              class="image_7"
+            />
+            <text class="text_8">男</text>
+          </view>
+          <view class="flex-row group_9" bindtap="setGender" data-gender="{{0}}">
+            <image
+              src="{{$state.ASSETSURL}}common/{{gender === 0 ? 1 : 0}}.png"
+              class="image_7"
+            />
+            <text class="text_9">女</text>
+          </view>
+        </view>
+      </view>
+      <picker mode="date" header-text="选择日期" bindchange="birthChange">
+        <view class="justify-between group_10">
+          <text class="text_10">生日</text>
+          <view class="flex-row group_11">
+            <text class="text_11">{{birth}}</text>
+            <image
+                src="{{$state.ASSETSURL}}common/2.png"
+                class="image_8 image_9"
+              />
+          </view>
+        </view>
+      </picker>
+      <view class="justify-between group_12 flex-ali">
+        <text class="text_12">年龄</text>
+        <input 
+          class="text_13 input" 
+          type="text" 
+          placeholder="请输入"
+          bindinput="inputChange" 
+          value="{{age}}"
+          data-input="age" 
+        />
+      </view>
+      <picker range="{{certificate}}" header-text="选择证件类型" bindchange="certificateChange">
+        <view class="justify-between group_13">
+          <text class="text_14">选择证件类型</text>
+          <view class="flex-row flex-ali">
+            <text class="text_15">{{cardType}}</text>
+            <image
+              src="{{$state.ASSETSURL}}common/2.png"
+              class="image_8 image_10"
+            />
+          </view>
+        </view>
+      </picker>
+      <view class="justify-between group_15 flex-ali">
+        <text class="text_16">证件号码</text>
+        <input 
+          class="text_17 input"  
+          type="text" 
+          placeholder="请输入"
+          bindinput="inputChange" 
+          value="{{cardNo}}"
+          data-input="cardNo" 
+        />
+      </view>
+      <view class="justify-between group_16 flex-ali">
+        <text class="text_18">手机号</text>
+        <input 
+          class="text_19 input" 
+          type="text" 
+          placeholder="请输入"
+          bindinput="inputChange" 
+          value="{{mobile}}"
+          data-input="mobile" 
+        />
+      </view>
+    </view>
+    <view class="flex-col section_6" wx:if="{{isSelf === 1}}">
+      <text class="text_20">受检人法定监护人</text>
+      <view class="divider"><!--*--></view>
+      <view class="justify-between group_17">
+        <text class="text_21">姓名</text>
+        <input 
+          class="text_22" 
+          type="text" 
+          placeholder="请输入"
+          bindinput="inputChange" 
+          value="{{guardianName}}"
+          data-input="guardianName" 
+        />
+      </view>
+      <view class="justify-between group_18">
+        <text class="text_23">身份证</text>
+        <input 
+          class="text_24" 
+          type="text" 
+          placeholder="请输入"
+          bindinput="inputChange" 
+          value="{{guardianCard}}"
+          data-input="guardianCard" 
+        />
+      </view>
+    </view>
+  </view>
+  <view class="placeholder"></view>
+  <view class="group_20">
+    <view class="flex-row group_19">
+      <view bindtap="deleteClick" class="flex-col items-center text-wrapper" wx:if="{{type !== 1}}"><text class="text_25">删除</text></view>
+      <view bindtap="submit" class="flex-col items-center text-wrapper_1 {{type === 1 ? 'cur' : ''}}"><text class="text_26">确认{{type === 1 ? '新增' : '修改'}}</text></view>
+    </view>
+  </view>
+</view>
+
+<show-pop type="{{3}}" show="{{show}}" bindevent2="shutDown" bindevent1="apiDelPersonAddress"></show-pop>

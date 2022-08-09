@@ -1,0 +1,22 @@
+<!--components/search/search.wxml-->
+<view class="flex-bet search search{{type}}">
+  <image class="search-img search-img{{type}}" src="{{$state.ASSETSURL}}component/search/{{type - 1}}.png"></image>
+  <view wx:if="{{type === 3}}" class="line"></view>
+  <input 
+    disabled="{{disabled}}" 
+    focus="{{focus}}" 
+    class="input{{type}}" 
+    value="{{value}}"
+    confirm-type=""
+    placeholder="{{placeholder}}" 
+    placeholder-class="placeholder-class{{type}}" type="text"
+    bindinput="inputChange"
+    bindconfirm="inputConfirm"
+    />
+  <view 
+    wx:if="{{type === 2}}" 
+    class="flex-cen search-button"
+    bindtap="searchClick">
+    搜索
+  </view>
+</view>

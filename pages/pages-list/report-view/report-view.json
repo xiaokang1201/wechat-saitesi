@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "报告查看",
+  "usingComponents": {
+    "load-more": "/components/load-more/load-more"
+  }
+}

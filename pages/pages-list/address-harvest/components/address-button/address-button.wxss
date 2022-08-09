@@ -1,0 +1,20 @@
+/* pages/pages-list/address-harvest/address-button/address-button.wxss */
+.address-button {
+  position: fixed;
+  bottom: 56rpx;
+  left: 0;
+  padding: 20rpx 32rpx 64rpx 32rpx;
+  height: 86rpx;
+  width: calc(100% - 64rpx);
+}
+
+.address-button view {
+  width: 686rpx;
+  height: 86rpx;
+  background: #0B357A;
+  border-radius: 4rpx;
+  font-size: 28rpx;
+  font-family: Source Han Sans CN, Source Han Sans CN-Medium;
+  font-weight: 500;
+  color: #ffffff;
+}

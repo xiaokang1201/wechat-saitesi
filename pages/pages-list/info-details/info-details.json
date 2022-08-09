@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "资讯详情",
+  "usingComponents": {
+    "rich-text-parse": "/components/rich-text-parse/rich-text-parse"
+  }
+} 

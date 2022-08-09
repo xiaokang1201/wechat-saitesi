@@ -1,0 +1,79 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mall/mall",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/pages-list/search-list/search-list",
+    "pages/pages-list/info-details/info-details",
+    "pages/pages-list/address-harvest/address-add-edit/address-add-edit",
+    "pages/pages-list/address-harvest/address-list/address-list",
+    "pages/pages-list/personal-data/personal-data",
+    "pages/pages-list/message-center/message-center",
+    "pages/pages-list/set-up/set-up",
+    "pages/pages-list/coupons/coupons",
+    "pages/pages-list/infos/infos",
+    "pages/pages-list/coupon-redemption-centre/coupon-redemption-centre",
+    "pages/pages-list/sample-sent-back/sample-sent-back",
+    "pages/pages-list/sample-sent-back-order/sample-sent-back-order",
+    "pages/pages-list/evaluation/evaluation",
+    "pages/pages-list/inspection-booking/inspection-booking",
+    "pages/pages-list/inspection-booking-order-details/inspection-booking-order-details",
+    "pages/pages-list/after-sales-list/after-sales-list",
+    "pages/pages-list/after-sales/after-sales",
+    "pages/pages-list/after-sales-apply/after-sales-apply",
+    "pages/pages-list/report-view/report-view",
+    "pages/pages-list/goods-details/goods-details",
+    "pages/pages-list/booking-inspection/booking-inspection",
+    "pages/pages-list/scan-bind/scan-bind",
+    "pages/pages-list/examinate/examinate",
+    "pages/pages-list/examinate-add-edit/examinate-add-edit",
+    "pages/pages-list/examinate-admin/examinate-admin",
+    "pages/pages-list/distribution-center/distribution-center",
+    "pages/pages-list/since-mining-order/since-mining-order",
+    "pages/pages-list/since-mining-order-details/since-mining-order-details",
+    "pages/pages-list/order-details/order-details",
+    "pages/pages-list/collection/collection",
+    "pages/pages-list/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#68686F",
+    "selectedColor": "#0B357A",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/images/tab-bar/0.png",
+        "selectedIconPath": "assets/images/tab-bar/1.png"
+      },
+      {
+        "pagePath": "pages/mall/mall",
+        "text": "商城",
+        "iconPath": "assets/images/tab-bar/2.png",
+        "selectedIconPath": "assets/images/tab-bar/3.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "assets/images/tab-bar/4.png",
+        "selectedIconPath": "assets/images/tab-bar/5.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "assets/images/tab-bar/6.png",
+        "selectedIconPath": "assets/images/tab-bar/7.png"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
