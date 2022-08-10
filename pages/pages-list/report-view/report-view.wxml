@@ -35,7 +35,7 @@
         </view>
         <view class="company-name">
           <text>公司名称:</text>
-          <text>湖南省开福区湘雅医院</text>
+          <text>{{$state.userConfig.express_address}}</text>
         </view>
         <view bindtap="lookReportClick" data-url="{{item.report_url}}" class="immediately-check flex-ali-cen">立即查看</view>
       </view>

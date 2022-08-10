@@ -8,7 +8,7 @@
   <!-- 检验地址 -->
   <view class="check-address">
     <view>检验地址:</view>
-    <view>海南省海口市龙华区港湾路复兴城e区e座1楼</view>
+    <view>{{$state.userConfig.express_address}}</view>
   </view>
   <!-- 商品信息 -->
   <!-- <view class="goods-info flex">

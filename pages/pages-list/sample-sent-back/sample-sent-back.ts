@@ -136,7 +136,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    this.myCodes()
+
   },
 
   /**
@@ -150,7 +150,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.myCodes()
   },
 
   /**

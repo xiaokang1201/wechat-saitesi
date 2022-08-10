@@ -115,6 +115,22 @@
       border-radius: 8rpx;
       margin-top: 24rpx;
       padding: 20rpx 30rpx 30rpx 30rpx;
+      .msgs {
+        position: absolute;
+        right: 67rpx;
+        top: 47rpx;
+        min-width: 30rpx;
+        min-height: 30rpx;
+        background: #E43B3B;
+        padding: 5rpx;
+        border-radius: 50%;
+        color: #fff;
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20rpx;
+        color: #FFFFFF;
+      }
       .contact {
         position: absolute;
         height: 110rpx;

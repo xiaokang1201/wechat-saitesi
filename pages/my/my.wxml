@@ -91,6 +91,7 @@
         <image src="{{$state.ASSETSURL}}my/0.png"></image>
       </view>
       <button open-type="contact" class="contact"></button>
+      <view wx:if="{{$state.userInfo.msgs>0}}" class="msgs">{{$state.userInfo.msgs > 99 ? 99 : $state.userInfo.msgs}}</view>
     </view>
   </view>
 </view>

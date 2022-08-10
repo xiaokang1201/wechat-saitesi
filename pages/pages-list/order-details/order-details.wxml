@@ -51,7 +51,7 @@
     </view>
     <view class="make" wx:if="{{type === 2}}">
       <view>检验地址：</view>
-      <view>{{$state.addressInfo.province}}{{$state.addressInfo.city}}{{$state.addressInfo.district}}{{$state.addressInfo.detail}}</view>
+      <view>{{$state.userConfig.express_address}}</view>
     </view>
   </view>
   <!-- 商品信息 -->
