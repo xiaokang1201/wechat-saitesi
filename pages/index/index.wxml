@@ -53,3 +53,5 @@
 
 <!-- 用户信息授权 -->
 <get-user-info wx:if="{{!$state.userInfo.nickname}}"></get-user-info>
+<!-- 手机号授权 -->
+<get-phone-number wx:if="{{!$state.userInfo.mobile}}"></get-phone-number>

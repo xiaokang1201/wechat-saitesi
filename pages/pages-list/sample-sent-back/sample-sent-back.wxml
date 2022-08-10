@@ -16,7 +16,11 @@
             <image class="sample-img" src="{{item.product_thumb}}"></image>
             <view class="position position{{typeIndex}}">
               <view class="sample-name">{{item.product_name}}</view>
-              <view class="button flex-ali-cen">{{typeIndex ===  0 ? '寄回' : '查看物流'}}</view>
+              <view 
+                data-code_ids="{{item.code_id}}" 
+                data-kuaidinum="{{item.kuaidinum}}"  
+                catchtap="{{typeIndex ===  0 ? 'sendBack' : 'lookLogistics'}}" 
+                class="button flex-ali-cen">{{typeIndex ===  0 ? '寄回' : '查看物流'}}</view>
             </view>
           </view>
         </view>
@@ -25,7 +29,7 @@
     <load-more loadMoreType="{{loadMoreType}}"></load-more>
     <view class="placeholder" hidden="{{typeIndex !== 0}}"></view>
   </scroll-view>
-  <view hidden="{{typeIndex !== 0}}">
+  <view hidden="{{typeIndex !== 0 || list.length === 0}}">
     <select-all-bottom select="{{checkNum}}" bindallClick="allClick" bindsubmit="submit"></select-all-bottom>
   </view>
 
@@ -47,22 +51,21 @@
             <view class="item flex" wx:for="{{logisticsInfo}}" wx:key="id">
               <view class="progress-line" wx:if="{{index !== logisticsInfo.length-1}}"></view>
               <view class="circle flex-cen">
-                <view class="circle{{item.type}}"></view>
+                <view class="circle{{index !== logisticsInfo.length-1 ? 1 : 0}}"></view>
               </view>
               <view>
                 <view>
-                  <text class="status">已收货</text>
-                  <text class="time">06-24 12:31</text>
+                  <text class="time">{{item.ftime}}</text>
                 </view>
-                <view class="describe">包裹正在等待揽收</view>
+                <view class="describe">{{item.context}}</view>
               </view>
             </view>
           </view>
         </scroll-view>
-        <view class="leave-info flex-ali">
+        <!-- <view class="leave-info flex-ali">
           <image src="{{$state.ASSETSURL}}sample-sent-back/3.png"></image>
-          <view>张小伟，156****9878，湖南省 长沙市 开福区 麓园街道 望麓园街道香春路113号</view>
-        </view>
+          <view>{{orderDetail.real_name}}，{{orderDetail.user_phone}}，{{orderDetail.user_address}}</view>
+        </view> -->
       </view>
     </view>
   </show-pop>

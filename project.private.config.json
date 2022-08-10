@@ -287,6 +287,27 @@
           "query": "order_sn=STS165959548818947488",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "佣金明细",
+          "pathName": "pages/pages-list/commission/commission",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "提现",
+          "pathName": "pages/pages-list/withdrawal/withdrawal",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "富文本",
+          "pathName": "pages/pages-list/rich-text/rich-text",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

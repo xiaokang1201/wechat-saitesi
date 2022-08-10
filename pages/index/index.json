@@ -6,6 +6,7 @@
     "info-list": "/components/info-list/info-list",
     "custom-tab-bar": "/components/custom-tab-bar/custom-tab-bar",
     "show-pop": "/components/show-pop/show-pop",
-    "get-user-info": "/components/get-user-info/get-user-info"
+    "get-user-info": "/components/get-user-info/get-user-info",
+    "get-phone-number": "/components/get-phone-number/get-phone-number"
   }
 }

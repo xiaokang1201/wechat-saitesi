@@ -11,7 +11,7 @@
           />
           <view class="flex-col items-start view_3">
             <text class="text_10">系统通知</text>
-            <text class="text_11">{{item.content}}</text>
+            <view class="text_11">{{item.content}}</view>
           </view>
         </view>
         <text class="text_9">{{item.create_time}}</text>

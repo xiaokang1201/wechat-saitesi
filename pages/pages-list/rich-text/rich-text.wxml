@@ -1,0 +1,2 @@
+<!--pages/pages-list/rich-text/rich-text.wxml-->
+<rich-text-parse nodes="{{nodes}}"></rich-text-parse>

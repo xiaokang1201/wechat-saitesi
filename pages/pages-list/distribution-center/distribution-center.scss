@@ -17,16 +17,10 @@
     .group_2 {
       padding: 20rpx 0 220rpx 30.5rpx;
       .image-wrapper {
-        padding: 32.5rpx 0;
-        background-color: #d8dde7;
         border-radius: 50%;
+        overflow: hidden;
         width: 152rpx;
         height: 152rpx;
-        .image_4 {
-          overflow: hidden;
-          width: 90rpx;
-          height: 87rpx;
-        }
       }
       .group_3 {
         margin-left: 29.5rpx;
@@ -136,7 +130,7 @@
                 line-height: 22rpx;
               }
               .text_14 {
-                margin-left: 12.5rpx;
+                margin-left: 20.5rpx;
                 color: #9d9d9d;
                 font-size: 24rpx;
                 font-family: Source Han Sans CN;

@@ -75,6 +75,6 @@
     text="登记预约" 
     bindallClick="allClick"
     bindsubmit="submit"
-    wx:if="{{typeIndex === 2}}">
+    wx:if="{{typeIndex === 2&&list.length>0}}">
   </select-all-bottom>
 </view>

@@ -8,11 +8,11 @@ Page({
     list: [
       { text: '地址管理', path: '/pages/pages-list/address-harvest/address-list/address-list' },
       { text: '意见反馈', },
-      { text: '关于我们', },
-      { text: '使用帮助', },
-      { text: '受检人信息管理', }
+      { text: '关于我们', path: '/pages/pages-list/rich-text/rich-text?type=2' },
+      { text: '使用帮助', path: '/pages/pages-list/rich-text/rich-text?type=3' },
+      { text: '受检人信息管理', path: '/pages/pages-list/examinate-admin/examinate-admin' }
     ]
-  },
+  },  
 
   // 跳转页面
   jumpNav({ currentTarget: { dataset: { path } } }: CurrentTarget<string>) {

@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "rich-text-parse": "/components/rich-text-parse/rich-text-parse"
+  }
+}

@@ -44,10 +44,10 @@
     <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
   </view>
   <!-- 5 填写申请原因 -->
-  <view class="pop fill-apply flex-col-ali" wx:if="{{type===5}}">
+  <view catchtap="empty" class="pop fill-apply flex-col-ali" wx:if="{{type===5}}">
     <view class="text1">填写申请原因</view>
-    <textarea type="text" placeholder="请输入申请原因"/>
-    <view class="btn1 flex-ali-cen">确认</view>
+    <textarea bindinput="inputchange" data-input="reason" type="text" placeholder="请输入申请原因"/>
+    <view bindtap="event1" class="btn1 flex-ali-cen">确认</view>
     <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
   </view>
   <!-- 6 分享码 -->

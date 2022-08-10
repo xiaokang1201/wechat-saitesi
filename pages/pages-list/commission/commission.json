@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "受检人信息管理",
+  "navigationBarTitleText": "明细",
   "usingComponents": {
     "load-more": "/components/load-more/load-more"
   }

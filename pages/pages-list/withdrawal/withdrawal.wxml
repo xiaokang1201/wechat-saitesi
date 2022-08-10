@@ -1,0 +1,21 @@
+<!--pages/pages-list/stores/withdrawal/withdrawal.wxml-->
+<view class="withdrawal">
+  <!-- 提现金额 -->
+  <view class="withdrawal-bd">
+    <view class="withdrawal-money">提现金额</view>
+    <!-- 输入提现金额 -->
+    <view class="withdrawal-contain flex-ali-bet">
+      <text>￥</text>
+      <input 
+        bindinput="inputchange"
+        value="{{amount}}" 
+        placeholder="点击输入提现金额" 
+        placeholder-class="placeholder-class" 
+        type="number"
+      />
+      <view class="withdrawal-all flex-ali-cen" bindtap="allBalanceClick">全部提现</view>
+    </view>
+    <view class="can-carry-balance">当前可提现余额{{balance || '0.00'}}元</view>
+    <view class="btn flex-ali-cen" bindtap="apiWithdrawal">提现</view>
+  </view>
+</view>

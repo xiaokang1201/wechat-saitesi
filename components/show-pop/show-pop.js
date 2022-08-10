@@ -60,9 +60,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    inputchange({ detail: { value } }) {
+      this.data.reason = value
+    },
     // 事件1
     event1() {
-      this.triggerEvent('event1')
+      this.triggerEvent('event1', this.data.reason)
     },
     // 事件2
     event2() {

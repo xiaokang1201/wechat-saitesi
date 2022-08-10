@@ -69,9 +69,20 @@ Page({
   payOrderClick: useThrottle(function (this: any, { currentTarget: { dataset: { order_sn } } }: CurrentTarget<string>) {
     this.apiOrderPay(order_sn)
   }),
+  // 点击确认收货
+  confirmOrderClick: useThrottle(async function (this: any, { currentTarget: { dataset: { order_sn } } }: CurrentTarget<string>) {
+    await this.apiOrderSure(order_sn)
+    await getApp().tool.alert("成功收货", 1000, 1)
+    this.initCurrentOrderList()
+  }),
   //#endregion
 
   //#region API
+  // 确认收货
+  apiOrderSure(order_sn: string) {
+    return getApp().api.orderSure({ order_sn })
+  },
+
   // 取消订单
   apiCancerOrder(order_sn: string) {
     return getApp().api.cancerOrder({ order_sn })

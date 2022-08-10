@@ -26,6 +26,7 @@ interface data {
       detail:string
     }
   },
+  remark: string
 }
 
 Page({
@@ -37,13 +38,14 @@ Page({
     code_ids: '',//条码id集合   
     list: [{}, {}],//列表
     dateList: [],//当前时间往后10天日期
-    timeList: ['09: 00', '11: 00', '13: 00', '15: 00', '17: 00', '19: 00'],
-    timeList1: ['09: 00', '11: 00', '13: 00', '15: 00', '17: 00', '19: 00'],
+    timeList: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00'],
+    timeList1: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00'],
     timeNumber: [9, 11, 13, 15, 17, 19],
     currentTime: new Date().getHours() + 2,//当前时间
     show: false,//取件时间弹框
     timeValue: [0, 0],//选择日期时间索引
     timeValue1: [],//选择日期时间索引 提交
+    remark: '',//备注
   } as data,
 
   // 选择地址
@@ -88,7 +90,7 @@ Page({
     const { currentTime, timeNumber, timeList1 } = this.data
     const list = JSON.parse(JSON.stringify(timeList1))
     for(const i in timeNumber) {
-      if(currentTime >= timeNumber[Number(i)]) {
+      if(currentTime >= timeNumber[Number(i) + 1]) {
         list.shift()
       }
     }
@@ -122,7 +124,9 @@ Page({
 
   // 邮寄条码
   apiMailCode: useThrottle(function (this: any) {
-    const { code_ids, timeValue1, dateList, timeList } = this.data
+    const { code_ids, timeValue1, dateList, timeList, $state: { addressInfo: { id } } } = this.data
+    if(!id) return getApp().tool.alert('请选择地址')
+    if(timeValue1.length === 0) return getApp().tool.alert('请选择取件时间')
     let dayType = '今天'
     if(dateList[timeValue1[0]].indexOf('明天') !== -1) {
       dayType = '明天'

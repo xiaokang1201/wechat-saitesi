@@ -1,11 +1,12 @@
 // pages/pages-list/sample-sent-back/sample-sent-back.ts
 import useLoadMore from "../../../hook/use-load-more"
+import useThrottle from "../../../hook/use-throttle"
 import api from "../../../utils/api/api"
 
 interface data extends List {
   list: {
     check: Boolean,
-    code: string,
+    code_id: number,
   }[],
   orderSn: string,
   typeIndex: number,
@@ -24,17 +25,37 @@ Page({
     loadMoreType: 1,//列表加载状态
     page: 0,//页码
     show: false,//物流弹框显示隐藏
-    logisticsInfo: [
-      { type: 1 },
-      { type: 0 }
-    ],
+    logisticsInfo: [],
     checkNum: 0,//勾选数量
   } as data,
+
+  // 查看物流
+  lookLogistics: useThrottle(function (this: any, { currentTarget: { dataset: { kuaidinum } } }: CurrentTarget<string>) {
+    this.getExpressInfo(kuaidinum)
+  }),
+
+  // 获取物流信息
+  getExpressInfo(kuaidinum: string) {
+    getApp().api.getExpressInfo({
+      kuaidinum
+    }).then(({ data }: Body<{}[]>) => {
+      this.setData({ 
+        logisticsInfo: data,
+        show: true 
+      })
+    })
+  },
+
+
+  // 点击寄回
+  sendBack({ currentTarget: { dataset: { code_ids } } }: CurrentTarget<string>) {
+    getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_ids}`)
+  },
 
   // 提交登记预约
   submit() {
     if(this.data.checkNum === 0) return getApp().tool.alert('请勾选订单')
-    const code_ids = this.checkList().map(item => item.code).join(',')
+    const code_ids = this.checkList().map(item => item.code_id).join(',')
     getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_ids}`)
   },
 
@@ -72,18 +93,6 @@ Page({
     this.myCodes()
   },
 
-  // 获取物流信息
-  getExpressInfo() {
-    getApp().api.getExpressInfo({
-      // kuaidinum: this.data.orderDetail.delivery_id
-    }).then(({ data }: Body<{}[]>) => {
-      this.setData({ 
-        // logisticsInfo: data,
-        show: true 
-      })
-    })
-  },
-
   // 关闭弹框
   shutDownPop() {
     this.setData({ show: false })
@@ -119,6 +128,7 @@ Page({
         loadMoreType: useLoadMore(data, false),
         list: data 
       })
+      this.getCheckNum()
     })
   },
 

@@ -54,16 +54,16 @@
     <view class="title">收货地址</view>
     <view>
       <view>
-        <text class="name">张晓伟</text>
-        <text class="mobile">136999999</text>
+        <text class="name">{{$state.userConfig.express_name}}</text>
+        <text class="mobile">{{$state.userConfig.express_tel}}</text>
       </view>
-      <view class="address">海南省海口市龙华区港湾路复兴城e区e座1楼</view>
+      <view class="address">{{$state.userConfig.express_address}}</view>
     </view>
   </view>
   <!-- 备注 -->
   <view class="note">
     <view>备注</view>
-    <input type="text" placeholder="请输入备注"/>
+    <input bindtap="inputChange" data-input="remark" value="{{remark}}" type="text" placeholder="请输入备注"/>
   </view>
   <view class="placeholder"></view>
   <!-- 确认寄回 -->

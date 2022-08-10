@@ -1,5 +1,6 @@
 // pages/pages-list/scan-bind/scan-bind.ts
 import Validator from '../../../class/validator'
+import useThrottle from '../../../hook/use-throttle'
 Page({
 
   /**
@@ -56,7 +57,7 @@ Page({
   },
 
   // 提交
-  async submit() {
+  submit: useThrottle(async function (this: any) {
     const { isEmpty } = new Validator()
     const { code_id, isAgree, diseases, history, familyHistory, codeTime } = this.data
     if(!isAgree) return getApp().tool.alert('请勾选协议')
@@ -69,7 +70,7 @@ Page({
       await getApp().tool.alert('绑定成功')
       getApp().tool.jump_back()
     }
-  },
+  }),
 
   // 查询条码状态
   apiGetOrderCode() {

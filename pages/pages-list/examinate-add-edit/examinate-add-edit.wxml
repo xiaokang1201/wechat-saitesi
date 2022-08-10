@@ -68,7 +68,7 @@
         <text class="text_12">年龄</text>
         <input 
           class="text_13 input" 
-          type="text" 
+          type="number" 
           placeholder="请输入"
           bindinput="inputChange" 
           value="{{age}}"
@@ -102,7 +102,7 @@
         <text class="text_18">手机号</text>
         <input 
           class="text_19 input" 
-          type="text" 
+          type="number" 
           placeholder="请输入"
           bindinput="inputChange" 
           value="{{mobile}}"

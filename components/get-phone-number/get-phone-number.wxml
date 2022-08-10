@@ -1,0 +1,4 @@
+<!--components/getPhoneNumber/getPhoneNumber.wxml-->
+<view class="get-phone-number">
+  <button class="poa" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumberUserInfo" bindtap='operation'>{{showModalOption.confirmText}}</button>
+</view>

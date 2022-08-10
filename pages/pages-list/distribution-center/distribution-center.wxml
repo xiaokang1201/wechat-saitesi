@@ -4,26 +4,26 @@
     <view class="items-start group_2">
       <view class="flex-col items-center image-wrapper">
         <image
-          src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc/16584709398943499646.png"
-          class="image_4"
+          src="{{$state.userInfo.avatar}}"
+          class="image-wrapper"
         />
       </view>
       <view class="flex-col group_3">
         <view class="justify-between">
-          <text class="text">用户昵称</text>
-          <text class="text_1">规则</text>
+          <text class="text">{{$state.userInfo.nickname}}"</text>
+          <text bindtap="goRichText" class="text_1">规则</text>
         </view>
         <view class="justify-end group_5">
           <view class="flex-col items-center section_2">
-            <view class="flex-row section_3">
+            <!-- <view class="flex-row section_3">
               <text class="text_2">分销记录</text>
               <image
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16584709373247854727.png"
                 class="image_5"
               />
-            </view>
+            </view> -->
           </view>
-          <view class="flex-col items-center text-wrapper {{$state.userInfo.did > 0 ? 'cur' : ''}}"><text class="text_3">{{$state.userInfo.did === 0 ? '申请分销员' : '钻石分销员'}}</text></view>
+          <view bindtap="applyClick" class="flex-col items-center text-wrapper {{$state.userInfo.did > 0 ? 'cur' : ''}}"><text class="text_3">{{$state.userInfo.did === 0 ? '申请分销员' : '钻石分销员'}}</text></view>
         </view>
       </view>
     </view>
@@ -36,22 +36,23 @@
             <view class="justify-between list-item">
               <view class="flex-row">
                 <image
-                  src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16584709369974769468.png"
+                  src="{{item.avatar}}"
                   class="image_6"
                 />
                 <view class="flex-col items-start group_9">
-                  <text class="text_4">打打怪</text>
-                  <text class="text_6">2022.02.03 10：00</text>
+                  <text class="text_4">{{item.nickname}}</text>
+                  <text class="text_6">{{item.create_time}}</text>
                 </view>
               </view>
               <view class="flex-col group_10">
                 <view class="group_11">
                   <text class="text_8">佣金</text>
-                  <text class="text_10">+20元</text>
+                  <text class="text_10">+{{item.user_commission}}元</text>
                 </view>
                 <view class="flex-row group_12">
-                  <text class="text_12">购买XXX商品</text>
-                  <text class="text_14">花费200元</text>
+                  <!-- <text class="text_12">购买XXX商品</text> -->
+                  <text class="text_12"></text>
+                  <text class="text_14">花费{{item.order_pay_price}}元</text>
                 </view>
               </view>
             </view>
@@ -63,28 +64,30 @@
     <view class="flex-row equal-division">
       <view class="flex-col equal-division-item">
         <view class="group_21">
-          <text class="text_40">2860</text>
-          <text class="text_41">.99</text>
+          <text class="text_40">{{all_commission || '0.00'}}</text>
+          <!-- <text class="text_41">.99</text> -->
         </view>
         <text class="text_42">累计佣金</text>
-        <view class="flex-col items-center text-wrapper_1"><text class="text_43">查看明细</text></view>
+        <view bindtap="lookCommission" class="flex-col items-center text-wrapper_1"><text class="text_43">查看明细</text></view>
         <view class="group_22">
           <text class="text_44">今日佣金：</text>
-          <text class="text_45">￥52</text>
+          <text class="text_45">￥{{today_commission || '0.00'}}</text>
         </view>
         <view class="section_6 view_20"><!--*--></view>
       </view>
       <view class="flex-col equal-division-item_1">
         <view class="flex-col items-center group_23">
           <view class="group_24">
-            <text class="text_46">2860</text>
-            <text class="text_47">.99</text>
+            <text class="text_46">{{distributor.balance || '0.00'}}</text>
+            <!-- <text class="text_47">.99</text> -->
           </view>
           <text class="text_48">可提现佣金</text>
-          <view class="flex-col items-center text-wrapper_2"><text class="text_49">提现</text></view>
+          <view bindtap="withdrawal" class="flex-col items-center text-wrapper_2"><text class="text_49">提现</text></view>
         </view>
         <view class="section_6"><!--*--></view>
       </view>
     </view>
   </view>
 </view>
+
+<show-pop bindevent1="submit" bindclickoverlay="clickoverlay" type="5" show="{{show}}"></show-pop>

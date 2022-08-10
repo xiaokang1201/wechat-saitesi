@@ -1,29 +1,29 @@
-// pages/pages-list/examinate-admin/examinate-admin.ts
+// pages/pages-list/commission/commission.ts
 import useLoadMore from "../../../hook/use-load-more"
+import useLoadMoreJudge from "../../../hook/use-load-more-judge"
 
+interface data extends List, $State{}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    page: 0,
     list: [],
-    loadMoreType: 1,
-    index: 0,//编辑索引
-  },
-  
-  // 点击编辑
-  editClick({ currentTarget: { dataset: { index } } }: Index) {
-    this.data.index = index
-    getApp().tool.jump_nav(`/pages/pages-list/examinate-add-edit/examinate-add-edit?type=2`)
-  },
+    loadMoreType: 1
+  } as data,
 
-  // 获取受检人地址
-  apiPersonAddressList() {
-    getApp().api.personAddressList().then(({ data }: Body<[]>) => {
+
+  // 佣金
+  apiUserCommission() {
+    if(useLoadMoreJudge(this)) return
+    const page = this.data.page + 1
+    getApp().api.userCommission({ page }).then(({ data }: Body<[]>) => {
       this.setData({
-        list: data,
-        loadMoreType: useLoadMore(data, false)
+        list: page === 1 ? data : this.data.list.concat(data),
+        page,
+        loadMoreType: useLoadMore(data, page, this.data.$state?.limit)
       })
     })
   },
@@ -32,7 +32,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-
+    this.apiUserCommission()
   },
 
   /**
@@ -46,7 +46,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.apiPersonAddressList()
+
   },
 
   /**

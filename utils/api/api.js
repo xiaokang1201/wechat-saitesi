@@ -24,6 +24,12 @@ export default {
   myMsg: (data, url = 'my_msg') => { return myRequest(data, url, 'get') },
   // 配置信息
   getConfig: (data, url = 'get_config') => { return myRequest(data, url, 'get') },
+  // 申请分销商
+  commissionApply: (data, url = 'commission_apply') => { return myRequest(data, url) },
+  // 我的佣金
+  userCommission: (data, url = 'user_commission') => { return myRequest(data, url, 'get') },
+  // 提现申请
+  withdrawal: (data, url = 'withdrawal') => { return myRequest(data, url) },
   //#endregion
   
   //#region 轮播图

@@ -17,10 +17,10 @@
           data-order_sn="{{item.order_id}}"
           wx:if="{{item._status._type === 0 ? (item.remain_time-time>0) : true}}">
           <view class="number-status flex-ali-bet">
-            <view class="number">订单编号  564654678</view>
+            <view class="number">订单编号 {{item.order_id}}</view>
             <view class="status">{{item._status._type === 0 ? 
             ('待支付'+tool.minutes(item.remain_time-time)+'分'+tool.seconds(item.remain_time-time)+'秒')  
-            : item._status._msg}}</view>
+            : item._status._title}}</view>
           </view>
           <orders-goods 
             type="2" 
@@ -53,6 +53,13 @@
                 data-order_sn="{{item.order_id}}" 
                 wx:if="{{item._status._type === 0}}">
                 去支付
+              </view>
+              <view 
+                class="flex-ali-cen cur" 
+                catchtap="confirmOrderClick"
+                data-order_sn="{{item.order_id}}" 
+                wx:if="{{item._status._type === 2}}">
+                确认收货
               </view>
               <view class="flex-ali-cen" wx:if="{{item._status._type === 4}}">{{item._status._title}}</view>
             </view>

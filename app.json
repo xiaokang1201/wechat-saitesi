@@ -34,6 +34,9 @@
     "pages/pages-list/since-mining-order-details/since-mining-order-details",
     "pages/pages-list/order-details/order-details",
     "pages/pages-list/collection/collection",
+    "pages/pages-list/commission/commission",
+    "pages/pages-list/withdrawal/withdrawal",
+    "pages/pages-list/rich-text/rich-text",
     "pages/pages-list/test/test"
   ],
   "window": {

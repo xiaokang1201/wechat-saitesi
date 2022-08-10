@@ -3,7 +3,7 @@ import useThrottle from "../../../hook/use-throttle"
 interface data {
   orderSn: string,
   status: number,
-  statusList: { text: string }[],
+  // statusList: { text: string }[],
   orderDetail: OrderDetail,
   logisticsInfo: [] | {}[],
   show: boolean,
@@ -26,14 +26,14 @@ Page({
    */
   data: {
     orderSn: '',
-    statusList: [
-      { text: '等待买家付款' },
-      { text: '待商家发货' },
-      { text: '待收货' },
-      { text: '已完成' },
-      { text: '售后' },
-      { text: '待商家备货' },
-    ],
+    // statusList: [
+    //   { text: '等待买家付款' },
+    //   { text: '待商家发货' },
+    //   { text: '待收货' },
+    //   { text: '已完成' },
+    //   { text: '售后' },
+    //   { text: '待商家备货' },
+    // ],
     status: 0,
     orderDetail: {},
     logisticsInfo: [],

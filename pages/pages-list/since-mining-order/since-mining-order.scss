@@ -14,6 +14,7 @@
         padding: 23rpx 30rpx 30rpx 30rpx;
         margin-bottom: 20rpx;
         background: #ffffff;
+
         .number-status {
           .number {
             font-family: 'Source Han Sans CN';
@@ -47,7 +48,11 @@
             color: #010204;
           }
         }
-        .action-buttons {
+        .action-buttons {       
+          .cur {
+            background: #0B357A;
+            color: #fff;
+          }
           >view {
             >view {
               width: 150rpx;

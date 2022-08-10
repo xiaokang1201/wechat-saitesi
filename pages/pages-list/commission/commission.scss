@@ -1,0 +1,47 @@
+/* pages/pages-list/commission/commission.wxss */
+.commission {
+  min-height: 100vh;
+  background: #f9f9f9;
+  padding: 20rpx 20rpx 0 20rpx;
+  .title {
+    padding: 10rpx 0 20rpx 5rpx;
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28rpx;
+    color: #020202;
+  }
+  .scroll-view {
+    height: calc(100vh - 77rpx);
+    background-color: #ffffff;
+    border-radius: 8rpx;
+    .list {
+      padding: 0 30rpx;
+      .item {
+        height: 95rpx;
+        border-bottom: 1rpx solid #EBEBEB;
+        >view:nth-of-type(1) {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 350;
+          font-size: 24rpx;
+          color: #4E4E4E;
+        }
+        >view:nth-of-type(2) {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 400;
+          font-size: 24rpx;
+          color: #949494;
+        }
+        >view:nth-of-type(3) {
+          font-family: 'Source Han Sans CN';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 32rpx;
+          color: #E43B3B;
+        }
+      }
+    }
+  }
+}

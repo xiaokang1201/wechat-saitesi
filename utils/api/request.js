@@ -13,7 +13,10 @@ import tool from '../publics/tool'
  * @returns 请求结果
  */
 const myRequest = (data = {}, url, method = 'POST', isOpenid = false, contentType = 0) => {
-  let header = { 'content-type': ['application/x-www-form-urlencoded', 'application/json'][contentType], 'token': getApp().store.getState().userInfo.token }
+  let header = { 'content-type': ['application/x-www-form-urlencoded', 'application/json'][contentType], 'token': 
+  // getApp().store.getState().userInfo.token 
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBZG1pbjg2MTI1IiwiaWF0IjoxNjYwMTE1NjYwLCJleHAiOjE2NjA3MjA0NjAsIm5iZiI6MTY2MDExNTY2MCwic3ViIjoiYjIwZjk2ZTU4NzhiMGE0N2ZmODYyNmM4Zjc1N2UzNWIiLCJqdGkiOiJiODhlNWE1MGNiMzc2YTQxYTQ1ZWI4YzViM2FhMmI0OSIsImNsYWltIjp7InVpZCI6MTgxfX0.iFMUwsh1iXtpmVJtcxq2KluFFrVJ9b_Snalpf-n338E'
+}
   !(url.indexOf('http:') != -1 || url.indexOf('https:') != -1) && (url = `${config.REQUESTURL}${url}`)
   isOpenid && Object.assign(data, { openid: getApp().store.getState().userInfo.openid || wx.getStorageSync('userInfo').openid })
   return new Promise((resolve, reject) => {

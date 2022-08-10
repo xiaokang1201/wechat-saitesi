@@ -4,7 +4,7 @@
     <view class="flex-col">
       <view class="justify-between flex-ali section_3">
         <view class="flex-col items-start">
-          <text class="text_3">{{statusList[orderDetail._status._type].text}}</text>
+          <text class="text_3">{{orderDetail._status._msg}}</text>
           <text class="text_4">{{orderDetail._pay_time}}</text>
         </view>
         <view class="flex-row group_8">

@@ -1,5 +1,7 @@
 {
   "navigationBarTitleText": "分销中心",
   "navigationBarBackgroundColor": "#e3ecfb",
-  "usingComponents": {}
+  "usingComponents": {
+    "show-pop": "/components/show-pop/show-pop"
+  }
 }
