@@ -36,6 +36,11 @@ Page({
     booking_time: '',//预约时间 
   } as data,
 
+  // 修改性别
+  setGender({ currentTarget: { dataset: { booking_sex } } }: CurrentTarget<number>){
+    this.setData({ booking_sex })
+  },
+
   // 勾选日期
   dateChange({ detail: { value } }: Detail<string>) {
     this.setData({ booking_date: value })

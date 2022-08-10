@@ -20,14 +20,14 @@
           <view class="justify-between group_13">
             <text class="text_12">性别</text>
             <view class="flex-row">
-              <view class="flex-row">
+              <view class="flex-row" bindtap="setGender" data-booking_sex="{{1}}">
                 <image
                   src="{{$state.ASSETSURL}}booking-inspection/{{booking_sex === 1 ? 1 : 0}}.png"
                   class="image_7"
                 />
                 <text class="text_13">男</text>
               </view>
-              <view class="flex-row group_16">
+              <view class="flex-row group_16" bindtap="setGender" data-booking_sex="{{0}}">
                 <image
                   src="{{$state.ASSETSURL}}booking-inspection/{{booking_sex === 0 ? 1 : 0}}.png"
                   class="image_7"
