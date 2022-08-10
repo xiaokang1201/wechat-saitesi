@@ -33,7 +33,7 @@
             <text class="text_7">{{orderDetail._status._type === 5 ? orderDetail.shipping_mobile : orderDetail.user_phone}}</text>
             <text class="text_8" wx:if="{{orderDetail._status._type !== 5}}">{{orderDetail._status._type === 5 ? orderDetail.shipping_mobile : orderDetail.real_name}}</text>
           </view>
-          <view class="justify-end" wx:if="{{orderDetail._status._type === 5}}">
+          <view bindtap="navigation" class="justify-end" wx:if="{{orderDetail._status._type === 5}}">
             <image
               src="{{$state.ASSETSURL}}since-mining-order-details/2.png"
               class="image_7"

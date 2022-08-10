@@ -68,16 +68,19 @@
             color: #0F0F0F;
           }
           .tag {
-            font-family: 'Source Han Sans CN';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 24rpx;
-            color: #9D9D9D;
-            padding: 5rpx 15rpx;
-            background: #F6F6F8;
-            border-radius: 4rpx;
-            width: max-content;
             margin: 10rpx 0;
+            >view {
+              width: max-content;
+              font-family: 'Source Han Sans CN';
+              font-style: normal;
+              font-weight: 400;
+              font-size: 24rpx;
+              color: #9D9D9D;
+              padding: 5rpx 15rpx;
+              background: #F6F6F8;
+              border-radius: 4rpx;
+              margin-right: 10rpx;
+            }
           }
           .money {
             font-family: 'Source Han Sans CN';

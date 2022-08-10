@@ -31,16 +31,15 @@ export default new Store({
     inputChange({ currentTarget: { dataset: { input } }, detail: { value } }) {
       this.data[input] = value
     },
-    //js节流防止多次点击方法
-    buttonClicked(page, times = 700) {
-      page.setData({
-        buttonClicked: true
+    // 导航
+    navigation() {
+      wx.openLocation({
+        latitude: 20.043749,
+        longitude: 110.326373,
+        name: "赛特斯生物医学有限公司",
+        address: "海南省海口市龙华区港湾路复兴城e区e座1楼",
+        scale: 18
       })
-      setTimeout(() => {
-        page.setData({
-          buttonClicked: false
-        })
-      }, times)
     },
     //tool工具
     tool() {

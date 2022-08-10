@@ -3,15 +3,22 @@ import useLoadMore from "../../../hook/use-load-more"
 import useLoadMoreJudge from "../../../hook/use-load-more-judge"
 import useThrottle from "../../../hook/use-throttle"
 
-interface data extends List, $State {
+interface data extends $State {
   typeList: string[],
   typeIndex: number,
   actionBtnList: string[],
   statusList: number[] | string[],
   search: string,
-  list: { check: boolean, code: string }[],
-  checkNum: number
+  list: _list[],
+  checkNum: number,
+  loadMoreType: number,
+  page: number
 }
+
+interface _list {
+  check: boolean, code: string, sukList: string[], product_attr_unique: string
+}
+
 Page({
 
   /**
@@ -150,15 +157,10 @@ Page({
     if(useLoadMoreJudge(this)) return
     const { typeIndex, statusList, search } = this.data
     const page = this.data.page + 1
-    getApp().api.bookingList({ page, status: statusList[typeIndex], search }).then(({ data }: Body<[]>) => {
-
-      
-      // thumb: '/assets/images/component/orders-goods/0.png',
-      // goods_name: '白茶净颜细致调理乳',
-      // tag: '小款',
-      // sukList: ['小款', '大', '黑'],
-      // price: '566.00',
-      // cart_num: 1
+    getApp().api.bookingList({ page, status: statusList[typeIndex], search }).then(({ data }: Body<_list[]>) => {
+      for(const i of data) {
+        i.sukList = i.product_attr_unique.split(',')
+      }
       this.setData({
         list: page === 1 ? data : this.data.list.concat(data),
         page,
