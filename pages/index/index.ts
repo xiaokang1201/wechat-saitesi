@@ -40,7 +40,7 @@ Page({
   },
 
   // 点击轮播图项
-  swiperItemClick({ currentTarget: { dataset: { item: { type, url } } } }: CurrentTarget<{ item: { type: number, url: string } }>) {
+  swiperItemClick({ currentTarget: { dataset: { item: { type, url } } } }: CurrentTarget<{ type: number, url: string }>) {
     useJump(type, url)
   },
   
@@ -125,9 +125,6 @@ Page({
     this.apiHotGoods()
     this.apiNoticeHot()
     getApp().tool.loading_h()
-
-
-
   },
 
   /**

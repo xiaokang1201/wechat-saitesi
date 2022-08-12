@@ -10,19 +10,19 @@
       </view>
       <view class="flex-col group_3">
         <view class="justify-between">
-          <text class="text">{{$state.userInfo.nickname}}"</text>
+          <text class="text">{{$state.userInfo.nickname}}</text>
           <text bindtap="goRichText" class="text_1">规则</text>
         </view>
-        <view class="justify-end group_5">
-          <view class="flex-col items-center section_2">
-            <!-- <view class="flex-row section_3">
+        <view class="group_5">
+          <!-- <view class="flex-col items-center section_2">
+            <view class="flex-row section_3">
               <text class="text_2">分销记录</text>
               <image
                 src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/623bdca45a7e3f03103ae189/62cd2c8f3cd7d30011237cdc//16584709373247854727.png"
                 class="image_5"
               />
-            </view> -->
-          </view>
+            </view>
+          </view> -->
           <view bindtap="applyClick" class="flex-col items-center text-wrapper {{$state.userInfo.did > 0 ? 'cur' : ''}}"><text class="text_3">{{$state.userInfo.did === 0 ? '申请分销员' : '钻石分销员'}}</text></view>
         </view>
       </view>
