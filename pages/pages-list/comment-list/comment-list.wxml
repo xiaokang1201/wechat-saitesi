@@ -1,0 +1,7 @@
+<!--pages/pages-list/comment-list/comment-list.wxml-->
+<view class="comment-list">
+  <!-- 评论列表 -->
+  <list-comment list="{{commentList}}"></list-comment>
+  <!-- 列表加载状态 -->
+  <load-more loadMoreType="{{loadMoreType}}"></load-more>
+</view>

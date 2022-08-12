@@ -89,7 +89,7 @@
       <button 
         class="flex-ali-cen" 
         hover-class="none"
-        bindtap="evaluationOrderClick"
+        bindtap="goBookingInspection"
         wx:if="{{status === 1 || status === 4}}">
         {{status === 1 ? '登记预约' : '重新预约'}}
       </button>

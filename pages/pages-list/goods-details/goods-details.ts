@@ -1,4 +1,5 @@
 // pages/pages-list/goods-details/goods-details.ts
+import config from "../../../config";
 import useThrottle from "../../../hook/use-throttle";
 
 interface data extends $State {
@@ -21,7 +22,9 @@ interface GoodsInfo {
   description: string,
   comments: string,
   type: number,
-  is_collection: boolean
+  is_collection: boolean,
+  store_name: string,
+  image: string,
 }
 interface ProductAttr {
   attr_name: string,
@@ -50,6 +53,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isUseShare: true,//独立分享
     swiperList: [{},{},],//轮播图列表
     swiperIndex: 0,//轮播图索引
     currentIndex: 0,//切换索引
@@ -68,6 +72,11 @@ Page({
     coupons: 0,//优惠券数量
     buyNumber: 1,//购买数量
   } as data,
+
+  // 查看更多评论
+  viewMoreClick() {
+    getApp().tool.jump_nav(`/pages/pages-list/comment-list/comment-list?goodsId=${this.data.goodsId}`)
+  },
 
   // 购买数量变化
   numberChange({ detail }: Body<number>) {
@@ -225,8 +234,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad({ goods_id, did }) {
+    console.log('goods_id did', goods_id, did)
     this.data.goodsId = Number(goods_id)
-    this.data.did = Number(did)
+    this.data.did = Number(did) || 0
     this.apiGoodsDetail()
   },
 
@@ -276,6 +286,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage() {
-
+    const SHAREINFO =  config.SHAREINFO
+    SHAREINFO.title = this.data.goodsInfo.store_name
+    SHAREINFO.imageUrl = this.data.goodsInfo.image
+    SHAREINFO.path = `/pages/index/index?goods_id=${this.data.goodsId}&did=${this.data.$state?.userInfo?.did}`
+    return SHAREINFO
   }
 })

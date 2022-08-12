@@ -2,7 +2,7 @@
 <view class="info-details">
   <rich-text-parse nodes="{{nodes}}"></rich-text-parse>
   <view class="comments">
-    <view class="title">评论（1545）</view>
+    <view class="title">评论（{{list.length}}）</view>
     <view class="list">
       <view class="item flex" wx:for="{{list}}" wx:key="id">
         <image src="{{item.avatar}}"></image>

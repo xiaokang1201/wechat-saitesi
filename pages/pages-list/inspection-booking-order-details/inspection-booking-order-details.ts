@@ -7,6 +7,7 @@ interface data {
   orderDetail: OrderDetail,
   status: number,
   statusList: { text: string }[],
+  code_id: number
 }
 
 interface OrderDetail { 
@@ -21,6 +22,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    code_id: 0,//
     statusList: [
       { text: '等待买家付款' },
       { text: '待预约' },
@@ -90,10 +92,15 @@ Page({
     getApp().tool.jump_nav(`/pages/pages-list/evaluation/evaluation?cartInfo=${
       JSON.stringify(this.data.orderDetail.cartInfo[0])}`)
   },
+  
+  // 跳转登记预约
+  goBookingInspection() {
+    getApp().tool.jump_nav(`/pages/pages-list/booking-inspection/booking-inspection?code=${this.data.code_id}`)
+  },
 
   // 预约详情
-  apiBookingDetail(code_id: number) {
-    getApp().api.bookingDetail({ code_id }).then(({ data }: { data: OrderDetail }) => {
+  apiBookingDetail() {
+    getApp().api.bookingDetail({ code_id: this.data.code_id }).then(({ data }: { data: OrderDetail }) => {
       for(const i of data.cartInfo) {
         i.sukList = i.suk.split(',')
       }
@@ -109,10 +116,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad({ order_sn, code, code_id }: Body<string>) {
+    this.data.code_id = Number(code_id)
     this.data.orderSn = order_sn
     // this.apiOrderDetail()
     // this.apiGetOrderCode(code)
-    this.apiBookingDetail(Number(code_id))
+    this.apiBookingDetail()
   },
 
   /**

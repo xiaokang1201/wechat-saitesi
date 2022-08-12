@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "全部评论",
+  "usingComponents": {
+    "list-comment": "/components/list-comment/list-comment",
+    "load-more": "/components/load-more/load-more"
+  }
+}

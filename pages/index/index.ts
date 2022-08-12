@@ -115,7 +115,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad() {
+  async onLoad({ goods_id, did }) {
+    console.log('进入首页携带参数 goods_id, did', goods_id, did)
     // 获取用户详情
     getApp().tool.loading()
     await apiUserDetail()
@@ -125,6 +126,10 @@ Page({
     this.apiHotGoods()
     this.apiNoticeHot()
     getApp().tool.loading_h()
+    // 商品详情分享链接进入
+    if(goods_id !== undefined) {
+      getApp().tool.jump_nav(`/pages/pages-list/goods-details/goods-details?goods_id=${goods_id}&did=${did}`)
+    }
   },
 
   /**

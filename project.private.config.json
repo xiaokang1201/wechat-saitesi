@@ -308,6 +308,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/index/index",
+          "query": "goods_id=4&did=4",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "全部评论",
+          "pathName": "pages/pages-list/comment-list/comment-list",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

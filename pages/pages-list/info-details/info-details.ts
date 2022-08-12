@@ -26,6 +26,7 @@ Page({
   apiNoticeComment() {
     const { id, content } = this.data
     getApp().api.noticeComment({ nid: id, content }).then(() => {
+      getApp().tool.alert('发布成功', 1000 ,1)
       this.apiNoticeDetail()
     })
   },
