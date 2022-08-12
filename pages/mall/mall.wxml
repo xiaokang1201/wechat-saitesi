@@ -12,7 +12,7 @@
           <text class="{{personIndex >= 0 ? 'cur' : ''}}">适用人群</text>
           <image src="{{$state.ASSETSURL}}mall/1.png"></image>
         </view>
-        <view data-index="">综合类</view>
+        <!-- <view data-index="">综合类</view> -->
         <view class="{{sortIndex === 0 ? 'cur' : ''}}" data-index="{{0}}" bindtap="sortClick">最新</view>
         <view class="flex" data-index="{{1}}" bindtap="sortClick">
           <text class="{{sortIndex === 1 ? 'cur' : ''}}">价格</text>

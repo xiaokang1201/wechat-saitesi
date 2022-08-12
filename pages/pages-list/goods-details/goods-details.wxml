@@ -3,19 +3,19 @@
   <!-- 轮播图 -->
   <view class="swiper-box">
     <swiper class="swiper" circular bindchange="swiperChange">
-      <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
-        <image mode="aspectFill" src="{{$state.ASSETSURL}}goods-details/0.png"></image>
+      <swiper-item class="swiper-item" wx:for="{{goodsInfo.slider_images}}" wx:key="id">
+        <image mode="aspectFill" src="{{item}}"></image>
       </swiper-item>
     </swiper>
     <view class="swiper-pagination-page">
-      <view class="page-number">{{swiperIndex+1}}/{{swiperList.length}}</view>
+      <view class="page-number">{{swiperIndex+1}}/{{goodsInfo.slider_images.length}}</view>
     </view>
   </view>
   <!-- 商品价格、类型、名称 -->
   <view class="price-type-title">
     <view class="flex-ali-bet">
       <view class="price">¥{{goodsInfo.price}}</view>
-      <image src="{{$state.ASSETSURL}}goods-details/1.png"></image>
+      <!-- <image src="{{$state.ASSETSURL}}goods-details/1.png"></image> -->
     </view>
     <view class="flex-end">
       <view class="type type{{goodsInfo.type}}">{{goodsInfo.type === 1 ? '自采' : '预约'}}</view>

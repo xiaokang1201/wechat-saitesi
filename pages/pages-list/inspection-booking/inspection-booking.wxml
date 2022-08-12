@@ -10,7 +10,14 @@
   </view>
   <scroll-view scroll-y class="scroll-view">
     <view class="list">
-      <view catchtap="goDetails" data-order_sn="{{item.order_sn}}" data-code="{{item.code}}" class="item item{{typeIndex}} flex-bet" wx:for="{{list}}" wx:key="code_id">
+      <view 
+        catchtap="goDetails" 
+        data-order_sn="{{item.order_sn}}" 
+        data-code="{{item.code}}" 
+        data-code_id="{{item.code_id}}" 
+        class="item item{{typeIndex}} flex-bet" 
+        wx:for="{{list}}" 
+        wx:key="code_id">
         <view catchtap="checkClick" data-index="{{index}}" class="check-box flex-cen" hidden="{{typeIndex !== 2}}">
           <image src="{{$state.ASSETSURL}}inspection-booking/{{item.check ? 1 : 0}}.png"></image>
         </view>
@@ -52,7 +59,7 @@
             <view 
               class="flex-ali-cen" 
               catchtap="bookingInspectionClick" 
-              data-code="{{item.code}}" 
+              data-code="{{item.code_id}}" 
               wx:if="{{item.booking_status===0}}">
               登记预约
             </view>
@@ -60,7 +67,7 @@
               class="flex-ali-cen" 
               wx:if="{{item.booking_status===3}}" 
               catchtap="bookingInspectionClick" 
-              data-code="{{item.code}}" >
+              data-code="{{item.code_id}}" >
               重新预约
             </view>
             <view class="flex-ali-cen" wx:if="{{item.booking_status===5}}">{{item.refund_status ? '处理中' : '已完成'}}</view>

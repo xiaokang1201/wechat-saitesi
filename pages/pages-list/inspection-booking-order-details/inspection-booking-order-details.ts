@@ -11,6 +11,8 @@ interface data {
 
 interface OrderDetail { 
   cartInfo: { suk: string, sukList: string[] }[] 
+  booking_status: number,
+  booking_text: string
 }
 
 Page({
@@ -61,14 +63,16 @@ Page({
 
   // 查询条码状态
   apiGetOrderCode(code: string) {
-    getApp().api.getOrderCode({ code }).then(({ data: { booking_status } }: { data: { booking_status: number } }) => {
-      this.setData({ status: booking_status + 1 })
+    type getOrderCode = { data: { booking_status: number, booking_text: string } }
+    getApp().api.getOrderCode({ code }).then(({ data: { booking_status, booking_text } }: getOrderCode) => {
+      this.setData({ status: booking_status + 1, booking_text })
     })
   },
 
   // 获取订单详情
   apiOrderDetail() {
     getApp().api.orderDetail({ order_sn: this.data.orderSn }).then(({ data }: { data: OrderDetail }) => {
+      // 登记预约 待支付 都没有 code 
       for(const i of data.cartInfo) {
         i.sukList = i.suk.split(',')
       }
@@ -87,13 +91,28 @@ Page({
       JSON.stringify(this.data.orderDetail.cartInfo[0])}`)
   },
 
+  // 预约详情
+  apiBookingDetail(code_id: number) {
+    getApp().api.bookingDetail({ code_id }).then(({ data }: { data: OrderDetail }) => {
+      for(const i of data.cartInfo) {
+        i.sukList = i.suk.split(',')
+      }
+      this.setData({ 
+        orderDetail: data,
+        status: data.booking_status+1,
+        booking_text: data.booking_text
+      })
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad({ order_sn, code }: Body<string>) {
+  onLoad({ order_sn, code, code_id }: Body<string>) {
     this.data.orderSn = order_sn
-    this.apiOrderDetail()
-    this.apiGetOrderCode(code)
+    // this.apiOrderDetail()
+    // this.apiGetOrderCode(code)
+    this.apiBookingDetail(Number(code_id))
   },
 
   /**

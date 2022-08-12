@@ -32,6 +32,7 @@
   }
   .check-address {
     padding: 20rpx 20rpx 30rpx 20rpx;
+    position: relative;
     >view {
       &:nth-of-type(1) {
         font-family: 'Source Han Sans CN';
@@ -42,13 +43,19 @@
         margin-bottom: 22rpx;
       }
       &:nth-of-type(2) {
+        width: 500rpx;
         font-family: 'Source Han Sans CN';
         font-style: normal;
         font-weight: 400;
         font-size: 28rpx;
         color: #4F5459;
-        
+        line-height: 35rpx;
       }
+    }
+    .navigation {
+      position: absolute;
+      right: 30rpx;
+      top: 60rpx;
     }
   }
   .goods-info {

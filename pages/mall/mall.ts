@@ -32,7 +32,7 @@ Page({
     personIndex: -1,//索引
     personDrawer: false,//抽屉
     /* 商品类型 */
-    typeList: ['自采', '预约'],//列表
+    typeList: ['居家自采', '预约采样'],//列表
     typeIndex: 0,//索引
     typeDrawer: false,//抽屉
     /* 商品 */
@@ -77,6 +77,13 @@ Page({
   // 输入框点击搜索
   inputConfirm({ detail }: Body<string>) {
     this.data.keyword = detail
+    this.data.page = 0
+    this.data.loadMoreType = 1
+    this.data.list = []
+    this.setData({
+      list: [],
+      loadMoreType: 1
+    })
     this.apiGoodsList()
   },
 

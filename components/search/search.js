@@ -45,9 +45,9 @@ Component({
    */
   methods: {
     // 输入框输入触发
-    inputChange({ detail: { value } }) {
+    inputchange({ detail: { value } }) {
       this.data.value = value
-      this.triggerEvent("inputChange", value)
+      this.triggerEvent("inputchange", value)
     },
     // 输入框点击搜索
     inputConfirm({ detail: { value } }) {

@@ -128,8 +128,8 @@ Page({
   },
 
   // 点击单个订单，进入订单详情
-  goDetails({ currentTarget: { dataset: { order_sn, code } } }: CurrentTarget<string>) {
-    getApp().tool.jump_nav(`/pages/pages-list/inspection-booking-order-details/inspection-booking-order-details?order_sn=${order_sn}&code=${code}`)
+  goDetails({ currentTarget: { dataset: { order_sn, code, code_id } } }: CurrentTarget<string>) {
+    getApp().tool.jump_nav(`/pages/pages-list/inspection-booking-order-details/inspection-booking-order-details?order_sn=${order_sn}&code=${code}&code_id=${code_id}`)
   },
 
   // 点击类型项

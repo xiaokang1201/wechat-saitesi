@@ -22,16 +22,24 @@ Page({
     page: 0,//页码
     loadMoreType: 1,//列表加载状态
   } as data,
+  // 刷新
+  refresh() {
+    this.data.page = 0
+    this.data.loadMoreType = 1
+    this.setData({
+      list: [],
+      loadMoreType: 1
+    })
+  },
 
   // 输入框输入
-  inputChange({ detail }: { detail: string }) {
+  inputchange({ detail }: { detail: string }) {
     if(detail.trim() === '') this.setData({ showHistory: true })
   },
 
   // 点击搜索 detail -> inputValue
   searchClick: useThrottle(function (this: any, { detail }: detail) {
-    this.data.page = 0
-    this.data.loadMoreType = 1
+    this.refresh()
     this.addSearchHistory(detail)
     this.apiGoodsList(detail)
     this.setData({ showHistory: false })
@@ -59,6 +67,7 @@ Page({
 
   // 点击单个搜索记录 detail -> keyword
   historyItemClick({ detail }: detail) {
+    this.refresh()
     this.apiGoodsList(detail)
     this.setData({ showHistory: false, keyword: detail })
   },

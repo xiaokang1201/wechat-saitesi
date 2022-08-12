@@ -1,8 +1,9 @@
+// pages/index/index.ts"
 import useLoadMore from "../../hook/use-load-more"
 import apiUserDetail from "../../private/api-user-detail"
 import apiGetConfig from "../../private/api-get-config"
+import useJump from "../../hook/use-jump"
 
-// pages/index/index.ts"
 interface data extends List {
   swiperList: SwiperList,
   swiperIndex: number,
@@ -32,6 +33,16 @@ Page({
     infoLoadMoreType: 1,//资讯列表加载状态
     infoList: [],//资讯列表
   } as data,
+
+  // 点击搜索框
+  searchClick() {
+    getApp().tool.jump_nav(`/pages/pages-list/search-list/search-list`)
+  },
+
+  // 点击轮播图项
+  swiperItemClick({ currentTarget: { dataset: { item: { type, url } } } }: CurrentTarget<{ item: { type: number, url: string } }>) {
+    useJump(type, url)
+  },
   
   // 轮播触发
   swiperChange({ detail: { current } }: swiperChange) {

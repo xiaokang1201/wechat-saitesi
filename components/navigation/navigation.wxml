@@ -1,0 +1,5 @@
+<!--components/navigation/navigation.wxml-->
+<view catchtap="navigation" class="navigation flex-ali">
+  <image src="{{$state.ASSETSURL}}component/navigation/0.png"></image>
+  <text>导航</text>
+</view>

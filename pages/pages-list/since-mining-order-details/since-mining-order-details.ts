@@ -1,5 +1,6 @@
 // pages/pages-list/since-mining-order-details/since-mining-order-details.ts
 import useThrottle from "../../../hook/use-throttle"
+import wxOpenLocation from "../../../private/wx-open-location"
 interface data {
   orderSn: string,
   status: number,
@@ -55,6 +56,11 @@ Page({
         show: true 
       })
     })
+  },
+
+  // 导航
+  navigation() {
+    wxOpenLocation()
   },
 
   // 关闭弹框

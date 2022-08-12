@@ -5,7 +5,7 @@
     focus="{{focus}}" 
     value="{{keyword}}"
     bindsearchClick="searchClick" 
-    bindinputChange="inputChange">
+    bindinputchange="inputchange">
   </search>
   <!-- 搜索历史 -->
   <search-history 

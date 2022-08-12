@@ -10,7 +10,7 @@
     confirm-type=""
     placeholder="{{placeholder}}" 
     placeholder-class="placeholder-class{{type}}" type="text"
-    bindinput="inputChange"
+    bindinput="inputchange"
     bindconfirm="inputConfirm"
     />
   <view 

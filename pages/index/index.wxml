@@ -4,13 +4,13 @@
     <image class="logo" slot="backText" src="{{$state.ASSETSURL}}index/0.png"></image>
   </custom-nav-bar>
   <!-- 搜索 -->
-  <view class="search flex-cen">
+  <view bindtap="searchClick" class="search flex-cen">
     <image src="{{$state.ASSETSURL}}index/1.png"></image>
   </view>
   <!-- 轮播图 -->
   <view class="swiper-box">
     <swiper class="swiper" circular current="{{swiperIndex}}" bindchange="swiperChange">
-      <swiper-item class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
+      <swiper-item bindtap="swiperItemClick" data-item="{{item}}" class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
         <image mode="aspectFill" src="{{item.image}}"></image>
       </swiper-item>
     </swiper>

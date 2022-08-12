@@ -51,6 +51,8 @@ export default {
   //#endregion
   
   //#region 订单
+  // 预约详情
+  bookingDetail: (data, url = 'booking_detail') => { return myRequest(data, url, 'get') },
   // 邮寄条码
   mailCode: (data, url = 'mail_code') => { return myRequest(data, url) },
   // 我的寄回条码
