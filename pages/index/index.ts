@@ -2,12 +2,9 @@
 import useLoadMore from "../../hook/use-load-more"
 import apiUserDetail from "../../private/api-user-detail"
 import apiGetConfig from "../../private/api-get-config"
-import useJump from "../../hook/use-jump"
 
 interface data extends List {
   swiperList: SwiperList,
-  swiperIndex: number,
-  currentIndex: number,
   tabList: string[],
   tabIndex: number,
   infoLoadMoreType: number,
@@ -24,8 +21,6 @@ Page({
    */
   data: {
     swiperList: [],//轮播列表
-    swiperIndex: 0,//轮播图索引
-    currentIndex: 0,//切换索引
     tabList: ['热门产品', '热门资讯'],//选项卡
     tabIndex: 0,//选项卡标记索引
     list: [],//商品列表
@@ -37,25 +32,6 @@ Page({
   // 点击搜索框
   searchClick() {
     getApp().tool.jump_nav(`/pages/pages-list/search-list/search-list`)
-  },
-
-  // 点击轮播图项
-  swiperItemClick({ currentTarget: { dataset: { item: { type, url } } } }: CurrentTarget<{ type: number, url: string }>) {
-    useJump(type, url)
-  },
-  
-  // 轮播触发
-  swiperChange({ detail: { current } }: swiperChange) {
-    this.data.swiperIndex = current
-    this.setData({
-      currentIndex: current
-    })
-  },
-
-  // 点击右箭头
-  arrowRightClick() {
-    const swiperIndex = this.data.swiperIndex + 1
-    this.setData({ swiperIndex: swiperIndex <= this.data.swiperList.length - 1 ? swiperIndex : 0 })
   },
 
   // 点击预约采样产品

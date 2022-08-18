@@ -56,12 +56,13 @@
           <text>{{item}}</text>
         </view>
       </view>
-      <scroll-view class="scroll-view">
+      <scroll-view class="scroll-view" scroll-y bindscrolltolower="scrolltolower">
         <goods-list 
           list="{{list}}" 
           type="{{typeDrawer ? 1 : ''}}" 
           loadMoreType="{{loadMoreType}}">
         </goods-list>
+        <view class="placeholder"></view>
       </scroll-view>
     </view>
   </view>

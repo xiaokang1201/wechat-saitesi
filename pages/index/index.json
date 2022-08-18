@@ -2,6 +2,7 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "custom-nav-bar": "/components/custom-nav-bar/custom-nav-bar",
+    "custom-swiper": "/components/custom-swiper/custom-swiper",
     "goods-list": "/components/goods-list/goods-list",
     "info-list": "/components/info-list/info-list",
     "custom-tab-bar": "/components/custom-tab-bar/custom-tab-bar",

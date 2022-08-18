@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "get-phone-number": "/components/get-phone-number/get-phone-number",
+    "show-pop": "/components/show-pop/show-pop"
+  }
+}

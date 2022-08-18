@@ -8,7 +8,8 @@
     <image src="{{$state.ASSETSURL}}index/1.png"></image>
   </view>
   <!-- 轮播图 -->
-  <view class="swiper-box">
+  <custom-swiper swiperList="{{swiperList}}"></custom-swiper>
+  <!-- <view class="swiper-box">
     <swiper class="swiper" circular current="{{swiperIndex}}" bindchange="swiperChange">
       <swiper-item bindtap="swiperItemClick" data-item="{{item}}" class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
         <image mode="aspectFill" src="{{item.image}}"></image>
@@ -18,7 +19,7 @@
       <view class="{{currentIndex === index ? 'cur' : ''}}" wx:for="{{swiperList}}" wx:key="id"></view>
     </view>
     <image bindtap="arrowRightClick" class="arrow-right" src="{{$state.ASSETSURL}}index/3.png"></image>
-  </view>
+  </view> -->
   <!-- 预约采样产品，居家自采产品 -->
   <view class="make-home flex">
     <image class="poa" src="{{$state.ASSETSURL}}index/4.png"></image>

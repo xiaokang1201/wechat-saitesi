@@ -18,7 +18,7 @@
     </view>
     <view class="refund-amount flex-ali-bet">
       <text>退款金额</text>
-      <text>￥{{freightPrice}}</text>
+      <text>￥{{pay_price}}</text>
     </view>
   </view>
   <describe-credentials bindtextareaChange="textareaChange" binduploadImg="uploadImg" type="{{type}}"></describe-credentials>

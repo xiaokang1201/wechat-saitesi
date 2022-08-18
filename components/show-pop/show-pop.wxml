@@ -22,7 +22,7 @@
     <view class="btn1 flex-ali-cen" catchtap="downloadImg">保存二维码</view>
     <view class="address flex-ali">
       <view>海南省海口市龙华区港湾路复兴城e区e座1楼</view>
-      <image src="{{$state.ASSETSURL}}component/show-pop/1.png"></image>
+      <image catchtap="navigation" src="{{$state.ASSETSURL}}component/show-pop/1.png"></image>
     </view>
     <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
     <image catchtap="event2" class="shut-down" src="{{$state.ASSETSURL}}component/show-pop/3.png"></image>

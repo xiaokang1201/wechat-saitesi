@@ -322,6 +322,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "大客户",
+          "pathName": "pages/pages-list/vip/vip",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

@@ -159,6 +159,12 @@ Page({
     })
   },
 
+  // 上拉加载更多
+  scrolltolower() {
+    console.log('上拉加载更多')
+    this.apiGoodsList()
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

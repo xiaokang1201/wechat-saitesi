@@ -39,7 +39,7 @@ Page({
       }
     ] as form,//选择退款货物状态原因
     chooseIndex: 0,//选择索引 0 关闭 1 货物状态 2 退款原因
-    freightPrice: '',//退款金额
+    pay_price: '',//退款金额 -> 支付金额
     orderSn: '',//订单编号
     refundReasonWapExplain: '',//退款描述
     refundReasonWap: '',//退款原因
@@ -98,10 +98,10 @@ Page({
   onLoad() {
     const pages = getCurrentPages(); //页面对象
     const prevpage = pages[pages.length - 2]; //上一个页面对象
-    const { data: { orderSn, orderDetail: { freight_price } } } = pages[pages.length - 3]; //上上一个页面对象
+    const { data: { orderSn, orderDetail: { pay_price } } } = pages[pages.length - 3]; //上上一个页面对象
     this.setData({ 
       cartInfo: prevpage.data.cartInfo,
-      freightPrice: freight_price,
+      pay_price,
       orderSn, 
     })
   },

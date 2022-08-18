@@ -18,6 +18,9 @@
     background-color: #ffffff;
     border-radius: 16rpx 16rpx 0 0;
     position: relative;
+    .placeholder {
+      height: calc(100rpx + (env(safe-area-inset-bottom) / 2));
+    }
     .mask-layer {
       position: absolute;
       width: 100%;

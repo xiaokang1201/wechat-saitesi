@@ -1,6 +1,6 @@
 /* components/custom-tab-bar/custom-tab-bar.wxss */
 .tab-bar {
-  z-index: 9999;
+  z-index: 100;
   padding-bottom: calc(env(safe-area-inset-bottom) / 2);
   background: #ffffff;
   position: fixed;

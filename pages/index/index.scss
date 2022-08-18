@@ -15,59 +15,7 @@
       height: 75rpx;
     }
   }
-  .swiper-box {
-    width: 100%;
-    height: 633.48rpx;
-    display: flex;
-    justify-content: center;
-    position: relative;
-  }
-  
-  .swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-item {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .swiper-item image {
-    width: 100%;
-    height: 100%;
-  }
 
-  /* region 分页器 / 动态指示点 */
-  .swiper-pagination-point {
-    position: absolute;
-    bottom: 78.6rpx;
-    left: 30rpx;
-    display: flex;
-    align-items: center;
-  }
-
-  .swiper-pagination-point>view {
-    width: 46rpx;
-    height: 4rpx;
-    background: rgba(255,255,255,0.70);
-  }
-
-  .swiper-pagination-point>view:not(:last-of-type) {
-    margin-right: 8rpx;
-  }
-
-  .swiper-pagination-point>view.cur {
-    background: #0B357A;
-  }
-  /* endregion 分页器 / 动态指示点 */
-  .arrow-right {
-    position: absolute;
-    right: 30rpx;
-    bottom: 78.6rpx;
-    width: 70rpx;
-    height: 70rpx;
-  }
   .make-home {
     position: relative;
     width: 662rpx;

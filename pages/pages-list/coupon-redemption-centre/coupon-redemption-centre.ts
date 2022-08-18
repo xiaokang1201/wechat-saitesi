@@ -38,17 +38,18 @@ Page({
   },
 
   // 点击领取
-  receiveClick({ detail: { id, is_use } }: Detail<number>) {
+  receiveClick({ detail: { id, is_use } }: { detail: { id: number, is_use: boolean } }) {
     // 0 未领取 1已领取  
-    if(is_use === 0) {
-      this.apiReceiveCoupon(id.toString())
-    } else {
+    if(is_use) {
       getApp().tool.jump_swi('/pages/mall/mall') 
+    } else {
+      this.apiReceiveCoupon(id.toString())
     }
   },
 
   // 领取优惠券
   apiReceiveCoupon(couponId: string) {
+    console.log('couponId', couponId)
     getApp().api.receiveCoupon({ couponId }).then(({ msg }: Body<string>) => {
       this.data.page = 0
       this.data.list = []

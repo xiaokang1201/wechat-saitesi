@@ -1,0 +1,12 @@
+<!--components/custom-swiper/custom-swiper.wxml-->
+<view class="swiper-box">
+  <swiper class="swiper" circular current="{{swiperIndex}}" bindchange="swiperChange">
+    <swiper-item bindtap="swiperItemClick" data-item="{{item}}" class="swiper-item" wx:for="{{swiperList}}" wx:key="id">
+      <image mode="aspectFill" src="{{item.image}}"></image>
+    </swiper-item>
+  </swiper>
+  <view class="swiper-pagination-point">
+    <view class="{{currentIndex === index ? 'cur' : ''}}" wx:for="{{swiperList}}" wx:key="id"></view>
+  </view>
+  <image bindtap="arrowRightClick" class="arrow-right" src="{{$state.ASSETSURL}}index/3.png"></image>
+</view>
