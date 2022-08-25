@@ -329,6 +329,41 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/pages-list/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "登录",
+          "pathName": "pages/pages-list/login/login",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/since-mining-order/since-mining-order",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "选择商品",
+          "pathName": "pages/pages-list/choose-goods/choose-goods",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/choose-goods/choose-goods",
+          "query": "order_sn=STS166133006240474615",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

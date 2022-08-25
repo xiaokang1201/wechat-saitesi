@@ -1,0 +1,48 @@
+/* pages/pages-list/login/login.wxss */
+.login {
+  image {
+    position: absolute;
+    top: 0;
+    width: 750rpx;
+    height: 709rpx;
+  }
+  .container {
+    margin-top: 260rpx;
+    border-radius: 28rpx 28rpx 0 0;
+    position: relative;
+    z-index: 2;
+    height: calc(100vh - 400rpx);
+    background-color: #ffffff;
+    .input {
+      view {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 34rpx;
+        line-height: 80rpx;
+        color: #181818;
+        margin-top: 30rpx;
+        width: 610rpx;
+      }
+      input {
+        width: 610rpx;
+        border-bottom: 2rpx solid #F2F2F2;
+      }
+    }
+    .input:first-of-type>view:first-of-type {
+      margin-top: 70rpx;
+    }
+    .btn-login {
+      width: 684rpx;
+      height: 96rpx;
+      background: #2C67E9;
+      border-radius: 48rpx;
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 38rpx;
+      color: #FFFFFF;
+      margin-top: 160rpx;
+    }
+  }
+}

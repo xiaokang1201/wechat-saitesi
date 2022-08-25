@@ -102,6 +102,10 @@
       border-radius: 8rpx;
       .group_8 {
         margin-right: 17rpx;
+        .image_7 {
+          width: 68rpx;
+          height: 68rpx;
+        }
         .image_6 {
           width: 120rpx;
           height: 39rpx;
@@ -656,6 +660,45 @@
           }
         }
       }
+    }
+    .text-wrapper_4 {
+      background: #0B357A;
+      border: 1rpx solid #0B357A;
+      text {
+        color: #ffffff !important;
+      }
+    }
+  }
+  
+  .check-address {
+    padding: 20rpx 20rpx 30rpx 20rpx;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 8rpx;
+    margin: 10rpx 0;
+    >view {
+      &:nth-of-type(1) {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 26rpx;
+        color: #9D9D9D;
+        margin-bottom: 22rpx;
+      }
+      &:nth-of-type(2) {
+        width: 500rpx;
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 28rpx;
+        color: #4F5459;
+        line-height: 35rpx;
+      }
+    }
+    .navigation {
+      position: absolute;
+      right: 30rpx;
+      top: 60rpx;
     }
   }
 }

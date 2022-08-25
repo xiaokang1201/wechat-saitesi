@@ -12,21 +12,21 @@ Page({
       { text: '扫码绑定', path: '/pages/pages-list/scan-bind/scan-bind' },
       { text: '样本寄回', path: '/pages/pages-list/sample-sent-back/sample-sent-back' },
       { text: '报告查看', path: '/pages/pages-list/report-view/report-view' },
-    ],//预约列表
+    ],//检测预约
+    // makeList: [
+    //   { text: '待付款', path: '/pages/pages-list/inspection-booking/inspection-booking?index=1' },
+    //   { text: '登记预约', path: '/pages/pages-list/inspection-booking/inspection-booking?index=2' },
+    //   { text: '待采样', path: '/pages/pages-list/inspection-booking/inspection-booking?index=3' },
+    //   { text: '检验中', path: '/pages/pages-list/inspection-booking/inspection-booking?index=4' },
+    //   { text: '已完成', path: '/pages/pages-list/inspection-booking/inspection-booking?index=5' },
+    // ],//预约列表
     orderList: [
       { text: '待付款', path: '/pages/pages-list/since-mining-order/since-mining-order?index=1' },
       { text: '待发货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=2' },
       { text: '待收货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=3' },
       { text: '自提', path: '/pages/pages-list/since-mining-order/since-mining-order?index=4' },
-      { text: '已完成', path: '/pages/pages-list/since-mining-order/since-mining-order?index=5' },
-    ],//订单列表
-    makeList: [
-      { text: '待付款', path: '/pages/pages-list/inspection-booking/inspection-booking?index=1' },
-      { text: '登记预约', path: '/pages/pages-list/inspection-booking/inspection-booking?index=2' },
-      { text: '待采样', path: '/pages/pages-list/inspection-booking/inspection-booking?index=3' },
-      { text: '检验中', path: '/pages/pages-list/inspection-booking/inspection-booking?index=4' },
-      { text: '已完成', path: '/pages/pages-list/inspection-booking/inspection-booking?index=5' },
-    ],//预约列表
+      { text: '待评价', path: '/pages/pages-list/since-mining-order/since-mining-order?index=5' },
+    ],//自采列表
     columnList: [
       { text: '消息中心', path: '/pages/pages-list/message-center/message-center' },
       { text: '领券中心', path: '/pages/pages-list/coupon-redemption-centre/coupon-redemption-centre'},

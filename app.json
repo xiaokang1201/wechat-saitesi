@@ -38,7 +38,9 @@
     "pages/pages-list/withdrawal/withdrawal",
     "pages/pages-list/rich-text/rich-text",
     "pages/pages-list/comment-list/comment-list",
+    "pages/pages-list/login/login",
     "pages/pages-list/vip/vip",
+    "pages/pages-list/choose-goods/choose-goods",
     "pages/pages-list/test/test"
   ],
   "window": {

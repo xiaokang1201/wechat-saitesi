@@ -1,23 +1,18 @@
-// pages/pages-list/after-sales/after-sales.ts
+// pages/pages-list/login/login.ts
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orderInfo: {},//商品信息,
-  },
 
-  // 点击退款
-  afterSalesClick({ currentTarget: { dataset: { index } } }: Index) {
-    getApp().tool.jump_nav(`/pages/pages-list/after-sales-apply/after-sales-apply?type=${index}&orderInfo=${JSON.stringify(this.data.orderInfo)}`)
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad({ orderInfo }: Body<string>) {
-    this.setData({ orderInfo: JSON.parse(orderInfo) })
+  onLoad() {
+
   },
 
   /**

@@ -1,0 +1,15 @@
+<!--pages/pages-list/login/login.wxml-->
+<view class="login">
+  <image src="{{$state.ASSETSURL}}login/0.png"></image>
+  <view class="container flex-col-ali">
+    <view class="input">
+      <view>账号</view>
+      <input type="text"/>
+    </view>
+    <view class="input">
+      <view>邀请码</view>
+      <input type="text"/>
+    </view>
+    <view class="btn-login flex-ali-cen">登录</view>
+  </view>
+</view>

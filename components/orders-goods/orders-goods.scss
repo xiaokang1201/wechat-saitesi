@@ -4,10 +4,34 @@
   padding: 20rpx 20rpx 30rpx 20rpx;
   background-color: #ffffff;
   .orders-goods-bd {
-    >image {
-      width: 146rpx;
-      height: 146rpx;
+    .img-box {
+      border-radius: 10rpx;
+      overflow: hidden;
+      position: relative;
       margin-right: 16rpx;
+      >image {
+        width: 146rpx;
+        height: 146rpx;
+      }
+      .type {
+        position: absolute;
+        width: 68rpx;
+        height: 36rpx;
+        top: 0;
+        right: 0rpx;
+        border-radius: 2rpx;
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24rpx;
+        color: #FFFFFF;
+      }
+      .type1 {
+        background: linear-gradient(90.17deg, #6DC8CB 0.17%, #45B6BA 99.87%);
+      }
+      .type2 {
+        background: #0B357A;
+      }
     }
     >view {
       .name {
@@ -18,6 +42,9 @@
         color: #0F0F0F;
         width: 500rpx;
         line-height: normal;
+      }
+      .name3 {
+        width: 450rpx;
       }
       .tag {
         width: 400rpx;
@@ -40,7 +67,32 @@
         font-weight: 400;
         font-size: 24rpx;
         color: #0F0F0F;
+        >.flex {
+          >view {
+            width: 150rpx;
+            height: 64rpx;
+            border: 1rpx solid #585B61;
+            border-radius: 4rpx;
+            font-family: 'Source Han Sans CN';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 28rpx;
+            color: #010204;
+            &:not(:last-of-type) {
+              margin-right: 20rpx;
+            }
+          }
+          .cur {
+            border: 1rpx solid #0B357A;
+            color: #0B357A;
+          }
+        }
       }
+    }
+  }
+  .orders-goods-bd3 {
+    .flex-col-bet {
+      width: 490rpx;
     }
   }
   .refund-goods {
@@ -60,6 +112,10 @@
     font-weight: 400;
     font-size: 24rpx;
     color: #9F9F9F;
+  }
+  .number3 {
+    bottom: 0;
+    top: 25rpx;
   }
 }
 

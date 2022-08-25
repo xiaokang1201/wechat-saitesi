@@ -7,7 +7,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    // 0 常规 1退款商品 自采订单
+    // 0 常规 1退款商品 自采订单 3订单详情
     type: {
       type: Number,
       value: 0,
@@ -22,6 +22,9 @@ Component({
         price: '566.00',
         cart_num: 1
       }
+    },
+    orderDetail: {
+      type: Object
     }
   },
 
@@ -36,6 +39,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    click({ currentTarget: { dataset: { methods } } }: CurrentTarget<string>) {
+      this.triggerEvent(methods)
+    }
   }
 })

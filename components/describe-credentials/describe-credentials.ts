@@ -44,8 +44,10 @@ Component({
       if(this.data.picList.length >= 3) return getApp().tool.alert("最多上传三张", 1000, 2)
 
       getApp().tool.chooseImage().then(({ tempFilePaths }: Body<string>) => {
+        console.log('tempFilePaths', tempFilePaths)
         getApp().tool.uploadFiles(tempFilePaths, getApp().api.upload()).then((res: []) => {
           const picList = this.data.picList.concat(res)
+          console.log('picList', picList, res)
           this.triggerEvent('uploadImg', picList)
           this.setData({ picList })
         })

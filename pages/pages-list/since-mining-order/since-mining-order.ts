@@ -7,7 +7,13 @@ interface data extends List, $State {
   statusList: number[] | string[], 
   search: string,
   time: number,
-  timer: number
+  timer: number,
+  orderDetail: OrderDetail
+}
+
+interface OrderDetail {
+  order_id: string,
+  delivery_id: string
 }
 Page({
 
@@ -15,8 +21,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    typeList: ['全部', '待支付', '待发货', '待收货', '待自提', '已收货', '售后'],//类型列表
-    statusList: ['', 0, 1, 2, 5, 3, 4],//状态列表
+    typeList: ['全部', '待支付', '待发货', '待收货', '待自提', '待评价', '售后'],//类型列表
+    statusList: ['', 0, 1, 2, 3, 4, 6],//状态列表
     typeIndex: 0,//类型索引
     search: '',//订单号搜索
     page: 0,//页码
@@ -24,7 +30,64 @@ Page({
     loadMoreType: 1,//列表加载状态
     time: 0,//停留时间
     timer: 0,//定时器
+    show: false,//物流信息
+    orderDetail: {
+      order_id: '',
+      delivery_id: ''
+    },//单个订单详情
   } as data,
+
+  // 查看物流
+  lookLogistics: useThrottle(function (this: any, { currentTarget: { dataset: { item } } }: CurrentTarget<{}>) {
+    this.data.orderDetail = item
+    this.setData({ orderDetail: item })
+    this.getExpressInfo()
+  }),
+
+  // 拨打电话
+  makePhoneCall() {
+    const phoneNumber: string | undefined = this.data.$state?.userConfig?.custom_mobile
+    if(typeof phoneNumber  === 'string') {
+      wx.makePhoneCall({
+        phoneNumber
+      })
+    }
+  },
+
+  // 复制订单号
+  copyOrderSn(){
+    wx.setClipboardData({ data: this.data.orderDetail.order_id })
+  },
+  
+  // 关闭弹框
+  shutDownPop() {
+    this.setData({ show: false })
+  },
+
+  // 获取物流信息
+  getExpressInfo() {
+    getApp().api.getExpressInfo({
+      kuaidinum: this.data.orderDetail.delivery_id
+    }).then(({ data }: Body<{}[]>) => {
+      this.setData({ 
+        logisticsInfo: data,
+        show: true 
+      })
+    })
+  },
+
+  // 点击再来一单
+  anotherList: useThrottle(function (this: any, { currentTarget: { dataset: { item } } }: CurrentTarget<{ order_id: string, cartInfo: {type: number}[] }>) {
+    const { order_id, cartInfo } = item
+    getApp().api.moreOrder({ order_sn: order_id }).then(({ data }: Body<string[]>) => {
+      getApp().tool.jump_nav(`/pages/pages-list/order-details/order-details?cart_id=${data.join(',')}&type=${cartInfo[0].type}`)
+    })
+  }),
+
+  // 点击申请售后
+  applyAfterSalesClick({ currentTarget: { dataset: { order_sn } } }: CurrentTarget<string>) {
+    getApp().tool.jump_nav(`/pages/pages-list/choose-goods/choose-goods?order_sn=${order_sn}`)
+  },
 
   // 点击单个订单，进入订单详情
   itemClick({ currentTarget: { dataset: { order_sn } } }: CurrentTarget<string>) {

@@ -88,6 +88,7 @@ Page({
   // 关闭弹框
   shutDown() {
     this.setData({ show: false })
+    getApp().tool.jump_back()
   },
 
   /**

@@ -49,7 +49,6 @@
     <info-list loadMoreType="{{infoLoadMoreType}}" list="{{infoList}}"></info-list>
   </view>
 </view>
-
 <custom-tab-bar pagePath="pages/index/index"></custom-tab-bar>  
 
 <!-- 用户信息授权 -->

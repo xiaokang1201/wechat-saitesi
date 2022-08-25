@@ -8,6 +8,23 @@ type form = {
   id: number
 }[]
 
+interface OrderDetail { 
+  delivery_id: string,
+  order_id: string,
+  code: { 
+    sukList: string[], 
+    product_attr_unique: string,
+    thumb: string,
+    product_thumb: string,
+    goods_name: string,
+    product_name: string
+    price: string,
+    product_price: string,
+    check: boolean,
+    code_id: number
+  }[] 
+}
+
 Page({
 
   /**
@@ -39,11 +56,10 @@ Page({
       }
     ] as form,//选择退款货物状态原因
     chooseIndex: 0,//选择索引 0 关闭 1 货物状态 2 退款原因
-    pay_price: '',//退款金额 -> 支付金额
-    orderSn: '',//订单编号
     refundReasonWapExplain: '',//退款描述
     refundReasonWap: '',//退款原因
     refundReasonWapImg: '',//图片
+    orderInfo: {} as OrderDetail,//订单信息
   },
   // 上传凭证
   uploadImg({ detail }: Body<string>) {
@@ -76,34 +92,46 @@ Page({
     await this.apiOrderRefund()
     await getApp().tool.alert("退款申请成功", 1000, 1)
     this.hiddenPop()
-    getApp().tool.jump_back()
+    const pages = getCurrentPages()
+    const page = pages[pages.length - 3]
+    console.log('page.is', page.is)
+    if(page.is === 'pages/pages-list/choose-goods/choose-goods') {
+      getApp().tool.jump_back(3)
+    } else {
+      getApp().tool.jump_back(3)
+    }
   }),
 
   // 申请退款
   apiOrderRefund() {
-    const { orderSn, form, refundReasonWapExplain, refundReasonWapImg } = this.data
-    
+    const { form, refundReasonWapExplain, refundReasonWapImg, orderInfo: { code, order_id } } = this.data
     return getApp().api.orderRefund({
-      order_sn: orderSn,
-      refund_reason_wap: form[1].list[form[1].index].name,
+      order_sn: order_id,
+      code_id: code.map(item => item.code_id),
+      refund_reason_wap: form[1].index >= 0 ? form[1].list[form[1].index].name : '',
       refund_reason_wap_explain: refundReasonWapExplain,
       refund_reason_wap_img: refundReasonWapImg,
-      status: form[1].list[form[1].index].id
+      status: form[1].index >= 0 ? form[1].list[form[1].index].id : '',
     })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-    const pages = getCurrentPages(); //页面对象
-    const prevpage = pages[pages.length - 2]; //上一个页面对象
-    const { data: { orderSn, orderDetail: { pay_price } } } = pages[pages.length - 3]; //上上一个页面对象
+  onLoad({ type, orderInfo }: Body<string>) {
+    console.log('orderInfo', orderInfo)
     this.setData({ 
-      cartInfo: prevpage.data.cartInfo,
-      pay_price,
-      orderSn, 
+      type: Number(type), 
+      orderInfo: JSON.parse(orderInfo)
     })
+    // const pages = getCurrentPages(); //页面对象
+    // const prevpage = pages[pages.length - 2]; //上一个页面对象
+    // const { data: { orderSn, orderDetail: { pay_price } } } = pages[pages.length - 3]; //上上一个页面对象
+    // this.setData({ 
+    //   cartInfo: prevpage.data.cartInfo,
+    //   pay_price,
+    //   orderSn, 
+    // })
   },
 
   /**

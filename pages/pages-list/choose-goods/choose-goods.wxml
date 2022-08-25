@@ -1,0 +1,17 @@
+<!--pages/pages-list/choose-goods/choose-goods.wxml-->
+<view class="choose-goods">
+  <view class="list">
+    <view class="item flex" wx:for="{{orderDetail.code}}" wx:key="code_id">
+      <view catchtap="checkClick" data-index="{{index}}" class="img-box flex-ali-cen">
+        <image src="{{$state.ASSETSURL}}choose-goods/{{item.check ? 1 : 0}}.png"></image>
+      </view>
+      <view>
+        <view class="code">条形码 {{code}}</view>
+        <orders-goods object="{{item}}"></orders-goods>
+      </view>
+      <view class="status_text">{{item.status_text}}</view>
+    </view>
+  </view>
+</view>
+
+<select-all-bottom bindsubmit="submit" bindallClick="allClick" text="确定" select="{{orderDetail.code.length === checkNum}}"></select-all-bottom>

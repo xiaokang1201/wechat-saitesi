@@ -40,7 +40,7 @@
   </view>
   <!-- 自采订单、竖列 -->
   <view class="order-column">
-    <view class="since-mining-order">
+    <!-- <view class="since-mining-order">
       <view class="title flex-ali-bet">
         <text>预约订单</text>
         <image 
@@ -60,10 +60,10 @@
           <text>{{item.text}}</text>
         </view>
       </view>
-    </view>
+    </view> -->
     <view class="since-mining-order">
       <view class="title flex-ali-bet">
-        <text>自采订单</text>
+        <text>我的订单</text>
         <image 
           bindtap="jumpNav" 
           data-path="/pages/pages-list/since-mining-order/since-mining-order?index=0" 
@@ -91,7 +91,7 @@
         <image src="{{$state.ASSETSURL}}my/0.png"></image>
       </view>
       <button open-type="contact" class="contact"></button>
-      <view wx:if="{{$state.userInfo.msgs>0}}" class="msgs">{{$state.userInfo.msgs > 99 ? 99 : $state.userInfo.msgs}}</view>
+      <view wx:if="{{$state.userInfo.msgs>0}}" class="msgs flex-ali-cen">{{$state.userInfo.msgs > 99 ? 99 : $state.userInfo.msgs}}</view>
     </view>
   </view>
 </view>

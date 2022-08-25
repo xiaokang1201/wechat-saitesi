@@ -35,11 +35,11 @@
             </view>
           </view>
           <view class="text_5">
-            <text>{{shippingType === 0 ? $state.addressInfo.real_name : '湘江中路门店'}}</text>
+            <text>{{shippingType === 0 ? $state.addressInfo.real_name : pickupPoint[0].title}}</text>
             <text>{{shippingType === 0 ? $state.addressInfo.phone : ''}}</text>
           </view>
           <view class="flex-row group_8">
-            <text class="text_6">{{shippingType === 0 ? $state.addressInfo.province+$state.addressInfo.city+$state.addressInfo.district : '海南省海口市龙华区港湾路复兴城e区e座1楼'}}</text>
+            <text class="text_6">{{shippingType === 0 ? $state.addressInfo.province+$state.addressInfo.city+$state.addressInfo.district : pickupPoint[0].address}}</text>
             <text class="text_7">{{shippingType === 0 ? $state.addressInfo.detail : ''}}</text>
           </view>
           <view class="business-hours" wx:if="{{shippingType === 1}}">

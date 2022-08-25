@@ -26,8 +26,10 @@ interface data {
   mark: string,
   shippingMobile: number | '',
   usableCouponIndex: number,
+  pickupPoint: []
 }
 type ConfirmOrder = {
+  pickup_point: []
   addressInfo: object,
   cartInfo: CartInfo[],
   unUsableCoupon: [] | CouponInfo[],
@@ -57,6 +59,7 @@ Page({
     beUseCoupon: {},//待使用优惠券 默认使用可用优惠券第一个
     orderKey: "",//临时缓存订单标识
     cartInfo: [],//订单商品列表
+    pickupPoint: [],//门店列表
     usableCoupon: [],//可使用的优惠券
     unUsableCoupon: [],//不可使用优惠券
     usableCouponIndex: 0,//选中可使用的优惠券列表索引
@@ -118,10 +121,13 @@ Page({
 
   // 调起微信支付
   wxRequestPayment(js_config: JsConfig) {
+    // // 订单列表页面路径
+    // const orderListPath = this.data.type === 1 
+    // ? '/pages/pages-list/since-mining-order/since-mining-order'
+    // : '/pages/pages-list/inspection-booking/inspection-booking'
     // 订单列表页面路径
-    const orderListPath = this.data.type === 1 
-    ? '/pages/pages-list/since-mining-order/since-mining-order'
-    : '/pages/pages-list/inspection-booking/inspection-booking'
+    const orderListPath = '/pages/pages-list/since-mining-order/since-mining-order'
+    const _this = this
     wx.requestPayment({
       timeStamp: js_config.timeStamp,
       nonceStr: js_config.nonceStr,
@@ -129,7 +135,7 @@ Page({
       signType: js_config.signType,
       paySign: js_config.paySign,
       success () { 
-        tool.jump_red(`${orderListPath}?index=2`)
+        tool.jump_red(`${orderListPath}?index=${_this.data.type === 1 ? 2 : 5}`)
       },
       fail () { 
         tool.jump_red(`${orderListPath}?index=1`)
@@ -202,13 +208,14 @@ Page({
   },
 
   // 订单页面接口数据处理 type 1
-  confirmOrderDataProcessing({ cartInfo, usableCoupon, unUsableCoupon, orderKey, priceGroup: 
+  confirmOrderDataProcessing({ cartInfo, pickup_point, usableCoupon, unUsableCoupon, orderKey, priceGroup: 
     { totalPrice, pay_price, costPrice } }: ConfirmOrder, isApiOrderComputed: boolean) {
     this.data.orderKey = orderKey 
     for(const i of cartInfo) {
       i.sukList = i.suk.split(',')
     }
     this.setData({
+      pickupPoint: pickup_point,
       cartInfo,
       usableCoupon,
       unUsableCoupon,
@@ -239,27 +246,23 @@ Page({
     const higherPage = pages[pages.length - 2]
     try {
       // switch('pages/pages-list/goods-details/goods-details') {
-      switch(higherPage.is) {
-        case 'pages/pages-list/goods-details/goods-details': //商品详情
-          this.data.orderType = 1
-          this.setData({ orderType: 1 })
-          this.data.did = Number(did || 0)
-          this.apiConfirmOrder()
-        break;
-        case 'pages/cart/cart': //购物车
-          this.data.orderType = 2
-          this.setData({ orderType: 2 })
-          this.apiConfirmOrders()
-        break;
-        case 'pages/pages-list/since-mining-order-details/since-mining-order-details': //订单详情
-          this.data.orderType = 2
-          this.setData({ orderType: 2 })
-          this.apiConfirmOrders()
-        break;
-        default:
-          console.log("进入订单详情 default")
-          console.log(higherPage.is)
-        break;
+      if(higherPage.is === 'pages/pages-list/goods-details/goods-details') {//商品详情
+
+        this.data.orderType = 1
+        this.setData({ orderType: 1 })
+        this.data.did = Number(did || 0)
+        this.apiConfirmOrder()
+      } else if (
+        higherPage.is === 'pages/cart/cart' ||
+        higherPage.is === 'pages/pages-list/since-mining-order-details/since-mining-order-details' || 
+        higherPage.is ===  'pages/pages-list/since-mining-order/since-mining-order') {//购物车 订单列表
+        
+        this.data.orderType = 2
+        this.setData({ orderType: 2 })
+        this.apiConfirmOrders()
+      } else {
+        console.log("进入订单详情 default")
+        console.log(higherPage.is)
       }
     } catch (error) {
       tool.jump_back()

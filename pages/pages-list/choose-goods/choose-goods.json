@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "选择商品列表",
+  "usingComponents": {
+    "orders-goods": "/components/orders-goods/orders-goods",
+    "select-all-bottom": "/components/select-all-bottom/select-all-bottom"
+  }
+}

@@ -3,10 +3,10 @@
   <view class="content">
     <!-- 商品信息 -->
     <view class="goods-info flex-bet">
-      <image src="{{cartInfo.productInfo.image}}" mode="aspectFill"></image>
+      <image src="{{cartInfo.product_thumb}}" mode="aspectFill"></image>
       <view class="flex-col-bet goods-name-number">
         <!-- 商品名称 -->
-        <view class="goods-name ell1">{{cartInfo.productInfo.store_name}}</view>
+        <view class="goods-name ell1">{{cartInfo.product_name}}</view>
         <!-- 商品数量 -->
         <view class="goods-number">×{{cartInfo.cart_num}}</view>
       </view>

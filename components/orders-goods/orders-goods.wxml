@@ -1,15 +1,57 @@
 <!--components/orders-goods/orders-goods.wxml-->
 <view class="orders-goods orders-goods{{type}}">
-  <view class="refund-goods" wx:if="{{type === 1}}">退款商品</view>
-  <view class="number">x{{object.cart_num}}</view>
-  <view class="orders-goods-bd flex">
-    <image src="{{object.thumb}}"></image>
+  <!-- <view class="refund-goods" wx:if="{{type === 1}}">退款商品</view> -->
+  <view class="number number{{type}}" wx:if="{{object.cart_num}}">x{{object.cart_num}}</view>
+  <view class="orders-goods-bd  orders-goods-bd{{type}} flex">
+    <view class="img-box">
+      <image src="{{object.thumb}}"></image>
+      <view class="type type{{object.type}} flex-ali-cen" wx:if="{{!!object.type}}">{{object.type === 1 ? '自采' : '预约'}}</view>
+    </view>
     <view class="flex-col-bet">
-      <view class="name ell1">{{object.goods_name}}</view>
+      <view class="name ell1 name{{type}}">{{object.goods_name}}</view>
       <view class="tag flex-wra">
         <view wx:for="{{object.sukList}}" wx:key="index">{{item}}</view>
       </view>
-      <view class="money">￥{{object.price}}</view>
+      <view class="money flex-ali-bet">
+        <text>￥{{object.price}}</text>
+        <view class="flex" wx:if="{{type === 3}}">
+          <view
+            class="flex-ali-cen" 
+            wx:if="{{object.status === 3 || object.status === 4 || object.status === 6 || object.status === 0}}"
+            catchtap="click"
+            data-methods="applyAfterSalesClick">
+            申请售后
+          </view>
+          <view 
+            class="flex-ali-cen" 
+            wx:if="{{orderDetail.status === 4 &&(object.status === 0 || object.status === 4)}}"
+            catchtap="click"
+            data-methods="scanBindClick">
+            扫码绑定
+          </view>
+          <view class="flex-ali-cen" wx:if="{{object.status === 1}}">寄回</view>
+          <view class="flex-ali-cen" wx:if="{{object.status === 2}}">查看物流</view>
+          <view 
+            class="flex-ali-cen" 
+            wx:if="{{object.status === 7}}"
+            catchtap="click"
+            data-methods="lookReportClick">
+            查看报告
+          </view>
+          <view 
+            class="flex-ali-cen cur" 
+            wx:if="{{object.status === 7}}"
+            catchtap="click"
+            data-methods="evaluationOrderClick">待评价</view>
+          <view 
+            class="flex-ali-cen" 
+            wx:if="{{object.status === 3}}"
+            catchtap="click"
+            data-methods="goBookingInspection">
+            登记预约
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

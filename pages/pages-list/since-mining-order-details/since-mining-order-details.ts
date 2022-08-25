@@ -16,8 +16,21 @@ interface data {
 }
 
 interface OrderDetail { 
-  delivery_id: string
-  cartInfo: { suk: string, sukList: string[] }[] 
+  delivery_id: string,
+  order_id: string,
+  code: { 
+    cart_num: number,
+    sukList: string[], 
+    product_attr_unique: string,
+    thumb: string,
+    product_thumb: string,
+    goods_name: string,
+    product_name: string
+    price: string,
+    product_price: string,
+    check: boolean,
+    code_id: number
+  }[] 
 }
 
 Page({
@@ -40,6 +53,47 @@ Page({
     logisticsInfo: [],
     show: false
   } as data,
+  //#region 预约订单
+  // 跳转登记预约
+  goBookingInspection({ currentTarget: { dataset: { code_id } } }: CurrentTarget<number>) {
+    getApp().tool.jump_nav(`/pages/pages-list/booking-inspection/booking-inspection?code=${code_id}`)
+  },
+  // 点击扫码绑定
+  scanBindClick() {
+    getApp().tool.jump_nav(`/pages/pages-list/scan-bind/scan-bind`)
+  },
+  // 点击查看报告
+  lookReportClick({ currentTarget: { dataset: { url } } }: CurrentTarget<string>) {
+    this.filePreview(url)
+  },
+  // 文件预览
+  filePreview(url: string) {
+    getApp().tool.loading()
+    wx.downloadFile({//下载对应文件
+      url, // 下载文件网络地址
+      success(res) {   
+        wx.openDocument({
+          filePath: res.tempFilePath,// 装载对应文件的路径
+          showMenu: true,// 右上角的菜单转发分享操作
+          complete() {
+            getApp().tool.loading_h()
+          }
+        })
+      }
+    })
+  },
+  //#endregion
+  // 点击确认收货
+  confirmOrderClick: useThrottle(async function (this: any) {
+    await this.apiOrderSure()
+    await getApp().tool.alert("成功收货", 1000, 1)
+    this.apiOrderDetail()
+  }),
+
+  // 确认收货
+  apiOrderSure() {
+    return getApp().api.orderSure({ order_sn: this.data.orderSn })
+  },
 
   // 查看物流
   lookLogistics: useThrottle(function (this: any) {
@@ -96,15 +150,21 @@ Page({
     })
   }),
 
+  // 单个商品申请售后
+  applyAfterSalesItemClick({ currentTarget: { dataset: { index } } }: Index) {
+    this.data.orderDetail.code = [this.data.orderDetail.code[index]]
+    getApp().tool.jump_nav(`/pages/pages-list/after-sales/after-sales?orderInfo=${JSON.stringify(this.data.orderDetail)}`)
+  },
+
   // 点击申请售后
   applyAfterSalesClick() {
-    getApp().tool.jump_nav(`/pages/pages-list/after-sales/after-sales`)
+    getApp().tool.jump_nav(`/pages/pages-list/after-sales/after-sales?orderInfo=${JSON.stringify(this.data.orderDetail)}`)
   },
 
   // 点击去评论
-  evaluationOrderClick() {
+  evaluationOrderClick({ currentTarget: { dataset: { index } } }: Index) {
     getApp().tool.jump_nav(`/pages/pages-list/evaluation/evaluation?cartInfo=${
-      JSON.stringify(this.data.orderDetail.cartInfo[0])}`)
+      JSON.stringify(this.data.orderDetail.code[index])}`)
   },
 
   // 拨打电话
@@ -122,8 +182,12 @@ Page({
   // 获取订单详情
   apiOrderDetail() {
     getApp().api.orderDetail({ order_sn: this.data.orderSn }).then(({ data }: { data: OrderDetail }) => {
-      for(const i of data.cartInfo) {
-        i.sukList = i.suk.split(',')
+      for(const i of data.code) {
+        i.sukList = i.product_attr_unique.split(',')
+        i.thumb = i.product_thumb
+        i.goods_name = i.product_name
+        i.price = i.product_price
+        i.cart_num = 1
       }
       this.setData({ orderDetail: data })
     })
@@ -134,7 +198,6 @@ Page({
    */
   onLoad({ order_sn }: Body<string>) {
     this.data.orderSn = order_sn
-    this.apiOrderDetail()
   },
 
   /**
@@ -147,7 +210,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.apiOrderDetail()
   },
 
   /**

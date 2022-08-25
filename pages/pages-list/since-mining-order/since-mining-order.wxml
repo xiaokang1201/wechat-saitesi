@@ -1,7 +1,7 @@
 <!--pages/pages-list/since-mining-order/since-mining-order.wxml-->
 <view class="since-mining-order">
   <view class="search-type">
-    <search type="3" bindinputConfirm="inputConfirm" ></search>
+    <search type="3" bindinputConfirm="inputConfirm"></search>
     <type-list 
       typeList="{{typeList}}" 
       typeIndex="{{typeIndex}}" 
@@ -15,12 +15,12 @@
           class="item"
           catchtap="itemClick"
           data-order_sn="{{item.order_id}}"
-          wx:if="{{item._status._type === 0 ? (item.remain_time-time>0) : true}}">
+          wx:if="{{item.status === 0 ? (item.remain_time-time>0) : true}}">
           <view class="number-status flex-ali-bet">
             <view class="number">订单编号 {{item.order_id}}</view>
-            <view class="status">{{item._status._type === 0 ? 
+            <view class="status">{{item.status === 0 ? 
             ('待支付'+tool.minutes(item.remain_time-time)+'分'+tool.seconds(item.remain_time-time)+'秒')  
-            : item._status._title}}</view>
+            : item.status_text}}</view>
           </view>
           <orders-goods 
             type="2" 
@@ -31,37 +31,57 @@
           </orders-goods>
           <view class="pay-info flex-ali-bet">
             <view class="time">{{item.add_time}}</view>
-            <view class="goods-info">共{{item.total_num}}件商品,需支付￥{{item.pay_price}}</view>
+            <view class="goods-info">共{{item.total_num}}件商品,{{item.status === 0 ? '需支付' : '实付款'}}￥{{item.pay_price}}</view>
           </view>
-          <view class="flex-row action-buttons">
+          <view class="flex-row action-buttons" wx:if="{{item.status !== 1}}">
             <view class="flex">
-              <view 
+              <!-- <view 
                 class="flex-ali-cen" 
-                wx:if="{{item._status._type === 1 || item._status._type === 2 || item._status._type === 3 || item._status._type === 5}}">
+                wx:if="{{item.status === 1 || item.status === 2 || item.status === 3 || item.status === 5}}">
                 更多操作
-              </view>
+              </view> -->
               <view 
                 class="flex-ali-cen" 
                 bindtap="cancelOrderClick"
                 data-order_sn="{{item.order_id}}" 
-                wx:if="{{item._status._type === 0}}">
+                wx:if="{{item.status === 0}}">
                 取消订单
               </view>
               <view 
                 class="flex-ali-cen" 
                 catchtap="payOrderClick"
                 data-order_sn="{{item.order_id}}" 
-                wx:if="{{item._status._type === 0}}">
+                wx:if="{{item.status === 0}}">
                 去支付
+              </view>
+              <view 
+                class="flex-ali-cen" 
+                catchtap="lookLogistics"
+                data-item="{{item}}" 
+                wx:if="{{item.status === 2}}">
+                查看物流
               </view>
               <view 
                 class="flex-ali-cen cur" 
                 catchtap="confirmOrderClick"
                 data-order_sn="{{item.order_id}}" 
-                wx:if="{{item._status._type === 2}}">
+                wx:if="{{item.status === 2 || item.status === 3}}">
                 确认收货
               </view>
-              <view class="flex-ali-cen" wx:if="{{item._status._type === 4}}">{{item._status._title}}</view>
+              <view 
+                class="flex-ali-cen" 
+                wx:if="{{item.status === 4}}"
+                catchtap="applyAfterSalesClick"
+                data-order_sn="{{item.order_id}}">
+                申请售后
+              </view>
+              <view 
+                class="flex-ali-cen agin" 
+                wx:if="{{item.status === 4}}"
+                catchtap="anotherList"
+                data-item="{{item}}">
+                再来一单
+              </view>
             </view>
           </view>
         </view>
@@ -70,6 +90,44 @@
     <load-more loadMoreType="{{loadMoreType}}"></load-more>
   </scroll-view>
 </view>
+
+
+<show-pop show="{{show}}" position="bottom">
+  <view class="logistics-pop">
+    <image bindtap="shutDownPop" class="shut-down-img" src="{{$state.ASSETSURL}}sample-sent-back/4.png"></image>
+    <view class="title">物流信息</view>
+    <view class="content">
+      <view class="flex-bet-ali courier">
+        <view class="courier-company">顺丰快递 {{orderDetail.delivery_id}}</view>
+        <view class="flex copy-call">
+          <view bindtap="copyOrderSn">复制</view>
+          <view class="line"></view>
+          <view bindtap="makePhoneCall">打电话</view>
+        </view>
+      </view>
+      <scroll-view class="scroll-view" scroll-y>
+        <view class="list">
+          <view class="item flex" wx:for="{{logisticsInfo}}" wx:key="id">
+            <view class="progress-line" wx:if="{{index !== logisticsInfo.length-1}}"></view>
+            <view class="circle flex-cen">
+              <view class="circle{{index !== logisticsInfo.length-1 ? 1 : 0}}"></view>
+            </view>
+            <view>
+              <view>
+                <text class="time">{{item.ftime}}</text>
+              </view>
+              <view class="describe">{{item.context}}</view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+      <view class="leave-info flex-ali">
+        <image src="{{$state.ASSETSURL}}sample-sent-back/3.png"></image>
+        <view>{{orderDetail.real_name}}，{{orderDetail.user_phone}}，{{orderDetail.user_address}}</view>
+      </view>
+    </view>
+  </view>
+</show-pop>
 
 
 <wxs src="/assets/wxs/my-wxs.wxs" module="tool"></wxs>

@@ -4,7 +4,6 @@
   width: 100vw;
   .user-info {
     padding: 0 30rpx;
-    height: 620rpx; 
     background: linear-gradient(180deg, #E3ECFB 55.99%, #F3F4F8 100%);
     .user-head-img {
       width: 152rpx;
@@ -52,6 +51,7 @@
     }
     .scan-code-sample-report {
       margin-top: 66rpx;
+      padding-bottom: 40rpx;
       image {
         width: 96rpx;
         height: 148.45rpx;

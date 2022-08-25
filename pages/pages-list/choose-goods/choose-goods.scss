@@ -1,0 +1,45 @@
+/* pages/pages-list/choose-goods/choose-goods.wxss */
+.choose-goods {
+  padding: 30rpx 20rpx;
+  background: #F2F2F2;
+  min-height: 100vh;
+  .list {
+    .item {
+      width: 710rpx;
+      border-radius: 8rpx;
+      margin: 0 auto;
+      padding: 35rpx 0;
+      background-color: #ffffff;
+      margin-bottom: 20rpx;
+      .code {
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24rpx;
+        color: #585B61;
+        margin-bottom: 30rpx;
+      }
+      >.img-box {
+        width: 100rpx;
+        >image {
+          width: 45rpx;
+          height: 45rpx;
+        }
+      }
+      .orders-goods {
+        padding: 0;
+        .name,.tag {
+          width: 350rpx;
+        }
+      }
+      .status_text {
+        margin-top: 50rpx;
+        font-family: 'Source Han Sans CN';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24rpx;
+        color: #E43B3B;
+      }
+    }
+  }
+}

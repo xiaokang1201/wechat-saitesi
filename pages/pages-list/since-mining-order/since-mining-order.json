@@ -1,9 +1,10 @@
 {
-  "navigationBarTitleText": "自采订单",
+  "navigationBarTitleText": "全部订单",
   "usingComponents": {
     "search": "/components/search/search",
     "type-list": "/components/type-list/type-list",
     "orders-goods": "/components/orders-goods/orders-goods",
-    "load-more": "/components/load-more/load-more"
+    "load-more": "/components/load-more/load-more",
+    "show-pop": "/components/show-pop/show-pop"
   }
 }

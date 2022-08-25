@@ -3,6 +3,19 @@
   min-height: 100vh;
   background: #F2F2F2;
   padding: 20rpx 20rpx 200rpx 20rpx;
+  .refund-goods {
+    background: #FFFFFF;
+    border-radius: 8rpx;
+    .refund-goods-text {
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 32rpx;
+      color: #010204;
+      padding: 30rpx 0 10rpx 20rpx;
+    }
+  }
+  
   .refund-info {
     padding: 27rpx 20rpx 33rpx 20rpx;
     margin-top: 23rpx;

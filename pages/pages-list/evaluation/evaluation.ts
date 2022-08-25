@@ -10,10 +10,6 @@ Page({
   data: {
     orderSn: '',//订单编号
     cartInfo: {
-      productInfo: {
-        image: "https://game.vrupup.com/resources/mk/202201/17_164240882361e52b77f2d49.jpg",
-        store_name: "丝蛋白金致爽肤水乳液面霜+凝时洁面A醇视黄醇抗初老淡纹礼盒装",
-      },
       cart_num: 1,
       unique: ''
     },

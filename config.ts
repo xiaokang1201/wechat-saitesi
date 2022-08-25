@@ -1,5 +1,4 @@
-// const ASSETSURL = 'https://img.vrupup.com/web/xk/songxiadati/images/'
-const ASSETSURL = '/assets/images/'
+const ASSETSURL = 'https://img.vrupup.com/web/xk/wechat-saitesi/images/'
 export default {
   //核弹系统码
   CONFIGURE: "tJ4GXH2P2luArDVm0u9",

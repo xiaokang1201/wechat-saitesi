@@ -4,36 +4,52 @@
     <view class="flex-col">
       <view class="justify-between flex-ali section_3">
         <view class="flex-col items-start">
-          <text class="text_3">{{orderDetail._status._msg}}</text>
+          <text class="text_3">{{orderDetail.status_text}}</text>
           <text class="text_4">{{orderDetail._pay_time}}</text>
         </view>
         <view class="flex-row group_8">
           <image
             src="{{$state.ASSETSURL}}since-mining-order-details/0.png"
             class="image_5"
-            wx:if="{{orderDetail._status._type === 0}}"
+            wx:if="{{orderDetail.status === 0}}"
           />
           <image
             src="{{$state.ASSETSURL}}since-mining-order-details/1.png"
             class="image_6"
-            wx:if="{{orderDetail._status._type === 5}}"
+            wx:if="{{orderDetail.status === 5}}"
+          />
+          <image
+            src="{{$state.ASSETSURL}}since-mining-order-details/5.png"
+            class="image_7"
+            wx:if="{{orderDetail.status === 4}}"
+          />
+          <image
+            src="{{$state.ASSETSURL}}since-mining-order-details/6.png"
+            class="image_7"
+            wx:if="{{orderDetail.status === 6}}"
           />
           <view 
             class="view1 flex-cen-ali" 
             bindtap="lookLogistics"
-            wx:if="{{orderDetail._status._type === 2 || orderDetail._status._type === 3}}">
+            wx:if="{{orderDetail.status === 2}}">
             查看物流
           </view>
         </view>
       </view>
-      <view class="flex-col section_4">
-        <text class="text_6">{{orderDetail._status._type === 5 ? '提货地址' : '收货地址'}}：</text>
+      <!-- 检验地址 -->
+      <view class="check-address" wx:if="{{orderDetail.type === 2}}">
+        <view>检验地址:</view>
+        <view>{{$state.userConfig.express_address}}</view>
+        <navigation></navigation>
+      </view>
+      <view class="flex-col section_4" wx:else>
+        <text class="text_6">{{orderDetail.status === 5 ? '提货地址' : '收货地址'}}：</text>
         <view class="flex-col group_9 view_2">
           <view class="flex-row">
-            <text class="text_7">{{orderDetail._status._type === 5 ? orderDetail.shipping_mobile : orderDetail.user_phone}}</text>
-            <text class="text_8" wx:if="{{orderDetail._status._type !== 5}}">{{orderDetail._status._type === 5 ? orderDetail.shipping_mobile : orderDetail.real_name}}</text>
+            <text class="text_7">{{orderDetail.status === 5 ? orderDetail.shipping_mobile : orderDetail.user_phone}}</text>
+            <text class="text_8" wx:if="{{orderDetail.status !== 5}}">{{orderDetail.status === 5 ? orderDetail.shipping_mobile : orderDetail.real_name}}</text>
           </view>
-          <view bindtap="navigation" class="justify-end" wx:if="{{orderDetail._status._type === 5}}">
+          <view bindtap="navigation" class="justify-end" wx:if="{{orderDetail.status === 5}}">
             <image
               src="{{$state.ASSETSURL}}since-mining-order-details/2.png"
               class="image_7"
@@ -42,9 +58,9 @@
           </view>
         </view>
         <view class="flex-row">
-          <text class="text_10">{{orderDetail._status._type === 5 ? orderDetail.shipping_address : orderDetail.user_address}}</text>
+          <text class="text_10">{{orderDetail.status === 5 ? orderDetail.shipping_address : orderDetail.user_address}}</text>
         </view>
-        <block wx:if="{{orderDetail._status._type === 5}}">
+        <block wx:if="{{orderDetail.status === 5}}">
           <view class="divider"><!--*--></view>
           <view class="group_13">
             <view><text class="text_12">营业时间：</text></view>
@@ -55,8 +71,22 @@
           </view>
         </block>
       </view>
-      <orders-goods wx:for="{{orderDetail.cartInfo}}" wx:key="id" object="{{item}}"></orders-goods>
-      <view class="justify-between section_6" wx:if="{{orderDetail.shipping_type === 2}}">
+      <orders-goods 
+        orderDetail="{{orderDetail}}" 
+        type="{{3}}" 
+        wx:for="{{orderDetail.code}}" 
+        wx:key="id" 
+        object="{{item}}"
+        data-index="{{index}}"
+        data-code_id="{{item.code_id}}"
+        data-url="{{item.report_url}}"
+        bindapplyAfterSalesClick="applyAfterSalesItemClick"
+        bindscanBindClick="scanBindClick"
+        bindgoBookingInspection="goBookingInspection"
+        bindlookReportClick="lookReportClick"
+        bindevaluationOrderClick="evaluationOrderClick">
+      </orders-goods>
+      <view class="justify-between section_6" wx:if="{{orderDetail.type === 2}}">
         <text class="text_21">预留电话：</text>
         <text class="text_22">{{orderDetail.shipping_mobile}}</text>
       </view>
@@ -100,7 +130,7 @@
               <text class="text_38">优惠券</text>
               <text class="text_39">-￥{{orderDetail.coupon.coupon_price || '0.00'}}</text>
             </view>
-            <view class="justify-between group_25" wx:if="{{orderDetail._status._type !== 0}}">
+            <view class="justify-between group_25" wx:if="{{orderDetail.status !== 0}}">
               <text class="text_40">实付款</text>
               <view class="group_26">
                 <text class="text_41">￥</text>
@@ -108,7 +138,7 @@
               </view>
             </view>
           </view>
-          <view class="flex-col group_27" wx:if="{{orderDetail._status._type !== 0}}">
+          <view class="flex-col group_27" wx:if="{{orderDetail.status !== 0}}">
             <view class="flex-col group_28">
               <view class="justify-between">
                 <text class="text_43">付款方式</text>
@@ -123,7 +153,7 @@
               </view>
               <view class="justify-between group_32">
                 <text class="text_48">创建时间</text>
-                <text class="text_49">{{orderDetail._add_time}}</text>
+                <text class="text_49">{{orderDetail.add_time}}</text>
               </view>
               <view class="justify-between group_33">
                 <text class="text_50">付款时间</text>
@@ -190,23 +220,29 @@
       </view>
     </view> -->
   </view>
-  <view class="justify-end fixed section_14" wx:if="{{orderDetail._status._type !== 4}}">
+  <view class="justify-end fixed section_14" wx:if="{{orderDetail.status !== 6}}">
     <view 
       class="flex-col items-center text-wrapper_2" 
       bindtap="applyAfterSalesClick"
-      wx:if="{{orderDetail._status._type !== 0 && orderDetail._status._type !== 4}}">
-      <text class="text_70">申请售后</text>
+      wx:if="{{orderDetail.status !== 0}}">
+      <text class="text_71">申请售后</text>
     </view>
     <view 
       class="flex-col items-center text-wrapper_3" 
-      wx:if="{{orderDetail._status._type === 1 || orderDetail._status._type === 2 || orderDetail._status._type === 5}}"
+      wx:if="{{orderDetail.status === 1 || orderDetail.status === 4 || orderDetail.status === 5}}"
       bindtap="anotherList">
       <text class="text_71">再来一单</text>
     </view>
-    <view class="flex-col items-center text-wrapper_3" wx:if="{{orderDetail._status._type === 3}}">
-      <text class="text_71" bindtap="evaluationOrderClick">待评价</text>
+    <view 
+      class="flex-col items-center text-wrapper_3 text-wrapper_4" 
+      wx:if="{{orderDetail.status === 2 || orderDetail.status === 3}}"
+      bindtap="confirmOrderClick">
+      <text class="text_71">确认收货</text>
     </view>
-    <view class="payment" wx:if="{{orderDetail._status._type === 0}}">
+    <!-- <view class="flex-col items-center text-wrapper_3" wx:if="{{orderDetail.status === 4}}">
+      <text class="text_71" bindtap="evaluationOrderClick">待评价</text>
+    </view> -->
+    <view class="payment" wx:if="{{orderDetail.status === 0}}">
       <view class="flex-ali">
         <text>总计</text>
         <text>￥{{orderDetail.pay_price}}</text>
@@ -220,12 +256,12 @@
 <show-pop show="{{show}}" position="bottom">
   <view class="logistics-pop">
     <image bindtap="shutDownPop" class="shut-down-img" src="{{$state.ASSETSURL}}sample-sent-back/4.png"></image>
-    <view class="title">详情信息</view>
+    <view class="title">物流信息</view>
     <view class="content">
       <view class="flex-bet-ali courier">
         <view class="courier-company">顺丰快递 {{orderDetail.delivery_id}}</view>
         <view class="flex copy-call">
-          <view>复制</view>
+          <view bindtap="copyOrderSn">复制</view>
           <view class="line"></view>
           <view bindtap="makePhoneCall">打电话</view>
         </view>
@@ -239,7 +275,6 @@
             </view>
             <view>
               <view>
-                <!-- <text class="status">已收货</text> -->
                 <text class="time">{{item.ftime}}</text>
               </view>
               <view class="describe">{{item.context}}</view>

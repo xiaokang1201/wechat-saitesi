@@ -1,10 +1,13 @@
 <!--pages/pages-list/after-sales/after-sales.wxml-->
 <view class="after-sales">
-  <orders-goods type="1" object="{{cartInfo}}"></orders-goods>
+  <view class="refund-goods">
+    <view class="refund-goods-text">退款商品</view>
+    <orders-goods wx:key="code_id" wx:for="{{orderInfo.code}}" type="1" object="{{item}}"></orders-goods>
+  </view>
   <!-- 选择服务类型 -->
   <view class="select-service-class">
     <view>选择服务类型</view>
-    <image bindtap="afterSalesClick" data-index="{{1}}" src="/assets/images/component/orders-goods/1.png"></image>
-    <image bindtap="afterSalesClick" data-index="{{2}}" src="/assets/images/component/orders-goods/2.png"></image>
+    <image bindtap="afterSalesClick" data-index="{{1}}" src="{{$state.ASSETSURL}}component/orders-goods/1.png"></image>
+    <image bindtap="afterSalesClick" data-index="{{2}}" src="{{$state.ASSETSURL}}component/orders-goods/2.png"></image>
   </view>
 </view>
