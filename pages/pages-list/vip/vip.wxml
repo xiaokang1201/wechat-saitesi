@@ -1,17 +1,4 @@
 <!--pages/pages-list/vip/vip.wxml-->
 <view class="vip">
-  <image src="/assets/images/vip/0.png" mode="aspectFill"></image>
+  <image bindtap="goVipIndex" src="{{$state.ASSETSURL}}vip/0.png" mode="aspectFill"></image>
 </view>
-<show-pop show="{{true}}">
-  <view class="pop people flex-col-ali">
-    <view class="text1">提示</view>
-    <view class="text2">您不是受邀用户</view>
-    <view class="text3">即将前往商城小程序</view>
-    <view class="text4">4s</view>
-    <view class="btn1 flex-ali-cen" bindtap="goIndex">立即前往</view>
-    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
-    <image catchtap="event2" class="shut-down" src="{{$state.ASSETSURL}}component/show-pop/3.png"></image>
-  </view>
-</show-pop>
-<!-- 手机号授权 -->
-<get-phone-number bindgetPhoneCallback="getPhoneCallback" wx:if="{{!$state.userInfo.mobile}}"></get-phone-number>

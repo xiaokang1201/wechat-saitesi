@@ -1,0 +1,60 @@
+<!--pages/pages-list/vip-index/vip-index.wxml-->
+<view class="index flex-col-ali">
+  <custom-nav-bar>
+    <image class="logo" slot="backText" src="{{$state.ASSETSURL}}index/0.png"></image>
+  </custom-nav-bar>
+  <!-- 活动规则 -->
+  <image class="activity-rules" bindtap="goHome" src="{{$state.ASSETSURL}}vip-index/0.png"></image>
+  <!-- 购物车 -->
+  <image class="cart" bindtap="goCart" src="{{$state.ASSETSURL}}vip-index/1.png"></image>
+  <!-- 轮播图 -->
+  <custom-swiper swiperList="{{$state.vipDetail.swiperList}}"></custom-swiper>
+  <!-- 进首页 -->
+  <image class="go-home" bindtap="goHome" src="{{$state.ASSETSURL}}vip-index/2.png"></image>
+  <!-- 活动倒计时 -->
+  <view class="countdown">
+    <image class="poa" bindtap="goHome" src="{{$state.ASSETSURL}}vip-index/3.png"></image>
+    <view>{{tool.day($state.vipDetail.remain_time - time)}}</view>
+    <view>{{tool.hour($state.vipDetail.remain_time - time)}}</view>
+    <view>{{tool.minutes($state.vipDetail.remain_time - time)}}</view>
+    <view>{{tool.seconds($state.vipDetail.remain_time - time)}}</view>
+  </view>
+  <!-- 自采 预约项目 -->
+  <view class="flex-ali tab">
+    <view wx:for="{{typeList}}" bindtap="tabItemClick" data-index="{{index}}"  wx:key="index" class="{{typeIndex === index ? 'cur' : ''}}">{{item}}</view>
+  </view>
+  <!-- 商品列表 -->
+  <view class="list">
+    <view bindtap="goodsItemClick" data-goods_id="{{item.goods_id}}" class="item flex" wx:for="{{list}}" wx:key="id">
+      <view class="img-box flex-ali-cen">
+        <view class="type type{{item.type}} flex-ali-cen">{{item.type === 1 ? '自采' : '预约'}}</view>
+        <image class="poa" src="{{item.image}}" mode="aspectFill"></image>
+        <image wx:if="{{item.stock === 0}}" class="mask" src="{{$state.ASSETSURL}}vip-index/4.png" mode="aspectFill"></image>
+      </view>
+      <view class="goods">
+        <view class="store-name ell2">{{item.store_name}}</view>
+        <block wx:if="{{item.stock > 0}}">
+          <view class="stock flex-ali-cen">
+            <view style="width: {{(item.stock)/item.stock*100}}%;"></view>
+            <text>剩余{{item.stock}}件</text>
+          </view>
+          <view class="sales">已抢{{item.sales}}件</view>
+        </block>
+        <view class="kong flex-ali-cen" wx:else></view>
+        <view class="flex-ali-bet vip-price-box">
+          <view class="vip-price"><text>￥</text><text>{{item.vip_price}}</text><text>{{item.vip_price}}</text></view>
+          <view class="sold-out" wx:if="{{item.stock === 0}}">已售完</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 加载状态 -->
+  <load-more loadMoreType="{{loadMoreType}}"></load-more>
+</view>
+
+<!-- 用户信息授权 -->
+<get-user-info wx:if="{{!$state.userInfo.nickname}}"></get-user-info>
+<!-- 手机号授权 -->
+<get-phone-number wx:if="{{!$state.userInfo.mobile}}"></get-phone-number>
+
+<wxs module="tool" src="/assets/wxs/my-wxs.wxs"></wxs>

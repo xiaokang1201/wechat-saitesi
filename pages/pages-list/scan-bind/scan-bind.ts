@@ -96,8 +96,12 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad({ code_id, product_name, order_sn }: Body<string>) {
+    this.setData({ 
+      code_id: Number(code_id) || 0,
+      orderSn: order_sn || '',//订单编号
+      productName: product_name || '',//商品名称
+    })
   },
 
   /**

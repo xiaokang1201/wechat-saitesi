@@ -364,6 +364,41 @@
           "query": "order_sn=STS166133006240474615",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/booking-inspection/booking-inspection",
+          "query": "code=228",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/vip-index/vip-index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/vip-index/vip-index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/apply-note/apply-note",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/apply-note/apply-note",
+          "query": "order_sn=STS166148050300777753",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

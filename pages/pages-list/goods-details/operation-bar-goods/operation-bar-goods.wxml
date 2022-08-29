@@ -2,21 +2,23 @@
 <view class="operation-bar-goods">
   <view class="operation-bd flex-ali-bet">
     <!-- 客服、购物车 -->
-    <view class="flex-ali action">
+    <view class="flex-ali-cen action">
       <view class="flex-col-ali" bindtap="click" data-method_name="service">
         <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/0.png"></image>
         <view>客服</view>
         <button class="poa" open-type="contact"></button>
       </view>
-      <view class="flex-col-ali" bindtap="click" data-method_name="collection">
-        <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/{{goodsInfo.is_collection ? 3 : 1 }}.png"></image>
-        <view>收藏</view>
-      </view>
-      <view class="flex-col-ali" bindtap="click" data-method_name="share">
-        <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/2.png"></image>
-        <view>分享</view>
-        <button class="poa" open-type="share"></button>
-      </view>
+      <block wx:if="{{$state.vipDetail.id}}">
+        <view class="flex-col-ali" bindtap="click" data-method_name="collection">
+          <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/{{goodsInfo.is_collection ? 3 : 1 }}.png"></image>
+          <view>收藏</view>
+        </view>
+        <view class="flex-col-ali" bindtap="click" data-method_name="share">
+          <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/2.png"></image>
+          <view>分享</view>
+          <button class="poa" open-type="share"></button>
+        </view>
+      </block>
     </view>
     <!-- 加入购物车、立即购买 -->
     <view class="flex">

@@ -59,12 +59,16 @@ Page({
     getApp().tool.jump_nav(`/pages/pages-list/booking-inspection/booking-inspection?code=${code_id}`)
   },
   // 点击扫码绑定
-  scanBindClick() {
-    getApp().tool.jump_nav(`/pages/pages-list/scan-bind/scan-bind`)
+  scanBindClick({ currentTarget: { dataset: { code_id, product_name } } }: CurrentTarget<number>) {
+    getApp().tool.jump_nav(`/pages/pages-list/scan-bind/scan-bind?code_id=${code_id}&product_name=${product_name}&order_sn=${this.data.orderDetail.order_id}`)
   },
   // 点击查看报告
   lookReportClick({ currentTarget: { dataset: { url } } }: CurrentTarget<string>) {
     this.filePreview(url)
+  },
+  // 点击寄回
+  sendBack({ currentTarget: { dataset: { code_id } } }: CurrentTarget<number>) {
+    getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_id}`)
   },
   // 文件预览
   filePreview(url: string) {
@@ -83,6 +87,12 @@ Page({
     })
   },
   //#endregion
+  
+  // 申请发票
+  applyNote() {
+    getApp().tool.jump_nav(`/pages/pages-list/apply-note/apply-note?order_sn=${this.data.orderSn}`)
+  },
+  
   // 点击确认收货
   confirmOrderClick: useThrottle(async function (this: any) {
     await this.apiOrderSure()

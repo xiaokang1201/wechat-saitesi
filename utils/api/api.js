@@ -77,6 +77,8 @@ export default {
   orderDetail: (data, url = 'order_detail') => { return myRequest(data, url, 'get') },
   // 订单取消
   cancerOrder: (data, url = 'cancer_order') => { return myRequest(data, url) },
+  // 取消预约
+  cancelBooking: (data, url = 'cancel_booking') => { return myRequest(data, url) },
   // 订单删除
   deleteOrder: (data, url = 'delete_order') => { return myRequest(data, url) },
   // 已存在订单支付
@@ -93,6 +95,8 @@ export default {
   bookingList: (data, url = 'booking_list') => { return myRequest(data, url, 'get') },
   // 查询条码
   getOrderCode: (data, url = 'get_order_code') => { return myRequest(data, url, 'get') },
+  // 申请发票
+  orderInvoice: (data, url = 'order_invoice') => { return myRequest(data, url) },
   //#endregion
 
 
@@ -168,5 +172,12 @@ export default {
   // 详情
   userDistributorDetail: (data, url = 'user_distributor_detail') => { return myRequest(data, url, 'get') }, 
   
+  //#endregion
+
+
+  //#region VIP
+  vipLogin: (data, url = 'vip_login') => { return myRequest(data, url) }, 
+  vipDetail: (data, url = 'vip_detail') => { return myRequest(data, url, 'get') }, 
+  vipGoods: (data, url = 'vip_goods') => { return myRequest(data, url, 'get') }, 
   //#endregion
 }

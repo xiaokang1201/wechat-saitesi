@@ -23,7 +23,10 @@ export default new Store({
       address: '湖南',
       age: 20,
     },
-    limit: 10
+    limit: 10,
+    vipDetail: {},
+    vipId: 26,
+    vipToken: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJBZG1pbjg2MTI1IiwiaWF0IjoxNjYxNzQzNzczLCJleHAiOjE2NjIzNDg1NzMsIm5iZiI6MTY2MTc0Mzc3Mywic3ViIjoiZTg3MGY5Y2Q1NjRkYTQzZDJhNmJlNGFhOGVhMWRjNjAiLCJqdGkiOiJkNjkzMmU1MGM0Y2Q0MDk2MzBkZDU5ZDUyMDYwZTIzMSIsImNsYWltIjp7InZpcF91c2VyIjo0fX0.souK2WZCJuSJRFe0twTzJ-qATroNWQSRWKXJ6rJLO8g`
   },
   //全局方法
   methods: {

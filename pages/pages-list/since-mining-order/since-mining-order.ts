@@ -58,7 +58,7 @@ Page({
   copyOrderSn(){
     wx.setClipboardData({ data: this.data.orderDetail.order_id })
   },
-  
+
   // 关闭弹框
   shutDownPop() {
     this.setData({ show: false })
@@ -135,7 +135,10 @@ Page({
   // 点击确认收货
   confirmOrderClick: useThrottle(async function (this: any, { currentTarget: { dataset: { order_sn } } }: CurrentTarget<string>) {
     await this.apiOrderSure(order_sn)
-    await getApp().tool.alert("成功收货", 1000, 1)
+    getApp().tool.alert("成功收货", 1000, 1)
+    // this.initCurrentOrderList()
+    this.data.typeIndex = 5
+    this.setData({ typeIndex: 5 })
     this.initCurrentOrderList()
   }),
   //#endregion
@@ -145,7 +148,6 @@ Page({
   apiOrderSure(order_sn: string) {
     return getApp().api.orderSure({ order_sn })
   },
-
   // 取消订单
   apiCancerOrder(order_sn: string) {
     return getApp().api.cancerOrder({ order_sn })

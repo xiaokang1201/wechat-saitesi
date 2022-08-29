@@ -1,0 +1,79 @@
+<!--pages/pages-list/apply-note/apply-note.wxml-->
+<view class="flex-col group_4">
+  <view class="flex-col group_5">
+    <!-- <view class="flex-row justify-between section_3">
+      <view class="flex-row">
+        <image
+          src="https://codefun-proj-user-res-1256085488.cos.ap-guangzhou.myqcloud.com/6242dc845a7e3f031095253b/630c93d217f5d3001296a69f//16617686878554901832.png"
+          class="image_6"
+        />
+        <view class="flex-col items-start group_7">
+          <text class="text_3">白茶净颜细致调理乳</text>
+          <view class="group_8">
+            <text class="text_4">￥</text>
+            <text class="text_5">896</text>
+            <text class="text_6">.00</text>
+          </view>
+        </view>
+      </view>
+      <text class="text_7">x1</text>
+    </view> -->
+    <view class="flex-col section_4">
+    
+      <picker bindchange="noteTypeChange" range="{{noteTypeList}}">
+        <view class="flex-row justify-between group_9">
+          <text class="text_8">发票类型</text>
+          <view class="flex-row group_10">
+            <text class="text_10">{{noteTypeList[noteTypeIndex]}}</text>
+            <image
+              src="{{$state.ASSETSURL}}apply-note/0.png"
+              class="image_7"
+            />
+          </view>
+        </view>
+      </picker>
+      <view class="flex-row justify-between group_11">
+        <text class="text_11">抬头类型</text>
+        <view class="flex-row group_12">
+          <image wx:if="{{title_type === '个人或事业单位'}}" src="{{$state.ASSETSURL}}apply-note/1.png" class="image_9"/>
+          <view bindtap="titleTypeClick" data-text="个人或事业单位" wx:else class="section_5 view_4"></view>
+          <text bindtap="titleTypeClick"  data-text="个人或事业单位" class="text_12">个人或事业单位</text>
+          <image wx:if="{{title_type !== '个人或事业单位'}}" src="{{$state.ASSETSURL}}apply-note/1.png" class="image_9"/>
+          <view bindtap="titleTypeClick" data-text="企业" wx:else class="section_5 view_4"></view>
+          <text bindtap="titleTypeClick" data-text="企业" class="text_13">企业</text>
+        </view>
+      </view>
+      <view class="flex-row justify-between group_9">
+        <text class="text_8">发票抬头</text>
+        <input bindinput="inputChange" data-input="title" type="text" placeholder="抬头名称或急速开票六位代码"/>
+      </view>
+      <view class="flex-row justify-between group_13">
+        <text class="text_16">税号</text>
+        <input bindinput="inputChange" data-input="codes" type="text" placeholder="纳税人识别号"/>
+      </view>
+      <view class="flex-row justify-between group_14">
+        <text class="text_18">开户机行</text>
+        <input bindinput="inputChange" data-input="bank_type" type="text" placeholder="选填"/>
+      </view>
+      <view class="flex-row justify-between group_14">
+        <text class="text_21">银行账号</text>
+        <input bindinput="inputChange" data-input="bank_no" type="text" placeholder="选填"/>
+      </view>
+      <view class="flex-row justify-between group_14">
+        <text class="text_23">企业地址</text>
+        <input bindinput="inputChange" data-input="address" type="text" placeholder="选填"/>
+      </view>
+      <view class="flex-row justify-between group_14">
+        <text class="text_25">企业电话</text>
+        <input bindinput="inputChange" data-input="phone" type="text" placeholder="选填"/>
+      </view>
+      <view class="flex-row justify-between group_15">
+        <text class="text_27">电子邮箱</text>
+        <input bindinput="inputChange" data-input="invoice_email" type="text" placeholder="请输入您的邮箱"/>
+      </view>
+    </view>
+  </view>
+  <view class="flex-col fixed section_7" bindtap="apiOrderInvoice"> 
+    <view class="flex-col items-center button"><text class="text_32">提交申请</text></view>
+  </view>
+</view>

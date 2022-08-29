@@ -45,7 +45,7 @@
       <view class="flex-col section_6">
         <text class="text_17">预约信息</text>
         <view class="flex-col group_22">
-          <picker mode="date" bindchange="dateChange">
+          <picker start="{{dateStart}}" mode="date" bindchange="dateChange">
             <view class="justify-between group_19">
               <text class="text_18">选择预约日期</text>
               <view class="flex-row">

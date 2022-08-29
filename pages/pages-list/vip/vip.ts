@@ -7,17 +7,9 @@ Page({
   data: {
 
   },
-
-  // 回到首页
-  goIndex() {
-    getApp().tool.jump_swi(`/pages/index/index`)
-  },
-
-  //  手机号回调
-  getPhoneCallback({ detail: { status } }: Detail<boolean>) {
-    if(status) {
-
-    }
+  // 跳转首页
+  goVipIndex() {
+    getApp().tool.jump_nav(`/pages/pages-list/vip-index/vip-index`)
   },
 
   /**

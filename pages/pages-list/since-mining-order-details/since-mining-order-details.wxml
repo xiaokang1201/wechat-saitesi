@@ -43,13 +43,13 @@
         <navigation></navigation>
       </view>
       <view class="flex-col section_4" wx:else>
-        <text class="text_6">{{orderDetail.status === 5 ? '提货地址' : '收货地址'}}：</text>
+        <text class="text_6">{{(orderDetail.shipping_type === 2) ? '提货地址' : '收货地址'}}：</text>
         <view class="flex-col group_9 view_2">
           <view class="flex-row">
-            <text class="text_7">{{orderDetail.status === 5 ? orderDetail.shipping_mobile : orderDetail.user_phone}}</text>
-            <text class="text_8" wx:if="{{orderDetail.status !== 5}}">{{orderDetail.status === 5 ? orderDetail.shipping_mobile : orderDetail.real_name}}</text>
+            <text class="text_7">{{orderDetail.shipping_type === 2 ? orderDetail.shipping_mobile : orderDetail.user_phone}}</text>
+            <text class="text_8" wx:if="{{orderDetail.shipping_type !== 2}}">{{orderDetail.shipping_type === 2 ? orderDetail.shipping_mobile : orderDetail.real_name}}</text>
           </view>
-          <view bindtap="navigation" class="justify-end" wx:if="{{orderDetail.status === 5}}">
+          <view bindtap="navigation" class="justify-end" wx:if="{{orderDetail.shipping_type === 2}}">
             <image
               src="{{$state.ASSETSURL}}since-mining-order-details/2.png"
               class="image_7"
@@ -58,9 +58,9 @@
           </view>
         </view>
         <view class="flex-row">
-          <text class="text_10">{{orderDetail.status === 5 ? orderDetail.shipping_address : orderDetail.user_address}}</text>
+          <text class="text_10">{{orderDetail.shipping_type === 2 ? orderDetail.shipping_address : orderDetail.user_address}}</text>
         </view>
-        <block wx:if="{{orderDetail.status === 5}}">
+        <block wx:if="{{orderDetail.shipping_type === 2}}">
           <view class="divider"><!--*--></view>
           <view class="group_13">
             <view><text class="text_12">营业时间：</text></view>
@@ -79,14 +79,16 @@
         object="{{item}}"
         data-index="{{index}}"
         data-code_id="{{item.code_id}}"
+        data-product_name="{{item.product_name}}"
         data-url="{{item.report_url}}"
         bindapplyAfterSalesClick="applyAfterSalesItemClick"
         bindscanBindClick="scanBindClick"
         bindgoBookingInspection="goBookingInspection"
         bindlookReportClick="lookReportClick"
-        bindevaluationOrderClick="evaluationOrderClick">
+        bindevaluationOrderClick="evaluationOrderClick"
+        bindsendBack="sendBack">
       </orders-goods>
-      <view class="justify-between section_6" wx:if="{{orderDetail.type === 2}}">
+      <view class="justify-between section_6" wx:if="{{orderDetail.shipping_type === 2}}">
         <text class="text_21">预留电话：</text>
         <text class="text_22">{{orderDetail.shipping_mobile}}</text>
       </view>
@@ -101,7 +103,7 @@
         </view> -->
       </view>
       <view class="flex-col section_7">
-        <view class="justify-between group_17">
+        <view class="justify-between group_17" wx:if="{{orderDetail.type === 1}}">
           <text class="text_23">交货方式</text>
           <text class="text_29">{{orderDetail.shipping_type === 1 ? '快递配送' : '自提门店'}}</text>
         </view>
@@ -238,6 +240,13 @@
       wx:if="{{orderDetail.status === 2 || orderDetail.status === 3}}"
       bindtap="confirmOrderClick">
       <text class="text_71">确认收货</text>
+    </view>
+    
+    <!-- wx:if="{{orderDetail.status === 5}}" -->
+    <view 
+      class="flex-col items-center text-wrapper_3" 
+      bindtap="applyNote">
+      <text class="text_71">申请发票</text>
     </view>
     <!-- <view class="flex-col items-center text-wrapper_3" wx:if="{{orderDetail.status === 4}}">
       <text class="text_71" bindtap="evaluationOrderClick">待评价</text>

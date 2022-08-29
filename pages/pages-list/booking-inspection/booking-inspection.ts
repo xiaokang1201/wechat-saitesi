@@ -17,6 +17,7 @@ interface data {
   booking_mobile: string,//预约人手机号  
   booking_date: string,//预约日期
   booking_time: string,//预约时间
+  dateStart: string,//开始日期
 }
 Page({
 
@@ -34,6 +35,7 @@ Page({
     booking_mobile: '',//预约人手机号  
     booking_date: '',//预约日期
     booking_time: '',//预约时间 
+    dateStart: '',//开始时间
   } as data,
 
   // 修改性别
@@ -90,7 +92,21 @@ Page({
     this.setData({ show: false })
     getApp().tool.jump_back()
   },
-
+  // 获取当前时间
+  setStartDate() {
+    let dates = new Date()
+    dates.setTime(dates.getTime() + 24 * 60 * 60 * 1000); 
+    let year = dates.getFullYear()//获取完整的年份(4位)
+    let month = dates.getMonth() + 1//获取当前月份(0-11,0代表1月)
+    let date = dates.getDate()//获取当前日(1-31)
+    this.setData({
+      dateStart: `${year}-${this.lessThanZero(month)}-${this.lessThanZero(date)}`
+    })
+  },
+  // 小于10补0
+  lessThanZero(number: number) {
+    return number >= 10 ? number : (number > 0 ? '0'+number : '00') 
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -99,6 +115,7 @@ Page({
     apiGetConfig().then(({ end_time, start_time }: Body<string>) => {
       this.setData({ end_time, start_time })
     })
+    this.setStartDate()
   },
 
   /**

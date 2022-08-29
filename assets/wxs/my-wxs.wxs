@@ -10,17 +10,21 @@ var toFixed = function (number, count) {
 var replaceTime = function (str) {
   return str.replace(getRegExp('/','g'), '-')
 }
+// 天
+var day = function (time) {
+  return lessThanZero(Math.floor(Math.floor(time/86400)) )
+}
 // 时
 var hour = function (time) {
-  return lessThanZero(Math.floor(time/3600) )
+  return lessThanZero(Math.floor(time%86400/3600) )
 }
 // 分
 var minutes = function (time) {
-  return lessThanZero(Math.floor(Math.floor(time%3600)/60))
+  return lessThanZero(Math.floor(Math.floor(time%86400%3600/60)))
 }
 // 秒
 var seconds = function (time) {
-  return lessThanZero(time%60)
+  return lessThanZero(Math.floor(Math.floor(time%86400%3600%60)))
 }
 // 小于10补0
 var lessThanZero = function (number) {
@@ -39,6 +43,7 @@ var today = function (time) {
 module.exports = {
   parseInts: parseInts,
   replaceTime: replaceTime,
+  day: day,
   hour: hour,
   minutes: minutes,
   seconds: seconds,

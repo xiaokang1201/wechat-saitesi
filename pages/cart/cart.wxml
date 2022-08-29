@@ -55,7 +55,7 @@
       </scroll-view>
     </view>
     <!-- 底部操作条 金额显示 结算/删除 -->
-    <view class="fixed-operation flex-ali-bet"  hidden="{{cartList.length===0}}">
+    <view class="fixed-operation flex-ali-bet {{$state.vipDetail.id ? 'cur' : ''}}"  hidden="{{cartList.length===0}}">
       <view class="select-all flex-ali" bindtap="setCheckAll">
         <image src="{{$state.ASSETSURL}}cart/{{checkNumber === cartList.length ? 1 : 0}}.png"></image>
         <text>全选</text>
@@ -74,5 +74,5 @@
       </view>
     </view>
   </block>
-  <custom-tab-bar pagePath="pages/cart/cart"></custom-tab-bar>
+  <custom-tab-bar wx:if="{{!$state.vipDetail.id}}" pagePath="pages/cart/cart"></custom-tab-bar>
 </view>

@@ -2,7 +2,6 @@
 import useLoadMore from "../../../hook/use-load-more"
 import useLoadMoreJudge from "../../../hook/use-load-more-judge"
 import useThrottle from "../../../hook/use-throttle"
-
 interface data extends $State {
   typeList: string[],
   typeIndex: number,
@@ -17,6 +16,26 @@ interface data extends $State {
 
 interface _list {
   check: boolean, code: string, sukList: string[], product_attr_unique: string
+}
+
+interface OrderDetail { 
+  order_id: string,
+  code: Code[] 
+}
+interface Code {
+  sukList: string[], 
+  product_attr_unique: string,
+  product_thumb: string,
+  goods_name: string,
+  product_name: string
+  check: boolean,
+  code_id: number,
+  order_sn: string,
+  real_price: string,
+  product_price: string,
+  thumb: string,
+  price: string,
+  cart_num: number,
 }
 
 Page({
@@ -36,6 +55,24 @@ Page({
     checkNum: 0,//选中数量
     // CA22MEJK07012
   } as data,
+  
+  // 单个商品申请售后
+  applyAfterSalesItemClick({ currentTarget: { dataset: { item } } }: CurrentTarget<Code>) {
+    item.product_price = item.real_price
+    const orderInfo: OrderDetail = {
+      code: [item],
+      order_id: item.order_sn
+    }
+    for(const i of orderInfo.code) {
+      i.sukList = i.product_attr_unique.split(',')
+      i.thumb = i.product_thumb
+      i.goods_name = i.product_name
+      i.price = i.product_price
+      i.cart_num = 1
+    }
+    // this.data.orderDetail.code = [this.data.orderDetail.code[index]]
+    getApp().tool.jump_nav(`/pages/pages-list/after-sales/after-sales?orderInfo=${JSON.stringify(orderInfo)}`)
+  },
 
   // 提交登记预约
   submit() {
@@ -45,9 +82,12 @@ Page({
   },
   
   // 点击扫码绑定
-  scanBindClick() {
-    getApp().tool.jump_nav(`/pages/pages-list/scan-bind/scan-bind`)
+  scanBindClick({ currentTarget: { dataset: { code_id, product_name, order_sn } } }: CurrentTarget<{
+    code_id: number, product_name: string, order_sn: string
+  }>) {
+    getApp().tool.jump_nav(`/pages/pages-list/scan-bind/scan-bind?code_id=${code_id}&product_name=${product_name}&order_sn=${order_sn}`)
   },
+
 
   // 点击登记预约
   bookingInspectionClick({ currentTarget: { dataset: { code } } }: CurrentTarget<string>) {
@@ -167,6 +207,13 @@ Page({
       })
     })
   },
+
+  // 取消预约
+  apiCancelBooking: useThrottle(function (this: any, { currentTarget: { dataset: { code_id } } }: CurrentTarget<string>) {
+    getApp().api.cancelBooking({ code_id }).then(() => {
+      this.initCurrentOrderList()
+    })
+  }),
   /**
    * 生命周期函数--监听页面加载
    */
@@ -174,7 +221,6 @@ Page({
     const typeIndex = Number(index) || 0
     this.data.typeIndex = typeIndex
     this.setData({ typeIndex })
-    this.apiBookingList()
   },
 
   /**
@@ -188,7 +234,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.apiBookingList()
   },
 
   /**

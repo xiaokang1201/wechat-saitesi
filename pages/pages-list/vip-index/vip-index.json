@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "custom-nav-bar": "/components/custom-nav-bar/custom-nav-bar",
+    "get-user-info": "/components/get-user-info/get-user-info",
+    "get-phone-number": "/components/get-phone-number/get-phone-number",
+    "custom-swiper": "/components/custom-swiper/custom-swiper",
+    "load-more": "/components/load-more/load-more"
+  }
+}

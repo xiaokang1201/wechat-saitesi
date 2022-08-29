@@ -40,7 +40,9 @@
     "pages/pages-list/comment-list/comment-list",
     "pages/pages-list/login/login",
     "pages/pages-list/vip/vip",
+    "pages/pages-list/vip-index/vip-index",
     "pages/pages-list/choose-goods/choose-goods",
+    "pages/pages-list/apply-note/apply-note",
     "pages/pages-list/test/test"
   ],
   "window": {

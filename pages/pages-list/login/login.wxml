@@ -4,12 +4,24 @@
   <view class="container flex-col-ali">
     <view class="input">
       <view>账号</view>
-      <input type="text"/>
+      <input bindinput="accountChange" value="{{account}}" type="text" placeholder="请输入手机号或工号"/>
     </view>
     <view class="input">
       <view>邀请码</view>
-      <input type="text"/>
+      <input bindinput="codeChange" value="{{code}}" type="text" placeholder="请输入邀请码"/>
     </view>
-    <view class="btn-login flex-ali-cen">登录</view>
+    <view bindtap="apiVipLogin" class="btn-login flex-ali-cen">登录</view>
   </view>
 </view>
+
+<show-pop show="{{show}}">
+  <view class="pop people flex-col-ali">
+    <view class="text1">提示</view>
+    <view class="text2">您输入的信息有误</view>
+    <view class="text3">请重新输入或前往商城小程序</view>
+    <view class="btn2 flex-ali-cen" bindtap="again">重新输入</view>
+    <view class="btn1 flex-ali-cen" bindtap="goIndex">前往小程序</view>
+    <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
+    <image catchtap="shutDown" class="shut-down" src="{{$state.ASSETSURL}}component/show-pop/3.png"></image>
+  </view>
+</show-pop>

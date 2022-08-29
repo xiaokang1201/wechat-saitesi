@@ -42,7 +42,7 @@ const requestPromise = (url, data, method, header) => {
               resolve(requestPromise(url, data, method, header));
             })
           } else {
-            if(res.data.code === 1 || res.data.status === 0 || (res.data.data && res.data.data.status == 200)) { 
+            if(res.data.code === 2 || res.data.code === 1 || res.data.status === 0 || (res.data.data && res.data.data.status == 200)) { 
               resolve(res.data)
             } else {
               tool.alert(res.data.msg)

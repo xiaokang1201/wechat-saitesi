@@ -9,16 +9,13 @@ type form = {
 }[]
 
 interface OrderDetail { 
-  delivery_id: string,
   order_id: string,
   code: { 
     sukList: string[], 
     product_attr_unique: string,
-    thumb: string,
     product_thumb: string,
     goods_name: string,
     product_name: string
-    price: string,
     product_price: string,
     check: boolean,
     code_id: number

@@ -1,8 +1,13 @@
 <!--components/orders-goods/orders-goods.wxml-->
 <view class="orders-goods orders-goods{{type}}">
   <!-- <view class="refund-goods" wx:if="{{type === 1}}">退款商品</view> -->
-  <view class="number number{{type}}" wx:if="{{object.cart_num}}">x{{object.cart_num}}</view>
+  <view class="number number{{type}}" wx:if="{{object.cart_num&&type!==3}}">x{{object.cart_num}}</view>
+  <view class="flex-ali-bet code-status" wx:if="{{type === 3&&object.status>=0&&orderDetail.status>3}}">
+    <view>条形码： {{object.code || ''}}</view>
+    <view>{{object.status_text}}</view>
+  </view>
   <view class="orders-goods-bd  orders-goods-bd{{type}} flex">
+    <view class="number number-3" wx:if="{{object.cart_num&&type===3}}">x{{object.cart_num}}</view>
     <view class="img-box">
       <image src="{{object.thumb}}"></image>
       <view class="type type{{object.type}} flex-ali-cen" wx:if="{{!!object.type}}">{{object.type === 1 ? '自采' : '预约'}}</view>
@@ -29,7 +34,13 @@
             data-methods="scanBindClick">
             扫码绑定
           </view>
-          <view class="flex-ali-cen" wx:if="{{object.status === 1}}">寄回</view>
+          <view 
+            class="flex-ali-cen" 
+            wx:if="{{object.status === 1}}"
+            bindtap="click"
+            data-methods="sendBack">
+            寄回
+          </view>
           <view class="flex-ali-cen" wx:if="{{object.status === 2}}">查看物流</view>
           <view 
             class="flex-ali-cen" 

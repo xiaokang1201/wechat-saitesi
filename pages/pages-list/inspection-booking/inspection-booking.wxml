@@ -18,20 +18,20 @@
         class="item item{{typeIndex}} flex-bet" 
         wx:for="{{list}}" 
         wx:key="code_id">
-        <view catchtap="checkClick" data-index="{{index}}" class="check-box flex-cen" hidden="{{typeIndex !== 2}}">
+        <view catchtap="checkClick" data-index="{{index}}" class="check-box flex-cen" hidden="{{typeIndex !== 0}}">
           <image src="{{$state.ASSETSURL}}inspection-booking/{{item.check ? 1 : 0}}.png"></image>
         </view>
-        <!-- <view class="goods-info" style="width: calc(100% - {{(typeIndex === 2 || typeIndex === 5) ? '100' : '0'}}rpx);"> -->
-        <view class="goods-info" style="width: calc(100% - {{typeIndex === 2 ? '100' : '0'}}rpx);">
+        <!-- <view class="goods-info" style="width: calc(100% - {{(typeIndex === 0 || typeIndex === 5) ? '100' : '0'}}rpx);"> -->
+        <view class="goods-info" style="width: calc(100% - {{typeIndex === 0 ? '100' : '0'}}rpx);">
           <view>
             <view class="bar-code-status flex-ali-bet">
               <text><block wx:if="{{item.code}}">条形码  {{item.code}}</block></text>
-              <text>{{item.booking_text}}</text>
+              <text>{{item.status_text}}</text>
             </view>
             <view class="flex">
               <image src="{{item.product_thumb}}"></image>
               <view class="flex-col-bet">
-                <view class="name" style="width: {{(typeIndex === 2 || typeIndex === 5) ? '400' : '500'}}rpx;">{{item.product_name}}</view>
+                <view class="name" style="width: {{(typeIndex === 0 || typeIndex === 5) ? '400' : '500'}}rpx;">{{item.product_name}}</view>
                 <view class="tag flex-">
                   <view wx:for="{{item.sukList}}" wx:key="index">{{item}}</view>
                 </view>
@@ -39,8 +39,8 @@
               </view>
             </view>
           </view>
-          <view class="action-buttons flex-ali-row" wx:if="{{item.booking_status !== 2}}">
-            <view 
+          <view class="action-buttons flex-ali-row" wx:if="{{item.status === 3 || item.status === 4 || item.status === 6}}">
+            <!-- <view 
               class="flex-ali-cen" 
               wx:if="{{item.booking_status===-1}}"
               catchtap="payOrderClick"
@@ -53,37 +53,57 @@
               catchtap="cancelOrderClick"
               data-order_sn="{{item.order_sn}}">
               取消订单
+            </view> -->
+            <view 
+              class="flex-ali-cen" 
+              catchtap="apiCancelBooking" 
+              data-code_id="{{item.code_id}}"
+              wx:if="{{item.status===4}}">
+              取消预约
             </view>
-            <view class="flex-ali-cen" catchtap="scanBindClick" wx:if="{{item.booking_status===1}}">扫码绑定</view>
-            <view class="flex-ali-cen" wx:if="{{item.booking_status===4}}">查看报告</view>
+            <view 
+              class="flex-ali-cen" 
+              catchtap="scanBindClick" 
+              data-item="{{item}}"
+              wx:if="{{item.status===4}}">
+              扫码绑定
+            </view>
+            <!-- <view class="flex-ali-cen" wx:if="{{item.booking_status===4}}">查看报告</view> -->
             <view 
               class="flex-ali-cen" 
               catchtap="bookingInspectionClick" 
               data-code="{{item.code_id}}" 
-              wx:if="{{item.booking_status===0}}">
+              wx:if="{{item.status===3}}">
               登记预约
             </view>
             <view 
               class="flex-ali-cen" 
-              wx:if="{{item.booking_status===3}}" 
+              wx:if="{{item.status===6}}" 
               catchtap="bookingInspectionClick" 
               data-code="{{item.code_id}}" >
               重新预约
             </view>
-            <view class="flex-ali-cen" wx:if="{{item.booking_status===5}}">{{item.refund_status ? '处理中' : '已完成'}}</view>
-            <view class="flex-ali-cen" wx:if="{{item.booking_status===0 || item.booking_status===1 || item.booking_status===4}}">更多操作</view>
+            <view 
+              class="flex-ali-cen" 
+              wx:if="{{item.status===3 || item.status===4 || item.status===6}}" 
+              catchtap="applyAfterSalesItemClick" 
+              data-item="{{item}}" >
+              申请售后
+            </view>
+            <!-- <view class="flex-ali-cen" wx:if="{{item.booking_status===5}}">{{item.refund_status ? '处理中' : '已完成'}}</view>
+            <view class="flex-ali-cen" wx:if="{{item.booking_status===0 || item.booking_status===1 || item.booking_status===4}}">更多操作</view> -->
           </view>
         </view>
       </view>
     </view>
     <load-more loadMoreType="{{loadMoreType}}"></load-more>
-    <view class="placeholder" wx:if="{{typeIndex === 2}}"></view>
+    <view class="placeholder" wx:if="{{typeIndex === 0}}"></view>
   </scroll-view>
   <select-all-bottom 
     select="{{checkNum === list.length}}" 
     text="登记预约" 
     bindallClick="allClick"
     bindsubmit="submit"
-    wx:if="{{typeIndex === 2&&list.length>0}}">
+    wx:if="{{typeIndex === 0&&list.length>0}}">
   </select-all-bottom>
 </view>

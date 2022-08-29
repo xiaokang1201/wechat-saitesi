@@ -21,7 +21,10 @@ interface data {
   payPrice: string,
   totalPrice: string,
   $state: {
-    addressInfo: { id: number }
+    addressInfo: { id: number },
+    vipDetail: {
+      id?: number
+    }
   },
   mark: string,
   shippingMobile: number | '',
@@ -135,7 +138,8 @@ Page({
       signType: js_config.signType,
       paySign: js_config.paySign,
       success () { 
-        tool.jump_red(`${orderListPath}?index=${_this.data.type === 1 ? 2 : 5}`)
+        const { type, shippingType } = _this.data
+        tool.jump_red(`${orderListPath}?index=${type === 1 ? (shippingType === 1 ? 4 : 2) : 5}`)
       },
       fail () { 
         tool.jump_red(`${orderListPath}?index=1`)
@@ -156,7 +160,10 @@ Page({
   // 获取确认订单页面信息
   apiConfirmOrder(orderGoodsNumberChange = false, isApiOrderComputed = true) {
     return new Promise((resole, reject) => {
-      getApp().api.confirmOrder({ cart_id: this.data.cartId })
+      getApp().api.confirmOrder({ 
+        cart_id: this.data.cartId,
+        is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0
+      })
       .then(({ data }: { data: ConfirmOrder }) => {
         data.priceGroup.pay_price = Number(data.priceGroup.pay_price).toFixed(2)
         // 订单商品数量变化不需要重置修改地址信息
@@ -169,7 +176,10 @@ Page({
 
   // 获取确认订单页面信息
   apiConfirmOrders(isApiOrderComputed = true) {
-    getApp().api.confirmOrders({ cart_id: this.data.cartId }).then(({ data }: { data: ConfirmOrder }) => {
+    getApp().api.confirmOrders({ 
+      cart_id: this.data.cartId, 
+      is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0
+    }).then(({ data }: { data: ConfirmOrder }) => {
       data.priceGroup.pay_price = Number(data.priceGroup.pay_price).toFixed(2)
       getApp().store.setState({ addressInfo: data.addressInfo })
       this.confirmOrderDataProcessing(data, isApiOrderComputed)
@@ -247,7 +257,6 @@ Page({
     try {
       // switch('pages/pages-list/goods-details/goods-details') {
       if(higherPage.is === 'pages/pages-list/goods-details/goods-details') {//商品详情
-
         this.data.orderType = 1
         this.setData({ orderType: 1 })
         this.data.did = Number(did || 0)
@@ -256,7 +265,6 @@ Page({
         higherPage.is === 'pages/cart/cart' ||
         higherPage.is === 'pages/pages-list/since-mining-order-details/since-mining-order-details' || 
         higherPage.is ===  'pages/pages-list/since-mining-order/since-mining-order') {//购物车 订单列表
-        
         this.data.orderType = 2
         this.setData({ orderType: 2 })
         this.apiConfirmOrders()

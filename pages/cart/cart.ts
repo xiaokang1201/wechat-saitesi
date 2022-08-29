@@ -4,7 +4,7 @@ const { tool, api } = getApp()
 import loadMoreType from "../../hook/use-load-more"
 import useThrottle from "../../hook/use-throttle"
 
-interface data {
+interface data extends $State {
   cartList: CartList[] | [],
   checkNumber: number,
   totalAmount: string,
@@ -164,7 +164,9 @@ Page({
   },
   // 获取我的购物车列表
   apiUserCart() {
-    api.userCart().then(({ data }: Body<[CartList]>) => { 
+    api.userCart({
+      is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0
+    }).then(({ data }: Body<[CartList]>) => { 
       for(const i of data) {
         i.sukList = i.suk.split(',')
       }

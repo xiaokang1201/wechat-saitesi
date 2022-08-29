@@ -141,6 +141,10 @@
     left: 0;
     box-shadow: 0 -3rpx 24rpx 0 rgba(0,0,0,0.04); 
     background-color: #FFFFFF;
+    &.cur {
+      bottom: 0;
+    }
+
     .select-all {
       image {
         width: 45rpx;
