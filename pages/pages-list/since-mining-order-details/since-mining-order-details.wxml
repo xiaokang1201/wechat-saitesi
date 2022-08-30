@@ -245,7 +245,8 @@
     <!-- wx:if="{{orderDetail.status === 5}}" -->
     <view 
       class="flex-col items-center text-wrapper_3" 
-      bindtap="applyNote">
+      bindtap="applyNote"
+      wx:if="{{orderDetail.status === 5}}">
       <text class="text_71">申请发票</text>
     </view>
     <!-- <view class="flex-col items-center text-wrapper_3" wx:if="{{orderDetail.status === 4}}">

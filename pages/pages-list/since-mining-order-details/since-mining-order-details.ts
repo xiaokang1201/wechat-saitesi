@@ -67,8 +67,8 @@ Page({
     this.filePreview(url)
   },
   // 点击寄回
-  sendBack({ currentTarget: { dataset: { code_id } } }: CurrentTarget<number>) {
-    getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_id}`)
+  sendBack({ currentTarget: { dataset: { code_id, index } } }: CurrentTarget<number>) {
+    getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_id}&goods=${JSON.stringify([this.data.orderDetail.code[index]])}`)
   },
   // 文件预览
   filePreview(url: string) {

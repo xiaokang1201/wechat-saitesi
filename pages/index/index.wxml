@@ -50,7 +50,6 @@
   </view>
 </view>
 <custom-tab-bar pagePath="pages/index/index"></custom-tab-bar>  
-
 <!-- 用户信息授权 -->
 <get-user-info wx:if="{{!$state.userInfo.nickname}}"></get-user-info>
 <!-- 手机号授权 -->

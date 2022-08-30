@@ -1,4 +1,4 @@
 <!--pages/pages-list/vip/vip.wxml-->
 <view class="vip">
-  <image bindtap="goVipIndex" src="{{$state.ASSETSURL}}vip/0.png" mode="aspectFill"></image>
+  <image bindtap="goVipIndex" src="{{$state.vipDetail.cover}}" mode="aspectFill"></image>
 </view>

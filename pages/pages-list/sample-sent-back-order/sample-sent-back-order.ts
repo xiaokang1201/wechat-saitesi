@@ -2,7 +2,7 @@
 import useThrottle from "../../../hook/use-throttle"
 
 interface data {
-  list: {}[],
+  list: [],
   dateList: string[] | [],
   timeList: string[],
   timeList1: string[],
@@ -36,7 +36,7 @@ Page({
    */
   data: {
     code_ids: '',//条码id集合   
-    list: [{}, {}],//列表
+    list: [],//列表
     dateList: [],//当前时间往后10天日期
     timeList: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00'],
     timeList1: ['09:00', '11:00', '13:00', '15:00', '17:00', '19:00'],
@@ -148,13 +148,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad({ code_ids }: Body<string>) {
+  onLoad({ code_ids, goods }: Body<string>) {
     this.getTime()
     this.getDate()
-    const pages = getCurrentPages()
-    const prevpage = pages[pages.length - 2]; //上一个页面对象
+    // const pages = getCurrentPages()
+    // const prevpage = pages[pages.length - 2]; //上一个页面对象
     this.setData({
-      list: prevpage.checkList()
+      list: JSON.parse(goods)
     })
     const { real_name, phone, province, city, district, detail, id } = JSON.parse(this.data.$state.userInfo.default_address_id)
     const addressInfo = this.data.$state.addressInfo || {}

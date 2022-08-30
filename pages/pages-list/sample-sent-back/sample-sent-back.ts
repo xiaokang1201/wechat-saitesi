@@ -56,7 +56,7 @@ Page({
   submit() {
     if(this.data.checkNum === 0) return getApp().tool.alert('请勾选订单')
     const code_ids = this.checkList().map(item => item.code_id).join(',')
-    getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_ids}`)
+    getApp().tool.jump_nav(`/pages/pages-list/sample-sent-back-order/sample-sent-back-order?code_ids=${code_ids}&goods=${JSON.stringify(this.checkList())}`)
   },
 
   // 点击全选

@@ -35,7 +35,7 @@
         <view class="store-name ell2">{{item.store_name}}</view>
         <block wx:if="{{item.stock > 0}}">
           <view class="stock flex-ali-cen">
-            <view style="width: {{(item.stock)/item.stock*100}}%;"></view>
+            <view style="width: {{item.stock/item.vip_stock*100}}%;"></view>
             <text>剩余{{item.stock}}件</text>
           </view>
           <view class="sales">已抢{{item.sales}}件</view>
