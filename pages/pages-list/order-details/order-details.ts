@@ -162,7 +162,8 @@ Page({
     return new Promise((resole, reject) => {
       getApp().api.confirmOrder({ 
         cart_id: this.data.cartId,
-        is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0
+        is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0,
+        vid: this.data.$state?.vipDetail.id || ''
       })
       .then(({ data }: { data: ConfirmOrder }) => {
         data.priceGroup.pay_price = Number(data.priceGroup.pay_price).toFixed(2)
@@ -178,7 +179,8 @@ Page({
   apiConfirmOrders(isApiOrderComputed = true) {
     getApp().api.confirmOrders({ 
       cart_id: this.data.cartId, 
-      is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0
+      is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0,
+      vid: this.data.$state?.vipDetail.id || ''
     }).then(({ data }: { data: ConfirmOrder }) => {
       data.priceGroup.pay_price = Number(data.priceGroup.pay_price).toFixed(2)
       getApp().store.setState({ addressInfo: data.addressInfo })

@@ -191,6 +191,7 @@ Page({
     return new Promise((resove) => {
       getApp().api.addCart({
         is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0,
+        vid: this.data.$state?.vipDetail.id || '',
         goods_id: this.data.goodsId, 
         new: _new, 
         cart_num: buyNumber,
