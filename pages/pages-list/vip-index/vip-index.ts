@@ -43,6 +43,7 @@ Page({
 
   // 进入购物车
   goCart() {
+    // getApp().tool.jump_nav('/pages/pages-list/vip-cart/vip-cart')
     getApp().tool.jump_nav('/pages/cart/cart')
   },
 

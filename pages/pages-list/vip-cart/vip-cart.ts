@@ -1,8 +1,8 @@
 // pages/cart/cart.ts
 const { tool, api } = getApp()
 
-import loadMoreType from "../../hook/use-load-more"
-import useThrottle from "../../hook/use-throttle"
+import loadMoreType from "../../../hook/use-load-more"
+import useThrottle from "../../../hook/use-throttle"
 
 interface data extends $State {
   cartList: CartList[] | [],

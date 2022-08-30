@@ -1,0 +1,78 @@
+<!--pages/cart/cart.wxml-->
+<view class="cart">
+  <block>
+    <!-- 购物车主体内容 -->
+    <view class="cart-bd">
+      <!-- 数量 管理 -->
+      <view class="flex-ali-bet number-management">
+        <text>数量({{cartList.length}})</text>
+        <text bindtap="managementClick">{{isDelete ? '完成' : '管理'}}</text>
+      </view>
+      <!-- 列表 -->
+      <scroll-view class="scroll-view" scroll-y>
+        <view class="list" wx:for="{{cartList}}" wx:key="id">
+          <view class="item flex-ali">
+            <swipe-action isTouchMove="{{item.isTouchMove}}">
+              <view class="content flex-ali" slot="content">
+                <!-- 勾选 -->
+                <view class="check flex-ali" catchtap="cartItemClick" data-index="{{index}}">
+                  <image src="{{$state.ASSETSURL}}cart/{{item.check ? 1 : 0}}.png"></image>
+                </view>
+                <!-- 商品信息 -->
+                <view  class="goods-info flex">
+                  <view class="goods-img">
+                    <view class="type{{item.type}} flex-ali-cen">{{item.type === 1 ? '自采' : '预约'}}</view>
+                    <image class="poa" mode="aspectFill" src="{{$state.ASSETSURL}}cart/3.png"></image>
+                  </view>
+                  <view>
+                    <view class="goods-name ell1">{{item.goods_name}}</view>
+                    <view class="goods-tag flex-wra">
+                      <view wx:for="{{item.sukList}}" wx:for-item="suk" wx:key="index">{{suk}}</view>
+                    </view>
+                    <view class="flex-ali-bet">
+                      <view class="flex-ali money">
+                        <text>￥</text>
+                        <text>{{item.price}}</text>
+                      </view>
+                      <number-add-reduce 
+                        bindnumberChange="cartGoodsNumberChange"
+                        data-cart_id="{{item.id}}" 
+                        data-index="{{index}}"
+                        value="{{item.cart_num}}" >
+                      </number-add-reduce>
+                    </view>
+                  </view>
+                </view>
+              </view>
+              <!-- 删除 -->
+              <view class="operation flex-ali-cen" slot="operation">
+                <image data-index="{{index}}" catchtap="deleteCartClick"src="{{$state.ASSETSURL}}cart/2.png"></image>
+              </view>
+            </swipe-action>
+          </view>
+        </view>
+        <load-more loadMoreType="{{loadMoreType}}"></load-more>
+      </scroll-view>
+    </view>
+    <!-- 底部操作条 金额显示 结算/删除 -->
+    <view class="fixed-operation flex-ali-bet {{$state.vipDetail.id ? 'cur' : ''}}"  hidden="{{cartList.length===0}}">
+      <view class="select-all flex-ali" bindtap="setCheckAll">
+        <image src="{{$state.ASSETSURL}}cart/{{checkNumber === cartList.length ? 1 : 0}}.png"></image>
+        <text>全选</text>
+      </view>
+      <view class="total-settlement-delete flex-ali">
+        <view class="total" wx:if="{{!isDelete}}">
+          <text>总计:</text>
+          <text>￥</text>
+          <text>{{totalAmount}}</text>
+        </view>
+        <view 
+          class="settlement-delete flex-ali-cen" 
+          bindtap="{{isDelete ? 'batchDeleteCartClick' : 'buyNow'}}">
+          {{isDelete ? '删除' : '结算'}}({{checkNumber}})
+        </view>
+      </view>
+    </view>
+  </block>
+  <custom-tab-bar wx:if="{{!$state.vipDetail.id}}" pagePath="pages/cart/cart"></custom-tab-bar>
+</view>

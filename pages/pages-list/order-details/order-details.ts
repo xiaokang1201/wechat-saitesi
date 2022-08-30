@@ -117,6 +117,8 @@ Page({
       mark,
       user_coupon_id: id || '',
       shipping_mobile: shippingMobile,
+      is_vip: !!this.data.$state?.vipDetail.id ? 1 : 0,
+      vid: this.data.$state?.vipDetail.id || ''
     }).then(({ data: { js_config } }: { data: { js_config: JsConfig } }) => {
       this.wxRequestPayment(js_config)
     })
