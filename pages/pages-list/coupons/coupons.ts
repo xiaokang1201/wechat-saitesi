@@ -18,6 +18,13 @@ Page({
     typeIndex: 0,//类型列表索引
   } as data,
 
+  // 点击领取
+  btnClick({ detail: { status } }: { detail: { status: number } }) {
+    if(status === 0) {
+      getApp().tool.jump_swi('/pages/mall/mall') 
+    }
+  },
+
   // 点击类型项
   typeItemClick({ detail }: { detail: number }) {
     if(this.data.typeIndex === detail) return

@@ -6,6 +6,6 @@
     bindtypeItemClick="typeItemClick">
   </type-list>
   <scroll-view scroll-y class="scroll-view1">
-    <coupon-list list="{{list}}" type="{{1}}" loadMoreType="{{loadMoreType}}"> </coupon-list>
+    <coupon-list bindbtnClick="btnClick" list="{{list}}" type="{{1}}" loadMoreType="{{loadMoreType}}"> </coupon-list>
   </scroll-view>
 </view>

@@ -8,7 +8,7 @@
         <text>{{item.coupon_price}}</text>
       </view>
       <view>
-        <view class="title ell1">{{item.title}}</view>
+        <view class="title ell1">{{item.title || item.coupon_title}}</view>
         <view class="instructions">满{{item.use_min_price}}元可用</view>
       </view>
       <view class="button button{{item.type}}" bindtap="btnClick" data-item="{{item}}">
