@@ -73,6 +73,7 @@
           bindinput="inputChange" 
           value="{{age}}"
           data-input="age" 
+          disabled
         />
       </view>
       <picker range="{{certificate}}" header-text="选择证件类型" bindchange="certificateChange">
@@ -91,7 +92,7 @@
         <text class="text_16">证件号码</text>
         <input 
           class="text_17 input"  
-          type="text" 
+          type="idcard" 
           placeholder="请输入"
           bindinput="inputChange" 
           value="{{cardNo}}"

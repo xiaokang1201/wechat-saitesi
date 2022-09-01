@@ -103,6 +103,8 @@ export default {
   //#region 商品
   // 适用人群
   personList: (data, url = 'person_list') => { return myRequest(data, url, 'get') },
+  // 推荐产品列表
+  recommendGoods: (data, url = 'recommend_goods') => { return myRequest(data, url, 'get') },
   // 热门商品列表
   hotGoods: (data, url = 'hot_goods') => { return myRequest(data, url, 'get') },
   // 商品分类

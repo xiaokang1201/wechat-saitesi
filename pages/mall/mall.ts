@@ -34,7 +34,7 @@ Page({
     /* 商品类型 */
     typeList: ['居家自采', '预约采样'],//列表
     typeIndex: 0,//索引
-    typeDrawer: false,//抽屉
+    typeDrawer: true,//抽屉
     /* 商品 */
     list: [],//列表
     page: 0,//页码
@@ -123,10 +123,18 @@ Page({
 
   //点击适用人群项
   personItemClick({ currentTarget: { dataset: { index } } }: Index) {
-    this.resetData()
     this.setData({ 
-      personIndex: index,
+      personIndex: this.data.personIndex === index ? -1 : index,
       personDrawer: false
+    })
+    this.data.page = 0
+    this.data.loadMoreType = 1
+    this.data.sortIndex = -1
+    this.data.list = []
+    this.setData({
+      loadMoreType: 1,
+      sortIndex: -1,
+      list: []
     })
     this.apiGoodsList()
   },

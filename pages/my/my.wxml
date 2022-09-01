@@ -7,7 +7,10 @@
       <view class="user-name-message">
         <view class="flex-ali-bet">
           <text class="user-name">{{$state.userInfo.nickname}}</text>
-          <image bindtap="editDataClick" class="edit-data" src="{{$state.ASSETSURL}}my/1.png"></image>
+          <view class="flex-ali">
+            <text>编辑资料</text>
+            <image bindtap="editDataClick" class="edit-data" src="{{$state.ASSETSURL}}my/1.png"></image>
+          </view>
         </view>
         <view class="message flex">
           <view 
@@ -77,6 +80,7 @@
           data-path="{{item.path}}" 
           wx:for="{{orderList}}" 
           wx:key="index">
+          <view wx:if="{{item.dot>0}}" class="msgs flex-ali-cen">{{item.dot > 99 ? 99 : item.dot}}</view>
           <image src="{{$state.ASSETSURL}}my/{{index+7}}.png"></image>
           <text>{{item.text}}</text>
         </view>

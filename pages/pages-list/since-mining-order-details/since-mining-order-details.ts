@@ -1,12 +1,14 @@
 // pages/pages-list/since-mining-order-details/since-mining-order-details.ts
 import useThrottle from "../../../hook/use-throttle"
 import wxOpenLocation from "../../../private/wx-open-location"
+import api from "../../../utils/api/api"
 interface data {
   orderSn: string,
   status: number,
   // statusList: { text: string }[],
   orderDetail: OrderDetail,
   logisticsInfo: [] | {}[],
+  recommendGoodsList: [] | {}[],
   show: boolean,
   $state: {
     userConfig: {
@@ -51,8 +53,15 @@ Page({
     status: 0,
     orderDetail: {},
     logisticsInfo: [],
+    recommendGoodsList: [],
     show: false
   } as data,
+  // 点击列表项
+  itemClick({ currentTarget: { dataset: { goods_id } } }: CurrentTarget<number>) {
+    getApp().tool.jump_nav(`/pages/pages-list/goods-details/goods-details?goods_id=${goods_id}`)
+    // this.triggerEvent('itemClick', id)
+  },
+
   //#region 预约订单
   // 跳转登记预约
   goBookingInspection({ currentTarget: { dataset: { code_id } } }: CurrentTarget<number>) {
@@ -203,6 +212,12 @@ Page({
     })
   },
 
+  // 推荐产品列表
+  apiRecommendGoods() {
+    api.recommendGoods().then(({ data }: Body<[]>) => {
+      this.setData({ recommendGoodsList: data })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -221,6 +236,7 @@ Page({
    */
   onShow() {
     this.apiOrderDetail()
+    this.apiRecommendGoods()
   },
 
   /**

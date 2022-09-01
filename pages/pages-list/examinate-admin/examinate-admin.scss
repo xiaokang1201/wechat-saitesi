@@ -114,3 +114,24 @@
     }
   }
 }
+.add-examinate {
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 180rpx;
+  padding-top: 20rpx;
+  view {
+    width: 684rpx;
+    margin: 0 auto;
+    height: 96rpx;
+    background: #0B357A;
+    border-radius: 4rpx;
+    font-family: 'Source Han Sans CN';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32rpx;
+    color: #FFFFFF;
+  }
+}

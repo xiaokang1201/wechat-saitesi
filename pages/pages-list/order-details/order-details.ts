@@ -1,4 +1,5 @@
 import useThrottle from "../../../hook/use-throttle"
+import apiUserDetail from "../../../private/api-user-detail"
 
 // pages/pages-list/order-details/order-details.ts
 const { api, tool, store } = getApp()
@@ -24,7 +25,10 @@ interface data {
     addressInfo: { id: number },
     vipDetail: {
       id?: number
-    }
+    },
+    userInfo: {
+      wx_openid: string | ''
+    }  
   },
   mark: string,
   shippingMobile: number | '',
@@ -139,9 +143,12 @@ Page({
       package: js_config.package,
       signType: js_config.signType,
       paySign: js_config.paySign,
-      success () { 
+      success () {
         const { type, shippingType } = _this.data
-        tool.jump_red(`${orderListPath}?index=${type === 1 ? (shippingType === 1 ? 4 : 2) : 5}`)
+        const url = `${orderListPath}?index=${type === 1 ? (shippingType === 1 ? 4 : 2) : 5}`
+        tool.jump_red(!!_this.data.$state.userInfo.wx_openid  
+          ? url 
+          : `/pages/pages-list/web-view/web-view?url=${url}`)
       },
       fail () { 
         tool.jump_red(`${orderListPath}?index=1`)
@@ -251,6 +258,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad({ type, cart_id, did }: Body<string>) {
+    apiUserDetail()
     console.log('type, cart_id, did', type, cart_id, did)
     this.data.type = Number(type)
     this.setData({ type: Number(type) })

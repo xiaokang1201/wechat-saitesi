@@ -21,11 +21,11 @@ Page({
     //   { text: '已完成', path: '/pages/pages-list/inspection-booking/inspection-booking?index=5' },
     // ],//预约列表
     orderList: [
-      { text: '待付款', path: '/pages/pages-list/since-mining-order/since-mining-order?index=1' },
-      { text: '待发货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=2' },
-      { text: '待收货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=3' },
-      { text: '自提', path: '/pages/pages-list/since-mining-order/since-mining-order?index=4' },
-      { text: '待评价', path: '/pages/pages-list/since-mining-order/since-mining-order?index=5' },
+      { text: '待付款', path: '/pages/pages-list/since-mining-order/since-mining-order?index=1', dot: 0 },
+      { text: '待发货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=2', dot: 0 },
+      { text: '待收货', path: '/pages/pages-list/since-mining-order/since-mining-order?index=3', dot: 0 },
+      { text: '自提', path: '/pages/pages-list/since-mining-order/since-mining-order?index=4', dot: 0 },
+      { text: '待评价', path: '/pages/pages-list/since-mining-order/since-mining-order?index=5', dot: 0 },
     ],//自采列表
     columnList: [
       { text: '消息中心', path: '/pages/pages-list/message-center/message-center' },
@@ -34,6 +34,7 @@ Page({
       { text: '设置', path: '/pages/pages-list/set-up/set-up'},
       { text: '客服聊天' },
     ],//竖列
+    $state: { userInfo: { red_dot_1: 0, red_dot_2: 0, red_dot_3: 0, red_dot_4: 0, red_dot_5: 0  } }
   },
   
   // 跳转页面
@@ -64,7 +65,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    apiUserDetail()
+    apiUserDetail().then(() => {
+      const { orderList, $state: { userInfo: { red_dot_1, red_dot_2, red_dot_3, red_dot_4, red_dot_5  } } } = this.data
+      orderList[0].dot = red_dot_1
+      orderList[1].dot = red_dot_2
+      orderList[2].dot = red_dot_3
+      orderList[3].dot = red_dot_4
+      orderList[4].dot = red_dot_5
+      this.setData({
+        orderList
+      })
+    })
   },
 
   /**

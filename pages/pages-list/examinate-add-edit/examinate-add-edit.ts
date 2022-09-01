@@ -47,8 +47,61 @@ Page({
 
   // 选择生日
   birthChange({ detail: { value } }: Detail<string>) {
-    this.setData({ birth: value })
+    this.setData({ 
+      birth: value,
+      age: this.jsGetAge(value)
+    })
   },
+  // 生日推算年龄
+  jsGetAge(strBirthday: string){         
+    var returnAge;  
+    var strBirthdayArr=strBirthday.split("-");  
+    var birthYear = Number(strBirthdayArr[0]);  
+    var birthMonth = Number(strBirthdayArr[1]);  
+    var birthDay = Number(strBirthdayArr[2]);  
+      
+    const d = new Date();  
+    var nowYear = d.getFullYear();  
+    var nowMonth = d.getMonth() + 1;  
+    var nowDay = d.getDate();  
+      
+    if(nowYear == birthYear){
+        returnAge = 0;//同年 则为0岁  
+    }  
+    else{  
+        var ageDiff = nowYear - birthYear ; //年之差  
+        if(ageDiff > 0){  
+            if(nowMonth == birthMonth) {  
+                var dayDiff = nowDay - birthDay;//日之差  
+                if(dayDiff < 0)  
+                {  
+                    returnAge = ageDiff - 1;  
+                }  
+                else  
+                {  
+                    returnAge = ageDiff ;  
+                }  
+            }  
+            else  
+            {  
+                var monthDiff = nowMonth - birthMonth;//月之差  
+                if(monthDiff < 0)  
+                {  
+                    returnAge = ageDiff - 1;  
+                }  
+                else  
+                {  
+                    returnAge = ageDiff ;  
+                }  
+            }  
+        }  
+        else  
+        {  
+            returnAge = -1;//返回-1 表示出生日期输入错误 晚于今天  
+        }  
+    }  
+    return `${returnAge}`;//返回周岁年龄  
+  }, 
 
   // 修改性别
   setGender({ currentTarget: { dataset: { gender } } }: CurrentTarget<number>){

@@ -36,6 +36,12 @@ Page({
     this.apiVipGoods()
   },
 
+  
+  //活动规则
+  goRichText() {
+    getApp().tool.jump_nav('/pages/pages-list/rich-text/rich-text?type=4')
+  },
+
   // 进入首页
   goHome() {
     getApp().tool.jump_swi('/pages/index/index')
@@ -43,8 +49,8 @@ Page({
 
   // 进入购物车
   goCart() {
-    // getApp().tool.jump_nav('/pages/pages-list/vip-cart/vip-cart')
-    getApp().tool.jump_nav('/pages/cart/cart')
+    getApp().tool.jump_nav('/pages/pages-list/vip-cart/vip-cart')
+    // getApp().tool.jump_nav('/pages/cart/cart')
   },
 
   // 初始化定时器

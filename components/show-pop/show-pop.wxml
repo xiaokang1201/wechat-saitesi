@@ -51,18 +51,19 @@
     <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>
   </view>
   <!-- 6 分享码 -->
-  <view class="pop share-code flex-col-ali" wx:if="{{type===6}}">
-    <view class="text1">填写申请原因</view>
-    <image class="code" src="{{$state.ASSETSURL}}component/show-pop/2.png"></image>
+  <view catchtap="empty" class="pop share-code flex-col-ali" wx:if="{{type===6}}">
+    <view class="text1">分享码</view>
+    <image class="code" src="{{qrcode}}"></image>
     <view class="btn1 flex-ali-cen">保存二维码</view>
     <view class="share flex-ali">
       <view class="flex-col-ali">
         <image src="{{$state.ASSETSURL}}component/show-pop/4.png"></image>
         <text>复制链接</text>
       </view>
-      <view class="flex-col-ali">
+      <view class="flex-col-ali share">
         <image src="{{$state.ASSETSURL}}component/show-pop/5.png"></image>
         <text>分享好友</text>
+        <button class="poa" open-type="share"></button>
       </view>
     </view>
     <image class="logo" src="{{$state.ASSETSURL}}component/show-pop/0.png"></image>

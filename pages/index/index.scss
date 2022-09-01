@@ -7,8 +7,10 @@
     height: 45.43rpx;
   }
   .search {
+    position: sticky;
     background: #ffffff;
     width: 100vw;
+    z-index: 9;
     image {
       width: 690rpx;
       margin: 10rpx 0 28rpx;
@@ -33,6 +35,19 @@
     width: 690rpx;
     height: 76rpx;
     margin: 40rpx 0;
+    background: #e7e8f2;
+    image {
+      width: 30rpx;
+      height: 30rpx;
+      margin: 0 12rpx 0 20rpx;
+    }
+    text {
+      font-family: 'Source Han Sans CN';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 22rpx;
+      color: #0B357A;
+    }
   }
   .tab {
     width: 690rpx;
@@ -55,7 +70,7 @@
     }
     .look-more {
       width: 149rpx;
-      height: 39rpx;
+      height: 43rpx;
     }
   }
 }

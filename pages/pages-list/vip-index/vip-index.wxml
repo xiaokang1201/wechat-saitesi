@@ -4,7 +4,7 @@
     <image class="logo" slot="backText" src="{{$state.ASSETSURL}}index/0.png"></image>
   </custom-nav-bar>
   <!-- 活动规则 -->
-  <image class="activity-rules" bindtap="goHome" src="{{$state.ASSETSURL}}vip-index/0.png"></image>
+  <image class="activity-rules" bindtap="goRichText" src="{{$state.ASSETSURL}}vip-index/0.png"></image>
   <!-- 购物车 -->
   <image class="cart" bindtap="goCart" src="{{$state.ASSETSURL}}vip-index/1.png"></image>
   <!-- 轮播图 -->
@@ -35,14 +35,14 @@
         <view class="store-name ell2">{{item.store_name}}</view>
         <block wx:if="{{item.stock > 0}}">
           <view class="stock flex-ali-cen">
-            <view style="width: {{item.stock/item.vip_stock*100}}%;"></view>
+            <view style="width:{{item.stock/item.vip_stock*100}}%;"></view>
             <text>剩余{{item.stock}}件</text>
           </view>
           <view class="sales">已抢{{item.sales}}件</view>
         </block>
         <view class="kong flex-ali-cen" wx:else></view>
         <view class="flex-ali-bet vip-price-box">
-          <view class="vip-price"><text>￥</text><text>{{item.vip_price}}</text><text>{{item.vip_price}}</text></view>
+          <view class="vip-price"><text>￥</text><text>{{item.price}}</text><text>{{item.ot_price}}</text></view>
           <view class="sold-out" wx:if="{{item.stock === 0}}">已售完</view>
         </view>
       </view>

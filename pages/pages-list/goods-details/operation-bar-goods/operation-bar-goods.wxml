@@ -8,7 +8,7 @@
         <view>客服</view>
         <button class="poa" open-type="contact"></button>
       </view>
-      <block wx:if="{{$state.vipDetail.id}}">
+      <block wx:if="{{!$state.vipDetail.id}}">
         <view class="flex-col-ali" bindtap="click" data-method_name="collection">
           <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/{{goodsInfo.is_collection ? 3 : 1 }}.png"></image>
           <view>收藏</view>
@@ -16,7 +16,7 @@
         <view class="flex-col-ali" bindtap="click" data-method_name="share">
           <image src="{{$state.ASSETSURL}}goods-details/operation-bar-goods/2.png"></image>
           <view>分享</view>
-          <button class="poa" open-type="share"></button>
+          <!-- <button class="poa" open-type="share"></button> -->
         </view>
       </block>
     </view>

@@ -399,6 +399,13 @@
           "query": "order_sn=STS166148050300777753",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/web-view/web-view",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

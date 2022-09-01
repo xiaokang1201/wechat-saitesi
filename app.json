@@ -43,6 +43,8 @@
     "pages/pages-list/vip-index/vip-index",
     "pages/pages-list/choose-goods/choose-goods",
     "pages/pages-list/apply-note/apply-note",
+    "pages/pages-list/vip-cart/vip-cart",
+    "pages/pages-list/web-view/web-view",
     "pages/pages-list/test/test"
   ],
   "window": {

@@ -81,6 +81,8 @@
         data-code_id="{{item.code_id}}"
         data-product_name="{{item.product_name}}"
         data-url="{{item.report_url}}"
+        data-goods_id="{{item.goods_id}}"
+        binditemClick="itemClick"
         bindapplyAfterSalesClick="applyAfterSalesItemClick"
         bindscanBindClick="scanBindClick"
         bindgoBookingInspection="goBookingInspection"
@@ -260,6 +262,12 @@
       </view>
     </view>
   </view>
+  <view class="recommend-goods flex-ali-cen">
+    <view></view>
+    <view>商品推荐</view>
+    <view></view>
+  </view>
+  <goods-list list="{{recommendGoodsList}}"></goods-list>
 </view>
 
 

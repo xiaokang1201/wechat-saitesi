@@ -21,8 +21,11 @@
     background-color: #ffffff;
     .group_8 {
       padding: 41rpx 15.5rpx 32rpx 30rpx;
+      position: relative;
       .text_9 {
-        margin-top: 3.5rpx;
+        position: absolute;
+        top: 50rpx;
+        right: 30rpx;
         color: #9d9d9d;
         font-size: 22rpx;
         font-family: Source Han Sans CN;

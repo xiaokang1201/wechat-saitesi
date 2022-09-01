@@ -87,12 +87,42 @@ Page({
       })
     })
   },
+  // 获取胶囊信息
+  getSystemInfo() {
+    wx.getSystemInfo({
+      success: e => {
+        this.setData({
+          statusBar: e.statusBarHeight
+        })
+        let capsule = wx.getMenuButtonBoundingClientRect();
+        if (capsule) {
+          this.setData({
+            custom: capsule,
+            customBar: capsule.bottom + capsule.top - e.statusBarHeight
+          })
+        } else {
+          this.setData({
+            customBar: e.statusBarHeight + 50,
+          })
+        }
+      }
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad({ goods_id, did }) {
+  async onLoad({ goods_id, did, scene }) {
+    // goods_${goods_id}_${did}
     console.log('进入首页携带参数 goods_id, did', goods_id, did)
+
+    if(!!scene) {
+      const sceneArr = scene.split('_')
+      if(sceneArr[0] === 'goods') {
+        goods_id = sceneArr[1]
+        did = sceneArr[2]
+      }
+    }
     // 获取用户详情
     getApp().tool.loading()
     await apiUserDetail()
@@ -101,6 +131,7 @@ Page({
     this.apiGetBanner()
     this.apiHotGoods()
     this.apiNoticeHot()
+    this.getSystemInfo()
     getApp().tool.loading_h()
     // 商品详情分享链接进入
     if(goods_id !== undefined) {

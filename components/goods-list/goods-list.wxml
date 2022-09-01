@@ -4,7 +4,7 @@
     <image class="goods-tag" src="{{$state.ASSETSURL}}component/goods-list/{{item.type}}.png"></image>
     <image class="goods-img" mode="aspectFill" src="{{item.image}}"></image>
     <view class="goods-info">
-      <view class="ell2 title">{{item.store_name}}</view>
+      <view class="ell title">{{item.store_name}}</view>
       <view class="flex">
         <view>￥</view>
         <view>{{item.price}}</view>

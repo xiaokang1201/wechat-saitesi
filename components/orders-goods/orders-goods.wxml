@@ -1,5 +1,5 @@
 <!--components/orders-goods/orders-goods.wxml-->
-<view class="orders-goods orders-goods{{type}}">
+<view class="orders-goods orders-goods{{type}}" bindtap="click" data-methods="itemClick">
   <!-- <view class="refund-goods" wx:if="{{type === 1}}">退款商品</view> -->
   <view class="number number{{type}}" wx:if="{{object.cart_num&&type!==3}}">x{{object.cart_num}}</view>
   <view class="flex-ali-bet code-status" wx:if="{{type === 3&&object.status>=0&&orderDetail.status>3}}">

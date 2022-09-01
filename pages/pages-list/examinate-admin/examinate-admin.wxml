@@ -28,3 +28,8 @@
     </view>
     <load-more loadMoreType="{{loadMoreType}}"></load-more>
   </view>
+
+  <!-- 添加受检人 -->
+  <view class="add-examinate">
+    <view class="flex-ali-cen" bindtap="addClick">添加受检人</view>
+  </view>

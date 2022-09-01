@@ -71,7 +71,18 @@ Page({
     productValue: [],//规格组
     coupons: 0,//优惠券数量
     buyNumber: 1,//购买数量
+    shareShow: false,//分享弹框
   } as data,
+
+  // 点击分享
+  share() {
+    this.setData({ shareShow: true })
+  },
+
+  // 点击遮罩层关闭分享弹框
+  clickoverlay() {
+    this.setData({ shareShow: false })
+  },
 
   // 查看更多评论
   viewMoreClick() {

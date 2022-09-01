@@ -8,7 +8,7 @@
       </swiper-item>
     </swiper>
     <view class="swiper-pagination-page">
-      <view class="page-number">{{swiperIndex+1}}/{{goodsInfo.slider_images.length}}</view>
+      <view class="page-number">{{currentIndex+1}}/{{goodsInfo.slider_images.length}}</view>
     </view>
   </view>
   <!-- 商品价格、类型、名称 -->
@@ -59,7 +59,7 @@
     <!-- 精选评论、查看更多 -->
     <view class="comment-head flex-ali-bet">
       <view>
-        <text>精选评论</text>
+        <text>评论</text>
         <text>({{goodsInfo.all_comments}})</text>
       </view>
       <view class="flex-ali" bindtap="viewMoreClick">
@@ -80,10 +80,14 @@
     bindcollection="collectionClick"
     bindaddCart="addCartClick"
     bindbuyNow="buyNowClick"
+    bindshare="share"
     goodsInfo="{{goodsInfo}}">
   </operation-bar-goods>
 </view>
 
+<show-pop qrcode="{{goodsInfo.qrcode}}" bindclickoverlay="clickoverlay" type="6" show="{{shareShow}}" zIndex="1000">
+  
+</show-pop>
 
 <show-pop show="{{show}}" position="bottom" zIndex="1000">
   <view class="specifications-pop">

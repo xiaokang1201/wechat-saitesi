@@ -3,6 +3,7 @@
   "usingComponents": {
     "orders-goods": "/components/orders-goods/orders-goods",
     "show-pop": "/components/show-pop/show-pop",
+    "goods-list": "/components/goods-list/goods-list",
     "navigation": "/components/navigation/navigation"
   }
 }

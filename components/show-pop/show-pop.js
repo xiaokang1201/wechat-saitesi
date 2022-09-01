@@ -1,6 +1,9 @@
 // components/show-pop/show-pop.js
 import wxOpenLocation from "../../private/wx-open-location"
 Component({
+  options: {
+    styleIsolation: "apply-shared"
+  },
   /**
    * 组件的属性列表
    */
@@ -48,7 +51,8 @@ Component({
     zIndex: {
       type: Number,
       value: 100
-    }
+    },
+    qrcode: String
   },
   /**
    * 组件的初始数据

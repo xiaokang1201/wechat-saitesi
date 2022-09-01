@@ -1,29 +1,26 @@
-// pages/pages-list/set-up/set-up.ts
+// pages/pages-list/web-view/web-view.ts
+interface data extends $State {
+  uid: undefined | number
+}
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      { text: '地址管理', path: '/pages/pages-list/address-harvest/address-list/address-list' },
-      { text: '受检人信息管理', path: '/pages/pages-list/examinate-admin/examinate-admin' },
-      { text: '意见反馈', },
-      { text: '关于我们', path: '/pages/pages-list/rich-text/rich-text?type=2' },
-      { text: '使用帮助', path: '/pages/pages-list/rich-text/rich-text?type=3' },
-    ]
-  },  
-
-  // 跳转页面
-  jumpNav({ currentTarget: { dataset: { path } } }: CurrentTarget<string>) {
-    getApp().tool.jump_nav(path)
-  },
+    uid: undefined,
+  } as data,
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad({ url }) {
+    this.setData({
+      uid: this.data.$state?.userInfo.uid
+    })
+    setTimeout(() => {
+      getApp().tool.jump_red(url)
+    }, 5000);
   },
 
   /**

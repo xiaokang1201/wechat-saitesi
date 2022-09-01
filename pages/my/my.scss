@@ -25,6 +25,19 @@
       width: 510rpx;
       >.flex-ali-bet {
         margin-bottom: 18rpx;
+        >.flex-ali {
+          image {
+            width: 29rpx;
+            height: 29rpx;
+          }
+          text {
+            font-family: 'Source Han Sans CN';
+            font-style: normal;
+            font-weight: 350;
+            font-size: 24rpx;
+            color: #9D9D9D;
+          }
+        }
       }
     }
     .message {
@@ -88,6 +101,23 @@
 
         .item {
           width: 90rpx;
+          position: relative;
+          .msgs {
+            position: absolute;
+            right: 0rpx;
+            top: 0rpx;
+            min-width: 30rpx;
+            min-height: 30rpx;
+            background: #E43B3B;
+            padding: 5rpx;
+            border-radius: 50%;
+            color: #fff;
+            font-family: 'Source Han Sans CN';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20rpx;
+            color: #FFFFFF;
+          }
           &:not(:last-of-type) {
             margin-right: 45rpx;
           }

@@ -11,7 +11,12 @@ Page({
     loadMoreType: 1,
     index: 0,//编辑索引
   },
-  
+
+  // 点击添加
+  addClick() {
+    getApp().tool.jump_nav(`/pages/pages-list/examinate-add-edit/examinate-add-edit?type=1`)
+  },
+
   // 点击编辑
   editClick({ currentTarget: { dataset: { index } } }: Index) {
     this.data.index = index

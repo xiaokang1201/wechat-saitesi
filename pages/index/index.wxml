@@ -4,7 +4,7 @@
     <image class="logo" slot="backText" src="{{$state.ASSETSURL}}index/0.png"></image>
   </custom-nav-bar>
   <!-- 搜索 -->
-  <view bindtap="searchClick" class="search flex-cen">
+  <view style="top:{{customBar}}px" bindtap="searchClick" class="search flex-cen">
     <image src="{{$state.ASSETSURL}}index/1.png"></image>
   </view>
   <!-- 轮播图 -->
@@ -27,8 +27,9 @@
     <view bindtap="homePickProductsClick"></view>
   </view>
   <!-- 提醒 -->
-  <view class="remind">
-    <image class="poa" src="{{$state.ASSETSURL}}index/5.png"></image>
+  <view class="remind flex-ali">
+    <image src="{{$state.ASSETSURL}}index/5.png"></image>
+    <text>{{$state.userConfig.notice_msg || ''}}</text>
   </view>
   <!-- 选项卡 -->
   <view class="tab flex-ali-bet">

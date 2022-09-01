@@ -2,6 +2,7 @@
 import useLoadMore from "../../../hook/use-load-more"
 import useLoadMoreJudge from "../../../hook/use-load-more-judge"
 import useThrottle from "../../../hook/use-throttle"
+import apiUserDetail from "../../../private/api-user-detail"
 interface data extends List, $State {
   typeIndex: number, 
   statusList: number[] | string[], 
@@ -35,7 +36,16 @@ Page({
       order_id: '',
       delivery_id: ''
     },//单个订单详情
+    publicNoShow: false//公众号弹框
   } as data,
+  // 点击遮罩层关闭弹框
+  clickoverlay() {
+    this.setData({ publicNoShow: false })
+  },
+  // 空函数
+  empty() {
+    return
+  },
 
   // 查看物流
   lookLogistics: useThrottle(function (this: any, { currentTarget: { dataset: { item } } }: CurrentTarget<{}>) {
@@ -203,6 +213,15 @@ Page({
     const typeIndex = Number(index) || 0
     this.data.typeIndex = typeIndex
     this.setData({ typeIndex })
+    apiUserDetail().then(() => {
+      const pages = getCurrentPages()
+      const prvepage = pages[pages.length - 2];
+      if((prvepage.is === 'pages/pages-list/web-view/web-view' 
+        || prvepage.is === 'pages/pages-list/goods-details/goods-details') 
+        && this.data.$state.userInfo.subscribe === 0) {
+        this.setData({ publicNoShow: true })
+      }
+    })
   },
 
   /**

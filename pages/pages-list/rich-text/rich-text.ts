@@ -5,6 +5,9 @@ interface data {
       rules: string,
       about: string,
       help: string
+    },
+    vipDetail: {
+      rule: string
     }
   },
   nodes: string
@@ -34,6 +37,10 @@ Page({
       case '3':
         getApp().tool.setTitle('使用帮助')
         this.setData({ nodes: this.data.$state.userConfig.help })
+        break;
+      case '4':
+        getApp().tool.setTitle('活动规则')
+        this.setData({ nodes: this.data.$state.vipDetail.rule })
         break;
     }
   },
