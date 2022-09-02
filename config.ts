@@ -12,7 +12,7 @@ export default {
   APPLYUPDATE: true,
   //默认配置全局分享
   SHAREINFO: {
-    title: "松下答题游戏",
+    title: "赛特斯",
     path: "pages/index/index",
     imageUrl: `${ASSETSURL}share.jpg`
   }

@@ -3,6 +3,7 @@ import useLoadMore from "../../../hook/use-load-more"
 import useLoadMoreJudge from "../../../hook/use-load-more-judge"
 import useThrottle from "../../../hook/use-throttle"
 import apiUserDetail from "../../../private/api-user-detail"
+import apiGetConfig from "../../../private/api-get-config"
 interface data extends List, $State {
   typeIndex: number, 
   statusList: number[] | string[], 
@@ -213,6 +214,7 @@ Page({
     const typeIndex = Number(index) || 0
     this.data.typeIndex = typeIndex
     this.setData({ typeIndex })
+    apiGetConfig()
     apiUserDetail().then(() => {
       const pages = getCurrentPages()
       const prvepage = pages[pages.length - 2];

@@ -20,7 +20,7 @@ interface data extends $State {
 }
 interface GoodsInfo {
   description: string,
-  comments: string,
+  comments: {}[],
   type: number,
   is_collection: boolean,
   store_name: string,
@@ -226,7 +226,6 @@ Page({
     .then(({ data: { goods_info, productAttr, productValue, coupons } }: goodsDetail) => {
       getApp().tool.loading_h()
       goods_info.description = goods_info.description.replace(/<img/g, '<img style="width:100%;height:auto;"')
-      goods_info.comments = JSON.parse(goods_info.comments)
       productAttr.forEach(item => {
         item.attr_value.forEach((attrValueItem, index) => {
           if(index === 0) attrValueItem.check = true

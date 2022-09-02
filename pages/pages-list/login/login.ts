@@ -25,9 +25,11 @@ Page({
   },
   // 登录
   apiVipLogin: useThrottle(function (this: any) {
-    const { account, code } = this.data
+    getApp().tool.loading()
+    const { account, code, $state: { vipId } } = this.data
     type vipLogin = { code: number, data: { vip_token: string } }
-    getApp().api.vipLogin({ account, code }).then(({ code, data: { vip_token } }: vipLogin) => {
+    getApp().api.vipLogin({ account, code, vid: vipId }).then(({ code, data: { vip_token } }: vipLogin) => {
+      getApp().tool.loading_h()
       console.log('code', code)
       if(code === 1) {
         getApp().store.setState({ vipToken: vip_token })

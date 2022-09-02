@@ -16,7 +16,7 @@
           <image
             src="{{$state.ASSETSURL}}since-mining-order-details/1.png"
             class="image_6"
-            wx:if="{{orderDetail.status === 5}}"
+            wx:if="{{orderDetail.status === 3}}"
           />
           <image
             src="{{$state.ASSETSURL}}since-mining-order-details/5.png"

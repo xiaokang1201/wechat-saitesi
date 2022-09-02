@@ -406,6 +406,13 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/pages-list/vip-cart/vip-cart",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

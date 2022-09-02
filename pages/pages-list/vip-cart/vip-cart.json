@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "custom-tab-bar": "/components/custom-nav-bar/custom-nav-bar",
+    "swipe-action": "/components/swipe-action/swipe-action",
+    "number-add-reduce": "/components/number-add-reduce/number-add-reduce",
+    "load-more": "/components/load-more/load-more"
+  }
 }
