@@ -69,16 +69,17 @@ Page({
   }),
   // 订单商品评价
   apiOrderComment() {
-    const { cartInfo: { unique }, comment, picList, star, isAnonymous } = this.data
-    return api.orderComment({ unique, comment, pics: picList.join(','), star, is_anonymous: isAnonymous })
+    const { cartInfo: { unique }, comment, picList, star, isAnonymous, orderSn } = this.data
+    return api.orderComment({ unique, comment, pics: picList.join(','), star, is_anonymous: isAnonymous, order_sn: orderSn })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad({ cartInfo }: Body<string>) {
+  onLoad({ cartInfo, orderSn }: Body<string>) {
     // 上传接口走微信API需要 登录刷新token防止token失效
     login()
+    this.data.orderSn = orderSn
     this.setData({ cartInfo: JSON.parse(cartInfo) })
   },
 

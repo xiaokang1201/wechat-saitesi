@@ -27,10 +27,14 @@ Page({
     show: false,//物流弹框显示隐藏
     logisticsInfo: [],
     checkNum: 0,//勾选数量
+    kuaidinum: '',//订单编号
   } as data,
 
   // 查看物流
   lookLogistics: useThrottle(function (this: any, { currentTarget: { dataset: { kuaidinum } } }: CurrentTarget<string>) {
+    this.setData({
+      kuaidinum
+    })
     this.getExpressInfo(kuaidinum)
   }),
 

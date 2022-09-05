@@ -154,7 +154,7 @@ Page({
     // const pages = getCurrentPages()
     // const prevpage = pages[pages.length - 2]; //上一个页面对象
     this.setData({
-      list: JSON.parse(goods)
+      list: goods ? JSON.parse(goods) : []
     })
     const { real_name, phone, province, city, district, detail, id } = JSON.parse(this.data.$state.userInfo.default_address_id)
     const addressInfo = this.data.$state.addressInfo || {}

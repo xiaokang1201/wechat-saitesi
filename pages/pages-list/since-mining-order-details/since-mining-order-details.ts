@@ -183,7 +183,7 @@ Page({
   // 点击去评论
   evaluationOrderClick({ currentTarget: { dataset: { index } } }: Index) {
     getApp().tool.jump_nav(`/pages/pages-list/evaluation/evaluation?cartInfo=${
-      JSON.stringify(this.data.orderDetail.code[index])}`)
+      JSON.stringify(this.data.orderDetail.code[index])}&orderSn=${this.data.orderSn}`)
   },
 
   // 拨打电话

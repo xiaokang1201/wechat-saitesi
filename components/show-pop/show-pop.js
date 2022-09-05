@@ -52,6 +52,7 @@ Component({
       type: Number,
       value: 100
     },
+    // 商品二维码
     qrcode: String
   },
   /**
@@ -80,10 +81,10 @@ Component({
       this.triggerEvent('event2')
     },
     // 点击下载图片事件
-    downloadImg() {
+    downloadImg(image) {
       wx.showLoading({ title: '加载中...' });
       wx.downloadFile({
-        url: this.data.$state.userConfig.custom_qrcode, //图片地址
+        url: image || this.data.$state.userConfig.custom_qrcode, //图片地址
         success(res) {
           wx.saveImageToPhotosAlbum({
             filePath: res.tempFilePath, //图片文件路径
@@ -130,6 +131,10 @@ Component({
           })
         }
       })
+    },
+    // 保存二维码
+    saveQrCode() {
+      this.downloadImg(this.data.qrcode)
     },
     // 点击遮罩层
     clickoverlay() {

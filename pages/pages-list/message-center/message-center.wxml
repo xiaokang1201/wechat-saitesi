@@ -2,8 +2,8 @@
 <view class="flex-col group_4">
   <text class="text_3">消息（{{list.length}}）</text>
   <view class="flex-col list">
-    <block wx:for-item="item" wx:for-index="i" wx:for="{{list}}">
-      <view class="justify-between group_8" wx:key="id">
+    <block wx:for-index="i" wx:for="{{list}}" wx:key="id">
+      <view class="justify-between group_8">
         <view class="flex-row">
           <image
             src="{{$state.ASSETSURL}}message-center/0.png"

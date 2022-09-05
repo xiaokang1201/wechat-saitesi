@@ -37,11 +37,17 @@
           <view 
             class="flex-ali-cen" 
             wx:if="{{object.status === 1}}"
-            bindtap="click"
+            catchtap="click"
             data-methods="sendBack">
             寄回
           </view>
-          <view class="flex-ali-cen" wx:if="{{object.status === 2}}">查看物流</view>
+          <view 
+            class="flex-ali-cen" 
+            wx:if="{{object.status === 2}}"
+            catchtap="click"
+            data-methods="lookLogistics">
+            查看物流
+          </view>
           <view 
             class="flex-ali-cen" 
             wx:if="{{object.status === 7}}"
@@ -53,7 +59,9 @@
             class="flex-ali-cen cur" 
             wx:if="{{object.status === 7}}"
             catchtap="click"
-            data-methods="evaluationOrderClick">待评价</view>
+            data-methods="evaluationOrderClick">
+            待评价
+          </view>
           <view 
             class="flex-ali-cen" 
             wx:if="{{object.status === 3}}"

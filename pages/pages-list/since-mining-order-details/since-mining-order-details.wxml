@@ -30,7 +30,7 @@
           />
           <view 
             class="view1 flex-cen-ali" 
-            bindtap="lookLogistics"
+            catchtap="lookLogistics"
             wx:if="{{orderDetail.status === 2}}">
             查看物流
           </view>
@@ -88,7 +88,8 @@
         bindgoBookingInspection="goBookingInspection"
         bindlookReportClick="lookReportClick"
         bindevaluationOrderClick="evaluationOrderClick"
-        bindsendBack="sendBack">
+        bindsendBack="sendBack"
+        bindlookLogistics="lookLogistics">
       </orders-goods>
       <view class="justify-between section_6" wx:if="{{orderDetail.shipping_type === 2}}">
         <text class="text_21">预留电话：</text>

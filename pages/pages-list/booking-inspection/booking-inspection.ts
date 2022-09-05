@@ -95,7 +95,7 @@ Page({
   // 获取当前时间
   setStartDate() {
     let dates = new Date()
-    dates.setTime(dates.getTime() + 24 * 60 * 60 * 1000); 
+    // dates.setTime(dates.getTime() + 24 * 60 * 60 * 1000); 
     let year = dates.getFullYear()//获取完整的年份(4位)
     let month = dates.getMonth() + 1//获取当前月份(0-11,0代表1月)
     let date = dates.getDate()//获取当前日(1-31)

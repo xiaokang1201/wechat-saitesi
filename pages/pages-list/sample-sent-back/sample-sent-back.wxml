@@ -39,7 +39,7 @@
       <view class="title">详情信息</view>
       <view class="content">
         <view class="flex-bet-ali courier">
-          <view class="courier-company">中通快递 564897748987945</view>
+          <view class="courier-company">顺丰快递 {{kuaidinum}}</view>
           <view class="flex copy-call">
             <view>复制</view>
             <view class="line"></view>

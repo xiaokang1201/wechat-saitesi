@@ -54,7 +54,7 @@
   <view catchtap="empty" class="pop share-code flex-col-ali" wx:if="{{type===6}}">
     <view class="text1">分享码</view>
     <image class="code" src="{{qrcode}}"></image>
-    <view class="btn1 flex-ali-cen">保存二维码</view>
+    <view class="btn1 flex-ali-cen" bindtap="saveQrCode">保存二维码</view>
     <view class="share flex-ali">
       <view class="flex-col-ali">
         <image src="{{$state.ASSETSURL}}component/show-pop/4.png"></image>
