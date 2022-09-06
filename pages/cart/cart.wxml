@@ -22,7 +22,7 @@
                 <view  class="goods-info flex">
                   <view class="goods-img">
                     <view class="type{{item.type}} flex-ali-cen">{{item.type === 1 ? '自采' : '预约'}}</view>
-                    <image class="poa" mode="aspectFill" src="{{$state.ASSETSURL}}cart/3.png"></image>
+                    <image class="poa" mode="aspectFill" src="{{item.productInfo.image}}"></image>
                   </view>
                   <view>
                     <view class="goods-name ell1">{{item.goods_name}}</view>
