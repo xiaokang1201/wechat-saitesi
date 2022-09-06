@@ -93,10 +93,28 @@ Page({
     })
   },
 
+  // 获取当前时间
+  setStartDate() {
+    let dates = new Date()
+    // dates.setTime(dates.getTime() + 24 * 60 * 60 * 1000); 
+    let year = dates.getFullYear()//获取完整的年份(4位)
+    let month = dates.getMonth() + 1//获取当前月份(0-11,0代表1月)
+    let date = dates.getDate()//获取当前日(1-31)
+    this.setData({
+      codeTime: `${year}-${this.lessThanZero(month)}-${this.lessThanZero(date)}`
+    })
+  },
+
+  // 小于10补0
+  lessThanZero(number: number) {
+    return number >= 10 ? number : (number > 0 ? '0'+number : '00') 
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad({ code_id, product_name, order_sn }: Body<string>) {
+    this.setStartDate()
     this.setData({ 
       code_id: Number(code_id) || 0,
       orderSn: order_sn || '',//订单编号

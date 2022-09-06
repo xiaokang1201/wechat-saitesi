@@ -111,6 +111,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad({ code }: Body<string>) {
+    console.log('code', code)
     this.data.code_ids = code
     apiGetConfig().then(({ end_time, start_time }: Body<string>) => {
       this.setData({ end_time, start_time })

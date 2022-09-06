@@ -15,7 +15,7 @@ interface data extends $State {
 }
 
 interface _list {
-  check: boolean, code: string, sukList: string[], product_attr_unique: string
+  check: boolean, code: string, sukList: string[], product_attr_unique: string, code_id: number
 }
 
 interface OrderDetail { 
@@ -77,7 +77,7 @@ Page({
   // 提交登记预约
   submit() {
     if(this.data.checkNum === 0) return getApp().tool.alert('请勾选订单')
-    const code = this.checkOrder().map(item => item.code).join(',')
+    const code = this.checkOrder().map(item => item.code_id).join(',')
     this.goBookingInspection(code)
   },
   
